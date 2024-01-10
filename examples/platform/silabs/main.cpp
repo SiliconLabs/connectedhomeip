@@ -24,10 +24,9 @@
 #include <DeviceInfoProviderImpl.h>
 #include <MatterConfig.h>
 #include <app/server/Server.h>
-#include <credentials/DeviceAttestationCredsProvider.h>
-#include <examples/platform/silabs/SilabsDeviceAttestationCreds.h>
 
 #include <platform/silabs/platformAbstraction/SilabsPlatform.h>
+#include <provision/ProvisionManager.h>
 
 #include "FreeRTOS.h"
 #include "FreeRTOSConfig.h"
@@ -58,9 +57,16 @@ int main(void)
 {
     GetPlatform().Init();
 
-    xTaskCreate(application_start, "main_task", MAIN_TASK_STACK_SIZE, NULL, MAIN_TASK_PRIORITY, &main_Task);
+    if(Provision::Manager::GetInstance().ProvisionRequired())
+    {
+        Provision::Manager::GetInstance().Start();
+    }
+    else
+    {
+        xTaskCreate(application_start, "main_task", MAIN_TASK_STACK_SIZE, NULL, MAIN_TASK_PRIORITY, &main_Task);
+        SILABS_LOG("Starting scheduler");
+    }
 
-    SILABS_LOG("Starting scheduler");
     GetPlatform().StartScheduler();
 
     // Should never get here.
@@ -79,7 +85,7 @@ void application_start(void * unused)
 
     chip::DeviceLayer::PlatformMgr().LockChipStack();
     // Initialize device attestation config
-    SetDeviceAttestationCredentialsProvider(Credentials::Silabs::GetSilabsDacProvider());
+    SetDeviceAttestationCredentialsProvider(&Provision::Manager::GetInstance().GetStorage());
     chip::DeviceLayer::PlatformMgr().UnlockChipStack();
 
     SILABS_LOG("Starting App Task");

@@ -57,10 +57,14 @@ using namespace ::chip::DeviceLayer;
 static chip::DeviceLayer::Internal::Efr32PsaOperationalKeystore gOperationalKeystore;
 #endif
 
-#include "SilabsDeviceDataProvider.h"
 #include "SilabsTestEventTriggerDelegate.h"
 #include <app/InteractionModelEngine.h>
 #include <app/TimerDelegates.h>
+#if PROVISION_CHANNEL_ENABLED
+#include <provision/ProvisionManager.h>
+#else
+#include <SilabsDeviceDataProvider.h> // nogncheck
+#endif
 
 #if CHIP_CONFIG_SYNCHRONOUS_REPORTS_ENABLED
 #include <app/reporting/SynchronizedReportSchedulerImpl.h>
@@ -185,8 +189,13 @@ CHIP_ERROR SilabsMatterConfig::InitMatter(const char * appName)
 
     ReturnErrorOnFailure(PlatformMgr().InitChipStack());
 
+#if PROVISION_CHANNEL_ENABLED
+    SetDeviceInstanceInfoProvider(&Silabs::Provision::Manager::GetInstance().GetStorage());
+    SetCommissionableDataProvider(&Silabs::Provision::Manager::GetInstance().GetStorage());
+#else
     SetDeviceInstanceInfoProvider(&Silabs::SilabsDeviceDataProvider::GetDeviceDataProvider());
     SetCommissionableDataProvider(&Silabs::SilabsDeviceDataProvider::GetDeviceDataProvider());
+#endif
 
     chip::DeviceLayer::ConnectivityMgr().SetBLEDeviceName(appName);
 
