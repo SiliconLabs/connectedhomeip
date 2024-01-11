@@ -38,8 +38,10 @@ Provision::Manager sProvisionManager(sProvisionStore, sProvisionChannel);
 
 void app_init(void)
 {
+#ifndef SIWX_917
     MSC_Init();
     psa_crypto_init();
+#endif
     sProvisionManager.Start();
 }
 

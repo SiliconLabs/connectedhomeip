@@ -14,6 +14,12 @@
 #include <nvm3_hal_flash.h>
 #include "silabs_creds.h"
 
+#ifdef SIWX_917
+#include "sl_si91x_common_flash_intf.h"
+extern uint8_t linker_nvm_end[];
+static uint8_t * _base_address = (uint8_t *) linker_nvm_end;
+#endif //SIWX_917
+
 using namespace chip::Credentials;
 using namespace chip::DeviceLayer::Internal;
 
@@ -42,7 +48,11 @@ extern "C" __WEAK void setNvm3End(uint32_t addr) {}
 
 CHIP_ERROR DefaultStorage::Initialize(uint32_t flash_addr, uint32_t flash_size)
 {
+#ifdef SIWX_917
+    uint32_t base_addr = (uint32_t)_base_address;
+#else
     uint32_t base_addr = flash_addr + flash_size - FLASH_PAGE_SIZE;
+#endif
     setNvm3End(base_addr);
     return SilabsConfig::WriteConfigValue(SilabsConfig::kConfigKey_Creds_Base_Addr, base_addr);
 }
@@ -457,7 +467,18 @@ CHIP_ERROR DefaultStorage::WriteFile(ConfigKey offset_key, ConfigKey size_key, u
     if(_cd_set && _pai_set && _dac_set)
     {
 #ifdef SIWX_917
-        return CHIP_ERROR_NOT_IMPLEMENTED;
+        // Erase page
+        rsi_flash_erase_sector((uint32_t *)base_addr);
+
+        constexpr size_t WRITE_SIZE = 1024;
+        uint32_t offset = 0;
+        while(offset < FLASH_PAGE_SIZE)
+        {
+            // Write to flash
+            if (!rsi_flash_write((uint32_t *)(base_addr+offset), &_credentials_page[offset], WRITE_SIZE)) {
+                offset += WRITE_SIZE;
+            }
+        }    
 #else
         // Erase page
         MSC_ErasePage((uint32_t *)base_addr);

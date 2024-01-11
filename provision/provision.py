@@ -1,4 +1,10 @@
 #! /usr/bin/python3
+import os
+import sys
+
+if "STUDIO_PYTHONPATH" in os.environ.keys():
+    [sys.path.append(aPath) for aPath in os.environ["STUDIO_PYTHONPATH"].split(os.pathsep)]
+
 from modules.arguments import *
 from modules.connection import *
 from modules.commander import *
@@ -11,42 +17,52 @@ import subprocess
 import base64
 import hashlib
 import struct
-import os
-import sys
+import shutil
 
+
+def toOsPath(path):
+    if path == "" or path == None:
+        return ""
+    return os.path.abspath(os.path.normpath(path))
+
+
+def copyFile(src, dest):
+    shutil.copy(src, dest)
 
 class Paths:
 
     kDefaultToolPath = '../out/tools/chip-cert'
 
     def __init__(self, info, args):
-        base = os.path.normpath(os.path.dirname(__file__))
-        self.root = base + '/..'
-        self.debug = self.root + '/out/debug'
-        self.temp = args.temp or (base + '/temp')
-        self.support = "{}/support".format(base)
-        self.out_default = "{}/paa_cert.pem".format(base)
-        self.att_certs = args.attest.paa_cert or "{}/certs.p12".format(self.temp)
-        self.paa_cert_pem = args.attest.paa_cert or "{}/paa_cert.pem".format(self.temp)
-        self.paa_cert_der = "{}/paa_cert.der".format(self.temp)
-        self.paa_key_pem = args.attest.paa_key or "{}/paa_key.pem".format(self.temp)
-        self.paa_key_der = "{}/paa_key.der".format(self.temp)
-        self.pai_cert_pem = "{}/pai_cert.pem".format(self.temp)
-        self.pai_cert_der = "{}/pai_cert.der".format(self.temp)
-        self.pai_key_pem = "{}/pai_key.pem".format(self.temp)
-        self.pai_key_der = "{}/pai_key.der".format(self.temp)
-        self.dac_cert_pem = "{}/dac_cert.pem".format(self.temp)
-        self.dac_cert_der = "{}/dac_cert.der".format(self.temp)
-        self.dac_key_pem = "{}/dac_key.pem".format(self.temp)
-        self.dac_key_der = "{}/dac_key.der".format(self.temp)
-        self.cert_tool = os.path.normpath(Paths.kDefaultToolPath)
-        self.config = "{}/config/latest.json".format(base)
-        self.cd = "{}/cd.der".format(self.temp)
-        self.csr_pem = self.temp + '/csr.pem'
-        self.gen_fw = "{}/images/{}.s37".format(base, info.image)
-        self.template = "{}/silabs_creds.tmpl".format(base)
-        self.header = "{}/silabs_creds.h".format(self.temp)
-        execute(["mkdir", "-p", self.temp ])
+        base = toOsPath(os.path.normpath(os.path.dirname(__file__)))
+        self.root = toOsPath(base + '/..')
+        self.debug = toOsPath(self.root + '/out/debug')
+        self.temp = toOsPath(args.temp or (base + '/temp'))
+        self.support = toOsPath("{}/support".format(base))
+        self.out_default = toOsPath("{}/paa_cert.pem".format(base))
+        self.att_certs = toOsPath(args.attest.paa_cert or "{}/certs.p12".format(self.temp))
+        self.paa_cert_pem = toOsPath(args.attest.paa_cert or "{}/paa_cert.pem".format(self.temp))
+        self.paa_cert_der = toOsPath("{}/paa_cert.der".format(self.temp))
+        self.paa_key_pem = toOsPath(args.attest.paa_key or "{}/paa_key.pem".format(self.temp))
+        self.paa_key_der = toOsPath("{}/paa_key.der".format(self.temp))
+        self.pai_cert_pem = toOsPath("{}/pai_cert.pem".format(self.temp))
+        self.pai_cert_der = toOsPath("{}/pai_cert.der".format(self.temp))
+        self.pai_key_pem = toOsPath("{}/pai_key.pem".format(self.temp))
+        self.pai_key_der = toOsPath("{}/pai_key.der".format(self.temp))
+        self.dac_cert_pem = toOsPath("{}/dac_cert.pem".format(self.temp))
+        self.dac_cert_der = toOsPath("{}/dac_cert.der".format(self.temp))
+        self.dac_key_pem = toOsPath("{}/dac_key.pem".format(self.temp))
+        self.dac_key_der = toOsPath("{}/dac_key.der".format(self.temp))
+        self.cert_tool = toOsPath(os.path.normpath(Paths.kDefaultToolPath))
+        self.config = toOsPath("{}/config/latest.json".format(base))
+        self.cd = toOsPath("{}/cd.der".format(self.temp))
+        self.csr_pem = toOsPath(self.temp + '/csr.pem')
+        self.gen_fw = toOsPath("{}/images/{}".format(base, info.image))
+        self.template = toOsPath("{}/silabs_creds.tmpl".format(base))
+        self.header = toOsPath("{}/silabs_creds.h".format(self.temp))
+        if not os.path.isdir(self.temp):
+            os.makedirs(self.temp)
+        # execute(["mkdir", "-p", self.temp ])
 
 
 def generateSPAKE2pVerifier(args, paths):
@@ -69,11 +85,12 @@ def generateSPAKE2pVerifier(args, paths):
 
 def collectCerts(args, paths):
     # CD
-    execute(['cp', args.attest.cd, paths.cd])
+    if args.attest.cd and os.path.exists(args.attest.cd) and (not os.path.exists(paths.cd) or not os.path.samefile(args.attest.cd, paths.cd)):
+        copyFile(args.attest.cd, paths.cd)
 
     # PKCS#12
     if args.attest.pkcs12 is not None:
-        execute(['cp', args.attest.pkcs12, paths.att_certs])
+        copyFile(args.attest.pkcs12, paths.att_certs)
 
         # Extract key from PKCS#12
         password_arg = "pass:{}".format(args.attest.key_pass)
@@ -156,9 +173,9 @@ def x509Copy(type, in_path, out_dir, out_name):
         return False
     (in_dir, in_base) = os.path.split(in_path)
     (in_root, in_ext) = os.path.splitext(in_base)
-    out_path = "{}/{}{}".format(out_dir, out_name, in_ext)
-    if (not os.path.exists(out_path)) or (not os.path.samefile(in_path, out_path)):
-        execute(['cp', in_path, out_path])
+    out_path = toOsPath("{}/{}{}".format(out_dir, out_name, in_ext))
+    if (not os.path.exists(out_path)) or (os.path.exists(in_path) and os.path.exists(out_path) and not os.path.samefile(in_path, out_path)):
+        copyFile(in_path, out_path)
     return x509Translate(type, out_path)
 
 
