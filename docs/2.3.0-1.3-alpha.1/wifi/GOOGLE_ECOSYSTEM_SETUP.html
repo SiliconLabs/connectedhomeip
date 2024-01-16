@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google Ecosystem Setup and Demo Execution &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Amazon Ecosystem Setup and Demo Execution" href="AMAZON_ECOSYSTEM_SETUP.html" />
+    <link rel="prev" title="Overview of Matter EcoSystem" href="ECOSYSTEM_SETUP.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3-alpha.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="DEMO_OVERVIEW.html">Wi-Fi Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SW_SETUP.html">Wi-Fi GitHub Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BUILD_PI_ENV.html">Build Chip Tool on Raspi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RUN_DEMO.html">Matter Demo on EFR32 NCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RUN_DEMO_SiWx917_SoC.html">Matter Demo on 917 SoC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JLINK_GUIDE_917.html">Matter 917 SoC JLink RTT Debugger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SiWx917_Enablement_For_Ozone.html">Enablement of Ozone for 917 SOC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_dic.html">Wi-Fi Direct Internet Connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html">Matter Intermittently Connected Devices over WiFi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html#power-measurement">Power Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_Sleepy_Device_Power_Measurement.html">Wi-Fi ICD Power Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MATTER_SHELL.html">Matter Shell Console</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../nav_5_wifi_ecosystem.html">Matter Ecosystem Development</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ECOSYSTEM_SETUP.html">Ecosystem Setup</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Google Ecosystem with Matter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AMAZON_ECOSYSTEM_SETUP.html">Amazon Ecosystem with Matter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="APPLE_ECOSYSTEM_SETUP.html">Apple Ecosystem with Matter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SAMSUNG_ECOSYSTEM_SETUP.html">Samsung Ecosystem with Matter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MULTICONTROLLER_ECOSYSTEM.html">Multi Controller Ecosystem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+          <li class="breadcrumb-item"><a href="../nav_5_wifi_ecosystem.html">Matter Ecosystem Development</a></li>
+      <li class="breadcrumb-item active"><strong>Google Ecosystem Setup and Demo Execution</strong></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/wifi/GOOGLE_ECOSYSTEM_SETUP.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="google-ecosystem-setup-and-demo-execution">
+<h1><strong>Google Ecosystem Setup and Demo Execution</strong><a class="headerlink" href="#google-ecosystem-setup-and-demo-execution" title="Link to this heading"></a></h1>
+<section id="hardware-requirements">
+<h2>Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Link to this heading"></a></h2>
+<p>Hardware Required for Google Nest Hub EcoSystem <a class="reference internal" href="ECOSYSTEM_SETUP.html#prerequisites"><span class="std std-ref">Refer Ecosystem overview Perquisites Section</span></a></p>
+</section>
+<section id="software-requirements">
+<h2>Software Requirements<a class="headerlink" href="#software-requirements" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Google Account</p></li>
+<li><p>Google Home App with Beta Version</p></li>
+</ul>
+</section>
+<section id="set-up-google-home-and-android-smartphone">
+<h2>Set Up Google Home and Android Smartphone<a class="headerlink" href="#set-up-google-home-and-android-smartphone" title="Link to this heading"></a></h2>
+<section id="google-matter-eap">
+<h3>Google Matter EAP:<a class="headerlink" href="#google-matter-eap" title="Link to this heading"></a></h3>
+<p>The Google Matter <strong>Early Access Program</strong> is a partnership between Google and silicon providers who support Matter development.
+This partnership allows for faster onboarding of new devices into Matter and Thread by lowering the bar for starting with development of a new Matter-based product.</p>
+<ul class="simple">
+<li><p>The Google Matter Early Access Program is run through the Google Developer Center. You can access the Google developer center here:
+<a class="reference external" href="https://developers.home.google.com/">https://developers.home.google.com/</a></p></li>
+<li><p>The Matter focused portion of the Google Developer Center is located here:
+<a class="reference external" href="https://developers.home.google.com/matter">https://developers.home.google.com/matter</a></p></li>
+<li><p>The Google Matter Early Access Program is located here:
+<a class="reference external" href="https://developers.home.google.com/matter/eap">https://developers.home.google.com/matter/eap</a></p></li>
+</ul>
+<p><strong>Note</strong>: Until the public preview, access to this page is reserved to those allowed in by the Google Partner engineering team.</p>
+</section>
+<section id="prerequisites-for-google-setup">
+<h3>Prerequisites for Google Setup<a class="headerlink" href="#prerequisites-for-google-setup" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>In order to run the Google Ecosystem demo you will need both Google and matter device . you will need Google Nest Hub 2nd Generation and
+an Android phone (at least a Pixel 5 is recommended) that can run at least Android 8 (8.1, API Level 27) or newer and has Bluetooth LE capability</p></li>
+</ul>
+</section>
+<section id="instructions-for-setting-up-eap">
+<h3>Instructions for Setting Up EAP:<a class="headerlink" href="#instructions-for-setting-up-eap" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Once you have access, you will need to set up the Nest Hub 2nd Gen and Android phone with the Google Home app using the same Google Account that is used to access the EAP website.</p></li>
+<li><p>If you have set up the Nest Hub 2nd Gen with the correct Google account, you will receive the OTA update to the Beta version within 24 hours.
+You can verify this by going to Device information &gt; Technical information &gt; Update Channel and the channel should read “matter-dev-current-beta-channel”.</p></li>
+</ul>
+</section>
+<section id="set-up-the-android-phone">
+<h3>Set Up the Android Phone<a class="headerlink" href="#set-up-the-android-phone" title="Link to this heading"></a></h3>
+<p>Follow these instructions to set up the Android phone with the necessary applications:</p>
+<ul class="simple">
+<li><p>Set up the Google Home app: <a class="reference external" href="https://developers.home.google.com/matter/eap/setup/home-app">https://developers.home.google.com/matter/eap/setup/home-app</a></p></li>
+<li><p>Set up Google Play Services :- <a class="reference external" href="https://developers.home.google.com/matter/eap/setup/play-services">https://developers.home.google.com/matter/eap/setup/play-services</a></p></li>
+</ul>
+</section>
+<section id="create-a-matter-integration-in-the-google-developer-console">
+<h3>Create a Matter integration in the Google Developer Console.<a class="headerlink" href="#create-a-matter-integration-in-the-google-developer-console" title="Link to this heading"></a></h3>
+<p>Follow these instructions to create a Matter integration in the Google Developer Console.
+<a class="reference external" href="http://developers.home.google.com/matter/eap/project/create">http://developers.home.google.com/matter/eap/project/create</a></p>
+<ul class="simple">
+<li><p>After completing these steps, you should be ready to build your Matter accessory</p></li>
+</ul>
+</section>
+</section>
+<section id="matter-integration-setup-in-the-developer-console">
+<h2>Matter Integration Setup in the Developer Console<a class="headerlink" href="#matter-integration-setup-in-the-developer-console" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Now that you have created a home in your android smartphone, add your Nest Hub to that home.</p></li>
+<li><p>After this, on a browser on your PC go to the following webpage to create a project:
+<a class="reference external" href="https://developers.home.google.com/matter">https://developers.home.google.com/matter</a></p></li>
+<li><p>Click “Console” at the top of the page</p></li>
+<li><p>On the next page, click “Create a Project”</p></li>
+<li><p>Give your project a name and click “Create a new project”</p></li>
+<li><p>On the next page click “Add Matter integration”</p></li>
+<li><p>On the next page click “Next: Develop”</p></li>
+<li><p>Click “Next: Setup”</p></li>
+<li><p>Set Up the fields on this page as shown below:</p>
+<ul>
+<li><p>Product name: Light</p></li>
+<li><p>Device type: light</p></li>
+<li><p>Vendor ID (VID) Test VID</p></li>
+<li><p>Test VID: 0xFFF1</p></li>
+<li><p>Product ID (PID) 0x8005</p></li>
+</ul>
+</li>
+<li><p>Product ID options for Matter devices are as follows:</p>
+<ul>
+<li><p>Light-Switch: 0x8004</p></li>
+<li><p>Light: 0x8005</p></li>
+<li><p>Lock: 0x8006</p></li>
+<li><p>Thermostat: 0x800E</p></li>
+<li><p>Window Covering: 0x8010</p></li>
+</ul>
+</li>
+<li><p>Click “Save &amp; Continue.”</p></li>
+<li><p>On the next page Click “Save”.</p></li>
+<li><p>You will now see a Matter integration for device type light in your console</p></li>
+<li><p>You have now completed setting up the following:</p>
+<ul>
+<li><p>Your home in the Google home app in your Android smartphone</p></li>
+<li><p>A project in your Google developer console</p></li>
+</ul>
+</li>
+<li><p>A matter integration for the light device type
+Having finished the above, the only step left to have your setup ready is to open a QR code webpage for the light device type in your PC.</p></li>
+<li><p>QR Code link will be present in Device configuration section of logs. Copy the link and paste it in google chrome so you will be able to QR Code.</p></li>
+</ul>
+<p><img alt="Silicon Labs - design" src="../_images/matter-rtt-qr-code-link.png" /></p>
+</section>
+<section id="matter-demo-execution-using-google-home">
+<h2>Matter Demo Execution using Google Home<a class="headerlink" href="#matter-demo-execution-using-google-home" title="Link to this heading"></a></h2>
+<section id="commission-matter-device-through-google-home-app">
+<h3>Commission Matter device through Google Home app<a class="headerlink" href="#commission-matter-device-through-google-home-app" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Build Matter Application by referring page
+<a class="reference internal" href="SW_SETUP.html"><span class="std std-doc">Build MATTER Application</span></a></p></li>
+<li><p>To Connect Board to a Computer follow below steps</p>
+<ul>
+<li><p>For Wi-Fi NCP Mode Boards</p>
+<ol class="arabic">
+<li><p>Mount the EFx32 radio board on the EFx32 WSTK board.</p>
+<p><img alt="Silicon Labs - design" src="../_images/mount-efr32.png" /></p>
+</li>
+<li><p>Connect the NCP expansion board to the EXP header on the EFx32 WSTK board.</p>
+<p><img alt="Silicon Labs - design" src="../_images/mount-expansion.png" /></p>
+</li>
+<li><p>Toggle the upper switch on the NCP expansion board to EXP-UART.</p></li>
+</ol>
+</li>
+<li><p>For Wi-Fi SOC Mode Boards</p>
+<ol class="arabic">
+<li><p>Mount the SiWx917 radio board on the SiWx917 WSTK board.</p>
+<p><img alt="Silicon Labs - design" src="../_images/mount-soc.png" /></p>
+</li>
+<li><p>Connect your SiWx917 Wireless Starter Kit (WSTK) board to your computer using a USB cable.</p></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Flash the bootloader binary for your device along with the application (e.g., lighting , lock, thermostat, window covering, light-switch).</p>
+<ul class="simple">
+<li><p>For Wi-Fi NCP Mode Boards <a class="reference internal" href="../general/FLASH_SILABS_DEVICE.html"><span class="std std-doc">Follow the instructions in this link to flash binaries</span></a></p></li>
+<li><p>For Wi-Fi SOC Mode Boards <a class="reference internal" href="../general/FLASH_SILABS_SiWx917_SOC_DEVICE.html"><span class="std std-doc">Follow the instructions in this link to flash binaries</span></a></p></li>
+</ul>
+</li>
+<li><p>Open the Google Home app on your phone.</p></li>
+<li><p>Click on <strong>Devices Section</strong> and click on <strong>Add</strong> Button.</p>
+<p><img alt="Silicon Labs - design" src="../_images/google-home-app-add-device.png" /></p>
+</li>
+<li><p>In the <strong>Set Up Device</strong> window, tap to select the <strong>New Device</strong> option.</p>
+<p><img alt="Silicon Labs - design" src="../_images/google-home-app-new-device.png" /></p>
+</li>
+<li><p>In the <strong>Choose Home Section</strong> select your home is selected and click next.</p>
+<p><img alt="Silicon Labs - design" src="../_images/google-home-app-select-home.png" /></p>
+</li>
+<li><p>The Google Home App will now looking for the Nearby Matter device.</p>
+<p><img alt="Silicon Labs - design" src="../_images/google-home-app-looking-for-device.png" /></p>
+</li>
+<li><p>If the device is found click on Application which you flashed on device. (For Example Light, Lock,).</p></li>
+<li><p>If the device is not found tap “Matter Enabled Device”.</p>
+<p><img alt="Silicon Labs - design" src="../_images/google-home-app-matter-enabled-device.png" /></p>
+</li>
+<li><p>Once the Google Home app has found the device, it will ask you to scan its QR code.</p></li>
+<li><p>Google Home app will now ask you if you want to connect this device to your Google account. Tap “I agree”.</p>
+<p><img alt="Silicon Labs - design" src="../_images/google-home-app-account-prompt.png" /></p>
+</li>
+<li><p>The Google Home app will now start commission the device with Bluetooth LE.</p>
+<p><img alt="Silicon Labs - design" src="../_images/google-home-app-connecting.png" /></p>
+</li>
+<li><p>Once you see the message stating that the <strong>Device connected</strong>, tap “Done”.</p>
+<p><img alt="Silicon Labs - design" src="../_images/google-home-app-connected.png" /></p>
+</li>
+<li><p>After this Google Home App will ask you select Room where you want to keep <strong>Application</strong>. You can select any room from the list and click Next.</p>
+<p><img alt="Silicon Labs - design" src="../_images/google-home-app-select-room.png" /></p>
+</li>
+<li><p>Google Home App will ask to create unique name for the application (For Example: Light, Lock). create any name for identification of application and click Next.</p>
+<p><img alt="Silicon Labs - design" src="../_images/google-home-app-give-app-name.png" /></p>
+</li>
+<li><p>You will now see your light shown as being connected to your Google account and added to your selected Room at Step 15.</p>
+<p><img alt="Silicon Labs - design" src="../_images/google-home-app-light-added.png" /></p>
+</li>
+</ol>
+</section>
+<section id="control-the-light-via-google-home-app">
+<h3>Control the Light via Google Home App<a class="headerlink" href="#control-the-light-via-google-home-app" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>In the Google Home app, you will now be able to tap your light to turn it ON and OFF.</p></li>
+<li><p>You can control the light by giving a voice command (for example, ‘Ok Google! Turn ON Light’) and through the app user interface.</p></li>
+<li><p>You will see the LED1 on your WSTK board turned on or off depending on the command you enter.</p></li>
+</ol>
+</section>
+</section>
+<section id="deleting-matter-application-from-google-home">
+<h2>Deleting Matter Application from Google Home<a class="headerlink" href="#deleting-matter-application-from-google-home" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Press and hold Matter Application for detailed view.</p></li>
+<li><p>Click on <strong>Setting</strong> button on top right corner.</p></li>
+<li><p>Select <strong>Remove device</strong> option.</p></li>
+<li><p>It will prompt <strong>Unlink all Matter apps &amp; services from device</strong> select unlink.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

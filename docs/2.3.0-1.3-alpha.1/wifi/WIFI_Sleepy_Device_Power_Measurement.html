@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power Measurements for Wi-Fi Devices &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Serial Port Communication on Silicon Labs Platform" href="MATTER_SHELL.html" />
+    <link rel="prev" title="Matter Intermittently Connected Devices over WiFi" href="WIFI_SLEEPY_END_DEVICE.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3-alpha.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="DEMO_OVERVIEW.html">Wi-Fi Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SW_SETUP.html">Wi-Fi GitHub Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BUILD_PI_ENV.html">Build Chip Tool on Raspi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RUN_DEMO.html">Matter Demo on EFR32 NCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RUN_DEMO_SiWx917_SoC.html">Matter Demo on 917 SoC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JLINK_GUIDE_917.html">Matter 917 SoC JLink RTT Debugger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SiWx917_Enablement_For_Ozone.html">Enablement of Ozone for 917 SOC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_dic.html">Wi-Fi Direct Internet Connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html">Matter Intermittently Connected Devices over WiFi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html#power-measurement">Power Measurement</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Wi-Fi ICD Power Measurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#efr32-rs9116-setup-for-sleepy-devices">EFR32 + RS9116 Setup for Sleepy Devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-simplicity-studio-energy-profiler-for-current-measurement">Using Simplicity Studio Energy Profiler for Current Measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#power-consumption-measurment-efr-using-energy-profiler">Power Consumption Measurment (EFR) Using Energy Profiler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#power-consumption-measurement-using-a-power-meter">Power Consumption measurement Using a Power Meter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="MATTER_SHELL.html">Matter Shell Console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_ecosystem.html">Matter Ecosystem Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+      <li class="breadcrumb-item active">Power Measurements for Wi-Fi Devices</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/wifi/WIFI_Sleepy_Device_Power_Measurement.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="power-measurements-for-wi-fi-devices">
+<h1>Power Measurements for Wi-Fi Devices<a class="headerlink" href="#power-measurements-for-wi-fi-devices" title="Link to this heading"></a></h1>
+<p>This page explains how to measure the power values for EFR and Wi-Fi co-processor.</p>
+<section id="efr32-rs9116-setup-for-sleepy-devices">
+<h2>EFR32 + RS9116 Setup for Sleepy Devices<a class="headerlink" href="#efr32-rs9116-setup-for-sleepy-devices" title="Link to this heading"></a></h2>
+<p><img alt="Power measurement GPIO pin connection for 9116" src="../_images/WiFi_9116_GPIO_Connection.png" /></p>
+<blockquote>
+<div><p>Note: The following GPIO pins should be connected for 9116 and Host handshakes. <br />
+pin 7 and 9 to UULP_2 and UULP_0 respectively.</p>
+</div></blockquote>
+</section>
+<section id="using-simplicity-studio-energy-profiler-for-current-measurement">
+<h2>Using Simplicity Studio Energy Profiler for Current Measurement<a class="headerlink" href="#using-simplicity-studio-energy-profiler-for-current-measurement" title="Link to this heading"></a></h2>
+<p>After flashing the Matter application to the module, Energy profiler or a power meter can be used for power measurements.</p>
+<p><img alt="Power measurement connection overview" src="../_images/WiFi_PowerSave_Overview.png" /></p>
+<p>In Simplicity Studio, click <strong>Tools</strong> on the toolbar, select Energy Profiler, and click “OK”.</p>
+<p><img alt="Power measurement PowerProfiler" src="../_images/WiFi_PowerProfiler.png" /></p>
+<p>From the Quick Access or Profiler menu, select ‘Start Energy Capture’.</p>
+<p><img alt="Power measurement using PowerProfiler" src="../_images/WiFi_PowerProfiler_start.png" /></p>
+<blockquote>
+<div><p><strong>Note</strong>: A quick-start guide on the Energy Profiler user interface is in the Simplicity Studio User’s Guide’s <a class="reference external" href="https://docs.silabs.com/simplicity-studio-5-users-guide/latest/ss-5-users-guide-tools-energy-profiler/energy-profiler-user-interface">Energy Profiler User Interface section</a>.</p>
+</div></blockquote>
+</section>
+<section id="power-consumption-measurment-efr-using-energy-profiler">
+<h2>Power Consumption Measurment (EFR) Using Energy Profiler<a class="headerlink" href="#power-consumption-measurment-efr-using-energy-profiler" title="Link to this heading"></a></h2>
+<p>Analyze the power values using Energy Profiler.
+<img alt="Power measurement for EFR using EnergyProfiler" src="../_images/WiFi_EFR_Power_EnergyProfiler.png" /></p>
+</section>
+<section id="power-consumption-measurement-using-a-power-meter">
+<h2>Power Consumption measurement Using a Power Meter<a class="headerlink" href="#power-consumption-measurement-using-a-power-meter" title="Link to this heading"></a></h2>
+<section id="power-consumption-measurement-pins-for-rs9116-evk-boards">
+<h3>Power Consumption Measurement Pins for RS9116 Evk Boards<a class="headerlink" href="#power-consumption-measurement-pins-for-rs9116-evk-boards" title="Link to this heading"></a></h3>
+<p><img alt="Power measurement pins for NCP mode" src="../_images/WiFi_9116_PowerMeter_WiFiModule.png" /></p>
+</section>
+<section id="power-consumption-measurement-pins-for-exp-boards">
+<h3>Power Consumption Measurement Pins for EXP Boards<a class="headerlink" href="#power-consumption-measurement-pins-for-exp-boards" title="Link to this heading"></a></h3>
+<p><img alt="Power measurement pins for NCP mode" src="../_images/SiWx917_Ncp_PowerMeasurment_pins.png" /></p>
+<p>The power meter’s negative probe is used for pin-1 and the positive probe is used for pin-2.</p>
+<p>Analyze the power values using the power meter.
+<img alt="Power measurement for 9116/917 using power meter" src="../_images/WiFi_9116_Power_PowerProfiler.png" /></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview of Matter EcoSystem &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Google Ecosystem Setup and Demo Execution" href="GOOGLE_ECOSYSTEM_SETUP.html" />
+    <link rel="prev" title="Matter Ecosystem Development" href="../nav_5_wifi_ecosystem.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3-alpha.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="DEMO_OVERVIEW.html">Wi-Fi Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SW_SETUP.html">Wi-Fi GitHub Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BUILD_PI_ENV.html">Build Chip Tool on Raspi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RUN_DEMO.html">Matter Demo on EFR32 NCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RUN_DEMO_SiWx917_SoC.html">Matter Demo on 917 SoC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JLINK_GUIDE_917.html">Matter 917 SoC JLink RTT Debugger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SiWx917_Enablement_For_Ozone.html">Enablement of Ozone for 917 SOC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_dic.html">Wi-Fi Direct Internet Connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html">Matter Intermittently Connected Devices over WiFi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html#power-measurement">Power Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_Sleepy_Device_Power_Measurement.html">Wi-Fi ICD Power Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MATTER_SHELL.html">Matter Shell Console</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../nav_5_wifi_ecosystem.html">Matter Ecosystem Development</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Ecosystem Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GOOGLE_ECOSYSTEM_SETUP.html">Google Ecosystem with Matter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AMAZON_ECOSYSTEM_SETUP.html">Amazon Ecosystem with Matter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="APPLE_ECOSYSTEM_SETUP.html">Apple Ecosystem with Matter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SAMSUNG_ECOSYSTEM_SETUP.html">Samsung Ecosystem with Matter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MULTICONTROLLER_ECOSYSTEM.html">Multi Controller Ecosystem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+          <li class="breadcrumb-item"><a href="../nav_5_wifi_ecosystem.html">Matter Ecosystem Development</a></li>
+      <li class="breadcrumb-item active">Overview of Matter EcoSystem</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/wifi/ECOSYSTEM_SETUP.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="overview-of-matter-ecosystem">
+<h1>Overview of Matter EcoSystem<a class="headerlink" href="#overview-of-matter-ecosystem" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Silicon Labs Matter platforms integrates with the most recent versions of the Matter protocol and works with several commercial Matter ecosystems.</p></li>
+<li><p>Matter allows multiple ecosystems to work together and control the Device.</p></li>
+<li><p>Silicon Labs Matter devices can be controlled by various Matter enabled Ecosystems.</p></li>
+</ul>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<section id="ecosystems">
+<h3>Ecosystems<a class="headerlink" href="#ecosystems" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Devices which are compatible with official implementation of Matter in at least one commercial ecosystem</p>
+<ul>
+<li><p><a class="reference external" href="https://developers.home.google.com/matter/supported-devices#choosing_a_device_type">Google Matter Hubs</a></p></li>
+<li><p><a class="reference external" href="https://www.apple.com/home-app/accessories/">Apple Matter</a></p></li>
+<li><p><a class="reference external" href="https://support.smartthings.com/hc/en-us/articles/11219700390804-SmartThings-x-Matter-Integration-">Samsung SmartThings Matter</a></p></li>
+<li><p><a class="reference external" href="https://developer.amazon.com/en-US/docs/alexa/smarthome/matter-support.html">Amazon Alexa Matter</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="smartphone-to-control-ecosystem">
+<h3>Smartphone to Control Ecosystem<a class="headerlink" href="#smartphone-to-control-ecosystem" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Android smart phone installed with respective Ecosystem mobile apps <strong>Amazon Alexa, Google Home, Samsung Smart Things</strong></p></li>
+<li><p>Apple iphone installed with mobile app <strong>Apple Home</strong>.</p></li>
+</ul>
+</section>
+<section id="silicon-labs-development-boards">
+<h3>Silicon Labs Development Boards<a class="headerlink" href="#silicon-labs-development-boards" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>In order to run Matter over Wi-Fi on compatible Ecosystem, at least below setup hardwares are required</p></li>
+<li><p>Silicon Labs Wireless starter/development kit (WSTK)</p></li>
+<li><p>Silicon Labs Wi-Fi development Kits &amp; boards</p>
+<ul>
+<li><p>For SoC variants, an SiWx917 SoC Dual flash boards or Common flash boards</p></li>
+<li><p>For Network Co-Processor (NCP) variants,</p>
+<ul>
+<li><p>Silicon Labs EFR32 - is used as a host processor and, with the WF200, provides Bluetooth LE capabilities</p></li>
+<li><p>Silicon Labs Wi-Fi Processor</p>
+<ul>
+<li><p>RS9116 development kit</p></li>
+<li><p>WF200 expansion board</p></li>
+<li><p>SiWx917 NCP expansion board</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Wi-Fi SoC Dev kits and boards</strong></p></li>
+<li><p>SiWx917 / BRD4002A / Wireless Starter Kit</p></li>
+<li><p>SiWx917 SoC / Common Flash Radio Board / 2.4GHz</p>
+<ul>
+<li><p>BRD4338A - B0 common flash v2.0</p></li>
+</ul>
+</li>
+<li><p><strong>Wi-Fi NCP Dev kits and boards</strong></p></li>
+<li><p><strong>MG24 boards:</strong></p>
+<ul>
+<li><p>BRD4186C / SLWSTK6006A / Wireless Starter Kit / 2.4GHz&#64;10dBm</p>
+<ul>
+<li><p><a class="reference external" href="https://www.silabs.com/development-tools/wireless/xg24-rb4186c-efr32xg24-wireless-gecko-radio-board">XG24-RB4186C</a></p></li>
+<li><p>MG24 with WSTK : <a class="reference external" href="https://www.silabs.com/development-tools/wireless/efr32xg24-pro-kit-10-dbm?tab=overview">xG24-PK6009A</a></p></li>
+</ul>
+</li>
+<li><p>BRD4187C / SLWSTK6006A / Wireless Starter Kit / 2.4GHz&#64;20dBm</p>
+<ul>
+<li><p><a class="reference external" href="https://www.silabs.com/development-tools/wireless/xg24-rb4187c-efr32xg24-wireless-gecko-radio-board">XG24-RB4187C</a></p></li>
+<li><p>MG24 with WSTK : <a class="reference external" href="https://www.silabs.com/development-tools/wireless/efr32xg24-pro-kit-20-dbm?tab=overview">xG24-PK6010A</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Wi-Fi Dev Kits &amp; boards</strong></p>
+<ul>
+<li><p>RS9116</p>
+<ul>
+<li><p>SB-EVK1 / Single Band Wi-Fi Development Kit / 2.4GHz</p>
+<ul>
+<li><p><a class="reference external" href="https://www.silabs.com/development-tools/wireless/wi-fi/rs9116x-sb-evk-development-kit">RS9116X-SB-EVK1</a></p></li>
+</ul>
+</li>
+<li><p>SB-EVK2 / Single Band Wi-Fi Development Kit / 2.4GHz</p>
+<ul>
+<li><p><a class="reference external" href="https://www.silabs.com/development-tools/wireless/wi-fi/rs9116x-sb-evk2-development-kit">RS9116X-SB-EVK2</a></p></li>
+</ul>
+</li>
+<li><p>DB-EVK1 / Dual Band Wi-Fi Development Kit / 2.4GHz &amp; 5GHz</p>
+<ul>
+<li><p><a class="reference external" href="https://www.silabs.com/development-tools/wireless/wi-fi/rs9116x-db-evk-development-kit">RS9116X-DB-EVK1</a>
+<strong>Note:</strong> Matter only supported over 2.4GHz on this Dev kit.</p></li>
+</ul>
+</li>
+<li><p>Interconnect board (included in the Wi-Fi kits)</p></li>
+<li><p>SPI Cable (included in the RS9116 kit)</p></li>
+<li><p>Jumper Cables (included in the RS9116 kit)</p></li>
+</ul>
+</li>
+<li><p>SiWx917</p>
+<ul>
+<li><p>SiWx917 NCP Mode / Wi-Fi Expansion Board / 2.4GHz</p>
+<ul>
+<li><p>BRD4346A</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>WF200</p>
+<ul>
+<li><p>WF200 / Single Band Wi-Fi Expansion Board / 2.4GHz</p>
+<ul>
+<li><p><a class="reference external" href="https://www.silabs.com/development-tools/wireless/wi-fi/wf200-wifi-expansion-kit">SLEXP8022A</a></p></li>
+</ul>
+</li>
+<li><p>WFM200S / Single Band Wi-Fi Expansion Board / 2.4GHz</p>
+<ul>
+<li><p><a class="reference external" href="https://www.silabs.com/development-tools/wireless/wi-fi/wfm200-wifi-expansion-kit">SLEXP8023A</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Windows/Linux/MacOS computer with a USB port</p></li>
+<li><p>USB cable for connecting WSTK Board to Computer</p></li>
+<li><p>Raspberry Pi with a &gt;32 GB SD Card</p></li>
+<li><p>Access Point with Internet Access</p></li>
+<li><p>Interconnect board (included in the Wi-Fi kits)</p></li>
+<li><p>SPI Cable (included in the RS9116 kit)</p></li>
+<li><p>Jumper Cables (included in the RS9116 kit)</p></li>
+</ul>
+<p>For Detailed Information about Silicon Labs Development Board <a class="reference internal" href="../general/HARDWARE_REQUIREMENTS.html"><span class="std std-doc">Refer Hardware Requirements Page</span></a></p>
+</section>
+</section>
+<section id="matter-setup-with-ecosystem-and-demo-execution">
+<h2>Matter Setup with Ecosystem and Demo execution<a class="headerlink" href="#matter-setup-with-ecosystem-and-demo-execution" title="Link to this heading"></a></h2>
+<p>Matter device can be controlled by single controller and interoperable with multiple controllers</p>
+<ul class="simple">
+<li><p>For Single Controller Setup and Procedure with matter compatible ecosystem, refer below links</p>
+<ul>
+<li><p><a class="reference internal" href="GOOGLE_ECOSYSTEM_SETUP.html"><span class="std std-doc">Google Ecosystem</span></a></p></li>
+<li><p><a class="reference internal" href="AMAZON_ECOSYSTEM_SETUP.html"><span class="std std-doc">Amazon Ecosystem</span></a></p></li>
+<li><p><a class="reference internal" href="APPLE_ECOSYSTEM_SETUP.html"><span class="std std-doc">Apple Ecosystem</span></a></p></li>
+<li><p><a class="reference internal" href="SAMSUNG_ECOSYSTEM_SETUP.html"><span class="std std-doc">Samsung Aeotec Ecosystem</span></a></p></li>
+</ul>
+</li>
+<li><p>Follow <a class="reference internal" href="MULTICONTROLLER_ECOSYSTEM.html"><span class="std std-doc">Multiple Controller Setup and Execution</span></a> to interoperate with multiple controllers</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
