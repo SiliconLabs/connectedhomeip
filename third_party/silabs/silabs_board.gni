@@ -58,6 +58,12 @@ declare_args() {
   chip_enable_ble_rs911x = (use_rs9116 || use_SiWx917)
 }
 
+# TODO - Enable LCD once multiplexing changes added MATTER-2763
+if (use_SiWx917) {
+  disable_lcd = true
+  show_qr_code = false
+}
+
 if (silabs_board == "") {
   silabs_board = getenv("SILABS_BOARD")
 }
