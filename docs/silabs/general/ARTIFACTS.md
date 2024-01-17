@@ -1,7 +1,9 @@
 # Matter Software Artifacts
 
 This page provides links to pre-built software image artifacts that can be
-used to set up the Matter Demo for the Thread and Wi-Fi use cases. The majority of these artifacts can be found under the "Assets" section on the release page here:
+used to set up the Matter Demo for the Thread and Wi-Fi use cases.
+
+Images for the items listed below are available under the "Assets" section at the bottom of this page:
 
 https://github.com/SiliconLabs/matter/releases/tag/2.3.0-1.3-alpha.1
 
@@ -48,44 +50,42 @@ https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/bootl
 
 ## RS9116 Firmware
 
-The RS9116 firmware (rs9116_firmware_files_with_rev.zip) is used to update the RS9116 which can be found here:
+The RS9116 firmware (rs9116_firmware_files_with_rev_2.3.0-1.3-alpha.1.zip) is used to update the RS9116 which can be found in the Assets section of this page:
 
 https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/rs9116_firmware_files_with_rev_2.3.0-1.3-alpha.1.zip
 
 **Note**:
 RS9116 chip/module needs to be flashed with proper firmware as mentioned below:
+
 - `RS916.x.x.x.x.x.rps - This firmware image is valid for RS9116 1.5 revision chip/module`
 - `RS9116.x.x.x.x.x.rps - This firmware image is valid for RS9116 1.4/1.3 revision chip/module`
 
 ## SiWx917 Firmware for SiWx917 NCP
 
-The SiWx917 firmware(SiWx917NCP_firmware_files.zip) is used to update the SiWx917 NCP which can be found here:
+The SiWx917 firmware(SiWx917NCP_firmware_files_2.3.0-1.3-alpha.1.zip) is used to update the SiWx917 NCP which can be found in the Assets section of this page:
 
 https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/SiWx917NCP_firmware_files_2.3.0-1.3-alpha.1.zip
 
 **Note**:
 SiWx917 NCP board need to be flashed with proper firmware as mentioned below:
-- `SiWG917-A.2.9.X.X.X.rps - This firmware image is valid for BRD8036A (A0 Expansion v1.1) board`
 
+- `SiWG917-B.2.X.X.X.X.rps - This firmware image is valid for BRD4346A board`
 
 ## SiWx917 Firmware for SiWx917 SoC
 
-The SiWx917 firmware (SiWx917SOC_firmware_files.zip) along with WiSeConnect 3 SDK is used to update the SiWx917 SoC which can be found here:
+The SiWx917 firmware (SiWx917SOC_firmware_files_2.3.0-1.3-alpha.1.zip) along with WiSeConnect 3 SDK is used to update the SiWx917 SoC which can be found in the Assets section of this page:
 
 https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/SiWx917SOC_firmware_files_2.3.0-1.3-alpha.1.zip
 
 **Note**:
 SiWx917 SoC boards need to be flashed with proper firmware as mentioned below:
-- `SiWG917-A.2.9.X.X.X.rps - This firmware image is valid for BRD4325B(A0 dual flash 1.1) and BRD4325B(A0 dual flash 1.2) boards`
-- `SiWG917-B.2.9.X.X.X.rps - This firmware image is valid for BRD4325C(B0 common flash v1.2), BRD4325G(B0 Stacked Flash + External PSRAM v1.2) and BRD4338A(B0 common flash v2.0) boards`
 
-## SiWx917 SoC Configuration Files for Flashing the Matter Application
+- `SiWG917-B.2.X.X.X.X.rps - This firmware image is valid for BRD4338A(B0 common flash v2.0) board`
 
-In order to flash the Matter Application on the SiWx917 SoC, the Ozone Debugger must
-be configured for the SiWx917 SoC device by following the instructions on the [Ozone Environment Setup for SiWx917 SoC page](../wifi/SiWx917_Enablement_For_Ozone.md).
+## SiWx917 SoC Configuration Files For JLink RTT Logging
 
-The **JLinkDevices.xml** and **ELF** files referenced in the instructions may be found 
-here:
+In order to check device logs for the Matter Application on the SiWx917 SoC, the **JLink RTT** must be configured for the SiWx917 SoC device by following the instructions on the [JLink RTT SOC Support](../wifi/JLINK_GUIDE_917.md).
 
-https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/JLinkDevices.xml
-https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/RS9117_SF_4MB_42bsp.elf
+The [JLinkDevices.xml](https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/JLinkDevices.xml) and **.elf** files referenced in the instructions may be found in the Assets section of this page.
+
+**Note**:- For EFR32MG2x devices, JLink RTT Logging support is already available.
