@@ -24,7 +24,7 @@ The following hardware devices are required for executing Matter over Wi-Fi:
 
 ### Software Requirements
 
-Refer [Software Requirements & Installation ](../general/SOFTWARE_REQUIREMENTS.md)
+Refer to [Software Requirements & Installation ](../general/SOFTWARE_REQUIREMENTS.md)
 
 ## Connect SiWx917 SOC to Computer
 
@@ -84,7 +84,7 @@ If the firmware update fails, try the following:
 
 2. Official support for SiWx917 SoC for Common Flash Board is not yet available in the Ozone Debugger, but can be configured - [Ozone Environment Setup for SiWx917 SoC](SiWx917_Enablement_For_Ozone.md).
 
-3. After creating rps file flash the binary to board by using Simplicity Commander, refer [Flashing SiWx917 SOC Using Simplicity Commander](../general/FLASHING_USING_COMMANDER.md#flashing-the-siwx917-soc-matter-pre-built-binary-using-simplicity-commander)
+3. After creating the rps file flash the binary to the board by using Simplicity Commander, refer [Flashing SiWx917 SOC Using Simplicity Commander](../general/FLASHING_USING_COMMANDER.md#flashing-the-siwx917-soc-matter-pre-built-binary-using-simplicity-commander)
 
 4. Flashing the Matter application using Ozone Debugger
 

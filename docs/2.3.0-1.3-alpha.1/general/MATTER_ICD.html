@@ -352,13 +352,13 @@ the subscription will be deleted.</p>
 <p>Persistent subscriptions are enabled by default on all Silicon Labs sample applications.</p>
 <section id="subscription-timeout-resumption">
 <h3>Subscription Timeout Resumption<a class="headerlink" href="#subscription-timeout-resumption" title="Link to this heading"></a></h3>
-<p>Matter also provides a retry mechanism for devices to try to re-establish a lost subscription with a client. This feature should not be used on an ICD since it can significantly reduce battery life. This functionality is provided by enabling</p>
+<p>Matter also provides a retry mechanism for devices to try to re-establish a lost subscription with a client. This feature should not be used on an ICD since it can significantly reduce battery life. This functionality can be disabled by adding</p>
 <p><code class="docutils literal notranslate"><span class="pre">chip_subscription_timeout_resumption</span> <span class="pre">=</span> <span class="pre">false</span></code></p>
 </section>
 </section>
 <section id="subscription-synchronization">
 <h2>Subscription Synchronization<a class="headerlink" href="#subscription-synchronization" title="Link to this heading"></a></h2>
-<p>To avoid forcing an ICD to become active multiple times, the Matter SDK allows an ICD to synchronize its subscription reporting and send all the reports at the same time. The mecansim syncrhonizes the maximum interval of the all subscription to only require the ICD to become active one. This functionality is provided by enabling</p>
+<p>To avoid forcing an ICD to become active multiple times, the Matter SDK allows an ICD to synchronize its subscription reporting and send all the reports at the same time. The mecansim syncrhonizes the maximum interval of the all subscription to only require the ICD to become active one. This functionality can be enabled by adding</p>
 <p><code class="docutils literal notranslate"><span class="pre">sl_use_subscription_synching</span> <span class="pre">=</span> <span class="pre">true</span></code></p>
 <p>For further details on Matter ICD’s operating on OpenThread, visit <a class="reference internal" href="../thread/OT_SLEEPY_END_DEVICE.html"><span class="std std-doc">Matter Intermittently Connected Devices over OpenThread</span></a>.
 And for Matter ICD’s operating via WiFi, visit <a class="reference internal" href="../wifi/WIFI_SLEEPY_END_DEVICE.html"><span class="std std-doc">Matter Intermittently Connected Devices over WiFi</span></a>.</p>

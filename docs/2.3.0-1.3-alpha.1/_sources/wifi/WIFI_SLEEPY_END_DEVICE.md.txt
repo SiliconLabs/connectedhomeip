@@ -3,7 +3,7 @@ This page explains how Matter Wi-Fi Intermittently Connected Devices (ICDs) work
 
 ## Overview
 
-Matter provides a Intermittently Connected Device (ICD) operating mode to extend the battery life of power-limited devices. This operating mode leverages native Wi-Fi functionality to enhance the power management features provided within the Matter protocol.
+Matter provides the Intermittently Connected Device (ICD) operating mode to extend the battery life of power-limited devices. This operating mode leverages native Wi-Fi functionality to enhance the power management features provided within the Matter protocol.
 
 Wi-Fi module power saving is achieved by the Wi-Fi Station notifying the Access Point (AP) that it is entering its power save (PS) mode. Afterwards, the Wi-Fi station will shut down its RF and Wi-Fi SoC blocks to enter power saving mode.
 
@@ -88,4 +88,4 @@ To achieve the most power-efficient build, add these build arguments to the buil
 
 # Power Measurement
 
-Refer [ Power Measurement ](./WIFI_Sleepy_Device_Power_Measurement.md)
+Refer to [ Power Measurement ](./WIFI_Sleepy_Device_Power_Measurement.md)
