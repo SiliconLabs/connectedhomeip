@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Custom Matter Device Development &mdash; Matter 2.2.0-1.2 documentation</title>
+  <title>Custom Matter Device Development &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -14,11 +14,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.0-1.2
+                2.3.0-1.3-alpha.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -57,6 +57,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="CODE_SIZE_SAVINGS.html">Code Savings Guide</a></li>
@@ -77,7 +78,6 @@
 <li class="toctree-l2"><a class="reference internal" href="FLASHING_USING_COMMANDER.html">Flashing Using Simplicity Commander</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FLASH_SILABS_DEVICE.html">Flash an EFR32 Device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FLASH_SILABS_SiWx917_SOC_DEVICE.html">Flash a 917SoC Device</a></li>
-<li class="toctree-l2"><a class="reference internal" href="MATTER_ICD.html">Matter ICDs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ZAP.html">Using ZAP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="WIRESHARK.html">Using Wireshark</a></li>
 <li class="toctree-l2"><a class="reference internal" href="EP.html">Using Energy Profiler</a></li>
@@ -115,15 +115,15 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="custom-matter-device-development">
-<h1>Custom Matter Device Development<a class="headerlink" href="#custom-matter-device-development" title="Permalink to this heading"></a></h1>
+<h1>Custom Matter Device Development<a class="headerlink" href="#custom-matter-device-development" title="Link to this heading"></a></h1>
 <p>Build a customizable lighting app using the Matter protocol.</p>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>This guide covers the basics of building a customizable lighting application
 using Matter.</p>
 </section>
 <section id="using-matter-with-clusters">
-<h2>Using Matter with Clusters<a class="headerlink" href="#using-matter-with-clusters" title="Permalink to this heading"></a></h2>
+<h2>Using Matter with Clusters<a class="headerlink" href="#using-matter-with-clusters" title="Link to this heading"></a></h2>
 <p>In Matter, commands can be issued by using a cluster. A cluster is a set of
 attributes and commands which are grouped together under a relevant theme.</p>
 <p>Attributes store values (think of them as variables). Commands are used to
@@ -135,7 +135,7 @@ command or it can be set to “0” by sending an “Off” command.</p>
 Note that you can also create your own custom cluster.</p>
 </section>
 <section id="zap-configuration">
-<h2>ZAP Configuration<a class="headerlink" href="#zap-configuration" title="Permalink to this heading"></a></h2>
+<h2>ZAP Configuration<a class="headerlink" href="#zap-configuration" title="Link to this heading"></a></h2>
 <p>From the matter repository, run the following command in a terminal to launch
 the ZAP user interface (UI). This will open up the ZAP configuration for the EFR32 lighting
 application example.</p>
@@ -161,7 +161,7 @@ your application to the full power of the Matter SDK.</p>
 <p>For example, if a lighting application only includes
 single color LEDs instead of RGB LEDs, it might make sense to disable the Color
 Control cluster in the ZAP configuration. Similarly, if a
-lighting application doesn’t take advantage of the Level Control cluster,
+lighting application does not take advantage of the Level Control cluster,
 which allows you to customize current flow to an LED, it might make sense to
 disable the Level Control cluster.</p>
 <p>Each time a modification is made to the ZAP UI, save (Electron→Save on
@@ -172,16 +172,16 @@ generate ZAP code.</p>
 </div>
 </section>
 <section id="receiving-matter-commands">
-<h2>Receiving Matter Commands<a class="headerlink" href="#receiving-matter-commands" title="Permalink to this heading"></a></h2>
+<h2>Receiving Matter Commands<a class="headerlink" href="#receiving-matter-commands" title="Link to this heading"></a></h2>
 <p>All Matter commands reach the application through the intermediate function
-MatterPostAttributeChangeCallback(). When a request is made by a Matter client,
+<code class="docutils literal notranslate"><span class="pre">MatterPostAttributeChangeCallback()</span></code>. When a request is made by a Matter client,
 the information contained in the request is forwarded to a Matter application
 through this function. The command can then be dissected using conditional logic
 to call the proper application functions based on the most recent command
 received.</p>
 </section>
 <section id="adding-a-cluster-to-a-zap-configuration">
-<h2>Adding a Cluster to a ZAP Configuration<a class="headerlink" href="#adding-a-cluster-to-a-zap-configuration" title="Permalink to this heading"></a></h2>
+<h2>Adding a Cluster to a ZAP Configuration<a class="headerlink" href="#adding-a-cluster-to-a-zap-configuration" title="Link to this heading"></a></h2>
 <p>In the ZAP UI, navigate to the Level Control cluster. Make sure this cluster is
 enabled as a server in the drop-down menu in the “Enable” column. Then click on
 the blue settings wheel in the “Configure” column. This cluster can be used to
@@ -189,17 +189,17 @@ gather power source configuration settings from a Matter device. It contains a
 few required attributes, and a number of optional attributes.</p>
 </section>
 <section id="adding-a-new-attribute">
-<h2>Adding a New Attribute<a class="headerlink" href="#adding-a-new-attribute" title="Permalink to this heading"></a></h2>
+<h2>Adding a New Attribute<a class="headerlink" href="#adding-a-new-attribute" title="Link to this heading"></a></h2>
 <p>In the Level Control cluster configurations, ensure the CurrentLevel attribute
 is set to enabled. Set the default value of this attribute as 1.</p>
 </section>
 <section id="adding-a-new-command">
-<h2>Adding a New Command<a class="headerlink" href="#adding-a-new-command" title="Permalink to this heading"></a></h2>
+<h2>Adding a New Command<a class="headerlink" href="#adding-a-new-command" title="Link to this heading"></a></h2>
 <p>Navigate to the commands tab in zap and enable the MoveToLevel command. Now save
 the current zap configuration, and run the <a class="reference external" href="http://generate.py">generate.py</a> script above.</p>
 </section>
 <section id="react-to-level-control-cluster-commands-in-zclcallbacks">
-<h2>React to Level Control Cluster Commands in ZclCallbacks<a class="headerlink" href="#react-to-level-control-cluster-commands-in-zclcallbacks" title="Permalink to this heading"></a></h2>
+<h2>React to Level Control Cluster Commands in ZclCallbacks<a class="headerlink" href="#react-to-level-control-cluster-commands-in-zclcallbacks" title="Link to this heading"></a></h2>
 <p>In the MatterPostAttributeCallback function in ZclCallbacks, add the following
 line of code or a similar line. This will give the application the ability to react to
 MoveToLevel commands. You can define platform-specific behavior for a
@@ -220,7 +220,7 @@ MoveToLevel action.</p>
 </div>
 </section>
 <section id="send-a-movetolevel-command-and-read-the-currentlevel-attribute">
-<h2>Send a MoveToLevel Command and Read the CurrentLevel Attribute<a class="headerlink" href="#send-a-movetolevel-command-and-read-the-currentlevel-attribute" title="Permalink to this heading"></a></h2>
+<h2>Send a MoveToLevel Command and Read the CurrentLevel Attribute<a class="headerlink" href="#send-a-movetolevel-command-and-read-the-currentlevel-attribute" title="Link to this heading"></a></h2>
 <p>Rebuild the application and load the new executable on your EFR32 device. Send
 the following mattertool commands and verify that the current-level default
 attribute was updated as was configured. Replace {desired_level} with 10, and

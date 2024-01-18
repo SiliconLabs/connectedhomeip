@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Frequently Asked Questions and Troubleshooting for Matter over Wi-Fi &mdash; Matter 2.2.0-1.2 documentation</title>
+  <title>Frequently Asked Questions and Troubleshooting for Matter over Wi-Fi &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -14,11 +14,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -38,7 +38,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.0-1.2
+                2.3.0-1.3-alpha.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -56,6 +56,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../nav_6_faq.html">FAQ</a><ul class="current">
@@ -94,11 +95,11 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="frequently-asked-questions-and-troubleshooting-for-matter-over-wi-fi">
-<h1>Frequently Asked Questions and Troubleshooting for Matter over Wi-Fi<a class="headerlink" href="#frequently-asked-questions-and-troubleshooting-for-matter-over-wi-fi" title="Permalink to this heading"></a></h1>
+<h1>Frequently Asked Questions and Troubleshooting for Matter over Wi-Fi<a class="headerlink" href="#frequently-asked-questions-and-troubleshooting-for-matter-over-wi-fi" title="Link to this heading"></a></h1>
 <section id="troubleshooting">
-<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h2>
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
 <section id="bluetooth-connection-fails-when-trying-to-commission-the-system-through-the-chip-tool">
-<h3>1. Bluetooth connection fails when trying to commission the system through the chip-tool:<a class="headerlink" href="#bluetooth-connection-fails-when-trying-to-commission-the-system-through-the-chip-tool" title="Permalink to this heading"></a></h3>
+<h3>1. Bluetooth connection fails when trying to commission the system through the chip-tool:<a class="headerlink" href="#bluetooth-connection-fails-when-trying-to-commission-the-system-through-the-chip-tool" title="Link to this heading"></a></h3>
 <p><strong>Command leading to error:</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">out/standalone/chip-tool</span> <span class="pre">pairing</span> <span class="pre">ble-wifi</span> <span class="pre">1122</span> <span class="pre">mySSID</span> <span class="pre">myPassword</span> <span class="pre">20202021</span> <span class="pre">3840</span></code></p>
 <p>Where <code class="docutils literal notranslate"><span class="pre">mySSID</span></code> is <strong>your AP’s SSID</strong> and <code class="docutils literal notranslate"><span class="pre">mypassword</span></code> is <strong>your AP’s password</strong>.</p>
@@ -148,7 +149,7 @@ password</strong>.</p>
 </ol>
 </section>
 <section id="unsupported-certificate-format-error">
-<h3>2. Unsupported certificate format Error:<a class="headerlink" href="#unsupported-certificate-format-error" title="Permalink to this heading"></a></h3>
+<h3>2. Unsupported certificate format Error:<a class="headerlink" href="#unsupported-certificate-format-error" title="Link to this heading"></a></h3>
 <blockquote>
 <div><p>When trying to commission the system, if an <code class="docutils literal notranslate"><span class="pre">Unsupported</span> <span class="pre">certificate</span> <span class="pre">format</span></code>
 error (example below) is encountered, follow the procedure stated below.</p>
@@ -169,7 +170,7 @@ run from the <code class="docutils literal notranslate"><span class="pre">/conne
 </ul>
 </section>
 <section id="wlan-connection-fails-from-rs9116-during-commissioning-when-channel-13-is-selected-on-the-ap">
-<h3>3. WLAN connection fails from RS9116 during commissioning when channel 13 is selected on the AP:<a class="headerlink" href="#wlan-connection-fails-from-rs9116-during-commissioning-when-channel-13-is-selected-on-the-ap" title="Permalink to this heading"></a></h3>
+<h3>3. WLAN connection fails from RS9116 during commissioning when channel 13 is selected on the AP:<a class="headerlink" href="#wlan-connection-fails-from-rs9116-during-commissioning-when-channel-13-is-selected-on-the-ap" title="Link to this heading"></a></h3>
 <p>The required channel becomes available for connection when the WLAN connection region is configured during compilation to one that supports the channel, such as for Japan for channel 13.</p>
 <p>In order to use the desired channel, before building, make sure the WLAN connection region is configured correctly by reviewing/modifying the following lines in
 <strong>/examples/platform/silabs/efr32/rs911x/rsi_wlan_config.h</strong>:</p>
@@ -191,7 +192,7 @@ run from the <code class="docutils literal notranslate"><span class="pre">/conne
 </div>
 </section>
 <section id="incorrect-firmware-version">
-<h3>4 . Incorrect firmware version<a class="headerlink" href="#incorrect-firmware-version" title="Permalink to this heading"></a></h3>
+<h3>4 . Incorrect firmware version<a class="headerlink" href="#incorrect-firmware-version" title="Link to this heading"></a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>./third_party/silabs/wiseconnect-wifi-bt-sdk/firmware
 </pre></div>
 </div>
@@ -212,14 +213,14 @@ the currently using firmware version.</p>
 </ol>
 </section>
 <section id="apple-homepod-associated-failures">
-<h3>5 . Apple Homepod associated failures<a class="headerlink" href="#apple-homepod-associated-failures" title="Permalink to this heading"></a></h3>
+<h3>5 . Apple Homepod associated failures<a class="headerlink" href="#apple-homepod-associated-failures" title="Link to this heading"></a></h3>
 <p>If there is an Apple Homepod on the network paired with a Thread device, and a commissioning failure is seen with error <code class="docutils literal notranslate"><span class="pre">3000001</span></code>:</p>
 <blockquote>
 <div><p>Either remove the Apple Homepod from the network, or unpair it from all Thread devices, before re-trying the commissioning.</p>
 </div></blockquote>
 </section>
 <section id="commissioning-failure-at-step-18">
-<h3>6 . Commissioning failure at step 18<a class="headerlink" href="#commissioning-failure-at-step-18" title="Permalink to this heading"></a></h3>
+<h3>6 . Commissioning failure at step 18<a class="headerlink" href="#commissioning-failure-at-step-18" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Verify router configuration specifically related to IPV6 SLAAC, Internet Group Management Protocol (IGMP) snooping.</p></li>
 <li><p>Delete all the files of chip-tool /tmp folder. (<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">/tmp/chip_*</span></code>)</p></li>
@@ -227,15 +228,15 @@ the currently using firmware version.</p>
 </ol>
 </section>
 <section id="commissioning-failure-at-step-16">
-<h3>7. Commissioning failure at step 16<a class="headerlink" href="#commissioning-failure-at-step-16" title="Permalink to this heading"></a></h3>
+<h3>7. Commissioning failure at step 16<a class="headerlink" href="#commissioning-failure-at-step-16" title="Link to this heading"></a></h3>
 <p>Verify the access point settings, SSID, PSK, secirity type, REGION, CHANNEL.</p>
 </section>
 <section id="inconsistent-logs">
-<h3>8 . Inconsistent logs<a class="headerlink" href="#inconsistent-logs" title="Permalink to this heading"></a></h3>
+<h3>8 . Inconsistent logs<a class="headerlink" href="#inconsistent-logs" title="Link to this heading"></a></h3>
 <p>Verify external power is supplied to rs911x</p>
 </section>
 <section id="to-enable-different-security-options-on-ap-router">
-<h3>9 . To enable different security options on AP/Router<a class="headerlink" href="#to-enable-different-security-options-on-ap-router" title="Permalink to this heading"></a></h3>
+<h3>9 . To enable different security options on AP/Router<a class="headerlink" href="#to-enable-different-security-options-on-ap-router" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Get the router address by entering <code class="docutils literal notranslate"><span class="pre">route</span> <span class="pre">-n</span></code> or ifconfig of ipconfig.</p></li>
 <li><p>Enter the router address in the browser and enter the appropriate username and password.</p></li>
@@ -244,7 +245,7 @@ the currently using firmware version.</p>
 </ol>
 </section>
 <section id="chip-logs-are-not-available-on-mg12-wf200-due-to-image-size-constraints">
-<h3>10. CHIP Logs are not available on MG12 + WF200 due to image size constraints:<a class="headerlink" href="#chip-logs-are-not-available-on-mg12-wf200-due-to-image-size-constraints" title="Permalink to this heading"></a></h3>
+<h3>10. CHIP Logs are not available on MG12 + WF200 due to image size constraints:<a class="headerlink" href="#chip-logs-are-not-available-on-mg12-wf200-due-to-image-size-constraints" title="Link to this heading"></a></h3>
 <p>Due to apps taking up more space than available flash on the MG12 + WF200 device combination, <code class="docutils literal notranslate"><span class="pre">chip_logging=false</span></code> needs to be included on the command line while building the app image,
 to disable CHIP logs and thereby reduce the image size.</p>
 <p>This prevents debugging the code on the MG12 + WF200 device combination.</p>
@@ -258,7 +259,7 @@ CHIP Logging to be enabled.</p>
 <code class="docutils literal notranslate"><span class="pre">./scripts/examples/gn_silabs_example.sh</span> <span class="pre">examples/lock-app/silabs</span> <span class="pre">out/wf200_lock_app</span> <span class="pre">BRD4161A</span> <span class="pre">is_debug=false</span> <span class="pre">show_qr_code=false</span> <span class="pre">--wifi</span> <span class="pre">wf200</span> <span class="pre">|&amp;</span> <span class="pre">tee</span> <span class="pre">out/wf200_lock.log</span></code></p>
 </section>
 <section id="mg24-device-sometimes-loses-its-connection-to-ozone-during-ota-update-with-rs9116">
-<h3>11. MG24 device sometimes loses its connection to Ozone during OTA Update with RS9116:<a class="headerlink" href="#mg24-device-sometimes-loses-its-connection-to-ozone-during-ota-update-with-rs9116" title="Permalink to this heading"></a></h3>
+<h3>11. MG24 device sometimes loses its connection to Ozone during OTA Update with RS9116:<a class="headerlink" href="#mg24-device-sometimes-loses-its-connection-to-ozone-during-ota-update-with-rs9116" title="Link to this heading"></a></h3>
 <p>While performing an OTA Update with the EFR32MG24 + RS9116 device combination, when the device is reset and bootloading begins with the new image, the Ozone Debugger sometimes loses its connection.</p>
 <p>There are two possible workarounds to this:</p>
 <ol class="arabic simple">
@@ -267,7 +268,7 @@ CHIP Logging to be enabled.</p>
 </ol>
 </section>
 <section id="mg24-device-sometimes-fails-to-bootload-with-the-new-image-during-ota-update-with-wf200">
-<h3>12. MG24 device sometimes fails to bootload with the new image during OTA Update with WF200:<a class="headerlink" href="#mg24-device-sometimes-fails-to-bootload-with-the-new-image-during-ota-update-with-wf200" title="Permalink to this heading"></a></h3>
+<h3>12. MG24 device sometimes fails to bootload with the new image during OTA Update with WF200:<a class="headerlink" href="#mg24-device-sometimes-fails-to-bootload-with-the-new-image-during-ota-update-with-wf200" title="Link to this heading"></a></h3>
 <p>While performing an OTA Update with the EFR32MG24 + WF200 device combination using the external flash, when the device is reset and bootloading begins with the new image, the device sometimes starts up
 with the existing image instead of the newly downloaded one.</p>
 <p>When this happens, perform the following steps to run the OTA Update successfully:</p>

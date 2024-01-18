@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Getting Started with EFR32 Host in NCP Mode &mdash; Matter 2.2.0-1.2 documentation</title>
+  <title>Getting Started with EFR32 Host in NCP Mode &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -14,11 +14,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.0-1.2
+                2.3.0-1.3-alpha.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -73,14 +73,17 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="RUN_DEMO_SiWx917_SoC.html">Matter Demo on 917 SoC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JLINK_GUIDE_917.html">Matter 917 SoC JLink RTT Debugger</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SiWx917_Enablement_For_Ozone.html">Enablement of Ozone for 917 SOC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_dic.html">Wi-Fi Direct Internet Connectivity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html">Wi-Fi Intermittently Connected Devices (ICD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html">Matter Intermittently Connected Devices over WiFi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html#power-measurement">Power Measurement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="WIFI_Sleepy_Device_Power_Measurement.html">Wi-Fi ICD Power Measurement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MATTER_SHELL.html">Matter Shell Console</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_ecosystem.html">Matter Ecosystem Development</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
@@ -112,10 +115,10 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="getting-started-with-efr32-host-in-ncp-mode">
-<h1>Getting Started with EFR32 Host in NCP Mode<a class="headerlink" href="#getting-started-with-efr32-host-in-ncp-mode" title="Permalink to this heading"></a></h1>
+<h1>Getting Started with EFR32 Host in NCP Mode<a class="headerlink" href="#getting-started-with-efr32-host-in-ncp-mode" title="Link to this heading"></a></h1>
 <p>This page describes how to get started with developing an application on EFR32 host in Network Co-Processor (NCP) mode, where the application runs on the EFR32 host and the connectivity stack runs on the Wi-Fi chipset.</p>
 <section id="hardware-requirements">
-<h2>Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Permalink to this heading"></a></h2>
+<h2>Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Link to this heading"></a></h2>
 <p>The following hardware devices are required for executing Matter over Wi-Fi for NCP Mode:</p>
 <ul class="simple">
 <li><p>Refer, <a class="reference internal" href="../general/HARDWARE_REQUIREMENTS.html#matter-over-wi-fi-accessory-device-requirements-for-ncp-mode"><span class="std std-ref">Hardware Requirements</span></a></p></li>
@@ -133,10 +136,10 @@
 </ul>
 </section>
 <section id="software-requirements">
-<h2>Software Requirements<a class="headerlink" href="#software-requirements" title="Permalink to this heading"></a></h2>
+<h2>Software Requirements<a class="headerlink" href="#software-requirements" title="Link to this heading"></a></h2>
 <p>Below are the software tools, packages and images required for executing Matter over Wi-Fi for NCP Mode:</p>
 <section id="software-tools-requirements">
-<h3>Software Tools Requirements<a class="headerlink" href="#software-tools-requirements" title="Permalink to this heading"></a></h3>
+<h3>Software Tools Requirements<a class="headerlink" href="#software-tools-requirements" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Simplicity Commander for flashing bootloader and binary on EFR32 Boards</p></li>
 <li><p>Tera Term for flashing firmware on EFR32 NCP Boards.</p></li>
@@ -148,7 +151,7 @@ To install above software tools , refer <a class="reference internal" href="../g
 </section>
 </section>
 <section id="connect-the-boards-to-a-computer">
-<h2>Connect the Boards to a Computer<a class="headerlink" href="#connect-the-boards-to-a-computer" title="Permalink to this heading"></a></h2>
+<h2>Connect the Boards to a Computer<a class="headerlink" href="#connect-the-boards-to-a-computer" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Mount the EFx32 radio board on the EFx32 WSTK board.</p>
 <p><img alt="Silicon Labs - design" src="../_images/mount-efr32.png" /></p>
@@ -160,7 +163,7 @@ To install above software tools , refer <a class="reference internal" href="../g
 </ol>
 </section>
 <section id="updating-ncp-boards-connectivity-firmware">
-<h2>Updating NCP Boards Connectivity Firmware<a class="headerlink" href="#updating-ncp-boards-connectivity-firmware" title="Permalink to this heading"></a></h2>
+<h2>Updating NCP Boards Connectivity Firmware<a class="headerlink" href="#updating-ncp-boards-connectivity-firmware" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>We recommend to upgrade the NCP combos connectivity firmware to the latest available version when</p>
 <ul>
@@ -171,25 +174,59 @@ To install above software tools , refer <a class="reference internal" href="../g
 <li><p>Download the recommended version of firmware before you start with the update process from the <a class="reference internal" href="../general/ARTIFACTS.html"><span class="std std-doc">Matter Artifacts page</span></a></p></li>
 </ul>
 <section id="steps-to-update-the-firmware-on-ncp-boards-using-tera-term">
-<h3>Steps to update the firmware on NCP boards using Tera Term<a class="headerlink" href="#steps-to-update-the-firmware-on-ncp-boards-using-tera-term" title="Permalink to this heading"></a></h3>
+<h3>Steps to update the firmware on NCP boards using Tera Term<a class="headerlink" href="#steps-to-update-the-firmware-on-ncp-boards-using-tera-term" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>SiWx917 NCP or RS9116 EVK connectivity firmware can be upgraded using tera-term or kermit.</p></li>
 </ul>
+<section id="firmware-upgrade-on-rs9116">
+<h4>Firmware Upgrade On RS9116<a class="headerlink" href="#firmware-upgrade-on-rs9116" title="Link to this heading"></a></h4>
 <ol class="arabic">
-<li><p>Make sure that the switches on the expansion board are towards UART side.</p>
-<p><img alt="Switch Position before firmware flash" src="../_images/si917-board.png" /></p>
+<li><p>Connect the EVK to PC using the USB interface labeled UART as identified below.</p>
+<p><img alt="Switch Position before firmware flash" src="../_images/rs916-board.png" /></p>
 </li>
-<li><p>Refer <a class="reference external" href="https://docs.silabs.com/rs9116/wiseconnect/2.0/update-evk-firmware">Updating the Firmware</a></p></li>
-</ol>
-<p><strong>Note</strong>:Instructions are the same for both SiWx917 NCP and RS9116 EVK.</p>
-<ol class="arabic" start="3">
-<li><p>Once firmware flashing is done make sure to make switches back to Expansion mode, while using it with the host platform.</p>
-<p><img alt="Switch Position after firmware flash" src="../_images/mg21-si917-board.jpg" /></p>
+<li><p>If this is the first time connecting the EVK to your PC, verfy that it is properly detected by the PC. The EVK will appear to the PC as a COM port labeled USB Serial Port (COMx)</p></li>
+<li><p>Configure your terminal application with the following settings:</p>
+<ul class="simple">
+<li><p>Configure the serial port settings to 115200 baud / 8-bit data / No parity / 1 stop bit</p></li>
+<li><p>Enable local echo</p></li>
+<li><p>Set receive and transmit new-line characters to CR+LF</p></li>
+</ul>
 </li>
+<li><p>Refer to <a class="reference external" href="https://docs.silabs.com/rs9116/wiseconnect/2.0/tera-term-setup">Setup Tera Term and Updating the Firmware</a>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Instructions<span class="w"> </span>are<span class="w"> </span>the<span class="w"> </span>same<span class="w"> </span><span class="k">for</span><span class="w"> </span>both<span class="w"> </span>SiWx917<span class="w"> </span>NCP<span class="w"> </span>and<span class="w"> </span>RS9116<span class="w"> </span>EVK.
+</pre></div>
+</div>
+</li>
+<li><p>Once firmware flashing is done The console displays <strong>Loading…</strong> followed by <strong>Loading Done</strong>.</p></li>
 </ol>
 </section>
+<section id="firmware-upgrade-on-siwx917-ncp">
+<h4>Firmware Upgrade On SIWx917 NCP<a class="headerlink" href="#firmware-upgrade-on-siwx917-ncp" title="Link to this heading"></a></h4>
+<ol class="arabic">
+<li><p>Connect USB-UART Cable to Machine and WPK board as well with SOC Mounted on it.</p>
+<p><img alt="Connect NCP Board" src="../_images/ncp-board-connect.png" /></p>
+</li>
+<li><p>Connect USB-UART Cable 2(Yellow) to F9 and 3(Green) to F8 on WPK Board shown below.</p>
+<p><img alt="Connect Port Wires" src="../_images/connect-board-port.png" /></p>
+</li>
+<li><p>Configure your terminal application with the following settings:</p>
+<ul class="simple">
+<li><p>Configure the serial port settings to 115200 baud / 8-bit data / No parity / 1 stop bit</p></li>
+<li><p>Enable local echo</p></li>
+<li><p>Set receive and transmit new-line characters to CR+LF</p></li>
+</ul>
+</li>
+<li><p>Refer to <a class="reference external" href="https://docs.silabs.com/rs9116/wiseconnect/2.0/tera-term-setup">Setup Tera Term and Updating the Firmware</a>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Instructions<span class="w"> </span>are<span class="w"> </span>the<span class="w"> </span>same<span class="w"> </span><span class="k">for</span><span class="w"> </span>both<span class="w"> </span>SiWx917<span class="w"> </span>NCP<span class="w"> </span>and<span class="w"> </span>RS9116<span class="w"> </span>EVK.
+</pre></div>
+</div>
+</li>
+<li><p>Once firmware flashing is done The console displays <strong>Loading…</strong> followed by <strong>Loading Done</strong>.</p></li>
+</ol>
+</section>
+</section>
 <section id="troubleshoot-ncp-firmware-update-failure">
-<h3>Troubleshoot NCP Firmware Update Failure<a class="headerlink" href="#troubleshoot-ncp-firmware-update-failure" title="Permalink to this heading"></a></h3>
+<h3>Troubleshoot NCP Firmware Update Failure<a class="headerlink" href="#troubleshoot-ncp-firmware-update-failure" title="Link to this heading"></a></h3>
 <p>If the firmware update fails, try the following:</p>
 <ul class="simple">
 <li><p>Toggle the power switch towards AEM (Advanced Energy Monitoring) on the WSTK board.</p></li>
@@ -207,13 +244,13 @@ To install above software tools , refer <a class="reference internal" href="../g
 </section>
 </section>
 <section id="building-matter-application-on-efr32-device">
-<h2>Building Matter Application on EFR32 device<a class="headerlink" href="#building-matter-application-on-efr32-device" title="Permalink to this heading"></a></h2>
+<h2>Building Matter Application on EFR32 device<a class="headerlink" href="#building-matter-application-on-efr32-device" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>To build Matter Application on EFR32 device, refer <a class="reference internal" href="SW_SETUP.html"><span class="std std-doc">Building Procedure</span></a></p></li>
 </ul>
 </section>
 <section id="flashing-images-binaries-on-efr32-platform-using-ozone-or-simplicity-commander">
-<h2>Flashing Images/Binaries on EFR32 Platform using Ozone, or Simplicity Commander<a class="headerlink" href="#flashing-images-binaries-on-efr32-platform-using-ozone-or-simplicity-commander" title="Permalink to this heading"></a></h2>
+<h2>Flashing Images/Binaries on EFR32 Platform using Ozone, or Simplicity Commander<a class="headerlink" href="#flashing-images-binaries-on-efr32-platform-using-ozone-or-simplicity-commander" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Plug the WSTK and EFR into the laptop.</p></li>
 <li><p>Based on the Application being built, make sure to flash proper <a class="reference internal" href="../general/ARTIFACTS.html"><span class="std std-doc">bootloader</span></a> internal or external binaries.</p></li>
@@ -225,7 +262,7 @@ will display a GUI.</p>
 </ol>
 </section>
 <section id="directions-for-flashing-using-ozone">
-<h2>Directions for Flashing using Ozone<a class="headerlink" href="#directions-for-flashing-using-ozone" title="Permalink to this heading"></a></h2>
+<h2>Directions for Flashing using Ozone<a class="headerlink" href="#directions-for-flashing-using-ozone" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>In ‘New Project Wizard’:</p>
 <ol class="arabic simple">
@@ -303,7 +340,7 @@ following commands will provide you with a serial console of the EFR32</p>
 </ol>
 </section>
 <section id="enabling-jlink-rtt-logs-for-efr32-boards">
-<h2>Enabling JLink RTT Logs for EFR32 Boards<a class="headerlink" href="#enabling-jlink-rtt-logs-for-efr32-boards" title="Permalink to this heading"></a></h2>
+<h2>Enabling JLink RTT Logs for EFR32 Boards<a class="headerlink" href="#enabling-jlink-rtt-logs-for-efr32-boards" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Open JLink RTT Viewer and click on three dots beside <strong>Specify Target Device</strong></p>
 <p><img alt="Silicon Labs - design" src="../_images/jlink-rtt-ncp-selection.png" /></p>
@@ -318,7 +355,7 @@ following commands will provide you with a serial console of the EFR32</p>
 </ol>
 </section>
 <section id="demo-execution-commissioning-a-wi-fi-device-using-chip-tool-for-linux">
-<h2>Demo Execution - Commissioning a Wi-Fi Device using chip-tool for Linux<a class="headerlink" href="#demo-execution-commissioning-a-wi-fi-device-using-chip-tool-for-linux" title="Permalink to this heading"></a></h2>
+<h2>Demo Execution - Commissioning a Wi-Fi Device using chip-tool for Linux<a class="headerlink" href="#demo-execution-commissioning-a-wi-fi-device-using-chip-tool-for-linux" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p>Commissioning can be done using chip-tool running either on Linux or Raspberry
 Pi</p>

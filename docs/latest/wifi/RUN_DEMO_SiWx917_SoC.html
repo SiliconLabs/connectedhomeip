@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Getting Started with SoC Mode &mdash; Matter 2.2.0-1.2 documentation</title>
+  <title>Getting Started with SoC Mode &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -14,15 +14,15 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Ozone and JLink RTT Environment Setup for a SiWx917 SoC Device" href="SiWx917_Enablement_For_Ozone.html" />
+    <link rel="next" title="JLink RTT Environment Setup for a SiWx917 SoC Device" href="JLINK_GUIDE_917.html" />
     <link rel="prev" title="Getting Started with EFR32 Host in NCP Mode" href="RUN_DEMO.html" /> 
 </head>
 
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.0-1.2
+                2.3.0-1.3-alpha.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -62,24 +62,25 @@
 <li class="toctree-l2"><a class="reference internal" href="BUILD_PI_ENV.html">Build Chip Tool on Raspi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RUN_DEMO.html">Matter Demo on EFR32 NCP</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Matter Demo on 917 SoC</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#hardware-requirements">Hardware Requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#software-requirements">Software Requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#connect-the-boards-to-a-computer">Connect the Boards to a Computer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#updating-siwx917-soc-connectivity-firmware">Updating SiWx917 SoC Connectivity Firmware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-prerequisites">Check Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connect-siwx917-soc-to-computer">Connect SiWx917 SOC to Computer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#building-matter-application-on-soc-device">Building Matter Application on SOC device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#flashing-images-binaries-on-the-siwx917-soc-platform-using-ozone-and-simplicity-commander">Flashing Images/Binaries on the SiWx917 SoC platform using Ozone and Simplicity Commander</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#enabling-jlink-rtt-logs-for-soc-boards">Enabling JLink RTT Logs for SOC Boards</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#demo-execution-commissioning-a-siwx917-soc-device-using-chip-tool-for-linux">Demo Execution - Commissioning a SiWx917 SoC Device using chip-tool for Linux</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="JLINK_GUIDE_917.html">Matter 917 SoC JLink RTT Debugger</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SiWx917_Enablement_For_Ozone.html">Enablement of Ozone for 917 SOC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_dic.html">Wi-Fi Direct Internet Connectivity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html">Wi-Fi Intermittently Connected Devices (ICD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html">Matter Intermittently Connected Devices over WiFi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html#power-measurement">Power Measurement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="WIFI_Sleepy_Device_Power_Measurement.html">Wi-Fi ICD Power Measurement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MATTER_SHELL.html">Matter Shell Console</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_ecosystem.html">Matter Ecosystem Development</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
@@ -111,53 +112,53 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="getting-started-with-soc-mode">
-<h1>Getting Started with SoC Mode<a class="headerlink" href="#getting-started-with-soc-mode" title="Permalink to this heading"></a></h1>
+<h1>Getting Started with SoC Mode<a class="headerlink" href="#getting-started-with-soc-mode" title="Link to this heading"></a></h1>
 <p>This guide describes how to get started developing an application for the SiWx91x in System-on-chip (SoC) mode, where both the application and the networking stack run on the SiWx917 chipset.</p>
+<section id="check-prerequisites">
+<h2>Check Prerequisites<a class="headerlink" href="#check-prerequisites" title="Link to this heading"></a></h2>
+<p>In order to run Matter over Wi-Fi, check for the following prerequisites:</p>
 <section id="hardware-requirements">
-<h2>Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Permalink to this heading"></a></h2>
-<p>The following hardware devices are required for executing Matter over Wi-Fi for SOC Mode:</p>
+<h3>Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Link to this heading"></a></h3>
+<p>The following hardware devices are required for executing Matter over Wi-Fi:</p>
 <ul class="simple">
 <li><p>Refer, <a class="reference internal" href="../general/HARDWARE_REQUIREMENTS.html#matter-over-wi-fi-accessory-device-requirements-for-soc-mode"><span class="std std-ref">Hardware Requirements</span></a></p></li>
-<li><p>Additional hardwares required for SOC Boards:</p>
+<li><p>Silicon Labs Wireless starter/development kit (WSTK)</p></li>
+<li><p>SiWx917 SoC development kit</p></li>
+<li><p>Wi-Fi Dev Kit</p>
 <ul>
+<li><p>SiWx917</p>
+<ul>
+<li><p>SoC mode:</p>
+<ul>
+<li><p>BRD4388A (B0 2.0 common flash)
+SiWx917</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><p>Windows/Linux/MacOS computer with a USB port</p></li>
 <li><p>USB cable for connecting WSTK Board to Computer</p></li>
 <li><p>Raspberry Pi with a &gt;32 GB SD Card</p></li>
 <li><p>Access Point with Internet Access</p></li>
 </ul>
-</li>
-</ul>
 </section>
 <section id="software-requirements">
-<h2>Software Requirements<a class="headerlink" href="#software-requirements" title="Permalink to this heading"></a></h2>
-<p>Below are the software tools, packages and images required for executing Matter over Wi-Fi for SOC Mode:</p>
-<section id="software-tools-requirements">
-<h3>Software Tools Requirements<a class="headerlink" href="#software-tools-requirements" title="Permalink to this heading"></a></h3>
-<ul class="simple">
-<li><p>Simplicity Commander for flashing firmware and binary on SOC Boards</p></li>
-<li><p>Putty for controlling SOC hardware using chip-tool controller</p></li>
-<li><p>Ozone Debugger for logging and debugging (Optional)</p></li>
-<li><p>JLink RTT for logging only (Optional)
-To install above software tools , refer <a class="reference internal" href="../general/SOFTWARE_REQUIREMENTS.html"><span class="std std-doc">Software Installation</span></a></p></li>
-</ul>
+<h3>Software Requirements<a class="headerlink" href="#software-requirements" title="Link to this heading"></a></h3>
+<p>Refer to <a class="reference internal" href="../general/SOFTWARE_REQUIREMENTS.html"><span class="std std-doc">Software Requirements &amp; Installation </span></a></p>
 </section>
 </section>
-<section id="connect-the-boards-to-a-computer">
-<h2>Connect the Boards to a Computer<a class="headerlink" href="#connect-the-boards-to-a-computer" title="Permalink to this heading"></a></h2>
+<section id="connect-siwx917-soc-to-computer">
+<h2>Connect SiWx917 SOC to Computer<a class="headerlink" href="#connect-siwx917-soc-to-computer" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Mount the SiWx917 radio board on the SiWx917 WSTK board.</p>
 <p><img alt="Silicon Labs - design" src="../_images/mount-soc.png" /></p>
 </li>
 <li><p>Connect your SiWx917 Wireless Starter Kit (WSTK) board to your computer using a USB cable.</p></li>
 </ol>
-</section>
-<section id="updating-siwx917-soc-connectivity-firmware">
-<h2>Updating SiWx917 SoC Connectivity Firmware<a class="headerlink" href="#updating-siwx917-soc-connectivity-firmware" title="Permalink to this heading"></a></h2>
-<ul class="simple">
-<li><p>Download the recommended version of firmware before you start with the update process from the <a class="reference internal" href="../general/ARTIFACTS.html#siwx917-firmware-for-siwx917-soc"><span class="std std-ref">Matter Artifacts page</span></a></p></li>
-</ul>
 <section id="steps-to-update-the-firmware-on-siwx917-soc-radio-board-using-simplicity-commander">
-<h3>Steps to update the firmware on SiWx917 SoC radio board using Simplicity Commander<a class="headerlink" href="#steps-to-update-the-firmware-on-siwx917-soc-radio-board-using-simplicity-commander" title="Permalink to this heading"></a></h3>
+<h3>Steps to update the firmware on SiWx917 SoC radio board using Simplicity Commander<a class="headerlink" href="#steps-to-update-the-firmware-on-siwx917-soc-radio-board-using-simplicity-commander" title="Link to this heading"></a></h3>
 <ol class="arabic">
 <li><p>Open Simplicity Commander application.</p></li>
 <li><p>In the Simplicity Commander window, click Select Kit and choose your radio board.</p>
@@ -177,7 +178,7 @@ To install above software tools , refer <a class="reference internal" href="../g
 </ol>
 </section>
 <section id="troubleshoot-siwx917-soc-firmware-update-failure">
-<h3>Troubleshoot SiWx917 SOC Firmware Update Failure<a class="headerlink" href="#troubleshoot-siwx917-soc-firmware-update-failure" title="Permalink to this heading"></a></h3>
+<h3>Troubleshoot SiWx917 SOC Firmware Update Failure<a class="headerlink" href="#troubleshoot-siwx917-soc-firmware-update-failure" title="Link to this heading"></a></h3>
 <p>If the firmware update fails, try the following:</p>
 <ul class="simple">
 <li><p>Toggle the power switch towards AEM (Advanced Energy Monitoring) on the WSTK board.</p></li>
@@ -195,31 +196,26 @@ To install above software tools , refer <a class="reference internal" href="../g
 </section>
 </section>
 <section id="building-matter-application-on-soc-device">
-<h2>Building Matter Application on SOC device<a class="headerlink" href="#building-matter-application-on-soc-device" title="Permalink to this heading"></a></h2>
+<h2>Building Matter Application on SOC device<a class="headerlink" href="#building-matter-application-on-soc-device" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>To build Matter Application on SOC device, refer <a class="reference internal" href="SW_SETUP.html"><span class="std std-doc">Building Procedure</span></a></p></li>
 </ul>
 </section>
 <section id="flashing-images-binaries-on-the-siwx917-soc-platform-using-ozone-and-simplicity-commander">
-<h2>Flashing Images/Binaries on the SiWx917 SoC platform using Ozone and Simplicity Commander<a class="headerlink" href="#flashing-images-binaries-on-the-siwx917-soc-platform-using-ozone-and-simplicity-commander" title="Permalink to this heading"></a></h2>
+<h2>Flashing Images/Binaries on the SiWx917 SoC platform using Ozone and Simplicity Commander<a class="headerlink" href="#flashing-images-binaries-on-the-siwx917-soc-platform-using-ozone-and-simplicity-commander" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>SiWx917 SoC device support is available in the latest Simplicity Commander(version 1v15p3). To flash the TA Firmware/Matter application on SiWx917 SoC,</p>
 <ul>
-<li><p>Convert the .s37 file into .rps file using the below command,</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>commander rps create &lt;file-name&gt;.rps --app &lt;file-name&gt;.s37
-</pre></div>
-</div>
-</li>
+<li><p>Convert the .s37 file into .rps file using the below command,</p></li>
 <li><p>Flash to the device using,</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>commander rps load &lt;file-name&gt;.rps
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>commander rps load &lt;file-name&gt;.rps 
 </pre></div>
 </div>
 </li>
 </ul>
 </li>
-<li><p>Official support for SiWx917 SoC for Common Flash Board is not yet available in the Ozone Debugger, but can be configured for dual flash board - <a class="reference internal" href="SiWx917_Enablement_For_Ozone.html"><span class="std std-doc">Ozone Environment Setup for SiWx917 SoC</span></a>.</p></li>
-<li><p>917 SoC switch positions for Dual Flash Boards: Left switch should be on the <strong>OFF/LOW</strong>, and right switch should be on the <strong>NORMAL</strong> side.</p></li>
-<li><p>After creating rps file flash the binary to board by using Simplicity Commander, refer <a class="reference internal" href="../general/FLASHING_USING_COMMANDER.html#flashing-the-siwx917-soc-matter-pre-built-binary-using-simplicity-commander"><span class="std std-ref">Flashing SiWx917 SOC Using Simplicity Commander</span></a></p></li>
+<li><p>Official support for SiWx917 SoC for Common Flash Board is not yet available in the Ozone Debugger, but can be configured - <a class="reference internal" href="SiWx917_Enablement_For_Ozone.html"><span class="std std-doc">Ozone Environment Setup for SiWx917 SoC</span></a>.</p></li>
+<li><p>After creating the rps file flash the binary to the board by using Simplicity Commander, refer <a class="reference internal" href="../general/FLASHING_USING_COMMANDER.html#flashing-the-siwx917-soc-matter-pre-built-binary-using-simplicity-commander"><span class="std std-ref">Flashing SiWx917 SOC Using Simplicity Commander</span></a></p></li>
 <li><p>Flashing the Matter application using Ozone Debugger</p>
 <ul class="simple">
 <li><p>Download the Pre-built images for SiWx917 SoC Matter Application (.out file) from <a class="reference internal" href="../general/ARTIFACTS.html"><span class="std std-doc">Matter Artifacts page</span></a></p></li>
@@ -235,7 +231,7 @@ To install above software tools , refer <a class="reference internal" href="../g
 </ol>
 </section>
 <section id="enabling-jlink-rtt-logs-for-soc-boards">
-<h2>Enabling JLink RTT Logs for SOC Boards<a class="headerlink" href="#enabling-jlink-rtt-logs-for-soc-boards" title="Permalink to this heading"></a></h2>
+<h2>Enabling JLink RTT Logs for SOC Boards<a class="headerlink" href="#enabling-jlink-rtt-logs-for-soc-boards" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>To Configure the JLink RTT Viewer for SOC board, refer <a class="reference internal" href="SiWx917_Enablement_For_Ozone.html#steps-to-configure-the-siwx917-soc-on-the-jlink-rtt-logging-and-ozone-debugger"><span class="std std-ref">Configure JLink RTT</span></a></p></li>
 <li><p>Open JLink RTT Viewer and click on three dots beside <strong>Specify Target Device</strong></p>
@@ -251,7 +247,7 @@ To install above software tools , refer <a class="reference internal" href="../g
 </ol>
 </section>
 <section id="demo-execution-commissioning-a-siwx917-soc-device-using-chip-tool-for-linux">
-<h2>Demo Execution - Commissioning a SiWx917 SoC Device using chip-tool for Linux<a class="headerlink" href="#demo-execution-commissioning-a-siwx917-soc-device-using-chip-tool-for-linux" title="Permalink to this heading"></a></h2>
+<h2>Demo Execution - Commissioning a SiWx917 SoC Device using chip-tool for Linux<a class="headerlink" href="#demo-execution-commissioning-a-siwx917-soc-device-using-chip-tool-for-linux" title="Link to this heading"></a></h2>
 <blockquote>
 <div><p><strong>Note</strong>: Commissioning can be done using chip-tool running either on Linux or Raspberry Pi.</p>
 </div></blockquote>

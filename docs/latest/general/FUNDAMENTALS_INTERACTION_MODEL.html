@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Matter Interaction Model &mdash; Matter 2.2.0-1.2 documentation</title>
+  <title>The Matter Interaction Model &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -14,15 +14,15 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Matter Commissioning" href="COMMISSIONING.html" />
+    <link rel="next" title="Commissioning" href="COMMISSIONING.html" />
     <link rel="prev" title="The Matter Data Model" href="FUNDAMENTALS_DATA_MODEL.html" /> 
 </head>
 
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.0-1.2
+                2.3.0-1.3-alpha.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -59,22 +59,23 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">The Matter Interaction Model</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#the-read-interaction">The Read Interaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#the-write-interaction">The Write Interaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#the-invoke-interaction">The Invoke Interaction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#the-subscription-interaction">The Subscription Interaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#invoke-interaction">Invoke Interaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subscription-interaction">Subscription Interaction</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#relating-matter-to-zigbee">Relating Matter to Zigbee</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#matter-specifications">Matter Specifications</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="COMMISSIONING.html">Matter Commissioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OT_SLEEPY_END_DEVICE.html">Matter Intermittently Connected Devices over OpenThread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="COMMISSIONING.html">Commissioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SECURITY.html">Matter Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MATTER_ICD.html">Matter Intermittently Connected Devices (ICD)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OTA_BOOTLOADER.html">Creating Gecko Bootloader for Use in Matter OTA Software Update</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OTA_SOFTWARE_UPDATE.html">Matter Software Update with EFR32 Example Applications</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SECURITY.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OTA_SOFTWARE_UPDATE.html">Matter Software Update with Silicon Labs Example Applications</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
@@ -106,7 +107,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="the-matter-interaction-model">
-<h1>The Matter Interaction Model<a class="headerlink" href="#the-matter-interaction-model" title="Permalink to this heading"></a></h1>
+<h1>The Matter Interaction Model<a class="headerlink" href="#the-matter-interaction-model" title="Link to this heading"></a></h1>
 <p>The Matter Device Interaction Model (IM) defines the methods of communication between nodes, and serves as the common language for node-to-node information transmission.</p>
 <p>Nodes communicate with each other through interactions. Interactions are a sequence of transaction(s), which in turn are a sequence of actions.</p>
 <p>For example, in a Read Interaction, a client cluster can initiate a Read Transaction, where the client can request to read an attribute and a server cluster can respond by reporting the attribute. Both the client request and the server response are separate actions, but they are part of the same Read Transaction, which the Read Interaction encompasses.</p>
@@ -141,7 +142,7 @@
 </ul>
 <p>The following sections review each of the four interaction types and their constituent transactions and actions.</p>
 <section id="the-read-interaction">
-<h2>The Read Interaction<a class="headerlink" href="#the-read-interaction" title="Permalink to this heading"></a></h2>
+<h2>The Read Interaction<a class="headerlink" href="#the-read-interaction" title="Link to this heading"></a></h2>
 <p><img alt="Diagram of a Read Interaction" src="../_images/read-interaction.jpg" /></p>
 <p>An initiator starts a Read Interaction when it wants to determine the value of one or more of a target node’s attributes or events. The following steps occur:</p>
 <ol class="arabic simple">
@@ -157,12 +158,12 @@
 <p>Read Transactions are restricted to unicast only. This means that the Read Request and Report Data actions cannot target groups of nodes, whereas the Status Response Action cannot be generated as a response to a groupcast.</p>
 </section>
 <section id="the-write-interaction">
-<h2>The Write Interaction<a class="headerlink" href="#the-write-interaction" title="Permalink to this heading"></a></h2>
+<h2>The Write Interaction<a class="headerlink" href="#the-write-interaction" title="Link to this heading"></a></h2>
 <p><img alt="Diagram of Timed Write Interaction" src="../_images/timed-write-interaction.jpg" /></p>
 <p>An initiator modifies a target’s attributes through a Write Interaction, which consists of either a Timed or Untimed Write Transaction.</p>
 <p>An untimed transaction remains open to the receiver for an indefinite period, whereas a timed transaction establishes a maximum period (usually a few seconds) to receive a return action.</p>
 <section id="timed-transactions-and-security">
-<h3>Timed Transactions and Security<a class="headerlink" href="#timed-transactions-and-security" title="Permalink to this heading"></a></h3>
+<h3>Timed Transactions and Security<a class="headerlink" href="#timed-transactions-and-security" title="Link to this heading"></a></h3>
 <p>Timed transactions are mainly used for devices such as doors or locks because they protect assets and thus are a greater target for intercept attacks. To understand why timed transactions are effective it is important to understand the nature of intercept attacks:</p>
 <ol class="arabic simple">
 <li><p>The initiator node sends an initial message directed to the target node.</p></li>
@@ -175,7 +176,7 @@
 <p>Although timed transactions are important in guarding against attacks, they increase the complexity of a network since they need more actions. Therefore, they are only recommended for use on transactions that give access to valuable information.</p>
 </section>
 <section id="timed-write-transactions">
-<h3>Timed Write Transactions<a class="headerlink" href="#timed-write-transactions" title="Permalink to this heading"></a></h3>
+<h3>Timed Write Transactions<a class="headerlink" href="#timed-write-transactions" title="Link to this heading"></a></h3>
 <p>A Timed Write Transaction consists of the following sequence of actions:</p>
 <ol class="arabic">
 <li><p><strong>Timed Request Action</strong> - Sets the time interval to send a Write Request Action.</p></li>
@@ -192,16 +193,16 @@
 </ol>
 </section>
 <section id="untimed-write-transactions">
-<h3>Untimed Write Transactions<a class="headerlink" href="#untimed-write-transactions" title="Permalink to this heading"></a></h3>
+<h3>Untimed Write Transactions<a class="headerlink" href="#untimed-write-transactions" title="Link to this heading"></a></h3>
 <p>An Untimed Write Transaction requires only the Write Request Action and the Write Response Action Timed Write Transaction since there is no time interval that needs to be set or confirmed.</p>
 </section>
 <section id="write-transaction-restrictions">
-<h3>Write Transaction Restrictions<a class="headerlink" href="#write-transaction-restrictions" title="Permalink to this heading"></a></h3>
+<h3>Write Transaction Restrictions<a class="headerlink" href="#write-transaction-restrictions" title="Link to this heading"></a></h3>
 <p>Untimed and timed Write Transactions differ in their restrictions. All actions in timed transactions are unicast-only, whereas Untimed Write Request Actions may be multicast but require the Suppress Response flag to be set to prevent the network from flooding with status responses.</p>
 </section>
 </section>
-<section id="the-invoke-interaction">
-<h2>The Invoke Interaction<a class="headerlink" href="#the-invoke-interaction" title="Permalink to this heading"></a></h2>
+<section id="invoke-interaction">
+<h2>Invoke Interaction<a class="headerlink" href="#invoke-interaction" title="Link to this heading"></a></h2>
 <p><img alt="Diagram of a Timed Invoke Interaction" src="../_images/timed-invoke-interaction.jpg" /></p>
 <p>An initiator invokes command(s) on a target’s cluster(s) through Invoke Interactions. An Invoke Interaction consists of either a Timed or Untimed Invoke Transaction, just like a Write Interaction consists of a Timed or Untimed Write Transaction.</p>
 <p>Just like a Timed Write Transaction, a Timed Invoke Transaction consists of the following steps:</p>
@@ -221,13 +222,13 @@
 </ol>
 <p>Untimed and timed Invoke Transactions differ in the same way that untimed and timed Write Transactions differ, both in their actions and restrictions on unicast or multicast.</p>
 </section>
-<section id="the-subscription-interaction">
-<h2>The Subscription Interaction<a class="headerlink" href="#the-subscription-interaction" title="Permalink to this heading"></a></h2>
+<section id="subscription-interaction">
+<h2>Subscription Interaction<a class="headerlink" href="#subscription-interaction" title="Link to this heading"></a></h2>
 <p><img alt="Diagram of a Subscription Interaction" src="../_images/subscription-interaction.jpg" /></p>
 <p>An initiator uses a Subscription Interaction to automatically receive periodic Report Data Transactions from the target. This creates a relationship between the initiator and target, which are referred to respectively as the subscriber and publisher after the subscription has been made.</p>
 <p>Subscription Interactions include two transactions types: A Subscribe Transaction and Report Transaction.</p>
 <section id="subscribe-transaction">
-<h3>Subscribe Transaction<a class="headerlink" href="#subscribe-transaction" title="Permalink to this heading"></a></h3>
+<h3>Subscribe Transaction<a class="headerlink" href="#subscribe-transaction" title="Link to this heading"></a></h3>
 <p>The Subscribe Transaction is as follows:</p>
 <ol class="arabic simple">
 <li><p><strong>Subscribe Request Action</strong> - Requests three items:</p>
@@ -243,7 +244,7 @@
 </ol>
 </section>
 <section id="report-transaction">
-<h3>Report Transaction<a class="headerlink" href="#report-transaction" title="Permalink to this heading"></a></h3>
+<h3>Report Transaction<a class="headerlink" href="#report-transaction" title="Link to this heading"></a></h3>
 <p>After a successful subscription, Report Transactions are sent to the subscriber. There are two types of Report Transactions: non-empty and empty.</p>
 <ol class="arabic simple">
 <li><p><strong>Non-empty</strong></p>
@@ -260,7 +261,7 @@
 </ol>
 </section>
 <section id="subscription-interaction-restrictions">
-<h3>Subscription Interaction Restrictions<a class="headerlink" href="#subscription-interaction-restrictions" title="Permalink to this heading"></a></h3>
+<h3>Subscription Interaction Restrictions<a class="headerlink" href="#subscription-interaction-restrictions" title="Link to this heading"></a></h3>
 <p>Subscription Interactions have a few restrictions.</p>
 <ul class="simple">
 <li><p>First, the Subscribe Request and Subscribe Response actions are unicast-only, meaning an initiator cannot subscribe to more than one target simultaneously.</p></li>
@@ -270,11 +271,11 @@
 </section>
 </section>
 <section id="relating-matter-to-zigbee">
-<h2>Relating Matter to Zigbee<a class="headerlink" href="#relating-matter-to-zigbee" title="Permalink to this heading"></a></h2>
+<h2>Relating Matter to Zigbee<a class="headerlink" href="#relating-matter-to-zigbee" title="Link to this heading"></a></h2>
 <p>The Matter Interaction Model originates from Chapter 2 in the Zigbee Cluster Library found here: <a class="reference external" href="https://groups.csa-iot.org/wg/members-all/document/23019">https://groups.csa-iot.org/wg/members-all/document/23019</a>; the Interaction model extends this by abstracting interactions from other layers (security, transport, message format, encoding). The Interaction Model fills in gaps in the Zigbee Cluster Library identified by the Matter Data Model Tiger Team, adding Multi-Element Message support, Synchronized Reporting, reduce message types in commands and actions, complex data type support in all messages, Events, and interception attack.</p>
 </section>
 <section id="matter-specifications">
-<h2>Matter Specifications<a class="headerlink" href="#matter-specifications" title="Permalink to this heading"></a></h2>
+<h2>Matter Specifications<a class="headerlink" href="#matter-specifications" title="Link to this heading"></a></h2>
 <p>More information on the Matter Interaction Model can be found in Chapter 8 of Matter Core Specifications <a class="reference external" href="https://csa-iot.org/developer-resource/specifications-download-request/">Specifications Download Request - CSA-IOT</a>.</p>
 </section>
 </section>

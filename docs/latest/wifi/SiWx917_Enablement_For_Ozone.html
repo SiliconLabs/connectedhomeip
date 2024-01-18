@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ozone and JLink RTT Environment Setup for a SiWx917 SoC Device &mdash; Matter 2.2.0-1.2 documentation</title>
+  <title>Ozone and JLink RTT Environment Setup for a SiWx917 SoC Device &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -14,16 +14,16 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Wi-Fi Direct Internet Connectivity" href="../nav_5_wifi_dic.html" />
-    <link rel="prev" title="Getting Started with SoC Mode" href="RUN_DEMO_SiWx917_SoC.html" /> 
+    <link rel="prev" title="JLink RTT Environment Setup for a SiWx917 SoC Device" href="JLINK_GUIDE_917.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.0-1.2
+                2.3.0-1.3-alpha.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -62,18 +62,21 @@
 <li class="toctree-l2"><a class="reference internal" href="BUILD_PI_ENV.html">Build Chip Tool on Raspi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RUN_DEMO.html">Matter Demo on EFR32 NCP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RUN_DEMO_SiWx917_SoC.html">Matter Demo on 917 SoC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JLINK_GUIDE_917.html">Matter 917 SoC JLink RTT Debugger</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Enablement of Ozone for 917 SOC</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#steps-to-configure-the-siwx917-soc-on-the-jlink-rtt-logging-and-ozone-debugger">Steps to Configure the SiWx917 SoC on the JLink-RTT Logging and Ozone Debugger</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#siwx917-soc-factory-reset">SiWx917 SOC Factory Reset</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_dic.html">Wi-Fi Direct Internet Connectivity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html">Wi-Fi Intermittently Connected Devices (ICD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html">Matter Intermittently Connected Devices over WiFi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html#power-measurement">Power Measurement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="WIFI_Sleepy_Device_Power_Measurement.html">Wi-Fi ICD Power Measurement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MATTER_SHELL.html">Matter Shell Console</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_ecosystem.html">Matter Ecosystem Development</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
@@ -105,7 +108,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="ozone-and-jlink-rtt-environment-setup-for-a-siwx917-soc-device">
-<h1>Ozone and JLink RTT Environment Setup for a SiWx917 SoC Device<a class="headerlink" href="#ozone-and-jlink-rtt-environment-setup-for-a-siwx917-soc-device" title="Permalink to this heading"></a></h1>
+<h1>Ozone and JLink RTT Environment Setup for a SiWx917 SoC Device<a class="headerlink" href="#ozone-and-jlink-rtt-environment-setup-for-a-siwx917-soc-device" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p>Ozone debugging support is enabled for SiWx917 Dual flash boards only.</p></li>
 <li><p>For Common Flash Boards Ozone debugging support is not enabled.</p></li>
@@ -113,7 +116,7 @@
 <li><p>Follow the steps to manually configure the SiWx917 SoC with Latest Ozone Debugger.</p></li>
 </ul>
 <section id="steps-to-configure-the-siwx917-soc-on-the-jlink-rtt-logging-and-ozone-debugger">
-<h2>Steps to Configure the SiWx917 SoC on the JLink-RTT Logging and Ozone Debugger<a class="headerlink" href="#steps-to-configure-the-siwx917-soc-on-the-jlink-rtt-logging-and-ozone-debugger" title="Permalink to this heading"></a></h2>
+<h2>Steps to Configure the SiWx917 SoC on the JLink-RTT Logging and Ozone Debugger<a class="headerlink" href="#steps-to-configure-the-siwx917-soc-on-the-jlink-rtt-logging-and-ozone-debugger" title="Link to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Update the <strong>JlinkDevices.xml</strong> and <strong>ELF</strong> files found in the <a class="reference internal" href="../general/ARTIFACTS.html"><span class="std std-doc">Matter Artifacts page</span></a>.</p>
 <ul class="simple">
@@ -165,15 +168,15 @@
 </ol>
 </section>
 <section id="siwx917-soc-factory-reset">
-<h2>SiWx917 SOC Factory Reset<a class="headerlink" href="#siwx917-soc-factory-reset" title="Permalink to this heading"></a></h2>
+<h2>SiWx917 SOC Factory Reset<a class="headerlink" href="#siwx917-soc-factory-reset" title="Link to this heading"></a></h2>
 <section id="factory-reset-without-ozone">
-<h3>Factory Reset without Ozone<a class="headerlink" href="#factory-reset-without-ozone" title="Permalink to this heading"></a></h3>
+<h3>Factory Reset without Ozone<a class="headerlink" href="#factory-reset-without-ozone" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Press the BTN0 on WSTK for about 6-7 seconds. The LED0 will flash 5 times and board will reboot.</p></li>
 </ol>
 </section>
 <section id="factory-reset-with-ozone">
-<h3>Factory Reset with Ozone<a class="headerlink" href="#factory-reset-with-ozone" title="Permalink to this heading"></a></h3>
+<h3>Factory Reset with Ozone<a class="headerlink" href="#factory-reset-with-ozone" title="Link to this heading"></a></h3>
 <ol class="arabic">
 <li><p>You will get “Target Connection Lost” pop-up on Ozone, click <strong>YES</strong>.</p>
 <p><img alt="Silicon Labs - SiWx917 SoC Ozone Target Connection Lost" src="../_images/SiWx917_SoC_TargetConnectionLost.png" /></p>

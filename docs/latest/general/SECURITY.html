@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Security &mdash; Matter 2.2.0-1.2 documentation</title>
+  <title>Matter Security &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -14,16 +14,16 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Matter Development Prerequisites" href="../nav_2_prereq.html" />
-    <link rel="prev" title="Matter Software Update with EFR32 Example Applications" href="OTA_SOFTWARE_UPDATE.html" /> 
+    <link rel="next" title="Matter Intermittently Connected Devices (ICD)" href="MATTER_ICD.html" />
+    <link rel="prev" title="Commissioning" href="COMMISSIONING.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.0-1.2
+                2.3.0-1.3-alpha.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -57,22 +57,26 @@
 <li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_INTRO.html">Introduction to Matter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_DATA_MODEL.html">The Matter Data Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_INTERACTION_MODEL.html">The Matter Interaction Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="COMMISSIONING.html">Matter Commissioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OT_SLEEPY_END_DEVICE.html">Matter Intermittently Connected Devices over OpenThread</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OTA_BOOTLOADER.html">Creating Gecko Bootloader for Use in Matter OTA Software Update</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OTA_SOFTWARE_UPDATE.html">Matter Software Update with EFR32 Example Applications</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Security</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#general">General</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#message-protection">Message Protection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#device-attestation">Device Attestation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#distributed-compliance-ledger">Distributed Compliance Ledger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="COMMISSIONING.html">Commissioning</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Matter Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#principles">Principles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#security-tenants-promoted-by-the-connectivity-standards-alliance-csa">Security Tenants Promoted by the Connectivity Standards Alliance (CSA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matter-security-relevant-nomenclature">Matter Security Relevant Nomenclature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matter-security-provisioning">Matter Security Provisioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#commissioning-steps">Commissioning Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matter-security-requirements">Matter Security Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matter-secure-manufacturing">Matter Secure Manufacturing</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="MATTER_ICD.html">Matter Intermittently Connected Devices (ICD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OTA_BOOTLOADER.html">Creating Gecko Bootloader for Use in Matter OTA Software Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OTA_SOFTWARE_UPDATE.html">Matter Software Update with Silicon Labs Example Applications</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
@@ -93,7 +97,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../nav_1_overview.html">Matter Overview</a></li>
-      <li class="breadcrumb-item active">Security</li>
+      <li class="breadcrumb-item active">Matter Security</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/general/SECURITY.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -103,61 +107,330 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="security">
-<h1>Security<a class="headerlink" href="#security" title="Permalink to this heading"></a></h1>
-<section id="general">
-<h2>General<a class="headerlink" href="#general" title="Permalink to this heading"></a></h2>
-<p>Each Matter device gets two certificates. The first, the <strong>device certificate</strong>, is programmed by the manufacturer before the device is shipped. This will be used later for device attestation when trying to join the network. The other, the <strong>operational certificate</strong>, is assigned by the commissioner in the commissioning stage. Certificates natively use a CHIP TLV format but can convert to/from X.509 format. All devices are given an operational certificate to prove their authorization on the Matter network (fabric) and securely identify them.</p>
-<p>Communication between Matter devices is protected with different keys in different stages. At the commissioning stage, the key is a result of the Password Authenticated Session Establishment (<strong>PASE</strong>) process over the commissioning channel using the passcode from the device’s QR code as the input. During this initial setup, verification of possession of the passcode by both commissioner and joining device is confirmed. At the operational stage, the key is a result of the Certificate Authenticated Session Establishment (<strong>CASE</strong>) process over the operational channel using the operational certificate as the input. These sessions are used during normal operation between controller and device to validate that both are part of the Matter network.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="matter-security">
+<h1>Matter Security<a class="headerlink" href="#matter-security" title="Link to this heading"></a></h1>
+<p>Matter raises the bar on security to a new level beyond simply guaranteeing the communication pipe is secure. Now, the end device must be proven to be authentic. The Matter Node Security will likely raise over time. As threats evolve, the SHOULDs will become SHALLs. Creating Secure Identities and injecting them securely in your manufacturing process is not trivial and can be costly. Silicon Labs has the hardware, software, and services to get your secure Matter products to market quickly and cost effectively.</p>
+<p>Register at <a class="reference external" href="https://www.silabs.com/about-us/events/tech-talks-wireless-technology-training/matter">Silicon Labs Tech Talks</a> to watch a detailed on-demand discussion of Matter Security, along with other tech talks as part of the Interactive Matter Training Series.</p>
+<blockquote>
+<div><p>Note: All graphics were extracted from the Tech Talk, <em>Future-Proofing Matter Security with Secure Vault</em>, created by the Connectivity Standards Alliance (CSA) and used with permission.</p>
+</div></blockquote>
 <section id="principles">
-<h3>Principles<a class="headerlink" href="#principles" title="Permalink to this heading"></a></h3>
-<p>The following are guiding principles for the Matter security design:</p>
+<h2>Principles<a class="headerlink" href="#principles" title="Link to this heading"></a></h2>
+<p>The following are the guiding principles for the Matter security design:</p>
 <ol class="arabic simple">
-<li><p><strong>No anonymous joining</strong> - Always requires “proof of ownership” (that is, a device-specific passcode)</p></li>
-<li><p><strong>Device Attestation</strong> - Every device has unique identity that is authenticated by the manufacturer and verified through the CSA as a certified device</p></li>
-<li><p><strong>Operational Credentials</strong> - When commissioned onto a Matter network every device is given unique operational credentials after verifying their manufacturer credentials</p></li>
-<li><p><strong>Network credentials are given only <em>after</em> device authentication</strong> - Wi-Fi network key or Thread Master Key are not given until device’s certificate is verified</p></li>
-<li><p><strong>Open standard and open-source software</strong> - Open to third parties vetting the claims by examining the standard and auditing the source code</p></li>
+<li><p><strong>No anonymous joining</strong>: Always requires “proof of ownership” (that is, a device-specific passcode).</p></li>
+<li><p><strong>Device Attestation</strong>: Every device has unique identity that is authenticated by the manufacturer and verified through the CSA as a certified device.</p></li>
+<li><p><strong>Operational Credentials</strong>: When commissioned onto a Matter network, every device is given unique operational credentials after verifying their manufacturer credentials.</p></li>
+<li><p><strong>Network Credentials</strong>: The Wi-Fi network key or Thread Master key are not given until the device’s certificate is verified and authenticated properly.</p></li>
+<li><p><strong>Open standard</strong>: The open-source software is open to third parties vetting the claims by examining the standard and auditing the source code.</p></li>
 </ol>
 </section>
+<section id="security-tenants-promoted-by-the-connectivity-standards-alliance-csa">
+<h2>Security Tenants Promoted by the Connectivity Standards Alliance (CSA)<a class="headerlink" href="#security-tenants-promoted-by-the-connectivity-standards-alliance-csa" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Easy, secure, and flexible device commissioning</p></li>
+<li><p>Validation that each device is authentic and certified</p></li>
+<li><p>Up-to-date information via Distributed Compliance Ledger</p></li>
+<li><p>Strong device identity so only your devices can join</p></li>
+<li><p>Secured communications protecting confidentiality, etc.</p></li>
+<li><p>Even group communications secured</p></li>
+<li><p>Multiple administrators and controllers, maximizing choice</p></li>
+<li><p>Verified access controls to prevent unauthorized actions</p></li>
+<li><p>Secured, standard software updates</p></li>
+<li><p>Remote monitoring of software integrity</p></li>
+</ol>
+</section>
+<section id="matter-security-relevant-nomenclature">
+<h2>Matter Security Relevant Nomenclature<a class="headerlink" href="#matter-security-relevant-nomenclature" title="Link to this heading"></a></h2>
+<p><img alt="Matter Network Example" src="../_images/matter-network-example.png" /></p>
+<ul class="simple">
+<li><p><strong>Node</strong>: An independently addressable entity on a Matter network, which must be running an approved protocol (eg, Wi-Fi and Thread).</p></li>
+<li><p><strong>Device</strong>: Anything that you take out of a box, such as a thermostat. Devices can have multiple nodes.</p></li>
+<li><p><strong>Router</strong>: A standard router found in homes.</p></li>
+<li><p><strong>Controller</strong>: Controls multiple nodes on a network.</p></li>
+<li><p><strong>Commissioner</strong>: Can commission multiple nodes on a network in three ways:</p>
+<ul>
+<li><p>BLE (most common)</p></li>
+<li><p>Wi-Fi AP protocol</p></li>
+<li><p>Ethernet</p></li>
+</ul>
+</li>
+</ul>
+<p>Once commissioned, devices can start communicating on the Matter network via an approved protocol, usually Wi-Fi.</p>
+<p>A <strong>Bridge</strong> bridges to other protocols, such as Zigbee or ZWave to allow other devices communicate in the network.</p>
+<p>A <strong>Border Router</strong> is intended to perform the communication protocol translation between approved protocols. It does not bridge between other protocols.</p>
+<p><strong>Device Identity</strong> starts with an identity within the device called a device attestation certificate (DAC). Any device that needs to be commissioned needs a DAC. If the device is inherently trusted within the ecosystem that it’s trying to join, it does not need a DAC. If not, it does need a DAC.</p>
+<p>End devices are what need to be trusted.</p>
+</section>
+<section id="matter-security-provisioning">
+<h2>Matter Security Provisioning<a class="headerlink" href="#matter-security-provisioning" title="Link to this heading"></a></h2>
+<section id="certificates-and-process-overview">
+<h3>Certificates and Process Overview<a class="headerlink" href="#certificates-and-process-overview" title="Link to this heading"></a></h3>
+<p>Each Matter device gets two certificates. The first, the <strong>device certificate</strong>, is programmed by the manufacturer before the device is shipped. This will be used later for device attestation when trying to join the network. The other, the <strong>operational certificate</strong>, is assigned by the commissioner in the commissioning stage. Certificates natively use a CHIP TLV format but can convert to/from X.509 format. All devices are given an operational certificate to prove their authorization on the Matter network (fabric) and securely identify them.</p>
+<p>Communication between Matter devices is protected with different keys in different stages. At the commissioning stage, the key is a result of the Password Authenticated Session Establishment (<strong>PASE</strong>) process over the commissioning channel using the passcode from the device’s QR code as the input. During this initial setup, verification of possession of the passcode by both commissioner and joining device is confirmed. At the operational stage, the key is a result of the Certificate Authenticated Session Establishment (<strong>CASE</strong>) process over the operational channel using the operational certificate as the input. These sessions are used during normal operation between controller and device to validate that both are part of the Matter network.</p>
 </section>
 <section id="message-protection">
-<h2>Message Protection<a class="headerlink" href="#message-protection" title="Permalink to this heading"></a></h2>
+<h3>Message Protection<a class="headerlink" href="#message-protection" title="Link to this heading"></a></h3>
 <p>Various cryptographic algorithms are used to ensure communication security and integrity. These include:</p>
 <ul class="simple">
-<li><p><strong>Hashing Algorithm</strong> - SHA-256</p></li>
-<li><p><strong>Message Authentication</strong> - HMAC-SHA-256</p></li>
-<li><p><strong>Public Key</strong> - ECC Curve NIST P-256</p></li>
-<li><p><strong>Message Encryption</strong> - AES-CCM (128 bit keys)</p></li>
+<li><p><strong>Hashing Algorithm</strong>: SHA-256</p></li>
+<li><p><strong>Message Authentication</strong>: HMAC-SHA-256</p></li>
+<li><p><strong>Public Key</strong>: ECC Curve NIST P-256</p></li>
+<li><p><strong>Message Encryption</strong>: AES-CCM (128 bit keys)</p></li>
 </ul>
-<p><img alt="Payload Encryption" src="../_images/PayloadEncryption.png" /></p>
-<p><strong>Confidentiality</strong> - Message payload is encrypted by the encryption key (AES)</p>
-<p><img alt="Address Encryption" src="../_images/AddressEncryption.png" /></p>
-<p><strong>Privacy</strong> - Addresses are encrypted by the privacy key</p>
+<p><img alt="Payload Encryption" src="../_images/payloadencryption.png" /></p>
+<p><strong>Confidentiality</strong>: Message payload is encrypted by the encryption key (AES)</p>
+<p><img alt="Address Encryption" src="../_images/addressencryption.png" /></p>
+<p><strong>Privacy</strong>: Addresses are encrypted by the privacy key</p>
 </section>
-<section id="device-attestation">
-<h2>Device Attestation<a class="headerlink" href="#device-attestation" title="Permalink to this heading"></a></h2>
-<p>Every device has a unique certificate that is signed by the manufacturer. There is no single root CA across all devices. During commissioning the device is challenged to prove possession of the associated private key. The certificate can be validated against the Distributed Compliance Ledger (<strong>DCL</strong>) to verify device certification status</p>
-<p><img alt="Certificate Authentication" src="../_images/CertificateAuthentication.png" /></p>
-<p>The hierarchy allows for a 3-level tier:</p>
+<section id="onboarding-payload">
+<h3>Onboarding Payload<a class="headerlink" href="#onboarding-payload" title="Link to this heading"></a></h3>
+<p>The Onboarding Payload is the information used by the Commissioner to ensure interoperability between commissioners and devices. It can be encoded in different formats:</p>
 <ul class="simple">
-<li><p>The first level is the Product Attestation Authority (<strong>PAA</strong>)</p></li>
-<li><p>The PAA will be used to sign the Product Attestation Intermediate (<strong>PAI</strong>)</p></li>
-<li><p>The PAI will be used to sign the Device Attestation Certificate (<strong>DAC</strong>). The DAC will be transferred to the commissioner and verified against the DCL.</p></li>
+<li><p>Human-readable (numeric string)</p></li>
+<li><p>Machine-readable (QR code and NFC tag)</p></li>
 </ul>
-<p><img alt="Attestation Overview" src="../_images/AttestationOverview.png" /></p>
-<p>DAC is retrieved and verified before the device joins the Thread or Wi-Fi network. The Commissioner issues a challenge to the device to prove it possesses the associated Private Key.</p>
+<p><img alt="Matter Onboarding Payload" src="../_images/matter-onboarding-payload.png" /></p>
+<div class="custom-table{width=25%,75%} docutils">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Onboarding Payload Element</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Version</p></td>
+<td><p>Provides versioning of the payload.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Vendor ID</p></td>
+<td><p>Assigned by CSA. Allows a way to identify the maker of the device.</p></td>
+</tr>
+<tr class="row-even"><td><p>Product ID</p></td>
+<td><p>Vendor specified. Unique for each certified product within a Vendor ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Custom Flow</p></td>
+<td><p>:para[Indicates to the Commissioner the steps needed before commissioning can take place.] :list[Standard commissioning flow: A device, when uncommissioned, always enters commissioning mode upon power-up. \n User-intent commissioning flow: Device requires user action (pressing a button, for example) to enter commissioning mode. \n Custom commissioning flow: Interaction with a service provided by the manufacturer is required for initial device setup.] {type=unordered}</p></td>
+</tr>
+<tr class="row-even"><td><p>Discovery Capabilities Bitmask</p></td>
+<td><p>:para[Indicate device’s available technologies for device discovery:] :list[Soft-AP \n BLE \n On IP Network (device is already on the IP network)] {type=unordered}</p></td>
+</tr>
+<tr class="row-odd"><td><p>Discriminator</p></td>
+<td><p>Helps to further identify potential devices during the setup process.</p></td>
+</tr>
+<tr class="row-even"><td><p>Passcode</p></td>
+<td><p>Establishes proof of possession and is also used as the shared secret for the initial secure channel before further onboarding steps.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TLV Data</p></td>
+<td><p>:para[(Optional) TLV (Tag-length-value) data.] :para[Indicates manufacturer-specific information elements and/or elements common to Matter. For instance, kTag_NumberOfDevices: Number of devices that are expected to be onboarded using this payload when using the Enhanced Commissioning Method.]</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="commissioning-steps">
+<h2>Commissioning Steps<a class="headerlink" href="#commissioning-steps" title="Link to this heading"></a></h2>
+<p>There are four steps involved in commissioning devices to start communicating on a Matter network:</p>
+<ol class="arabic simple">
+<li><p>Device Discovery</p></li>
+<li><p>Secure Channel (PASE)</p></li>
+<li><p>Device Attestation</p></li>
+<li><p>Configuration</p></li>
+</ol>
+<section id="device-discovery">
+<h3>1. Device Discovery<a class="headerlink" href="#device-discovery" title="Link to this heading"></a></h3>
+<p>The focus of this phase is getting the onboarding payload. The steps are:</p>
+<ol class="arabic simple">
+<li><p>The Device announces its availability for commissioning over initial network.</p></li>
+<li><p>The Commissioner finds the Device.</p></li>
+<li><p>The Commissioner connects to the Device, using:</p>
+<ul class="simple">
+<li><p>Discriminator</p></li>
+<li><p>Vendor ID (optional)</p></li>
+<li><p>Product ID (optional)</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="secure-channel-pase">
+<h3>2. Secure Channel (PASE)<a class="headerlink" href="#secure-channel-pase" title="Link to this heading"></a></h3>
+<p>The focus of this phase is establishing a secure link. The steps are:</p>
+<ol class="arabic simple">
+<li><p>The Commissioner establishes a secure unicast channel to the Device.</p></li>
+<li><p>Protocol PASE = Password Authenticated Session Establishment</p></li>
+<li><p>Based on SPAKE2+ protocol</p></li>
+<li><p>Uses:</p>
+<ul class="simple">
+<li><p>Passcode</p></li>
+<li><p>Verifier</p></li>
+</ul>
+</li>
+</ol>
+<p>Several key constructs are important to understand prior to understanding Device Attestation.</p>
+<section id="public-key-infrastructure-pki">
+<h4>Public Key Infrastructure (PKI)<a class="headerlink" href="#public-key-infrastructure-pki" title="Link to this heading"></a></h4>
+<p>A PKI is a set of roles, policies, and procedures used to create, manage, distribute, and revoke digital certificates and manage public-key encryption. The Matter Certificate Policy defines the rules and
+methods by which the Matter PKI Policy Authority (PKI-PA) is governed.</p>
+<p>The Matter PKI for Device Attestation is comprised of:</p>
+<ul>
+<li><p>Certificate authorities:</p>
+<ul class="simple">
+<li><p>PAA (Product Attestation Authority)</p></li>
+<li><p>PAI (Product Attestation Intermediate)</p></li>
+</ul>
+</li>
+<li><p>Authorized entities:</p>
+<ul>
+<li><p>DAC (Device Attestation Certificate)</p>
+<p><img alt="Public Key Infrastructure example" src="../_images/matter-paa-pai-example.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="certification-declaration">
+<h4>Certification Declaration<a class="headerlink" href="#certification-declaration" title="Link to this heading"></a></h4>
+<p>Another data construct that is necessary for Device Attestation is the Certification Declaration (CD), which is cryptographically signed by CSA and contains the Vender and Device information as well as the PAA of the device. The CD must be put into the Device during manufacturing to be used during the Device Attestation process. The Commissioner will ask for the stored CD during the commissioning of the Node.</p>
+<p><img alt="Certification Declaration" src="../_images/matter-certification-declaration-example.png" /></p>
 </section>
 <section id="distributed-compliance-ledger">
-<h2>Distributed Compliance Ledger<a class="headerlink" href="#distributed-compliance-ledger" title="Permalink to this heading"></a></h2>
-<p><img alt="DCL Overview" src="../_images/DCL_Overview.png" /></p>
-<p>DCL is a database of all certified products which includes:</p>
+<h4>Distributed Compliance Ledger<a class="headerlink" href="#distributed-compliance-ledger" title="Link to this heading"></a></h4>
+<p>The Distributed Compliance Ledger (DCL) is the immutable single source of truth. It is a private blockchain-based distributed ledger of data records. Reading from the DCL is open to public, but writing to the DCL is restricted to various parties/roles. These roles typically include CSA certification, test house, and vendor roles.</p>
+<p><img alt="DCL Overview" src="../_images/dcl-overview.png" /></p>
+<p>It contains records about all certified devices, such as:</p>
 <ul class="simple">
 <li><p>Certification status</p></li>
-<li><p>Product name / description / firmware URL</p></li>
-<li><p>Product certificates</p></li>
+<li><p>Vendor ID (VID)</p></li>
+<li><p>Product ID (PID)</p></li>
+<li><p>Product name</p></li>
+<li><p>Part number and version</p></li>
+<li><p>Software and firmware versions</p></li>
+<li><p>Special commissioning instructions</p></li>
+<li><p>URLs to product pages and user manual</p></li>
 </ul>
-<p>Reading from the DCL is open to public, but writing to the DCL is restricted to various parties/roles. These roles typically include CSA certification, test house, and vendor roles.</p>
+<p>It also contains the Root PAA certificate for that Device, which is needed to complete the Device certificate chain verification. The DCL also contains the Certification Declaration ID number that will be compared with the CD pulled from the Device.</p>
+<p><img alt="Distributed Compliance Ledger diagram" src="../_images/matter-dcl-example.png" /></p>
+</section>
+</section>
+<section id="device-attestation">
+<h3>3. Device Attestation<a class="headerlink" href="#device-attestation" title="Link to this heading"></a></h3>
+<p>Every device has a unique certificate that is signed by the manufacturer. There is no single root CA across all devices. During commissioning, the device is challenged to prove possession of the associated private key. The certificate can be validated against the Distributed Compliance Ledger (<strong>DCL</strong>) to verify device certification status.</p>
+<p>The hierarchy allows for a 3-level tier:</p>
+<ul class="simple">
+<li><p>The first level is the Product Attestation Authority (PAA).</p></li>
+<li><p>The PAA will be used to sign the Product Attestation Intermediate (PAI).</p></li>
+<li><p>The PAI will be used to sign the Device Attestation Certificate (DAC). The DAC will be transferred to the commissioner and verified against the DCL.</p></li>
+</ul>
+<p><img alt="Certificate Authentication" src="../_images/certificateauthentication.png" /></p>
+<p>The focus of this phase is to verify the authenticity of the Device. The high-level steps are:</p>
+<ol class="arabic simple">
+<li><p>The Commissioner verifies the Device’s:</p>
+<ul class="simple">
+<li><p>VID</p></li>
+<li><p>PID</p></li>
+<li><p>Certification status</p></li>
+</ul>
+</li>
+<li><p>To do so, it uses:</p>
+<ul class="simple">
+<li><p>Device Attestation Credentials</p></li>
+<li><p>Distributed Compliance Ledger (DCL) or</p></li>
+<li><p>Certification Declaration (CD)</p></li>
+</ul>
+</li>
+</ol>
+<p><img alt="Attestation Overview" src="../_images/attestation-overview.png" /></p>
+<p>DAC is retrieved and verified before the device joins the Thread or Wi-Fi network. The Commissioner issues a challenge to the device to prove it possesses the associated Private Key.</p>
+<p>First, the Commissioner asks the Node for the CD, the PAI Certificate, and the DAC. It then pulls the Certificate ID, the PAA Certificate, and the Device VID/PID from the immutable root of trust DCL. At that point, it has all the information needed to perform the device attestation. The Commissioner then runs a certification chain check from the DAC to the PAI, and all certificates should chain together correctly. If that check is passed, the Commissioner takes the certification ID from the DCL and checks it against the CD ID that it pulled from the device itself to make sure the device is a genuine CSA certified device. The final step is to verify that the public key in the DAC pulled from the Matter device mathematically matches the private key inserted in the device during manufacture. This is done by sending a message to the device during this final step of Device Attestation, and having the message signed by the device and then the signature verified using the public key from the DAC.</p>
+<section id="node-operational-credentials">
+<h4>Node Operational Credentials<a class="headerlink" href="#node-operational-credentials" title="Link to this heading"></a></h4>
+<p>The Node Operational Credentials enable a Node to identify itself within a Fabric. A Node receives its initial set of Node Operational Credentials when it is commissioned to a Fabric by a Commissioner.</p>
+<p><img alt="Fabric diagram" src="../_images/matter-fabric-diagram.png" /></p>
+<p>The Node Operational Credentials include the following items:</p>
+<ul class="simple">
+<li><p>Node Operational Key Pair</p></li>
+<li><p>Node Operational Certificate (NOC)</p></li>
+<li><p>Intermediate Certificate Authority (ICA) Certificate (optional)</p></li>
+<li><p>Trusted Root Certificate Authority (CA) Certificate(s)</p></li>
+</ul>
+<blockquote>
+<div><p>Note: The Node Operational Credentials are distinct from the Device Attestation credentials.</p>
+</div></blockquote>
+</section>
+<section id="commissioning-process">
+<h4>Commissioning Process<a class="headerlink" href="#commissioning-process" title="Link to this heading"></a></h4>
+<p>The Commissioning process uses the DAC to establish that the Commissioner is talking to a certified Matter Device and then loads operational identities for each ecosystem that it joins.</p>
+<p><img alt="Commissioning Process diagram" src="../_images/matter-commissioning-process-diagram.png" /></p>
+</section>
+</section>
+<section id="configuration">
+<h3>4. Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h3>
+<p>The Commissioner configures the Device by:</p>
+<ul class="simple">
+<li><p>Loading Node Operational Credentials per ecosystem:</p>
+<ul>
+<li><p>Fabric ID</p></li>
+<li><p>Node ID</p></li>
+<li><p>Trusted Root Certificate</p></li>
+<li><p>ICA Cert</p></li>
+<li><p>Operational Cert</p></li>
+<li><p>Node Operational Key Pair</p></li>
+<li><p>Access Control List (ACL)</p></li>
+<li><p>Operational Network</p></li>
+<li><p>Time (optional)</p></li>
+</ul>
+</li>
+<li><p>Establishing communication with other Nodes using CASE</p></li>
+</ul>
+<p>This completes all the commissioning steps and now on the Matter Network.</p>
+</section>
+</section>
+<section id="matter-security-requirements">
+<h2>Matter Security Requirements<a class="headerlink" href="#matter-security-requirements" title="Link to this heading"></a></h2>
+<section id="matter-security-as-specified-by-csa">
+<h3>Matter Security as Specified by CSA<a class="headerlink" href="#matter-security-as-specified-by-csa" title="Link to this heading"></a></h3>
+<p><strong>Manufacturing</strong>: Matter Devices must be injected with a unique DAC certificate/private key, Onboarding Payload (QR code delivered), Certification Declaration (CD), and other static/dynamic data during manufacturing. (SHALL)</p>
+<p><strong>Commissioning</strong>: DAC with VID/PID must be checked against the DCL and CD verified to ensure only authentic and certified Matter Devices are commissioned. (SHALL)</p>
+<p><strong>Device Communication</strong>: Communication between Matter Devices must be secured and encrypted using cryptographic keys and PBKDF. (SHALL)</p>
+<p><strong>Software Updates</strong>: Devices must support OTA firmware updates to allow vulnerabilities to be patched. (SHALL)</p>
+</section>
+<section id="other-security-specifications">
+<h3>Other Security Specifications<a class="headerlink" href="#other-security-specifications" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Authentication and encryption keys must be generated by a “Deterministic Random Bit Generator” seeded by NIST 800-90B TRNG. (SHALL)</p></li>
+<li><p>Debug interfaces and access to secure boot trust anchors should be disabled to only allow authorized access (fusing). (SHOULD)</p></li>
+<li><p>DACs and operational private key confidentiality should be protected from remote attacks. (SHOULD)</p></li>
+<li><p>Vendors should have a public policy and mechanism to identify and rectify security vulnerabilities in a timely manner. (SHOULD)</p></li>
+<li><p>The software should be encrypted <em>at rest</em> to prevent unauthorized access to core IP. (MAY)</p></li>
+<li><p>Some devices should be protected against <em>physical</em> attacks to prevent tampering, side-channel, or debug glitching attacks. (MAY)</p></li>
+</ul>
+</section>
+<section id="matter-compliant-security-solution">
+<h3>Matter Compliant Security Solution<a class="headerlink" href="#matter-compliant-security-solution" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Secure Vault Mid or High supports all Matter security functionalities now (Shall) and future (Should, May)</p></li>
+<li><p>Uncrackable keys are generated by the True Random Number Generator (TRNG)
+For DAC, secure boot, secure debug, OTA, software image and communication encryption</p></li>
+<li><p>The Crypto Engine assists with special algorithms like SPAKE2+ and CASE with side channel protection</p></li>
+<li><p>Secure key storage at PSA/SESIP Level 2 (Mid) and Level 3 (High); Private keys are stored with a TEE/TZ (SV Mid) or PUF Wrapped (SV
+High)</p></li>
+<li><p>Secure Matter Identities (DACs) securely programmed at our factory</p></li>
+<li><p>Secure Boot with RTSL ensures code running on the device is trusted.</p></li>
+<li><p>Secure OTA firmware updates in conjunction with Secure</p></li>
+<li><p>Boot prevents the installation of malicious software and allows for vulnerability patching</p></li>
+<li><p>Glitch Mitigated Secure Debug Lock/Unlock only allow authorized access with security tokens that can be revoked</p></li>
+<li><p>Anti-Tamper protects from physical attacks (SV High)</p>
+<p><img alt="Secure Vault diagram" src="../_images/matter-secure-vault-diagram.png" /></p>
+</li>
+</ul>
+</section>
+</section>
+<section id="matter-secure-manufacturing">
+<h2>Matter Secure Manufacturing<a class="headerlink" href="#matter-secure-manufacturing" title="Link to this heading"></a></h2>
+<p>The following diagram describes the high-level process of what needs to happen before secure programming.</p>
+<p><img alt="What Needs to Happen Before Secure Programming diagram" src="../_images/matter-before-secure-programming-diagram.png" /></p>
+<p>The following diagram describes the high-levels steps as part of secure programming.</p>
+<p><img alt="Secure Programming diagram" src="../_images/matter-secure-programming-diagram.png" /></p>
 </section>
 </section>
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Matter Data Model &mdash; Matter 2.2.0-1.2 documentation</title>
+  <title>The Matter Data Model &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -14,11 +14,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.0-1.2
+                2.3.0-1.3-alpha.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -62,16 +62,17 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_INTERACTION_MODEL.html">The Matter Interaction Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="COMMISSIONING.html">Matter Commissioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OT_SLEEPY_END_DEVICE.html">Matter Intermittently Connected Devices over OpenThread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="COMMISSIONING.html">Commissioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SECURITY.html">Matter Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MATTER_ICD.html">Matter Intermittently Connected Devices (ICD)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OTA_BOOTLOADER.html">Creating Gecko Bootloader for Use in Matter OTA Software Update</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OTA_SOFTWARE_UPDATE.html">Matter Software Update with EFR32 Example Applications</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SECURITY.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OTA_SOFTWARE_UPDATE.html">Matter Software Update with Silicon Labs Example Applications</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
@@ -103,14 +104,14 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="the-matter-data-model">
-<h1>The Matter Data Model<a class="headerlink" href="#the-matter-data-model" title="Permalink to this heading"></a></h1>
+<h1>The Matter Data Model<a class="headerlink" href="#the-matter-data-model" title="Link to this heading"></a></h1>
 <p>The Data Model in Matter describes a hierarchical encapsulation of data elements in the Matter network, including, but not limited to, nodes, endpoints, clusters, and device types, where the node is the highest level data element.</p>
 <p>A single physical Matter device, such as a light, switch, or door lock, can be represented by one or more nodes. An environment where multiple Matter nodes interoperate is referred to as a Matter fabric. These nodes share a common root of trust. On each separate fabric, a physical Matter device is represented by a node. Every node has a unique network address (Operational Node ID) that makes it uniquely identifiable in the fabric it is on. For example, in the following figure a Matter Lighting device on an Apple HomePod fabric (blue) has an operational node ID unique to the HomePod fabric and a Matter Switch device on a separate Samsung SmartThings Station fabric (red) in the same home has an operational node ID unique to the SmartThings fabric. These IDs may be the same or different; they are independent of each other because they are on two different fabrics.</p>
 <p>A Matter device may also be part of more than one fabric and thus is represented on each different fabric by a different node. In following figure, a Matter Door Lock device is on both the HomePod and SmartThings fabrics. Thus, the Door Lock is represented by two different nodes; one for the HomePod fabric and another for the SmartThings fabric. The operational node IDs for the two nodes representing the device may be the same or different; the IDs are independent of each other because the nodes are on two different fabrics.</p>
 <p><img alt="Devices and their fabrics" src="../_images/devices-fabrics.jpg" /></p>
 <p>The following section describes the Matter data model, including Nodes and Device Types.</p>
 <section id="nodes">
-<h2>Nodes<a class="headerlink" href="#nodes" title="Permalink to this heading"></a></h2>
+<h2>Nodes<a class="headerlink" href="#nodes" title="Link to this heading"></a></h2>
 <p>In the following figure, the hierarchical structure of endpoint, cluster, attributes/commands/events is shown from left to right.</p>
 <p><img alt="Matter Node Overview" src="../_images/node-overview.jpg" /></p>
 <p>Each node contains the complete application functionality for its device on a single stack. Because of this, nodes can communicate directly with other nodes on the network without the need for an intermediary.</p>
@@ -123,7 +124,7 @@
 <li><p><strong>OTA Requestor</strong> - Requests OTA software updates from the OTA Provider</p></li>
 </ul>
 <section id="endpoints">
-<h3>Endpoints<a class="headerlink" href="#endpoints" title="Permalink to this heading"></a></h3>
+<h3>Endpoints<a class="headerlink" href="#endpoints" title="Link to this heading"></a></h3>
 <p>Endpoints enclose one component of a node’s complete functionality; together, they encapsulate all the node’s capabilities needed for functional wholeness. A smart thermostat, for example, could have two endpoints where one would implement the temperature control functionalities and another would implement the temperature monitoring functionalities.</p>
 <p>Each of these endpoints are known as a feature set, which is made of clusters that define the attributes, events, and commands of a single endpoint’s functionality. There are two distinct types of endpoints in Matter: leaf endpoints and composed endpoints.</p>
 <ul class="simple">
@@ -135,7 +136,7 @@
 <p>Endpoints are individually addressable to easily modify feature sets separately.</p>
 </section>
 <section id="clusters">
-<h3>Clusters<a class="headerlink" href="#clusters" title="Permalink to this heading"></a></h3>
+<h3>Clusters<a class="headerlink" href="#clusters" title="Link to this heading"></a></h3>
 <p>Clusters are collections of data that group the attributes, events, and commands of a specific functionality, representing a single feature in an endpoint’s feature set. A cluster may be thought of as an interface, service, or object class and is the lowest independent functional element in the device data model. Endpoints have multiple clusters to create individual instances of the same functionality for easier unit control. For example, each light on a light strip may have its own designated cluster for independent access.</p>
 <p>Attributes, events, and commands make up clusters:</p>
 <ul class="simple">
@@ -173,13 +174,13 @@
 </section>
 </section>
 <section id="device-types">
-<h2>Device Types<a class="headerlink" href="#device-types" title="Permalink to this heading"></a></h2>
+<h2>Device Types<a class="headerlink" href="#device-types" title="Link to this heading"></a></h2>
 <p>Device types are a collection of clusters on their respective endpoints that define top-level attributes of the physical device they represent. Device types can require other types for operational purposes; these are known as composed device types and require composed endpoints.</p>
 <p>A device can be made up of any combination of clusters. Therefore, to ensure the interoperability of devices from different manufacturers on a single network, Matter defined sets of requirements for official device types in the Matter Device Library for users to implement and extend. Every definition contains the device type ID, type revision number, and mandatory cluster(s) with their minimum revision number. Device Types are constantly updating, with each iteration tracked using the revision number starting from 1. However, changes to a device type’s definition do not change its functionality, but only serve to improve operation. It is also important to note that newer versions of a device will continue to interoperate with older revision levels.</p>
 <p>The device types that Matter supports are an unyielding requirement for Matter nodes. Nodes that implement certain device types are required to include feature sets of clusters on one or more endpoints for the said device type. A node cannot implement a device type if it does not have all the required feature sets. Official documentation lists the application device types that Matter supports in the Device Library Specification, while the respective supported application clusters are defined in the Application Cluster Library. These two documents, along with Chapter 7: Data Model Specification of the Matter specification document, can be found on the website for CSA members: <a class="reference external" href="https://csa-iot.org/developer-resource/specifications-download-request/">Specifications Download Request - CSA-IOT</a>.</p>
 </section>
 <section id="relating-matter-to-zigbee">
-<h2>Relating Matter to Zigbee<a class="headerlink" href="#relating-matter-to-zigbee" title="Permalink to this heading"></a></h2>
+<h2>Relating Matter to Zigbee<a class="headerlink" href="#relating-matter-to-zigbee" title="Link to this heading"></a></h2>
 <p>Ultimately, Matter serves to extend existing protocol stacks to maintain and bolster their architecture for future use. Thus, the Data Model originates from and resembles the Dotdot Architecture Model found here: <a class="reference external" href="https://groups.csa-iot.org/wg/matter-tsg/document/18649">https://groups.csa-iot.org/wg/matter-tsg/document/18649</a> and Chapter 2 of the Zigbee Cluster Library Specification found here: <a class="reference external" href="https://groups.csa-iot.org/wg/members-all/document/23019">https://groups.csa-iot.org/wg/members-all/document/23019</a>. The Matter Data Model better defines the architecture in the Zigbee Cluster Library while keeping the certifiable cluster specifications.</p>
 </section>
 </section>

@@ -80,7 +80,7 @@ types.
 | Pressure Measurement          |❌|✅|
 | Flow Measurement              |❌|❌|
 | RelativeHumidity Measurement  |❌|✅|
-| Thermostat 			|✅|✅|
+| Thermostat            |✅|✅|
 
 ## Next Steps
 

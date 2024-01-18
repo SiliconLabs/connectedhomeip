@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Introduction to Matter &mdash; Matter 2.2.0-1.2 documentation</title>
+  <title>Introduction to Matter &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -14,11 +14,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.0-1.2
+                2.3.0-1.3-alpha.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,16 +64,17 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_DATA_MODEL.html">The Matter Data Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_INTERACTION_MODEL.html">The Matter Interaction Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="COMMISSIONING.html">Matter Commissioning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OT_SLEEPY_END_DEVICE.html">Matter Intermittently Connected Devices over OpenThread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="COMMISSIONING.html">Commissioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SECURITY.html">Matter Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MATTER_ICD.html">Matter Intermittently Connected Devices (ICD)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OTA_BOOTLOADER.html">Creating Gecko Bootloader for Use in Matter OTA Software Update</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OTA_SOFTWARE_UPDATE.html">Matter Software Update with EFR32 Example Applications</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SECURITY.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OTA_SOFTWARE_UPDATE.html">Matter Software Update with Silicon Labs Example Applications</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
@@ -105,14 +106,14 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-matter">
-<h1>Introduction to Matter<a class="headerlink" href="#introduction-to-matter" title="Permalink to this heading"></a></h1>
+<h1>Introduction to Matter<a class="headerlink" href="#introduction-to-matter" title="Link to this heading"></a></h1>
 <section id="why-matter">
-<h2>Why Matter?<a class="headerlink" href="#why-matter" title="Permalink to this heading"></a></h2>
+<h2>Why Matter?<a class="headerlink" href="#why-matter" title="Link to this heading"></a></h2>
 <p>The Connectivity Standards Alliance (CSA) seeks to enable smart home devices to be secure, reliable, and interoperable with other Internet of Things (IoT) devices, regardless of manufacturer. One of the biggest pain points of smart home devices is the various application-layer implementations that limit the compatibility of different smart home devices. Therefore, Matter was adopted so that matter-enabled devices, under the same standard, provide a better experience for both the manufacturers and users.</p>
 <p>While Matter was created to make the IoT seamless and effortless for users, it is important to acknowledge the complexity involved under the surface. Matter leverages a range of tools to enable seamless and secure connectivity within an IoT system. Understanding these tools is crucial for a comprehensive overview of this technology.</p>
 </section>
 <section id="matter-enablement">
-<h2>Matter Enablement<a class="headerlink" href="#matter-enablement" title="Permalink to this heading"></a></h2>
+<h2>Matter Enablement<a class="headerlink" href="#matter-enablement" title="Link to this heading"></a></h2>
 <p>Matter implements the Application Layer of the Open Systems Interconnection (OSI) model. It builds on the lower layers, such as the transport and network layers, to enable reliable communication between nodes.</p>
 <p>Matter may sit on top of two prominent connectivity technologies: Thread and Wi-Fi. Thread is a low-power wireless mesh networking protocol that facilitates reliable communication between nodes. It enables extended coverage and reliable connections to improve the overall performance of IoT ecosystems.</p>
 <p>Matter is an IPv6-based protocol that utilizes transport layer protocols like TCP/UDP to facilitate network addressing and reliable transmission of data packets, respectively. Due to this, Matter is compatible with multiple connectivity options (such as Thread and Wi-Fi). This flexibility allows Matter-enabled devices to communicate over various network protocols, ensuring broad compatibility and integration with different networking technologies.</p>
@@ -120,7 +121,7 @@
 <p><img alt="The Matter Ecosystem" src="../_images/ecosystem.jpg" /></p>
 </section>
 <section id="matter-network-architecture">
-<h2>Matter Network Architecture<a class="headerlink" href="#matter-network-architecture" title="Permalink to this heading"></a></h2>
+<h2>Matter Network Architecture<a class="headerlink" href="#matter-network-architecture" title="Link to this heading"></a></h2>
 <p>In theory, Matter can sit on top of any IPv6-bearing network. However in practice, the Matter specifications solely focus on three link layer technologies, enabling Matter to run on Ethernet, Wi-Fi, and Thread 802.15.4 networks. As mentioned above, one of the great benefits of Matter is its flexibility, especially when it comes to network configuration. The Matter protocol can operate without a globally-routable IPv6 infrastructure and allows the flexibility of having multiple Matter networks run over the same set of constituent IP Networks.</p>
 <p>Two common underlying network topologies are commonly used in Matter. The first is known as a Single Network topology, where Matter runs solely over one Network. This means the Matter Network could run over one 802.15.4 Thread network or over a Wi-Fi network. In this scenario all Matter devices are connected to the same single logical network.</p>
 <p><img alt="Single network topology" src="../_images/single-network-topology.png" /></p>
@@ -148,7 +149,7 @@
 <td><p>16 bit number ID set of nodes across a Matter Fabric</p></td>
 </tr>
 <tr class="row-even"><td><p>Universal Group</p></td>
-<td><p>16 bit subrange of the Group ID reserved for groups across Matter Standard. Specifically a UID for all nodes, all non-sleepy nodes, and all proxies.</p></td>
+<td><p>16 bit subrange of the Group ID reserved for groups across Matter Standard. Specifically a UID for all nodes, all non-ICD nodes, and all proxies.</p></td>
 </tr>
 <tr class="row-odd"><td><p>Operational Node</p></td>
 <td><p>64 bit number that uniquely identifies an individual node on the fabric</p></td>
@@ -160,7 +161,7 @@
 </table>
 </section>
 <section id="matter-layered-architecture">
-<h2>Matter Layered Architecture<a class="headerlink" href="#matter-layered-architecture" title="Permalink to this heading"></a></h2>
+<h2>Matter Layered Architecture<a class="headerlink" href="#matter-layered-architecture" title="Link to this heading"></a></h2>
 <p>Matter is split up into a layered architecture to help separate the different responsibilities and encapsulate various pieces of the protocol stack. The following diagram shows the various interactions between the Matter application stack layers as defined by the Matter CSA specification. For implementation purposes the last four layers are handled as a Messaging Layer and a Transport layer.</p>
 <p><img alt="Stack layer interactions" src="../_images/stack-layer-interactions.png" /></p>
 <ul class="simple">
@@ -175,7 +176,7 @@
 <p>Once the data is received on a peer device, it travels up the Matter Protocol stack in reverse and delivers the message to the <strong>Application</strong> layer.</p>
 </section>
 <section id="matter-security">
-<h2>Matter Security<a class="headerlink" href="#matter-security" title="Permalink to this heading"></a></h2>
+<h2>Matter Security<a class="headerlink" href="#matter-security" title="Link to this heading"></a></h2>
 <p>As mentioned before, one of the main benefits of using Matter is the enhanced security that it offers. Matter offers security at many layers throughout the network. Many security features are integrated into commissioning a Matter device onto an existing network. Matter requires all devices to have a device-specific passcode that delivers “proof of ownership” to commissioning devices and requires all devices to have immutable credentials that can be cryptographically verified to indicate that the joining devices are Matter-certified devices. In fact, the network credentials are only given to the Matter device after the device has been authenticated and verified. This helps keep the Matter network secure from foreign and unsecure devices, significantly improving the overall network security. Furthermore, Matter enables encryption and authentication to all unicast messages, as well as providing relay protection. Below is a list of commonly-used Matter security terms.</p>
 <table class="docutils align-default">
 <thead>

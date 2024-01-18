@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matter Software Artifacts &mdash; Matter 2.2.0-1.2 documentation</title>
+  <title>Matter Software Artifacts &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -14,11 +14,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.0-1.2
+                2.3.0-1.3-alpha.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -65,13 +65,14 @@
 <li class="toctree-l3"><a class="reference internal" href="#rs9116-firmware">RS9116 Firmware</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#siwx917-firmware-for-siwx917-ncp">SiWx917 Firmware for SiWx917 NCP</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#siwx917-firmware-for-siwx917-soc">SiWx917 Firmware for SiWx917 SoC</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#siwx917-soc-configuration-files-for-flashing-the-matter-application">SiWx917 SoC Configuration Files for Flashing the Matter Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#siwx917-soc-configuration-files-for-jlink-rtt-logging">SiWx917 SoC Configuration Files For JLink RTT Logging</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
@@ -103,32 +104,33 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="matter-software-artifacts">
-<h1>Matter Software Artifacts<a class="headerlink" href="#matter-software-artifacts" title="Permalink to this heading"></a></h1>
-<p>This page provides links to pre-built software image “artifacts” that can be
+<h1>Matter Software Artifacts<a class="headerlink" href="#matter-software-artifacts" title="Link to this heading"></a></h1>
+<p>This page provides links to pre-built software image artifacts that can be
 used to set up the Matter Demo for the Thread and Wi-Fi use cases.</p>
+<p>Images for the items listed below are available under the “Assets” section at the bottom of this page:</p>
+<p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/tag/2.3.0-1.3-alpha.1">https://github.com/SiliconLabs/matter/releases/tag/2.3.0-1.3-alpha.1</a></p>
 <section id="matter-hub-raspberry-pi-image">
-<h2>Matter Hub Raspberry Pi Image<a class="headerlink" href="#matter-hub-raspberry-pi-image" title="Permalink to this heading"></a></h2>
+<h2>Matter Hub Raspberry Pi Image<a class="headerlink" href="#matter-hub-raspberry-pi-image" title="Link to this heading"></a></h2>
 <p>The Matter Hub image is intended to be flashed onto an SD card for a Raspberry
 Pi. The Matter Hub Image provides both an Open Thread Border Router and the
 Matter chip-tool. Note the image is ~10GB in size so depending on your internet
 connection this download may take some time. Start the Matter Hub Raspberry Pi
 image download here:</p>
-<p><a class="reference external" href="https://www.silabs.com/documents/public/software/SilabsMatterPi_2.2.0-1.2.zip">https://www.silabs.com/documents/public/software/SilabsMatterPi_2.2.0-1.2.zip</a></p>
+<p><a class="reference external" href="https://www.silabs.com/documents/public/software/SilabsMatterPi_2.3.0-1.3-alpha.1.zip">https://www.silabs.com/documents/public/software/SilabsMatterPi_2.3.0-1.3-alpha.1.zip</a></p>
 </section>
 <section id="radio-co-processor-rcp-images">
-<h2>Radio Co-Processor (RCP) Images<a class="headerlink" href="#radio-co-processor-rcp-images" title="Permalink to this heading"></a></h2>
+<h2>Radio Co-Processor (RCP) Images<a class="headerlink" href="#radio-co-processor-rcp-images" title="Link to this heading"></a></h2>
 <p>The Radio Co-Processor firmware is used to turn an EFR into an RCP that can be
 used with a Raspberry Pi to allow the Raspberry Pi’s Open Thread Border Router
-to access the Thread network. Radio Co-Processor (RCP) images are available in
-the Assets section of this page:</p>
-<p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/tag/v2.2.0-1.2">https://github.com/SiliconLabs/matter/releases/tag/v2.2.0-1.2</a></p>
+to access the Thread network. Radio Co-Processor (RCP) images are available here:</p>
+<p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/ot-rcp-binaries-2.3.0-1.3-alpha.1.zip">https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/ot-rcp-binaries-2.3.0-1.3-alpha.1.zip</a></p>
 </section>
 <section id="matter-accessory-device-images">
-<h2>Matter Accessory Device Images<a class="headerlink" href="#matter-accessory-device-images" title="Permalink to this heading"></a></h2>
+<h2>Matter Accessory Device Images<a class="headerlink" href="#matter-accessory-device-images" title="Link to this heading"></a></h2>
 <p>The Matter Accessory Device Images are used to turn an EFR into a Matter device.
 These are pre-built binary images for the Matter Demo. Matter Accessory Device
-Images are located in the Assets section of this page:</p>
-<p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/tag/v2.2.0-1.2">https://github.com/SiliconLabs/matter/releases/tag/v2.2.0-1.2</a></p>
+Images are located here:</p>
+<p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/matter-accessory-device-images_2.3.0-1.3-alpha.1.zip">https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/matter-accessory-device-images_2.3.0-1.3-alpha.1.zip</a></p>
 <p>For Matter over Thread, 3 different types of images are provided:</p>
 <ol class="arabic simple">
 <li><p><strong>Standard</strong>: Includes all code including enabling the LCD for a QR Code that can be used for commissioning.</p></li>
@@ -137,17 +139,17 @@ Images are located in the Assets section of this page:</p>
 </ol>
 </section>
 <section id="matter-bootloader-binaries">
-<h2>Matter Bootloader Binaries<a class="headerlink" href="#matter-bootloader-binaries" title="Permalink to this heading"></a></h2>
+<h2>Matter Bootloader Binaries<a class="headerlink" href="#matter-bootloader-binaries" title="Link to this heading"></a></h2>
 <p>If you are using the OTA functionality and especially if you are using an
 EFR32MG2x device, you will need to flash a bootloader binary on your device along
 with the application image. Bootloader binaries for all of the Matter supported
 devices are available here:</p>
-<p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/tag/v2.2.0-1.2">https://github.com/SiliconLabs/matter/releases/tag/v2.2.0-1.2</a></p>
+<p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/bootloader_binaries_2.3.0-1.3-alpha.1.zip">https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/bootloader_binaries_2.3.0-1.3-alpha.1.zip</a></p>
 </section>
 <section id="rs9116-firmware">
-<h2>RS9116 Firmware<a class="headerlink" href="#rs9116-firmware" title="Permalink to this heading"></a></h2>
-<p>The RS9116 firmware (rs9116_firmware_files_with_rev.zip) is used to update the RS9116 which can be found in the Assets section of this page:</p>
-<p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/tag/v2.2.0-1.2">https://github.com/SiliconLabs/matter/releases/tag/v2.2.0-1.2</a></p>
+<h2>RS9116 Firmware<a class="headerlink" href="#rs9116-firmware" title="Link to this heading"></a></h2>
+<p>The RS9116 firmware (rs9116_firmware_files_with_rev_2.3.0-1.3-alpha.1.zip) is used to update the RS9116 which can be found in the Assets section of this page:</p>
+<p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/rs9116_firmware_files_with_rev_2.3.0-1.3-alpha.1.zip">https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/rs9116_firmware_files_with_rev_2.3.0-1.3-alpha.1.zip</a></p>
 <p><strong>Note</strong>:
 RS9116 chip/module needs to be flashed with proper firmware as mentioned below:</p>
 <ul class="simple">
@@ -156,33 +158,30 @@ RS9116 chip/module needs to be flashed with proper firmware as mentioned below:<
 </ul>
 </section>
 <section id="siwx917-firmware-for-siwx917-ncp">
-<h2>SiWx917 Firmware for SiWx917 NCP<a class="headerlink" href="#siwx917-firmware-for-siwx917-ncp" title="Permalink to this heading"></a></h2>
-<p>The SiWx917 firmware(SiWx917NCP_firmware_files.zip) is used to update the SiWx917 NCP which can be found in the Assets section of this page:</p>
-<p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/tag/v2.2.0-1.2">https://github.com/SiliconLabs/matter/releases/tag/v2.2.0-1.2</a></p>
+<h2>SiWx917 Firmware for SiWx917 NCP<a class="headerlink" href="#siwx917-firmware-for-siwx917-ncp" title="Link to this heading"></a></h2>
+<p>The SiWx917 firmware(SiWx917NCP_firmware_files_2.3.0-1.3-alpha.1.zip) is used to update the SiWx917 NCP which can be found in the Assets section of this page:</p>
+<p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/SiWx917NCP_firmware_files_2.3.0-1.3-alpha.1.zip">https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/SiWx917NCP_firmware_files_2.3.0-1.3-alpha.1.zip</a></p>
 <p><strong>Note</strong>:
 SiWx917 NCP board need to be flashed with proper firmware as mentioned below:</p>
 <ul class="simple">
-<li><p>``SiWG917-A.2.9.X.X.X.rps - This firmware image is valid for BRD8036A (A0 Expansion v1.1) board`</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SiWG917-B.2.X.X.X.X.rps</span> <span class="pre">-</span> <span class="pre">This</span> <span class="pre">firmware</span> <span class="pre">image</span> <span class="pre">is</span> <span class="pre">valid</span> <span class="pre">for</span> <span class="pre">BRD4346A</span> <span class="pre">board</span></code></p></li>
 </ul>
 </section>
 <section id="siwx917-firmware-for-siwx917-soc">
-<h2>SiWx917 Firmware for SiWx917 SoC<a class="headerlink" href="#siwx917-firmware-for-siwx917-soc" title="Permalink to this heading"></a></h2>
-<p>The SiWx917 firmware (SiWx917SOC_firmware_files.zip) along with WiSeConnect 3 SDK is used to update the SiWx917 SoC which can be found in the Assets section of this page:</p>
-<p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/tag/v2.2.0-1.2">https://github.com/SiliconLabs/matter/releases/tag/v2.2.0-1.2</a></p>
+<h2>SiWx917 Firmware for SiWx917 SoC<a class="headerlink" href="#siwx917-firmware-for-siwx917-soc" title="Link to this heading"></a></h2>
+<p>The SiWx917 firmware (SiWx917SOC_firmware_files_2.3.0-1.3-alpha.1.zip) along with WiSeConnect 3 SDK is used to update the SiWx917 SoC which can be found in the Assets section of this page:</p>
+<p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/SiWx917SOC_firmware_files_2.3.0-1.3-alpha.1.zip">https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/SiWx917SOC_firmware_files_2.3.0-1.3-alpha.1.zip</a></p>
 <p><strong>Note</strong>:
 SiWx917 SoC boards need to be flashed with proper firmware as mentioned below:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">SiWG917-A.2.9.X.X.X.rps</span> <span class="pre">-</span> <span class="pre">This</span> <span class="pre">firmware</span> <span class="pre">image</span> <span class="pre">is</span> <span class="pre">valid</span> <span class="pre">for</span> <span class="pre">BRD4325B(A0</span> <span class="pre">dual</span> <span class="pre">flash</span> <span class="pre">1.1)</span> <span class="pre">and</span> <span class="pre">BRD4325B(A0</span> <span class="pre">dual</span> <span class="pre">flash</span> <span class="pre">1.2)</span> <span class="pre">boards</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SiWG917-B.2.9.X.X.X.rps</span> <span class="pre">-</span> <span class="pre">This</span> <span class="pre">firmware</span> <span class="pre">image</span> <span class="pre">is</span> <span class="pre">valid</span> <span class="pre">for</span> <span class="pre">BRD4325C(B0</span> <span class="pre">common</span> <span class="pre">flash</span> <span class="pre">v1.2),</span> <span class="pre">BRD4325G(B0</span> <span class="pre">Stacked</span> <span class="pre">Flash</span> <span class="pre">+</span> <span class="pre">External</span> <span class="pre">PSRAM</span> <span class="pre">v1.2)</span> <span class="pre">and</span> <span class="pre">BRD4338A(B0</span> <span class="pre">common</span> <span class="pre">flash</span> <span class="pre">v2.0)</span> <span class="pre">boards</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SiWG917-B.2.X.X.X.X.rps</span> <span class="pre">-</span> <span class="pre">This</span> <span class="pre">firmware</span> <span class="pre">image</span> <span class="pre">is</span> <span class="pre">valid</span> <span class="pre">for</span> <span class="pre">BRD4338A(B0</span> <span class="pre">common</span> <span class="pre">flash</span> <span class="pre">v2.0)</span> <span class="pre">board</span></code></p></li>
 </ul>
 </section>
-<section id="siwx917-soc-configuration-files-for-flashing-the-matter-application">
-<h2>SiWx917 SoC Configuration Files for Flashing the Matter Application<a class="headerlink" href="#siwx917-soc-configuration-files-for-flashing-the-matter-application" title="Permalink to this heading"></a></h2>
-<p>In order to flash the Matter Application on the SiWx917 SoC, the Ozone Debugger must
-be configured for the SiWx917 SoC device by following the instructions on the <a class="reference internal" href="../wifi/SiWx917_Enablement_For_Ozone.html"><span class="std std-doc">Ozone Environment Setup for SiWx917 SoC page</span></a>.</p>
-<p>The <strong>JLinkDevices.xml</strong> and <strong>ELF</strong> files referenced in the instructions may be found
-in the Assets section of this page:</p>
-<p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/tag/v2.2.0-1.2">https://github.com/SiliconLabs/matter/releases/tag/v2.2.0-1.2</a></p>
+<section id="siwx917-soc-configuration-files-for-jlink-rtt-logging">
+<h2>SiWx917 SoC Configuration Files For JLink RTT Logging<a class="headerlink" href="#siwx917-soc-configuration-files-for-jlink-rtt-logging" title="Link to this heading"></a></h2>
+<p>In order to check device logs for the Matter Application on the SiWx917 SoC, the <strong>JLink RTT</strong> must be configured for the SiWx917 SoC device by following the instructions on the <a class="reference internal" href="../wifi/JLINK_GUIDE_917.html"><span class="std std-doc">JLink RTT SOC Support</span></a>.</p>
+<p>The <a class="reference external" href="https://github.com/SiliconLabs/matter/releases/download/v2.3.0-1.3-alpha.1/JLinkDevices.xml">JLinkDevices.xml</a> and <strong>.elf</strong> files referenced in the instructions may be found in the Assets section of this page.</p>
+<p><strong>Note</strong>:- For EFR32MG2x devices, JLink RTT Logging support is already available.</p>
 </section>
 </section>
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Building the Unify Matter Protocol Controller &mdash; Matter 2.2.0-1.2 documentation</title>
+  <title>Building the Unify Matter Protocol Controller &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
@@ -14,11 +14,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -39,7 +39,7 @@
               <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.0-1.2
+                2.3.0-1.3-alpha.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -57,6 +57,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../nav_2_prereq.html">Matter Development Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../nav_4_thread.html">Matter Over Thread</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_7_prod_guide.html">Matter Production Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Unify Matter Solutions</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../matter-bridge/index.html">Unify Matter Bridge</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Unify Matter Protocol Controller</a><ul class="current">
@@ -98,7 +99,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="building-the-unify-matter-protocol-controller">
-<h1>Building the Unify Matter Protocol Controller<a class="headerlink" href="#building-the-unify-matter-protocol-controller" title="Permalink to this heading"></a></h1>
+<h1>Building the Unify Matter Protocol Controller<a class="headerlink" href="#building-the-unify-matter-protocol-controller" title="Link to this heading"></a></h1>
 <p>This build guide cross-compiles for arm64 architecture to be run on Unify’s
 reference platform - a Raspberry Pi 4 (RPi4) with the 64-bit version of Debian
 Bullseye.</p>
@@ -120,13 +121,13 @@ distinguished by the structure of the example.</p>
 </ul>
 </div></blockquote>
 <section id="download-and-stage-the-uic-repo">
-<h2>Download and Stage the uic Repo<a class="headerlink" href="#download-and-stage-the-uic-repo" title="Permalink to this heading"></a></h2>
+<h2>Download and Stage the uic Repo<a class="headerlink" href="#download-and-stage-the-uic-repo" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dev-machine:~$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>--depth<span class="w"> </span><span class="m">1</span><span class="w"> </span>https://github.com/SiliconLabs/UnifySDK.git<span class="w"> </span>--recursive<span class="w"> </span>../uic-matter
 </pre></div>
 </div>
 </section>
 <section id="build-the-docker-container-arm64-compilation">
-<h2>Build the Docker Container (arm64 compilation)<a class="headerlink" href="#build-the-docker-container-arm64-compilation" title="Permalink to this heading"></a></h2>
+<h2>Build the Docker Container (arm64 compilation)<a class="headerlink" href="#build-the-docker-container-arm64-compilation" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dev-machine:~$<span class="w"> </span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>unify-matter<span class="w"> </span>silabs_examples/unify-matter-common/docker/
 </pre></div>
 </div>
@@ -136,7 +137,7 @@ distinguished by the structure of the example.</p>
 </div>
 </section>
 <section id="build-libunify">
-<h2>Build libunify<a class="headerlink" href="#build-libunify" title="Permalink to this heading"></a></h2>
+<h2>Build libunify<a class="headerlink" href="#build-libunify" title="Link to this heading"></a></h2>
 <p>The Unify Matter Protocol Controller depends on the libunify library from the Unify project.</p>
 <p>This library must first be compiled for the target system, by changing directory
 to the <code class="docutils literal notranslate"><span class="pre">/uic</span></code> folder and running the following:</p>
@@ -159,13 +160,13 @@ to export UCL_XML_PATH as well.</p>
 </div>
 </section>
 <section id="set-up-the-matter-build-environment">
-<h2>Set Up the Matter Build Environment<a class="headerlink" href="#set-up-the-matter-build-environment" title="Permalink to this heading"></a></h2>
+<h2>Set Up the Matter Build Environment<a class="headerlink" href="#set-up-the-matter-build-environment" title="Link to this heading"></a></h2>
 <p>Once you have all the necessary submodules, source the Matter environment with
 the following command. This loads a number of build tools and makes sure the
 correct toolchains and compilers are used for compiling the Unify Matter Protocol Controller.</p>
 </section>
 <section id="check-out-submodules">
-<h2>Check Out Submodules<a class="headerlink" href="#check-out-submodules" title="Permalink to this heading"></a></h2>
+<h2>Check Out Submodules<a class="headerlink" href="#check-out-submodules" title="Link to this heading"></a></h2>
 <p>Check out the necessary submodules with the following command.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dev-machine:~$<span class="w"> </span>./scripts/checkout_submodules.py<span class="w"> </span>--platform<span class="w"> </span>linux
 </pre></div>
@@ -175,13 +176,13 @@ correct toolchains and compilers are used for compiling the Unify Matter Protoco
 </div>
 </section>
 <section id="install-deb-pkg-tools-required-to-package-mpc">
-<h2>Install deb-pkg-tools required to package MPC<a class="headerlink" href="#install-deb-pkg-tools-required-to-package-mpc" title="Permalink to this heading"></a></h2>
+<h2>Install deb-pkg-tools required to package MPC<a class="headerlink" href="#install-deb-pkg-tools-required-to-package-mpc" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@docker:/matter$<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>deb-pkg-tools<span class="o">==</span><span class="m">8</span>.4
 </pre></div>
 </div>
 </section>
 <section id="compile-the-unify-matter-pc">
-<h2>Compile the Unify Matter PC<a class="headerlink" href="#compile-the-unify-matter-pc" title="Permalink to this heading"></a></h2>
+<h2>Compile the Unify Matter PC<a class="headerlink" href="#compile-the-unify-matter-pc" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@docker:/matter$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>silabs_examples/unify-matter-pc/linux/
 
 root@docker:/matter/silabs_examples/unify-matter-pc/linux$<span class="w"> </span>gn<span class="w"> </span>gen<span class="w"> </span>out/arm64<span class="w"> </span>--args<span class="o">=</span><span class="s1">&#39;target_cpu=&quot;arm64&quot;&#39;</span>
@@ -194,7 +195,7 @@ root@docker:/matter/silabs_examples/unify-matter-pc/linux$<span class="w"> </spa
 <code class="docutils literal notranslate"><span class="pre">/matter/silabs_examples/unify-matter-pc/linux/out/arm64/package</span></code>.</p>
 </section>
 <section id="compile-the-chip-tool">
-<h2>Compile the chip-tool<a class="headerlink" href="#compile-the-chip-tool" title="Permalink to this heading"></a></h2>
+<h2>Compile the chip-tool<a class="headerlink" href="#compile-the-chip-tool" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">chip-tool</span></code> is a CLI tool that can be used to commission the pc and to
 control other end devices.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@docker:/matter$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>examples/chip-tool
@@ -208,13 +209,13 @@ root@docker:/matter/examples/chip-tool$<span class="w"> </span>ninja<span class=
 <code class="docutils literal notranslate"><span class="pre">/matter/examples/chip-tool/out/arm64/obj/bin/chip-tool</span></code>.</p>
 </section>
 <section id="unit-testing">
-<h2>Unit Testing<a class="headerlink" href="#unit-testing" title="Permalink to this heading"></a></h2>
+<h2>Unit Testing<a class="headerlink" href="#unit-testing" title="Link to this heading"></a></h2>
 <p>Unit testing is always a good idea for quality software. Documentation on
 writing unit tests for the Matter Unify Protocol Controller is in the
 <a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/silabs_examples/unify-matter-bridge/linux/src/tests/README.md">README.md</a> in the <code class="docutils literal notranslate"><span class="pre">linux/src/tests</span></code> folder.</p>
 </section>
 <section id="troubleshooting">
-<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h2>
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>If you do not source the <code class="docutils literal notranslate"><span class="pre">matter/scripts/activate.sh</span></code> as described above in
 <a class="reference internal" href="#set-up-the-matter-build-environment">Set Up the Matter Build Environment</a>,

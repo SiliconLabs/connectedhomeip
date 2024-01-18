@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matter Intermittently Connected Devices (ICD) &mdash; Matter 2.2.0-1.2 documentation</title>
+  <title>Matter Intermittently Connected Devices (ICD) &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -14,16 +14,16 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ZCL Advanced Platform (ZAP) Tool for Matter" href="ZAP.html" />
-    <link rel="prev" title="How to Flash a SiWx917 SoC Device" href="FLASH_SILABS_SiWx917_SOC_DEVICE.html" /> 
+    <link rel="next" title="Creating Gecko Bootloader for Use in Matter OTA Software Update" href="OTA_BOOTLOADER.html" />
+    <link rel="prev" title="Matter Security" href="SECURITY.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.0-1.2
+                2.3.0-1.3-alpha.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -53,35 +53,30 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="CODE_SIZE_SAVINGS.html">Code Savings Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="COMMIT_HASHES.html">Commit Hash Reference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CUSTOM_MATTER_DEVICE.html">Custom Matter Device</a></li>
-<li class="toctree-l2"><a class="reference internal" href="FIND_RASPI.html">Find Your Raspberry Pi</a></li>
-<li class="toctree-l2"><a class="reference internal" href="FLASHING_USING_COMMANDER.html">Flashing Using Simplicity Commander</a></li>
-<li class="toctree-l2"><a class="reference internal" href="FLASH_SILABS_DEVICE.html">Flash an EFR32 Device</a></li>
-<li class="toctree-l2"><a class="reference internal" href="FLASH_SILABS_SiWx917_SOC_DEVICE.html">Flash a 917SoC Device</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Matter ICDs</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_INTRO.html">Introduction to Matter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_DATA_MODEL.html">The Matter Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_INTERACTION_MODEL.html">The Matter Interaction Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="COMMISSIONING.html">Commissioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SECURITY.html">Matter Security</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Matter Intermittently Connected Devices (ICD)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#icd-device-types">ICD Device Types</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#icd-management-cluster">ICD Management Cluster</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#subscription-maximum-interval">Subscription Maximum Interval</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#persistent-subscriptions">Persistent Subscriptions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#subscription-synchronisation">Subscription synchronisation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subscription-synchronization">Subscription Synchronization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ZAP.html">Using ZAP</a></li>
-<li class="toctree-l2"><a class="reference internal" href="WIRESHARK.html">Using Wireshark</a></li>
-<li class="toctree-l2"><a class="reference internal" href="EP.html">Using Energy Profiler</a></li>
-<li class="toctree-l2"><a class="reference internal" href="GATT.html">BLE GATT Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="PINTOOL.html">Hardware Pin Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../dev/vscode/index.html">VS Code Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OTA_BOOTLOADER.html">Creating Gecko Bootloader for Use in Matter OTA Software Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OTA_SOFTWARE_UPDATE.html">Matter Software Update with Silicon Labs Example Applications</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
 </ul>
 
@@ -99,7 +94,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../nav_3_general.html">Developer Reference</a></li>
+          <li class="breadcrumb-item"><a href="../nav_1_overview.html">Matter Overview</a></li>
       <li class="breadcrumb-item active">Matter Intermittently Connected Devices (ICD)</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/general/MATTER_ICD.md.txt" rel="nofollow"> View page source</a>
@@ -111,34 +106,34 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="matter-intermittently-connected-devices-icd">
-<h1>Matter Intermittently Connected Devices (ICD)<a class="headerlink" href="#matter-intermittently-connected-devices-icd" title="Permalink to this heading"></a></h1>
+<h1>Matter Intermittently Connected Devices (ICD)<a class="headerlink" href="#matter-intermittently-connected-devices-icd" title="Link to this heading"></a></h1>
 <p>Matter introduces the concept of Intermittently Connected Devices (ICD) in the SDK and in the specification.
 An Intermittently Connected Device is the Matter representation of a device that is not always reachable.
 This covers battery-powered devices that disable their underlying hardware when in a low-power mode or devices that can be disconnected from the network, like a phone app.</p>
-<p>This page focuses on features designed to improve the performance and reliability of battery-powered devices.</p>
+<p>This page focuses on features designed to improve the performance and reliability of battery-powered devices. By default Matter ICD functionality is enabled.</p>
 <section id="icd-device-types">
-<h2>ICD Device Types<a class="headerlink" href="#icd-device-types" title="Permalink to this heading"></a></h2>
-<p>Matter introduces two types of Intermittently Connected Device.</p>
+<h2>ICD Device Types<a class="headerlink" href="#icd-device-types" title="Link to this heading"></a></h2>
+<p>Matter introduces two types of ICDs.</p>
 <ul class="simple">
 <li><p>Short Idle Time ICDs</p></li>
 <li><p>Long Idle Time ICDs</p></li>
 </ul>
 <section id="short-idle-time-icds">
-<h3>Short Idle Time ICDs<a class="headerlink" href="#short-idle-time-icds" title="Permalink to this heading"></a></h3>
+<h3>Short Idle Time ICDs<a class="headerlink" href="#short-idle-time-icds" title="Link to this heading"></a></h3>
 <p>Short Idle Time ICDs are battery powered devices that can always be reached by clients.
-This means that their polling intervals are small enough to garantee that a message sent from client will be able to reach the ICD without any synchronization.
-A door lock, for example, is typicaly a SIT ICD because it needs to be able to receive commands from clients at any given time.
+This means that their polling intervals are small enough to guarantee that a message sent from a client will be able to reach the ICD without any synchronization.
+A door lock, for example, is typicaly a short idle time ICD because it needs to be able to receive commands from clients at any given time.
 These devices are usually not the initiators in the communication flow.</p>
 </section>
 <section id="long-idle-icds">
-<h3>Long Idle ICDs<a class="headerlink" href="#long-idle-icds" title="Permalink to this heading"></a></h3>
+<h3>Long Idle ICDs<a class="headerlink" href="#long-idle-icds" title="Link to this heading"></a></h3>
 <p>Long Idle Time ICDs are battery powered devices that require synchronization between the client and the ICD for communication to succeed.
-A sensor device is an example of a device that are typicaly LIT ICDs.</p>
-<p>Long Idle Time ICDs are provisionnal with the Matter 1.2 release.</p>
+A sensor device is an example of a device that are typicaly long idle time ICDs.</p>
+<p>Long Idle Time ICDs are provisional with the Matter 1.3 alpha release.</p>
 </section>
 </section>
 <section id="icd-management-cluster">
-<h2>ICD Management Cluster<a class="headerlink" href="#icd-management-cluster" title="Permalink to this heading"></a></h2>
+<h2>ICD Management Cluster<a class="headerlink" href="#icd-management-cluster" title="Link to this heading"></a></h2>
 <p>The ICD Management Cluster enables configuration of the ICD’s behavior.
 It is required for an ICD to have this cluster enabled on endpoint 0.</p>
 <p>The ICDM Cluster exposes three configuration attributes that enable to configure an ICD.</p>
@@ -179,15 +174,14 @@ It is required for an ICD to have this cluster enabled on endpoint 0.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>./examples/light-switch-app/silabs<span class="w"> </span>./out/light-switch-app_ICD<span class="w"> </span>BRD4187C<span class="w"> </span>--icd<span class="w"> </span><span class="nv">sl_idle_mode_interval_ms</span><span class="o">=</span><span class="m">600000</span><span class="w"> </span><span class="nv">sl_active_mode_interval_ms</span><span class="o">=</span><span class="m">1000</span><span class="w"> </span><span class="nv">sl_active_mode_threshold_ms</span><span class="o">=</span><span class="w"> </span><span class="m">500</span>
 </pre></div>
 </div>
-<p>These options can also be change by setting them to a default value in the projects <code class="docutils literal notranslate"><span class="pre">openthread.gni</span></code> file.
-See <code class="docutils literal notranslate"><span class="pre">examples/lock-app/silabs/openthread.gni</span></code> for an example on how they can be configured.</p>
+<p>These options can also be change by setting them to a default value in the projects openthread.gni file. See examples/lock-app/silabs/openthread.gni for an example on how they can be configured.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// ICD Matter Configuration flags</span>
 <span class="n">sl_idle_mode_interval_s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">600</span><span class="w">       </span><span class="c1">//10min Idle Mode Interval</span>
 <span class="n">sl_active_mode_interval_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000</span><span class="w">  </span><span class="c1">//10s Active Mode Interval</span>
 <span class="n">sl_active_mode_threshold_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="w">  </span><span class="c1">//1s Active Mode Threshold</span>
 </pre></div>
 </div>
-<p>The second way of changing the configuration is to set these defines in the projects <code class="docutils literal notranslate"><span class="pre">ChipProjectConfig.h</span></code>.</p>
+<p>The second way of changing the configuration is to set these defines in the projects ChipProjectConfig.h.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm"> * @def CHIP_CONFIG_ICD_IDLE_MODE_INTERVAL_SEC</span>
 <span class="cm"> *</span>
@@ -211,14 +205,13 @@ See <code class="docutils literal notranslate"><span class="pre">examples/lock-a
 <span class="cp">#define CHIP_CONFIG_ICD_ACTIVE_MODE_THRESHOLD_MS 300</span>
 </pre></div>
 </div>
-<p>Using the build arguments either in the build command or in the <code class="docutils literal notranslate"><span class="pre">openthread.gni</span></code> file is the preffered method.</p>
+<p>Using the build arguments either in the build command or in the openthread.gni file is the preferred method.</p>
 </section>
 <section id="subscription-maximum-interval">
-<h2>Subscription Maximum Interval<a class="headerlink" href="#subscription-maximum-interval" title="Permalink to this heading"></a></h2>
+<h2>Subscription Maximum Interval<a class="headerlink" href="#subscription-maximum-interval" title="Link to this heading"></a></h2>
 <p>The subscription mechanism is used by ecosystems and controllers to receive attribute change updates and liveness checks.
 The maximum interval of a subscription request is what defines the frequency at which a device will send a liveness check if there are no attribute changes.</p>
-<p>Within the subscription request / response model, a device has the opportunity to decide the maximum interval at which it will send its liveness check (Empty Report Update).
-The device can set a maximum interval within this range if and only if it is an ICD:</p>
+<p>Within the subscription request / response model, a device has the opportunity to decide the maximum interval at which it will send its liveness check (Empty Report Update). The device can set a maximum interval within this range if and only if it is an ICD:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>MinIntervalRequested<span class="w"> </span>≤<span class="w"> </span>MaxInterval<span class="w"> </span>≤<span class="w"> </span>MAX<span class="o">(</span>IdleModeInterval,<span class="w"> </span>MaxIntervalRequested<span class="o">)</span>
 </pre></div>
 </div>
@@ -242,9 +235,9 @@ The device can set a maximum interval within this range if and only if it is an 
 </tbody>
 </table>
 <section id="maximum-interval-negotiation">
-<h3>Maximum Interval Negotiation<a class="headerlink" href="#maximum-interval-negotiation" title="Permalink to this heading"></a></h3>
+<h3>Maximum Interval Negotiation<a class="headerlink" href="#maximum-interval-negotiation" title="Link to this heading"></a></h3>
 <p>The Matter SDK provides a default implementation that allows an ICD to negotiate its MaxInterval.
-The goal of the algorithme is to set the MaxInterval to the IdleModeInterval.</p>
+The goal of the algorithm is to set the MaxInterval to the IdleModeInterval.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#if CHIP_CONFIG_ENABLE_ICD_SERVER</span>
 
 <span class="w">    </span><span class="c1">// Default behavior for ICDs where the wanted MaxInterval for a subscription is the IdleModeInterval</span>
@@ -350,31 +343,25 @@ The first step is to implement the <code class="docutils literal notranslate"><s
 </section>
 </section>
 <section id="persistent-subscriptions">
-<h2>Persistent Subscriptions<a class="headerlink" href="#persistent-subscriptions" title="Permalink to this heading"></a></h2>
+<h2>Persistent Subscriptions<a class="headerlink" href="#persistent-subscriptions" title="Link to this heading"></a></h2>
 <p>Persistent subscriptions were added to Matter as a means to ensure that an ICD can re-establish its subscription and by extension its secure session to a subscriber in the event of a power cycle.
 When a device accepts a subscription request, it will persist the subscription.
 When the device reboots, it will try to re-establish its subscription with the subscriber.
-If the subscription is torn down during normal operations or if the re-establishement fails,
+If the subscription is torn down during normal operations or if the re-establishment fails,
 the subscription will be deleted.</p>
-<p>Persistent subscriptions are enable by default on all Silabs sample apps.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">chip_persist_subscriptions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
-</pre></div>
-</div>
-<p>Matter also provides a retry mecanishme for devices to try to re-establish a lost subscription with a client.
-This feature is desable by default on the door-lock and light-switch example.
-This feature should not be used a ICD since it can significantly reduce battery life.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">chip_subscription_timeout_resumption</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span>
-</pre></div>
-</div>
+<p>Persistent subscriptions are enabled by default on all Silicon Labs sample applications.</p>
+<section id="subscription-timeout-resumption">
+<h3>Subscription Timeout Resumption<a class="headerlink" href="#subscription-timeout-resumption" title="Link to this heading"></a></h3>
+<p>Matter also provides a retry mechanism for devices to try to re-establish a lost subscription with a client. This feature should not be used on an ICD since it can significantly reduce battery life. This functionality can be disabled by adding</p>
+<p><code class="docutils literal notranslate"><span class="pre">chip_subscription_timeout_resumption</span> <span class="pre">=</span> <span class="pre">false</span></code></p>
 </section>
-<section id="subscription-synchronisation">
-<h2>Subscription synchronisation<a class="headerlink" href="#subscription-synchronisation" title="Permalink to this heading"></a></h2>
-<p>To avoid forcing an ICD to become active multiple times, the Matter SDK allows an ICD to synchronize its subscription reporting and send all the reports at the same time.
-The mecansim syncrhonizes the maximum interval of the all subscription to only require the ICD to become active one.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">sl_use_subscription_synching</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
-</pre></div>
-</div>
-<p>This feature is enabled by default on the door-lock sample app and the light-switch simple app.</p>
+</section>
+<section id="subscription-synchronization">
+<h2>Subscription Synchronization<a class="headerlink" href="#subscription-synchronization" title="Link to this heading"></a></h2>
+<p>To avoid forcing an ICD to become active multiple times, the Matter SDK allows an ICD to synchronize its subscription reporting and send all the reports at the same time. The mecansim syncrhonizes the maximum interval of the all subscription to only require the ICD to become active one. This functionality can be enabled by adding</p>
+<p><code class="docutils literal notranslate"><span class="pre">sl_use_subscription_synching</span> <span class="pre">=</span> <span class="pre">true</span></code></p>
+<p>For further details on Matter ICD’s operating on OpenThread, visit <a class="reference internal" href="../thread/OT_SLEEPY_END_DEVICE.html"><span class="std std-doc">Matter Intermittently Connected Devices over OpenThread</span></a>.
+And for Matter ICD’s operating via WiFi, visit <a class="reference internal" href="../wifi/WIFI_SLEEPY_END_DEVICE.html"><span class="std std-doc">Matter Intermittently Connected Devices over WiFi</span></a>.</p>
 </section>
 </section>
 

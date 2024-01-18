@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matter Commissioning &mdash; Matter 2.2.0-1.2 documentation</title>
+  <title>Commissioning &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -14,15 +14,15 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Matter Intermittently Connected Devices over OpenThread" href="OT_SLEEPY_END_DEVICE.html" />
+    <link rel="next" title="Matter Security" href="SECURITY.html" />
     <link rel="prev" title="The Matter Interaction Model" href="FUNDAMENTALS_INTERACTION_MODEL.html" /> 
 </head>
 
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.0-1.2
+                2.3.0-1.3-alpha.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -57,20 +57,21 @@
 <li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_INTRO.html">Introduction to Matter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_DATA_MODEL.html">The Matter Data Model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_INTERACTION_MODEL.html">The Matter Interaction Model</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Matter Commissioning</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Commissioning</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#example-commissioning-flow">Example Commissioning Flow</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="OT_SLEEPY_END_DEVICE.html">Matter Intermittently Connected Devices over OpenThread</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SECURITY.html">Matter Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MATTER_ICD.html">Matter Intermittently Connected Devices (ICD)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="OTA_BOOTLOADER.html">Creating Gecko Bootloader for Use in Matter OTA Software Update</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OTA_SOFTWARE_UPDATE.html">Matter Software Update with EFR32 Example Applications</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SECURITY.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OTA_SOFTWARE_UPDATE.html">Matter Software Update with Silicon Labs Example Applications</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
@@ -91,7 +92,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../nav_1_overview.html">Matter Overview</a></li>
-      <li class="breadcrumb-item active">Matter Commissioning</li>
+      <li class="breadcrumb-item active">Commissioning</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/general/COMMISSIONING.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -101,10 +102,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="matter-commissioning">
-<h1>Matter Commissioning<a class="headerlink" href="#matter-commissioning" title="Permalink to this heading"></a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="commissioning">
+<h1>Commissioning<a class="headerlink" href="#commissioning" title="Link to this heading"></a></h1>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>The commissioning process supports two potential starting points:</p>
 <ol class="arabic simple">
 <li><p>The device is already on the network</p></li>
@@ -113,7 +114,7 @@
 <p>The current Matter revision supports Ethernet, Wi-Fi, and Thread devices.</p>
 <ul class="simple">
 <li><p>Ethernet devices get into the operational network when their Ethernet cable is connected. Therefore the devices are normally already on the network before commissioning.</p></li>
-<li><p>Wi-Fi and Thread devices must have credentials configured before the devices can be joined into the operational network. This is normally done over BLE.</p></li>
+<li><p>Wi-Fi and Thread devices must have credentials configured before the devices join into the operational network. This is normally done over BLE.</p></li>
 </ul>
 <p>This page focuses on Wi-Fi and Thread. The first step for these devices is to enter commissioning mode, following one of two scenarios:</p>
 <table class="docutils align-default">
@@ -135,13 +136,12 @@
 <p><img alt="Commissioning Overview" src="../_images/CommissioningOverview.png" /></p>
 </section>
 <section id="example-commissioning-flow">
-<h2>Example Commissioning Flow<a class="headerlink" href="#example-commissioning-flow" title="Permalink to this heading"></a></h2>
+<h2>Example Commissioning Flow<a class="headerlink" href="#example-commissioning-flow" title="Link to this heading"></a></h2>
 <p><img alt="Steps 1-4" src="../_images/CommissioningSteps1-4.png" /></p>
-<p>In step 1, the Matter device must enter commissioning mode in one of the two scenarios
-described above.</p>
+<p>In step 1, the Matter device must enter commissioning mode in one of the two scenarios described above.</p>
 <p>Usually, a mobile phone serves as the administrator. Step 2 is to use the mobile phone to scan the QR code of the Matter device. The QR code is used as a passcode to set up a secured BLE connection.</p>
 <p>Step 3 is to set up the BLE beaconing and connection between the mobile phone and the Matter device, so that the commissioning information can be exchanged through the BLE connection channel.</p>
-<p>As the connection should be secure, step 4 is to secure the connection in a process known as password-authenticated session establishment (<strong>PACE</strong>). The passcode derived from the QR code is used as an input for this process. The output is the security key used by the connection.</p>
+<p>As the connection should be secure, step 4 is to secure the connection in a process known as password-authenticated session establishment (<strong>PASE</strong>). The passcode derived from the QR code is used as an input for this process. The output is the security key used by the connection.</p>
 <p><img alt="Steps 5-7" src="../_images/CommissioningSteps5-7.png" /></p>
 <p>After the secured connection is established, step 5 is to verify the Matter device’s manufacturer certificate and compliance status. Each Matter device must have a device certificate programmed before it is shipped. The mobile phone, acting as administrator, reads the device certificate through the commissioning channel, then communicates with a remote database to validate the certificate and the compliance status of the device. The remote database is called the Distributed Compliance Ledger (<strong>DCL</strong>).</p>
 <p>Step 6 is to install the operational certificate for the device. The administrator either obtains the certificate from the remote server or generates the certificate locally and then transfers the certificate to the device. The administrator also configures the Access Control List (<strong>ACL</strong>) with the list of administrators.</p>
@@ -149,7 +149,7 @@ described above.</p>
 <p><img alt="Steps 8-10" src="../_images/CommissioningSteps8-10.png" /></p>
 <p>In step 8, the device starts to join the operational network with the configured parameters.</p>
 <p>Once the device is attached to the network (step 9), it can be discovered through Service Registration Protocol (<strong>SRP</strong>). To control that device, you must establish a secured connection through the Certification Authorized Session Establishment (<strong>CASE</strong>) process.</p>
-<p>After the CASE session is established, the Matter device is commissioned successfully and can communicate with other devices in the Matter network (step 10).</p>
+<p>After the CASE session is established, the Matter device is commissioned successfully and can communicate with other devices in the Matter network (step 10).</p>
 </section>
 </section>
 

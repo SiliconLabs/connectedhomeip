@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Unify Matter Bridge Overview &mdash; Matter 2.2.0-1.2 documentation</title>
+  <title>Unify Matter Bridge Overview &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
@@ -14,11 +14,11 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -39,7 +39,7 @@
               <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.0-1.2
+                2.3.0-1.3-alpha.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -57,6 +57,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../nav_2_prereq.html">Matter Development Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../nav_4_thread.html">Matter Over Thread</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_7_prod_guide.html">Matter Production Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Unify Matter Solutions</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Unify Matter Bridge</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Unify Matter Bridge Overview</a></li>
@@ -99,7 +100,7 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="unify-matter-bridge-overview">
-<h1>Unify Matter Bridge Overview<a class="headerlink" href="#unify-matter-bridge-overview" title="Permalink to this heading"></a></h1>
+<h1>Unify Matter Bridge Overview<a class="headerlink" href="#unify-matter-bridge-overview" title="Link to this heading"></a></h1>
 <p>The Unify Matter Bridge is an application that makes legacy devices, such as
 Z-Wave and Zigbee devices, accessible on a Matter fabric. It does so by acting
 as an <em>IoT Service</em> in a Unify Framework.</p>
@@ -120,7 +121,7 @@ and two Unify protocol controllers.</p>
 <p>More Information about the Unify Framework can be found
 <a class="reference external" href="https://siliconlabs.github.io/UnifySDK/doc/UnifySDK.html">here</a></p>
 <section id="trying-out-the-unify-matter-bridge">
-<h2>Trying Out the Unify Matter Bridge<a class="headerlink" href="#trying-out-the-unify-matter-bridge" title="Permalink to this heading"></a></h2>
+<h2>Trying Out the Unify Matter Bridge<a class="headerlink" href="#trying-out-the-unify-matter-bridge" title="Link to this heading"></a></h2>
 <p>To test the Unify Matter Bridge, a Raspberry Pi 4 is recommended. Install the
 latest release of the Unify SDK following the
 <a class="reference external" href="https://siliconlabs.github.io/UnifySDK/doc/getting_started.html">Unify Host SDK Getting Started Guide</a>.
@@ -136,7 +137,7 @@ Router image.</p>
 </div></blockquote>
 </section>
 <section id="unify-matter-bridge-as-an-iot-service">
-<h2>Unify Matter Bridge as an IoT Service<a class="headerlink" href="#unify-matter-bridge-as-an-iot-service" title="Permalink to this heading"></a></h2>
+<h2>Unify Matter Bridge as an IoT Service<a class="headerlink" href="#unify-matter-bridge-as-an-iot-service" title="Link to this heading"></a></h2>
 <p>The Unify Matter Bridge is a Unify IoT Service that allows for control of Unify
 devices from a Matter fabric. It translates Matter cluster commands and
 attributes accesses into the corresponding Unify MQTT publish messages. Unify
@@ -154,7 +155,7 @@ Matter Fabric, let alone control end devices in the Matter Fabric.</p>
 for details on feature additions, bug fixes, and known issues.</p>
 </section>
 <section id="supported-clusters-devices">
-<h2>Supported Clusters/Devices<a class="headerlink" href="#supported-clusters-devices" title="Permalink to this heading"></a></h2>
+<h2>Supported Clusters/Devices<a class="headerlink" href="#supported-clusters-devices" title="Link to this heading"></a></h2>
 <p>The Unify Matter Bridge currently supports mapping the following clusters/device
 types.</p>
 <table class="docutils align-default">
@@ -221,7 +222,7 @@ types.</p>
 </table>
 </section>
 <section id="next-steps">
-<h2>Next Steps<a class="headerlink" href="#next-steps" title="Permalink to this heading"></a></h2>
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="readme_building.html"><span class="std std-doc">Building the Matter Bridge</span></a></p></li>
 <li><p><a class="reference internal" href="readme_user.html#running-the-matter-bridge"><span class="std std-ref">Running the Matter Bridge</span></a></p></li>

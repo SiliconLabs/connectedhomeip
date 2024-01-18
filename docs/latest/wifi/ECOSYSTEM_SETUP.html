@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Overview of Matter EcoSystem &mdash; Matter 2.2.0-1.2 documentation</title>
+  <title>Overview of Matter EcoSystem &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -14,11 +14,11 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.0-1.2
+                2.3.0-1.3-alpha.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -62,9 +62,11 @@
 <li class="toctree-l2"><a class="reference internal" href="BUILD_PI_ENV.html">Build Chip Tool on Raspi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RUN_DEMO.html">Matter Demo on EFR32 NCP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="RUN_DEMO_SiWx917_SoC.html">Matter Demo on 917 SoC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JLINK_GUIDE_917.html">Matter 917 SoC JLink RTT Debugger</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SiWx917_Enablement_For_Ozone.html">Enablement of Ozone for 917 SOC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_dic.html">Wi-Fi Direct Internet Connectivity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html">Wi-Fi Intermittently Connected Devices (ICD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html">Matter Intermittently Connected Devices over WiFi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html#power-measurement">Power Measurement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="WIFI_Sleepy_Device_Power_Measurement.html">Wi-Fi ICD Power Measurement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="MATTER_SHELL.html">Matter Shell Console</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../nav_5_wifi_ecosystem.html">Matter Ecosystem Development</a><ul class="current">
@@ -78,6 +80,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
@@ -110,16 +113,16 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="overview-of-matter-ecosystem">
-<h1>Overview of Matter EcoSystem<a class="headerlink" href="#overview-of-matter-ecosystem" title="Permalink to this heading"></a></h1>
+<h1>Overview of Matter EcoSystem<a class="headerlink" href="#overview-of-matter-ecosystem" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p>Silicon Labs Matter platforms integrates with the most recent versions of the Matter protocol and works with several commercial Matter ecosystems.</p></li>
 <li><p>Matter allows multiple ecosystems to work together and control the Device.</p></li>
 <li><p>Silicon Labs Matter devices can be controlled by various Matter enabled Ecosystems.</p></li>
 </ul>
 <section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
 <section id="ecosystems">
-<h3>Ecosystems<a class="headerlink" href="#ecosystems" title="Permalink to this heading"></a></h3>
+<h3>Ecosystems<a class="headerlink" href="#ecosystems" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Devices which are compatible with official implementation of Matter in at least one commercial ecosystem</p>
 <ul>
@@ -132,14 +135,14 @@
 </ul>
 </section>
 <section id="smartphone-to-control-ecosystem">
-<h3>Smartphone to Control Ecosystem<a class="headerlink" href="#smartphone-to-control-ecosystem" title="Permalink to this heading"></a></h3>
+<h3>Smartphone to Control Ecosystem<a class="headerlink" href="#smartphone-to-control-ecosystem" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Android smart phone installed with respective Ecosystem mobile apps <strong>Amazon Alexa, Google Home, Samsung Smart Things</strong></p></li>
 <li><p>Apple iphone installed with mobile app <strong>Apple Home</strong>.</p></li>
 </ul>
 </section>
 <section id="silicon-labs-development-boards">
-<h3>Silicon Labs Development Boards<a class="headerlink" href="#silicon-labs-development-boards" title="Permalink to this heading"></a></h3>
+<h3>Silicon Labs Development Boards<a class="headerlink" href="#silicon-labs-development-boards" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>In order to run Matter over Wi-Fi on compatible Ecosystem, at least below setup hardwares are required</p></li>
 <li><p>Silicon Labs Wireless starter/development kit (WSTK)</p></li>
@@ -160,16 +163,8 @@
 </li>
 <li><p><strong>Wi-Fi SoC Dev kits and boards</strong></p></li>
 <li><p>SiWx917 / BRD4002A / Wireless Starter Kit</p></li>
-<li><p>SiWx917 SoC / Dual Flash Radio Board / 2.4GHz</p>
-<ul>
-<li><p>BRD4325B - A0 dual flash 1.1</p></li>
-<li><p>BRD4325B - A0 dual flash 1.2</p></li>
-</ul>
-</li>
 <li><p>SiWx917 SoC / Common Flash Radio Board / 2.4GHz</p>
 <ul>
-<li><p>BRD4325C - B0 common flash v1.2</p></li>
-<li><p>BRD4325G - B0 Stacked Flash + External PSRAM v1.2</p></li>
 <li><p>BRD4338A - B0 common flash v2.0</p></li>
 </ul>
 </li>
@@ -190,36 +185,6 @@
 </li>
 </ul>
 </li>
-<li><p><strong>MG12 boards:</strong></p>
-<ul>
-<li><p><a class="reference external" href="https://www.silabs.com/development-tools/wireless/zigbee/efr32mg12-dual-band-starter-kit">EFR32MG12 Development Kit</a></p></li>
-<li><p>BRD4161A / SLWSTK6000B / Wireless Starter Kit / 2.4GHz&#64;19dBm</p>
-<ul>
-<li><p><a class="reference external" href="https://www.silabs.com/development-tools/wireless/zigbee/slwrb4161a-efr32mg12-radio-board">SLWRB4161A</a></p></li>
-</ul>
-</li>
-<li><p>BRD4162A / SLWSTK6000B / Wireless Starter Kit / 2.4GHz&#64;10dBm</p>
-<ul>
-<li><p><a class="reference external" href="https://www.silabs.com/development-tools/wireless/zigbee/slwrb4162a-efr32mg12-radio-board">SLWRB4162A</a></p></li>
-</ul>
-</li>
-<li><p>BRD4163A / SLWSTK6000B / Wireless Starter Kit / 2.4GHz&#64;19dBm</p>
-<ul>
-<li><p><a class="reference external" href="https://www.silabs.com/development-tools/wireless/zigbee/slwrb4163a-efr32mg12-radio-board">SLWRB4163A</a></p></li>
-</ul>
-</li>
-<li><p>BRD4164A / SLWSTK6000B / Wireless Starter Kit / 2.4GHz&#64;19dBm</p>
-<ul>
-<li><p><a class="reference external" href="https://www.silabs.com/development-tools/wireless/zigbee/slwrb4164a-efr32mg12-radio-board">SLWRB4164A</a></p></li>
-</ul>
-</li>
-<li><p>BRD4170A / SLWSTK6000B / Multiband Wireless Starter Kit / 2.4GHz&#64;19dBm, 915MHz&#64;19dBm</p>
-<ul>
-<li><p><a class="reference external" href="https://www.silabs.com/development-tools/wireless/zigbee/slwrb4170a-efr32mg12-radio-board">SLWRB4170A</a></p></li>
-</ul>
-</li>
-</ul>
-</li>
 <li><p><strong>Wi-Fi Dev Kits &amp; boards</strong></p>
 <ul>
 <li><p>RS9116</p>
@@ -227,8 +192,6 @@
 <li><p>SB-EVK1 / Single Band Wi-Fi Development Kit / 2.4GHz</p>
 <ul>
 <li><p><a class="reference external" href="https://www.silabs.com/development-tools/wireless/wi-fi/rs9116x-sb-evk-development-kit">RS9116X-SB-EVK1</a></p></li>
-</ul>
-</li>
 </ul>
 </li>
 <li><p>SB-EVK2 / Single Band Wi-Fi Development Kit / 2.4GHz</p>
@@ -245,24 +208,29 @@
 <li><p>Interconnect board (included in the Wi-Fi kits)</p></li>
 <li><p>SPI Cable (included in the RS9116 kit)</p></li>
 <li><p>Jumper Cables (included in the RS9116 kit)</p></li>
+</ul>
+</li>
 <li><p>SiWx917</p>
 <ul>
 <li><p>SiWx917 NCP Mode / Wi-Fi Expansion Board / 2.4GHz</p>
 <ul>
-<li><p>BRD8036A (A0 Expansion v1.1)</p></li>
+<li><p>BRD4346A</p></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><p>WF200</p>
 <ul>
-<li><p>WF200 / Single Band Wi-Fi Expansion Board / 2.4GHz</p></li>
+<li><p>WF200 / Single Band Wi-Fi Expansion Board / 2.4GHz</p>
+<ul>
 <li><p><a class="reference external" href="https://www.silabs.com/development-tools/wireless/wi-fi/wf200-wifi-expansion-kit">SLEXP8022A</a></p></li>
 </ul>
 </li>
 <li><p>WFM200S / Single Band Wi-Fi Expansion Board / 2.4GHz</p>
 <ul>
 <li><p><a class="reference external" href="https://www.silabs.com/development-tools/wireless/wi-fi/wfm200-wifi-expansion-kit">SLEXP8023A</a></p></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -281,7 +249,7 @@
 </section>
 </section>
 <section id="matter-setup-with-ecosystem-and-demo-execution">
-<h2>Matter Setup with Ecosystem and Demo execution<a class="headerlink" href="#matter-setup-with-ecosystem-and-demo-execution" title="Permalink to this heading"></a></h2>
+<h2>Matter Setup with Ecosystem and Demo execution<a class="headerlink" href="#matter-setup-with-ecosystem-and-demo-execution" title="Link to this heading"></a></h2>
 <p>Matter device can be controlled by single controller and interoperable with multiple controllers</p>
 <ul class="simple">
 <li><p>For Single Controller Setup and Procedure with matter compatible ecosystem, refer below links</p>

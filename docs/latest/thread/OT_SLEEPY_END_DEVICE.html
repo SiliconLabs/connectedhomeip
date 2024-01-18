@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matter Intermittently Connected Devices over OpenThread &mdash; Matter 2.2.0-1.2 documentation</title>
+  <title>Matter Intermittently Connected Devices over OpenThread &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -14,16 +14,16 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Creating Gecko Bootloader for Use in Matter OTA Software Update" href="OTA_BOOTLOADER.html" />
-    <link rel="prev" title="Matter Commissioning" href="COMMISSIONING.html" /> 
+    <link rel="next" title="Matter Over Wi-Fi" href="../nav_5_wifi.html" />
+    <link rel="prev" title="Using the Matter Hub and the Mattertool (chip-tool)" href="CHIP_TOOL.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.0-1.2
+                2.3.0-1.3-alpha.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -53,12 +53,16 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_INTRO.html">Introduction to Matter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_DATA_MODEL.html">The Matter Data Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_INTERACTION_MODEL.html">The Matter Interaction Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="COMMISSIONING.html">Matter Commissioning</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Matter Intermittently Connected Devices over OpenThread</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="THREAD.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DEMO_OVERVIEW.html">Demo Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RASPI_IMG.html">Setting up the Matter Hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RCP.html">Setting up the RCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BUILD_FLASH_MAD.html">Build, Flash Matter Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHIP_TOOL.html">Using the Matter Hub</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Intermittently Connected Devices over OpenThread</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#operating-modes">Operating Modes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#thread-communication">Thread Communication</a></li>
@@ -66,14 +70,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#building">Building</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="OTA_BOOTLOADER.html">Creating Gecko Bootloader for Use in Matter OTA Software Update</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OTA_SOFTWARE_UPDATE.html">Matter Software Update with EFR32 Example Applications</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SECURITY.html">Security</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
@@ -93,10 +93,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../nav_1_overview.html">Matter Overview</a></li>
+          <li class="breadcrumb-item"><a href="../nav_4_thread.html">Matter Over Thread</a></li>
       <li class="breadcrumb-item active">Matter Intermittently Connected Devices over OpenThread</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/general/OT_SLEEPY_END_DEVICE.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/thread/OT_SLEEPY_END_DEVICE.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -105,17 +105,17 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="matter-intermittently-connected-devices-over-openthread">
-<h1>Matter Intermittently Connected Devices over OpenThread<a class="headerlink" href="#matter-intermittently-connected-devices-over-openthread" title="Permalink to this heading"></a></h1>
+<h1>Matter Intermittently Connected Devices over OpenThread<a class="headerlink" href="#matter-intermittently-connected-devices-over-openthread" title="Link to this heading"></a></h1>
 <p>This page explains how Matter OpenThread Intermittently Connected Devices (ICDs) work and how to configure an ICD example.</p>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>Matter provides an Intermittently Connected Device (ICD) operating mode to extend the battery life of power-limited devices.
 The Matter ICD manager leverages subscription report synchronization and OpenThread functionalities to allow devices to sleep for set periods
 without disrupting their Matter sessions.</p>
-<p>Currently, in Matter v1.2 only ICD with Short Idle Time (SIT) is supported. ICD SIT are devices that SHOULD be configured with a Slow Polling Interval shorter than or equal to 15 seconds. For example, in a typical scenario for door locks and window coverings, commands need to be sent to the ICD with a use-case imposed latency requirement. Typically, devices that are Short Idle Time ICDs are not initiators in the communication flow.</p>
+<p>In Matter v1.2, only ICD’s with Short Idle Time (SIT) are supported. Matter 1.3 alpha provides provisional support for Long Idle Time (LIT) ICD’s. A SIT ICD  are devices that SHOULD be configured with a Slow Polling Interval shorter than or equal to 15 seconds. For example, in a typical scenario for door locks and window coverings, commands need to be sent to the ICD with a use-case imposed latency requirement. Typically, devices that are Short Idle Time ICDs are not initiators in the communication flow.</p>
 </section>
 <section id="operating-modes">
-<h2>Operating Modes<a class="headerlink" href="#operating-modes" title="Permalink to this heading"></a></h2>
+<h2>Operating Modes<a class="headerlink" href="#operating-modes" title="Link to this heading"></a></h2>
 <p>ICDs have two operating modes, Idle and Active. An ICD alternates normally between the Idle mode and Active mode  based on the  <code class="docutils literal notranslate"><span class="pre">IdleModeInterval</span></code> and <code class="docutils literal notranslate"><span class="pre">ActiveModeInterval</span></code> respectively</p>
 <p>When the device is in <em>Active Mode</em>, the ICD is set into a fast-polling interval for maximum responsiveness.
 The <code class="docutils literal notranslate"><span class="pre">CHIP_DEVICE_CONFIG_ICD_FAST_POLL_INTERVAL</span></code> parameter communicates the maximum sleep interval of a node in active mode.</p>
@@ -138,12 +138,12 @@ If no event occurs, the ICD stays in its idle mode for the entirety of the <code
 The <code class="docutils literal notranslate"><span class="pre">CHIP_DEVICE_CONFIG_ICD_SLOW_POLL_INTERVAL</span></code> parameter communicates the slow-polling interval and therefore the maximum sleep interval of the node in idle mode. This parameter affects both the minimum power consumption and maximum latency.</p>
 </section>
 <section id="thread-communication">
-<h2>Thread Communication<a class="headerlink" href="#thread-communication" title="Permalink to this heading"></a></h2>
+<h2>Thread Communication<a class="headerlink" href="#thread-communication" title="Link to this heading"></a></h2>
 <p>In order to receive messages that were sent while the ICD was sleeping, the ICD relies on its associated Thread router which buffers any incoming messages.
 The Thread router will send all buffered messages to the ICD when it polls the router at the end of its slow-polling interval.</p>
 </section>
 <section id="configuration">
-<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this heading"></a></h2>
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
 <p>Matter exposes some defines to configure the polling intervals of the openthread stack in both Idle and Active modes.</p>
 <table class="docutils align-default">
 <thead>
@@ -169,9 +169,9 @@ The Thread router will send all buffered messages to the ICD when it polls the r
 </tr>
 </tbody>
 </table>
-<p>For Matter configuration, see the <a class="reference internal" href="MATTER_ICD.html"><span class="std std-doc">Matter ICD</span></a> documentation.</p>
+<p>For Matter configuration, see the <a class="reference internal" href="../general/MATTER_ICD.html"><span class="std std-doc">Matter ICD</span></a> documentation.</p>
 <section id="usage">
-<h3>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h3>
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
 <p>The default values for these defines for the Silabs platform is split in two files:</p>
 <p>and <code class="docutils literal notranslate"><span class="pre">src/platform/silabs/CHIPDevicePlatformConfig.h</span></code> is where the openthread polling intervals default are set.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef CHIP_DEVICE_CONFIG_ICD_SLOW_POLL_INTERVAL</span>
@@ -210,9 +210,9 @@ For the lighting-app, the file is <code class="docutils literal notranslate"><sp
 </section>
 </section>
 <section id="building">
-<h2>Building<a class="headerlink" href="#building" title="Permalink to this heading"></a></h2>
+<h2>Building<a class="headerlink" href="#building" title="Link to this heading"></a></h2>
 <section id="enabling-sleepy-functionalities">
-<h3>Enabling Sleepy Functionalities<a class="headerlink" href="#enabling-sleepy-functionalities" title="Permalink to this heading"></a></h3>
+<h3>Enabling Sleepy Functionalities<a class="headerlink" href="#enabling-sleepy-functionalities" title="Link to this heading"></a></h3>
 <p>To build an OpenThread ICD example, three conditions must be met:
 1) The Intermittently Connected Device cluster must be enabled as a server on the end device application.
 2) The following macro must be defined : <code class="docutils literal notranslate"><span class="pre">CHIP_CONFIG_ENABLE_ICD_SERVER</span></code>.
@@ -225,7 +225,7 @@ For the lighting-app, the file is <code class="docutils literal notranslate"><sp
 </div>
 </section>
 <section id="minimal-power-consumption">
-<h3>Minimal Power Consumption<a class="headerlink" href="#minimal-power-consumption" title="Permalink to this heading"></a></h3>
+<h3>Minimal Power Consumption<a class="headerlink" href="#minimal-power-consumption" title="Link to this heading"></a></h3>
 <p>Simply enabling ICD functionalities does not give the application the best power consumption.
 By default, several features that increase power consumption are enabled in the example applications.
 The following set of features increase power consumption.</p>

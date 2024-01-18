@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matter Repositories and Commit Hashes &mdash; Matter 2.2.0-1.2 documentation</title>
+  <title>Matter Repositories and Commit Hashes &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -14,16 +14,16 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Custom Matter Device Development" href="CUSTOM_MATTER_DEVICE.html" />
-    <link rel="prev" title="Code Savings Guide for Matter Applications" href="CODE_SIZE_SAVINGS.html" /> 
+    <link rel="prev" title="Code Savings Guide for Building Matter Applications" href="CODE_SIZE_SAVINGS.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.2.0-1.2
+                2.3.0-1.3-alpha.1
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -57,12 +57,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="CODE_SIZE_SAVINGS.html">Code Savings Guide</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Commit Hash Reference</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#open-thread-border-router-otbr">Open Thread Border Router (OTBR)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#radio-co-processor-rcp">Radio Co-Processor (RCP)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#openthread">Openthread</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#connectivity-standards-alliance-csa-connectedhomeip-matter">Connectivity Standards Alliance (CSA) connectedhomeip (Matter)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#matter-chip-tool">Matter chip-tool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#matter-accessory-device-mad">Matter Accessory Device (MAD)</a></li>
@@ -73,7 +75,6 @@
 <li class="toctree-l2"><a class="reference internal" href="FLASHING_USING_COMMANDER.html">Flashing Using Simplicity Commander</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FLASH_SILABS_DEVICE.html">Flash an EFR32 Device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FLASH_SILABS_SiWx917_SOC_DEVICE.html">Flash a 917SoC Device</a></li>
-<li class="toctree-l2"><a class="reference internal" href="MATTER_ICD.html">Matter ICDs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ZAP.html">Using ZAP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="WIRESHARK.html">Using Wireshark</a></li>
 <li class="toctree-l2"><a class="reference internal" href="EP.html">Using Energy Profiler</a></li>
@@ -111,11 +112,11 @@
            <div itemprop="articleBody">
              
   <section class="tex2jax_ignore mathjax_ignore" id="matter-repositories-and-commit-hashes">
-<h1>Matter Repositories and Commit Hashes<a class="headerlink" href="#matter-repositories-and-commit-hashes" title="Permalink to this heading"></a></h1>
+<h1>Matter Repositories and Commit Hashes<a class="headerlink" href="#matter-repositories-and-commit-hashes" title="Link to this heading"></a></h1>
 <p>The following repositories, branches and commit hashes are to be used together
 in this release of the Silicon Labs Matter Out of Box Experience</p>
 <section id="open-thread-border-router-otbr">
-<h2>Open Thread Border Router (OTBR)<a class="headerlink" href="#open-thread-border-router-otbr" title="Permalink to this heading"></a></h2>
+<h2>Open Thread Border Router (OTBR)<a class="headerlink" href="#open-thread-border-router-otbr" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Repo</p></th>
@@ -126,13 +127,13 @@ in this release of the Silicon Labs Matter Out of Box Experience</p>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/SiliconLabs/ot-br-posix">https://github.com/SiliconLabs/ot-br-posix</a></p></td>
 <td><p>main</p></td>
-<td><p>bb565ca0164981f58a2659222c30917399703a9b</p></td>
+<td><p>42f98b27bc7f54951c860cd98ce5ff7c7fedc68c</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="radio-co-processor-rcp">
-<h2>Radio Co-Processor (RCP)<a class="headerlink" href="#radio-co-processor-rcp" title="Permalink to this heading"></a></h2>
+<h2>Radio Co-Processor (RCP)<a class="headerlink" href="#radio-co-processor-rcp" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Repo</p></th>
@@ -143,13 +144,30 @@ in this release of the Silicon Labs Matter Out of Box Experience</p>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/SiliconLabs/ot-efr32">https://github.com/SiliconLabs/ot-efr32</a></p></td>
 <td><p>main</p></td>
-<td><p>3528d4bba47743a5367a822e350aaccb04698542</p></td>
+<td><p>e75c767374a6a6fccd62f024c7217762ae652891</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="openthread">
+<h2>Openthread<a class="headerlink" href="#openthread" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Repo</p></th>
+<th class="head"><p>Branch</p></th>
+<th class="head"><p>Commit Hash</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/openthread/openthread">https://github.com/openthread/openthread</a></p></td>
+<td><p>main</p></td>
+<td><p>7074a43e4577d32d5535d52e7940ed2ea7e3a528</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="connectivity-standards-alliance-csa-connectedhomeip-matter">
-<h2>Connectivity Standards Alliance (CSA) connectedhomeip (Matter)<a class="headerlink" href="#connectivity-standards-alliance-csa-connectedhomeip-matter" title="Permalink to this heading"></a></h2>
+<h2>Connectivity Standards Alliance (CSA) connectedhomeip (Matter)<a class="headerlink" href="#connectivity-standards-alliance-csa-connectedhomeip-matter" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Repo</p></th>
@@ -160,13 +178,13 @@ in this release of the Silicon Labs Matter Out of Box Experience</p>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/project-chip/connectedhomeip">https://github.com/project-chip/connectedhomeip</a></p></td>
 <td><p>master</p></td>
-<td><p>d140d5c87751603278f2483523993ee81922e7be</p></td>
+<td><p>c36f4a7745ac0092982933987c694a6b605de35d</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="matter-chip-tool">
-<h2>Matter chip-tool<a class="headerlink" href="#matter-chip-tool" title="Permalink to this heading"></a></h2>
+<h2>Matter chip-tool<a class="headerlink" href="#matter-chip-tool" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Repo</p></th>
@@ -176,14 +194,14 @@ in this release of the Silicon Labs Matter Out of Box Experience</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/SiliconLabs/matter">https://github.com/SiliconLabs/matter</a></p></td>
-<td><p>&lt;this branch&gt;</p></td>
-<td><p>&lt;this commit&gt;</p></td>
+<td><p>release_2.3.0-1.3-alpha.1</p></td>
+<td><p>c36f4a7745ac0092982933987c694a6b605de35d</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="matter-accessory-device-mad">
-<h2>Matter Accessory Device (MAD)<a class="headerlink" href="#matter-accessory-device-mad" title="Permalink to this heading"></a></h2>
+<h2>Matter Accessory Device (MAD)<a class="headerlink" href="#matter-accessory-device-mad" title="Link to this heading"></a></h2>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Repo</p></th>
@@ -193,8 +211,8 @@ in this release of the Silicon Labs Matter Out of Box Experience</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/SiliconLabs/matter">https://github.com/SiliconLabs/matter</a></p></td>
-<td><p>&lt;this branch&gt;</p></td>
-<td><p>&lt;this commit&gt;</p></td>
+<td><p>release_2.3.0-1.3-alpha.1</p></td>
+<td><p>c36f4a7745ac0092982933987c694a6b605de35d</p></td>
 </tr>
 </tbody>
 </table>
