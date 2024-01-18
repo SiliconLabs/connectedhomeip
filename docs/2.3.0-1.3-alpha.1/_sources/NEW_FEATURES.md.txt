@@ -9,7 +9,6 @@
   - **Note**: Controllers do not fully support at time of release
 - 917 SoC OTA Upgrade
 - 917 SoC Custom Part Manufacturing Service (CPMS) Feature
-- 917 SoC M4 Sleep/Wake-up improvements
 
 
 ## New Features for v2.2.0-1.2
