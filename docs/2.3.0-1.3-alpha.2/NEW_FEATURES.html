@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silicon Labs Matter New Features &mdash; Matter 2.3.0-1.3-alpha.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=359c5665"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Matter Overview" href="nav_1_overview.html" />
+    <link rel="prev" title="Silicon Labs Matter User’s Guide Overview" href="OVERVIEW.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Matter
+              <img src="_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3-alpha.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Matter New Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#new-features-for-v2-3-0-1-3-alpha-2">New Features for v2.3.0-1.3-alpha.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-features-for-v2-3-0-1-3-alpha-1">New Features for v2.3.0-1.3-alpha.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-features-for-v2-2-0-1-2">New Features for v2.2.0-1.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#icd-sample-apps">ICD Sample Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#self-provisioning-mode">Self-Provisioning Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#new-features-for-v2-2-0-1-2-alpha-1">New Features for v2.2.0-1.2-alpha.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#support-for-intermittently-connected-devices-icd">Support for Intermittently Connected Devices (ICD)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#new-features-for-v2-1-0-1-1">New Features for v2.1.0-1.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-features-for-v2-0-0-1-1">New Features for v2.0.0-1.1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#matter-intermittently-connected-devices-icd-sleepy-improvements">Matter Intermittently Connected Devices (ICD / Sleepy) Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matter-sleepy-end-devices-over-wi-fi">Matter Sleepy End Devices over Wi-Fi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#added-support-for-cmps-custom-part-manufacturing-service">Added support for CMPS (Custom Part Manufacturing Service)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matter-wi-fi-direct-internet-connectivity">Matter Wi-Fi Direct Internet Connectivity</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Silicon Labs Matter New Features</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/NEW_FEATURES.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="silicon-labs-matter-new-features">
+<h1>Silicon Labs Matter New Features<a class="headerlink" href="#silicon-labs-matter-new-features" title="Link to this heading"></a></h1>
+<section id="new-features-for-v2-3-0-1-3-alpha-2">
+<h2>New Features for v2.3.0-1.3-alpha.2<a class="headerlink" href="#new-features-for-v2-3-0-1-3-alpha-2" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Update to use <a class="reference external" href="https://docs.silabs.com/gecko-platform/4.4.1/platform-overview/">Gecko SDK (GSDK) v4.4.1</a></p></li>
+<li><p>Update to use <a class="reference external" href="https://docs.silabs.com/wiseconnect/3.1.3/wiseconnect-developing-with-wiseconnect-sdk/">WiSeConnect 3 SDK (WiFi SDK) v3.1.3</a></p></li>
+<li><p>Enhanced 917 SoC sleep functionality</p>
+<ul>
+<li><p>Sleepy OTA upgrade functionality</p></li>
+<li><p>M4 sleep optimization while device is uncommissioned</p></li>
+<li><p>M4 sleep optimization when commissioning retry sequence experiences ongoing delay</p></li>
+<li><p>Clock usage: Makes use of default sleep clock vs. high frequency clock</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="new-features-for-v2-3-0-1-3-alpha-1">
+<h2>New Features for v2.3.0-1.3-alpha.1<a class="headerlink" href="#new-features-for-v2-3-0-1-3-alpha-1" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Update to use <a class="reference external" href="https://docs.silabs.com/gecko-platform/4.4.0/platform-overview/">Gecko SDK (GSDK) v4.4.0</a></p></li>
+<li><p>Update to use <a class="reference external" href="https://docs.silabs.com/wiseconnect/3.1.1/wiseconnect-developing-with-wiseconnect-sdk/">WiSeConnect 3 SDK (WiFi SDK) v3.1.1</a></p></li>
+<li><p>Matter 1.3 alpha support</p></li>
+<li><p>Matter ICD Long Idle Time (LIT) provisional support</p>
+<ul>
+<li><p><strong>Note</strong>: Controllers do not fully support at time of release</p></li>
+</ul>
+</li>
+<li><p>917 SoC OTA Upgrade</p></li>
+<li><p>917 SoC Custom Part Manufacturing Service (CPMS) Feature</p></li>
+</ul>
+</section>
+<section id="new-features-for-v2-2-0-1-2">
+<h2>New Features for v2.2.0-1.2<a class="headerlink" href="#new-features-for-v2-2-0-1-2" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>GA support for Intermittently Connected Devices</p></li>
+<li><p>Introduction of a third LCD screen to display application information</p></li>
+<li><p>Introduction of the Dishwasher Demo Application</p></li>
+<li><p>Adds support of Matter 1.2 Apps on all Wi-Fi devices.</p></li>
+<li><p>Adds Matter support on SiWx917 SoC Common flash variants - BRD4338A.</p></li>
+<li><p>Adds LCD display support on SiWx917 SoC for all the Wi-Fi Matter Apps.</p></li>
+<li><p>Adds support for Direct Internet Connectivity on the SiWx917 SoC &amp; NCP</p></li>
+</ul>
+<section id="icd-sample-apps">
+<h3>ICD Sample Apps<a class="headerlink" href="#icd-sample-apps" title="Link to this heading"></a></h3>
+<p>With the official introduction of Matter Short Idle Time (SIT) ICDs, both the door-lock sample app and the light-switch sample app are configured as SIT ICDs by default.
+The default configurations can be found in their respective openthread.gni.</p>
+</section>
+<section id="self-provisioning-mode">
+<h3>Self-Provisioning Mode<a class="headerlink" href="#self-provisioning-mode" title="Link to this heading"></a></h3>
+<p>Silicon Labs’ Matter examples now include a self-provision mode, which enables the application to be used as Generator Firmware with the provisioning script:</p>
+<ul class="simple">
+<li><p>e.g.:<code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">provision.py</span> <span class="pre">-c</span> <span class="pre">config/silabs.json</span> <span class="pre">-gf</span> <span class="pre">../out/light/BRD4187C/matter-silabs-lighting-example.s37</span></code></p></li>
+</ul>
+<p>To enter the self-provisioning mode, factory reset the device pressing buttons BTN0 and BTN1 for six seconds. Using this method, the device application only needs to be flashed once, provisioned multiple times, and be ready for commissioning after each provisioning.</p>
+</section>
+</section>
+<section id="new-features-for-v2-2-0-1-2-alpha-1">
+<h2>New Features for v2.2.0-1.2-alpha.1<a class="headerlink" href="#new-features-for-v2-2-0-1-2-alpha-1" title="Link to this heading"></a></h2>
+<section id="support-for-intermittently-connected-devices-icd">
+<h3>Support for Intermittently Connected Devices (ICD)<a class="headerlink" href="#support-for-intermittently-connected-devices-icd" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Full support for ICD Short idle time (SIT) Devices in support of the Matter 1.2 specification.</p>
+<ul>
+<li><p>In this release Silicon Labs has provided full support for Short Idle Time intermittently connected devices.</p></li>
+<li><p>These are ICDs (formerly called Sleepy End Devices) which must remain responsive to user input such as Door Locks and Window Coverings.</p></li>
+</ul>
+</li>
+<li><p>ICD Management cluster server implementation</p>
+<ul>
+<li><p>Silicon Labs has provided an implementation of the ICD cluster server and the configuration of the ICD</p></li>
+</ul>
+</li>
+<li><p>ICD Manager and ICD Event manager has been implemented to manage the Idle and Active mode of the ICD</p></li>
+<li><p>NEW DNS advertisement Text Key SAI: indicates the SLEEPY_ACTIVE_INTERVAL (default to 4000 ms when ICD is not enabled)</p></li>
+<li><p>NEW Matter ICD configuration defines:</p>
+<ul>
+<li><p>CHIP_CONFIG_ICD_IDLE_MODE_INTERVAL set value for the ICD IdleInterval attribute</p></li>
+<li><p>CHIP_CONFIG_ICD_ACTIVE_MODE_INTERVAL set value for the ICD ActiveInterval attribute</p></li>
+<li><p>CHIP_CONFIG_ICD_ACTIVE_MODE_THRESHOLD set value for the ICD ActiveThreshold attribute</p></li>
+<li><p>CHIP_CONFIG_ICD_CLIENTS_SUPPORTED_PER_FABRIC set value for the ICD ClientsSupportedPerFabric attribute</p>
+<ul>
+<li><p>All of these defines can be configured by our following build arguments (default values listed here)</p>
+<ul>
+<li><p>sl_idle_mode_interval_ms = 600000  <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">10min</span> <span class="pre">Idle</span> <span class="pre">Mode</span> <span class="pre">Interval</span></code></p></li>
+<li><p>sl_active_mode_interval_ms = 1000  <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">1s</span> <span class="pre">Active</span> <span class="pre">Mode</span> <span class="pre">Interval</span></code></p></li>
+<li><p>sl_active_mode_threshold_ms = 500  <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">500ms</span> <span class="pre">Active</span> <span class="pre">Mode</span> <span class="pre">Threshold</span></code></p></li>
+<li><p>sl_icd_supported_clients_per_fabric = 2  <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">2</span> <span class="pre">registration</span> <span class="pre">slots</span> <span class="pre">per</span> <span class="pre">fabric</span></code></p></li>
+</ul>
+</li>
+<li><p>The OpenThread polling rates used in either ICD mode can be configured with (default value listed here)</p>
+<ul>
+<li><p>sl_ot_idle_interval_ms = 15000  <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">15s</span> <span class="pre">Idle</span> <span class="pre">Intervals</span></code></p></li>
+<li><p>sl_ot_active_interval_ms = 200  <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">200ms</span> <span class="pre">Active</span> <span class="pre">Intervals</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>CHANGES:</p>
+<ul>
+<li><p>Optimized the subscription reports by synchronizing all client’s subscriptions with the ICD idle mode interval. This ensures the minimal amount of wake ups possible due to subscription reports</p></li>
+<li><p>The previous <code class="docutils literal notranslate"><span class="pre">--sed</span></code> build preset has been replaced by <code class="docutils literal notranslate"><span class="pre">--icd</span></code>. This goes in line with previous sleepy end device behavior being deprecated and replaced by the ICD behavior.</p></li>
+<li><p>Silicon Labs’ Light Switch and Door Lock apps support the ICD implementation and have the ICD cluster enabled. To build those apps as ICDs, use the aforementioned prefix <code class="docutils literal notranslate"><span class="pre">--icd</span></code> in your usual build command.</p>
+<ul>
+<li><p>e.g.: <code class="docutils literal notranslate"><span class="pre">./scripts/examples/gn_silabs_example.sh</span> <span class="pre">./examples/light-switch-app/silabs</span> <span class="pre">./out/light-switch-app_ICD</span> <span class="pre">BRD4187C</span> <span class="pre">--icd</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="new-features-for-v2-1-0-1-1">
+<h2>New Features for v2.1.0-1.1<a class="headerlink" href="#new-features-for-v2-1-0-1-1" title="Link to this heading"></a></h2>
+<ul>
+<li><h3 class="rubric" id="update-to-gsdk-version-4-2-3">Update to GSDK Version 4.2.3</h3>
+<p>The GSDK Version 4.2.3 includes important security enhancements for the Open Thread Stack which in turn updates all Matter over Thread implementations.</p>
+</li>
+</ul>
+</section>
+<section id="new-features-for-v2-0-0-1-1">
+<h2>New Features for v2.0.0-1.1<a class="headerlink" href="#new-features-for-v2-0-0-1-1" title="Link to this heading"></a></h2>
+<section id="matter-intermittently-connected-devices-icd-sleepy-improvements">
+<h3>Matter Intermittently Connected Devices (ICD / Sleepy) Improvements<a class="headerlink" href="#matter-intermittently-connected-devices-icd-sleepy-improvements" title="Link to this heading"></a></h3>
+<ul>
+<li><h4 class="rubric" id="expose-the-api-for-a-device-to-change-the-max-interval-in-a-subscription-request">Expose the API for a device to change the max interval in a subscription request</h4>
+<p>A device can, when accepting a subscription request, change the maximum reporting interval for it to match with its idle time instead of accepting the requested intervals.
+When not using this API, the ICDs idle time interval could functionally be shortened by a controller without the ICD being able to refuse the subscription.</p>
+<p>For more details see the <a class="reference internal" href="general/MATTER_ICD.html"><span class="std std-doc">Matter Intermittently Connected Devices</span></a> section.</p>
+</li>
+<li><h4 class="rubric" id="persistent-subscription">Persistent Subscription</h4>
+<p>The device will persist a subscription to be able to recover its subscription with a subscriber in case of a reboot.</p>
+<p>For more details see the <a class="reference internal" href="general/MATTER_ICD.html"><span class="std std-doc">Matter Intermittently Connected Devices</span></a> section.</p>
+</li>
+<li><h4 class="rubric" id="during-the-commissioning-flow-the-device-will-not-be-able-to-go-to-idle-mode-until-the-commissioning-is-complete">During the commissioning flow, the device will not be able to go to idle mode until the commissioning is complete.</h4>
+<p>Before, the thread devices would go to idle mode right after completing its srp registration but before the sigma1 message was received.
+With 1.1, devices will remain in Active Mode until the commissioning is complete.</p>
+</li>
+<li><h4 class="rubric" id="adding-the-active-mode-threshold-feature">Adding the Active Mode Threshold feature.</h4>
+<p>When a thread ICD goes from Idle Mode to Active Mode, the ICD will stay in Active Mode for a defined amount before going back to Idle Mode.
+The timer starts after the last communication.
+For this feature to take affect, there needs to be at least one message coming in or going out. If the device just polls its thread router and nothing else happens, this doesn’t come into play.</p>
+<p>For more details see the <a class="reference internal" href="thread/OT_SLEEPY_END_DEVICE.html"><span class="std std-doc">Openthread Sleepy End Device</span></a> section.</p>
+</li>
+</ul>
+</section>
+<section id="matter-sleepy-end-devices-over-wi-fi">
+<h3>Matter Sleepy End Devices over Wi-Fi<a class="headerlink" href="#matter-sleepy-end-devices-over-wi-fi" title="Link to this heading"></a></h3>
+<ul>
+<li><p>A Matter Sleepy End Device is a device where the EFR32 along with the Wi-Fi coprocessor go into sleep mode during idle time resulting in less power consumption. This helps devices running on limited power sources like battery powered devices.
+The EFR32 goes into sleep mode whenever the device is idle. The Wi-Fi coprocessor goes into Power Save (PS) Poll legacy power save mode where it wakes for every Delivery Traffic Information Map (DTIM) interval to check for any packets.</p>
+<p>For more details see the <a class="reference internal" href="wifi/WIFI_SLEEPY_END_DEVICE.html"><span class="std std-doc">Wi-Fi Sleepy End Device</span></a> section.</p>
+</li>
+</ul>
+</section>
+<section id="added-support-for-cmps-custom-part-manufacturing-service">
+<h3>Added support for CMPS (Custom Part Manufacturing Service)<a class="headerlink" href="#added-support-for-cmps-custom-part-manufacturing-service" title="Link to this heading"></a></h3>
+<ul>
+<li><p>The new provisioning script allows easy setup of factory data in Matter devices. This tool provides a common architecture for use both in development and production environments, which allows easy deployment of the developed products.</p>
+<p>The provisioning script may be used to set all factory settings, including Discriminator, Passcode, and the attestation credentials (PAI, DAC and CD).</p>
+<p>The provision/provision.py tool supersedes the silabs_example/credentials/creds.py script.</p>
+</li>
+</ul>
+</section>
+<section id="matter-wi-fi-direct-internet-connectivity">
+<h3>Matter Wi-Fi Direct Internet Connectivity<a class="headerlink" href="#matter-wi-fi-direct-internet-connectivity" title="Link to this heading"></a></h3>
+<ul>
+<li><p>The Matter Wi-Fi Direct Internet Connectivity (DIC) solution connects to proprietary cloud solutions for direct access to software downloads, to device controls, or to aggregate statistics on where and how the device is being used.</p>
+<p>For more information on this feature see the <a class="reference internal" href="wifi/DIC_Wi-Fi.html"><span class="std std-doc">Matter Wi-Fi Direct Internet Connectivity(DIC)</span></a> section.</p>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

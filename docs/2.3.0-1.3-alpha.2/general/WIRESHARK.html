@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using Wireshark to Capture Network Traffic in Matter &mdash; Matter 2.3.0-1.3-alpha.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=359c5665"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using Simplicity Studio’s Energy Profiler with Matter" href="EP.html" />
+    <link rel="prev" title="ZCL Advanced Platform (ZAP) Tool for Matter" href="ZAP.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3-alpha.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="CODE_SIZE_SAVINGS.html">Code Savings Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="COMMIT_HASHES.html">Commit Hash Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CUSTOM_MATTER_DEVICE.html">Custom Matter Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FIND_RASPI.html">Find Your Raspberry Pi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FLASHING_USING_COMMANDER.html">Flashing Using Simplicity Commander</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FLASH_SILABS_DEVICE.html">Flash an EFR32 Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FLASH_SILABS_SiWx917_SOC_DEVICE.html">Flash a 917SoC Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ZAP.html">Using ZAP</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Using Wireshark</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#clone-and-build-silabs-pti-jar-out-of-the-java-packet-trace-library">1. Clone and Build Silabs-PTI.jar Out of the Java Packet Trace Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-wireshark">2. Download Wireshark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#follow-instructions-for-wireshark-integration">3. Follow Instructions for Wireshark Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-wireshark-and-discover-and-capture-using-silabs-pti-jar">4. Run Wireshark and Discover and Capture using Silabs-PTI.jar</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="EP.html">Using Energy Profiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GATT.html">BLE GATT Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PINTOOL.html">Hardware Pin Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev/vscode/index.html">VS Code Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_3_general.html">Developer Reference</a></li>
+      <li class="breadcrumb-item active">Using Wireshark to Capture Network Traffic in Matter</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/general/WIRESHARK.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="using-wireshark-to-capture-network-traffic-in-matter">
+<h1>Using Wireshark to Capture Network Traffic in Matter<a class="headerlink" href="#using-wireshark-to-capture-network-traffic-in-matter" title="Link to this heading"></a></h1>
+<p>When developing a wireless application it is often useful to be able to
+visualize the network traffic. <a class="reference external" href="https://www.wireshark.org/">Wireshark</a> is a
+great tool for this, but you can’t use Wireshark alone. You first have to
+capture the network traffic off a wireless network interface. Fortunately
+Silicon Labs has provided an open source project for capturing network traffic
+off its devices called the
+<a class="reference external" href="https://github.com/SiliconLabs/java_packet_trace_library">Java Packet Trace Library or Silabs PTI .jar</a></p>
+<p>Here are the following steps for capturing and visualizing network traffic with
+Wireshark and the Java Packet Trace Library:</p>
+<section id="clone-and-build-silabs-pti-jar-out-of-the-java-packet-trace-library">
+<h2>1. Clone and Build Silabs-PTI.jar Out of the Java Packet Trace Library<a class="headerlink" href="#clone-and-build-silabs-pti-jar-out-of-the-java-packet-trace-library" title="Link to this heading"></a></h2>
+<p>The
+<a class="reference external" href="https://github.com/SiliconLabs/java_packet_trace_library">Java Packet Trace Library</a>
+can be built locally for your development platform. First clone the repository
+and then build the library according to the
+<a class="reference external" href="https://github.com/SiliconLabs/java_packet_trace_library/blob/master/README.md">instructions</a></p>
+</section>
+<section id="download-wireshark">
+<h2>2. Download Wireshark<a class="headerlink" href="#download-wireshark" title="Link to this heading"></a></h2>
+<p>If you don’t have Wireshark, you can
+<a class="reference external" href="https://www.wireshark.org/">download Wireshark for your development platform here</a>.</p>
+</section>
+<section id="follow-instructions-for-wireshark-integration">
+<h2>3. Follow Instructions for Wireshark Integration<a class="headerlink" href="#follow-instructions-for-wireshark-integration" title="Link to this heading"></a></h2>
+<p>To capture from a Silicon Labs device like a WSTK use
+the Silabs-PTI.jar utility you built in the previous step. You will further need
+to integrate the execution of the utility into Wireshark through Wireshark’s
+<code class="docutils literal notranslate"><span class="pre">excap</span></code> interface. A complete guide to
+<a class="reference external" href="https://github.com/SiliconLabs/java_packet_trace_library/blob/master/doc/wireshark.md">Wireshark Integration is provided here</a>.
+You integrate the Silabs-PTI.jar utility into Wirehshark by adding a small
+script into Wireshark’s <code class="docutils literal notranslate"><span class="pre">excap</span></code> directory. Make sure that you make the script
+executable using something like</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>chmod<span class="w"> </span><span class="m">777</span><span class="w"> </span>&lt;myexcapscript&gt;
+</pre></div>
+</div>
+<p>This will make it so that Wireshark can execute the script and integrate the
+WSTK interfaces into its capture functionality.</p>
+</section>
+<section id="run-wireshark-and-discover-and-capture-using-silabs-pti-jar">
+<h2>4. Run Wireshark and Discover and Capture using Silabs-PTI.jar<a class="headerlink" href="#run-wireshark-and-discover-and-capture-using-silabs-pti-jar" title="Link to this heading"></a></h2>
+<p>In order to capture from an adapter such as a WSTK using the utility
+Silabs-PTI.jar that you built in step 2, your adapter must be connected to the
+network via Ethernet. If your adapter is not connected via Ethernet and only via
+USB you will need to use the <code class="docutils literal notranslate"><span class="pre">silink</span></code> utility to make the adapter show up as a
+localhost.</p>
+<p>Once your adapter is connected, you can test out the visibility of your WSTK on
+the network by running Silabs-PTI.jar from the command line using the following
+command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>java<span class="w"> </span>-jar<span class="w"> </span>silabs-pti-&lt;VERSION&gt;.jar<span class="w"> </span>-discover
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

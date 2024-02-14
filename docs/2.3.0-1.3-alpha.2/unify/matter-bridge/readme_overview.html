@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unify Matter Bridge Overview &mdash; Matter 2.3.0-1.3-alpha.2 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=359c5665"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Unify Matter Bridge User Guide" href="readme_user.html" />
+    <link rel="prev" title="Unify Matter Bridge" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Matter
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3-alpha.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Unify Matter Solutions</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Unify Matter Bridge</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Unify Matter Bridge Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme_user.html">Unify Matter Bridge User Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme_building.html">Building the Unify Matter Bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme_building_x86_64.html">Building the Unify Matter Bridge for Debian Bullseye (Or similar Ubuntu) x86_64</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../matter-protocol-controller/index.html">Unify Matter Protocol Controller</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Unify Matter Solutions</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Unify Matter Bridge</a></li>
+      <li class="breadcrumb-item active">Unify Matter Bridge Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/unify/matter-bridge/readme_overview.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="unify-matter-bridge-overview">
+<h1>Unify Matter Bridge Overview<a class="headerlink" href="#unify-matter-bridge-overview" title="Link to this heading"></a></h1>
+<p>The Unify Matter Bridge is an application that makes legacy devices, such as
+Z-Wave and Zigbee devices, accessible on a Matter fabric. It does so by acting
+as an <em>IoT Service</em> in a Unify Framework.</p>
+<p>In the Unify Framework, <em>protocol controllers</em> translate raw wireless
+application protocols such as Z-Wave and Zigbee into a common API called the
+Unify Controller Language (UCL). This enables IoT services to operate and
+monitor Z-Wave and Zigbee networks without being aware of the underlying
+wireless protocol.</p>
+<p>In Unify, the transport between IoT services and Protocol Controllers is MQTT
+using JSON payloads for data representation.</p>
+<p>On the Matter fabric, the Unify Matter Bridge is a Matter device that has
+dynamic endpoints, each representing an endpoint on one of the nodes in the
+Unify network. See the “Matter Specification” section “9.12. Bridge for
+non-Matter devices” for details.</p>
+<p>The figure below illustrates the system architecture of the Unify Matter Bridge
+and two Unify protocol controllers.</p>
+<p><img alt="UnifyMatterBridgeSystem" src="../../_images/UnifyMatterSystem.png" /></p>
+<p>More Information about the Unify Framework can be found
+<a class="reference external" href="https://siliconlabs.github.io/UnifySDK/doc/UnifySDK.html">here</a></p>
+<section id="trying-out-the-unify-matter-bridge">
+<h2>Trying Out the Unify Matter Bridge<a class="headerlink" href="#trying-out-the-unify-matter-bridge" title="Link to this heading"></a></h2>
+<p>To test the Unify Matter Bridge, a Raspberry Pi 4 is recommended. Install the
+latest release of the Unify SDK following the
+<a class="reference external" href="https://siliconlabs.github.io/UnifySDK/doc/getting_started.html">Unify Host SDK Getting Started Guide</a>.
+Once the base Unify system is up and running, the Unify Matter Bridge may be
+installed on the Raspberry Pi 4.</p>
+<p>The
+<a class="reference external" href="https://github.com/SiliconLabs/matter/releases">Silicon Labs Matter GitHub release</a>
+contains ready-to-use binaries of the Unify Matter Bridge and the chip-tool.</p>
+<blockquote>
+<div><p>Note that the Unify Host SDK uses Raspberry Pi OS as the base system as
+opposed to the standard Ubuntu system used for the Matter OpenThread Border
+Router image.</p>
+</div></blockquote>
+</section>
+<section id="unify-matter-bridge-as-an-iot-service">
+<h2>Unify Matter Bridge as an IoT Service<a class="headerlink" href="#unify-matter-bridge-as-an-iot-service" title="Link to this heading"></a></h2>
+<p>The Unify Matter Bridge is a Unify IoT Service that allows for control of Unify
+devices from a Matter fabric. It translates Matter cluster commands and
+attributes accesses into the corresponding Unify MQTT publish messages. Unify
+node attributes are readable from the Matter Fabric, for example by a Google
+Home App, as the Unify Matter Bridge also caches the state of those attributes.</p>
+<p>The Unify data model is largely based on the same data model as Matter, making
+the job of the Unify Matter Bridge relatively simple. There is almost a 1-1
+relationship between them.</p>
+<blockquote>
+<div><p><strong>Note:</strong> Currently no control goes out to the Matter Fabric from the Unify
+Matter Bridge. The Unify Matter Bridge cannot ‘<em>see</em>’ what else is on the
+Matter Fabric, let alone control end devices in the Matter Fabric.</p>
+</div></blockquote>
+<p>See the <a class="reference external" href="https://github.com/SiliconLabs/matter/releases">GitHub release notes</a>
+for details on feature additions, bug fixes, and known issues.</p>
+</section>
+<section id="supported-clusters-devices">
+<h2>Supported Clusters/Devices<a class="headerlink" href="#supported-clusters-devices" title="Link to this heading"></a></h2>
+<p>The Unify Matter Bridge currently supports mapping the following clusters/device
+types.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Cluster</p></th>
+<th class="head text-center"><p>Zigbee Support</p></th>
+<th class="head text-center"><p>Z-Wave Support</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Bridge Device Information</p></td>
+<td class="text-center"><p>❌</p></td>
+<td class="text-center"><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Level</p></td>
+<td class="text-center"><p>✅</p></td>
+<td class="text-center"><p>✅</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>OnOff</p></td>
+<td class="text-center"><p>✅</p></td>
+<td class="text-center"><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Identify</p></td>
+<td class="text-center"><p>✅</p></td>
+<td class="text-center"><p>❌</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Group</p></td>
+<td class="text-center"><p>✅</p></td>
+<td class="text-center"><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Color Control</p></td>
+<td class="text-center"><p>✅</p></td>
+<td class="text-center"><p>✅</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Occupancy Sensing</p></td>
+<td class="text-center"><p>✅</p></td>
+<td class="text-center"><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Temperature Measurement</p></td>
+<td class="text-center"><p>❌</p></td>
+<td class="text-center"><p>✅</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Illuminance Measurement</p></td>
+<td class="text-center"><p>❌</p></td>
+<td class="text-center"><p>✅</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Pressure Measurement</p></td>
+<td class="text-center"><p>❌</p></td>
+<td class="text-center"><p>✅</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Flow Measurement</p></td>
+<td class="text-center"><p>❌</p></td>
+<td class="text-center"><p>❌</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>RelativeHumidity Measurement</p></td>
+<td class="text-center"><p>❌</p></td>
+<td class="text-center"><p>✅</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Thermostat</p></td>
+<td class="text-center"><p>✅</p></td>
+<td class="text-center"><p>✅</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="readme_building.html"><span class="std std-doc">Building the Matter Bridge</span></a></p></li>
+<li><p><a class="reference internal" href="readme_user.html#running-the-matter-bridge"><span class="std std-ref">Running the Matter Bridge</span></a></p></li>
+<li><p><a class="reference internal" href="readme_user.html#toggle-an-onoff-device"><span class="std std-ref">Controlling a Z-Wave OnOff device</span></a></p></li>
+<li><p><a class="reference internal" href="readme_user.html#toggle-a-group-of-onoff-devices"><span class="std std-ref">Toggling a group of OnOff devices</span></a></p></li>
+</ul>
+<p>For more information about the Unify SDK see
+<a class="reference external" href="https://siliconlabs.github.io/UnifySDK/doc/UnifySDK.html">Unify Host SDK Documentation</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

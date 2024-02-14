@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting Started with EFR32 Host in NCP Mode &mdash; Matter 2.3.0-1.3-alpha.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=359c5665"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Getting Started with SoC Mode" href="RUN_DEMO_SiWx917_SoC.html" />
+    <link rel="prev" title="Building the Chip-Tool using Raspberry Pi 4" href="BUILD_PI_ENV.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3-alpha.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="DEMO_OVERVIEW.html">Wi-Fi Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SW_SETUP.html">Wi-Fi GitHub Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BUILD_PI_ENV.html">Build Chip Tool on Raspi</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Matter Demo on EFR32 NCP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hardware-requirements">Hardware Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#software-requirements">Software Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connect-the-boards-to-a-computer">Connect the Boards to a Computer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#updating-ncp-boards-connectivity-firmware">Updating NCP Boards Connectivity Firmware</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-matter-application-on-efr32-device">Building Matter Application on EFR32 device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#flashing-images-binaries-on-efr32-platform-using-ozone-or-simplicity-commander">Flashing Images/Binaries on EFR32 Platform using Ozone, or Simplicity Commander</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#directions-for-flashing-using-ozone">Directions for Flashing using Ozone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enabling-jlink-rtt-logs-for-efr32-boards">Enabling JLink RTT Logs for EFR32 Boards</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#demo-execution-commissioning-a-wi-fi-device-using-chip-tool-for-linux">Demo Execution - Commissioning a Wi-Fi Device using chip-tool for Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="RUN_DEMO_SiWx917_SoC.html">Matter Demo on 917 SoC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JLINK_GUIDE_917.html">Matter 917 SoC JLink RTT Debugger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SiWx917_Enablement_For_Ozone.html">Enablement of Ozone for 917 SOC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_dic.html">Wi-Fi Direct Internet Connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html">Matter Intermittently Connected Devices over WiFi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html#power-measurement">Power Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_Sleepy_Device_Power_Measurement.html">Wi-Fi ICD Power Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MATTER_SHELL.html">Matter Shell Console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_ecosystem.html">Matter Ecosystem Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+      <li class="breadcrumb-item active">Getting Started with EFR32 Host in NCP Mode</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/wifi/RUN_DEMO.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="getting-started-with-efr32-host-in-ncp-mode">
+<h1>Getting Started with EFR32 Host in NCP Mode<a class="headerlink" href="#getting-started-with-efr32-host-in-ncp-mode" title="Link to this heading"></a></h1>
+<p>This page describes how to get started with developing an application on EFR32 host in Network Co-Processor (NCP) mode, where the application runs on the EFR32 host and the connectivity stack runs on the Wi-Fi chipset.</p>
+<section id="hardware-requirements">
+<h2>Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Link to this heading"></a></h2>
+<p>The following hardware devices are required for executing Matter over Wi-Fi for NCP Mode:</p>
+<ul class="simple">
+<li><p>Refer, <a class="reference internal" href="../general/HARDWARE_REQUIREMENTS.html#matter-over-wi-fi-accessory-device-requirements-for-ncp-mode"><span class="std std-ref">Hardware Requirements</span></a></p></li>
+<li><p>Additional hardwares required for NCP Boards:</p>
+<ul>
+<li><p>Windows/Linux/MacOS computer with a USB port</p></li>
+<li><p>USB cable for connecting WSTK Board to Computer</p></li>
+<li><p>Raspberry Pi with a &gt;32 GB SD Card</p></li>
+<li><p>Access Point with Internet Access</p></li>
+<li><p>Interconnect board (included in the Wi-Fi kits)</p></li>
+<li><p>SPI Cable (included in the RS9116 kit)</p></li>
+<li><p>Jumper Cables (included in the RS9116 kit)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="software-requirements">
+<h2>Software Requirements<a class="headerlink" href="#software-requirements" title="Link to this heading"></a></h2>
+<p>Below are the software tools, packages and images required for executing Matter over Wi-Fi for NCP Mode:</p>
+<section id="software-tools-requirements">
+<h3>Software Tools Requirements<a class="headerlink" href="#software-tools-requirements" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Simplicity Commander for flashing bootloader and binary on EFR32 Boards</p></li>
+<li><p>Tera Term for flashing firmware on EFR32 NCP Boards.</p></li>
+<li><p>Putty for controlling EFR32 hardware using chip-tool controller</p></li>
+<li><p>Ozone Debugger for logging and debugging (Optional)</p></li>
+<li><p>JLink RTT for logging only (Optional)
+To install above software tools , refer <a class="reference internal" href="../general/SOFTWARE_REQUIREMENTS.html"><span class="std std-doc">Software Installation</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="connect-the-boards-to-a-computer">
+<h2>Connect the Boards to a Computer<a class="headerlink" href="#connect-the-boards-to-a-computer" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Mount the EFx32 radio board on the EFx32 WSTK board.</p>
+<p><img alt="Silicon Labs - design" src="../_images/mount-efr32.png" /></p>
+</li>
+<li><p>Connect the NCP expansion board to the EXP header on the EFx32 WSTK board.</p>
+<p><img alt="Silicon Labs - design" src="../_images/mount-expansion.png" /></p>
+</li>
+<li><p>Toggle the upper switch on the NCP expansion board to EXP-UART.</p></li>
+</ol>
+</section>
+<section id="updating-ncp-boards-connectivity-firmware">
+<h2>Updating NCP Boards Connectivity Firmware<a class="headerlink" href="#updating-ncp-boards-connectivity-firmware" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>We recommend to upgrade the NCP combos connectivity firmware to the latest available version when</p>
+<ul>
+<li><p>first received a EFx32 evaluation kit (EVK)</p></li>
+<li><p>first received a radio board,</p></li>
+</ul>
+</li>
+<li><p>Download the recommended version of firmware before you start with the update process from the <a class="reference internal" href="../general/ARTIFACTS.html"><span class="std std-doc">Matter Artifacts page</span></a></p></li>
+</ul>
+<section id="steps-to-update-the-firmware-on-ncp-boards-using-tera-term">
+<h3>Steps to update the firmware on NCP boards using Tera Term<a class="headerlink" href="#steps-to-update-the-firmware-on-ncp-boards-using-tera-term" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>SiWx917 NCP or RS9116 EVK connectivity firmware can be upgraded using tera-term or kermit.</p></li>
+</ul>
+<section id="firmware-upgrade-on-rs9116">
+<h4>Firmware Upgrade On RS9116<a class="headerlink" href="#firmware-upgrade-on-rs9116" title="Link to this heading"></a></h4>
+<ol class="arabic">
+<li><p>Connect the EVK to PC using the USB interface labeled UART as identified below.</p>
+<p><img alt="Switch Position before firmware flash" src="../_images/rs916-board.png" /></p>
+</li>
+<li><p>If this is the first time connecting the EVK to your PC, verfy that it is properly detected by the PC. The EVK will appear to the PC as a COM port labeled USB Serial Port (COMx)</p></li>
+<li><p>Configure your terminal application with the following settings:</p>
+<ul class="simple">
+<li><p>Configure the serial port settings to 115200 baud / 8-bit data / No parity / 1 stop bit</p></li>
+<li><p>Enable local echo</p></li>
+<li><p>Set receive and transmit new-line characters to CR+LF</p></li>
+</ul>
+</li>
+<li><p>Refer to <a class="reference external" href="https://docs.silabs.com/rs9116/wiseconnect/2.0/tera-term-setup">Setup Tera Term and Updating the Firmware</a>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Instructions<span class="w"> </span>are<span class="w"> </span>the<span class="w"> </span>same<span class="w"> </span><span class="k">for</span><span class="w"> </span>both<span class="w"> </span>SiWx917<span class="w"> </span>NCP<span class="w"> </span>and<span class="w"> </span>RS9116<span class="w"> </span>EVK.
+</pre></div>
+</div>
+</li>
+<li><p>Once firmware flashing is done The console displays <strong>Loading…</strong> followed by <strong>Loading Done</strong>.</p></li>
+</ol>
+</section>
+<section id="firmware-upgrade-on-siwx917-ncp">
+<h4>Firmware Upgrade On SIWx917 NCP<a class="headerlink" href="#firmware-upgrade-on-siwx917-ncp" title="Link to this heading"></a></h4>
+<ol class="arabic">
+<li><p>Connect USB-UART Cable to Machine and WPK board as well with SOC Mounted on it.</p>
+<p><img alt="Connect NCP Board" src="../_images/ncp-board-connect.png" /></p>
+</li>
+<li><p>Connect USB-UART Cable 2(Yellow) to F9 and 3(Green) to F8 on WPK Board shown below.</p>
+<p><img alt="Connect Port Wires" src="../_images/connect-board-port.png" /></p>
+</li>
+<li><p>Configure your terminal application with the following settings:</p>
+<ul class="simple">
+<li><p>Configure the serial port settings to 115200 baud / 8-bit data / No parity / 1 stop bit</p></li>
+<li><p>Enable local echo</p></li>
+<li><p>Set receive and transmit new-line characters to CR+LF</p></li>
+</ul>
+</li>
+<li><p>Refer to <a class="reference external" href="https://docs.silabs.com/rs9116/wiseconnect/2.0/tera-term-setup">Setup Tera Term and Updating the Firmware</a>.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Instructions<span class="w"> </span>are<span class="w"> </span>the<span class="w"> </span>same<span class="w"> </span><span class="k">for</span><span class="w"> </span>both<span class="w"> </span>SiWx917<span class="w"> </span>NCP<span class="w"> </span>and<span class="w"> </span>RS9116<span class="w"> </span>EVK.
+</pre></div>
+</div>
+</li>
+<li><p>Once firmware flashing is done The console displays <strong>Loading…</strong> followed by <strong>Loading Done</strong>.</p></li>
+</ol>
+</section>
+</section>
+<section id="troubleshoot-ncp-firmware-update-failure">
+<h3>Troubleshoot NCP Firmware Update Failure<a class="headerlink" href="#troubleshoot-ncp-firmware-update-failure" title="Link to this heading"></a></h3>
+<p>If the firmware update fails, try the following:</p>
+<ul class="simple">
+<li><p>Toggle the power switch towards AEM (Advanced Energy Monitoring) on the WSTK board.</p></li>
+<li><p>Perform the following steps and try the firmware update again</p>
+<ul>
+<li><p>Toggle the ISP switch towards ISP on the radio board.</p></li>
+<li><p>Press the RESET button on the WSTK board.</p></li>
+<li><p>Toggle the ISP switch away from ISP on the radio board.</p></li>
+<li><p>In the Flash section in step 5 above, click Erase chip.</p></li>
+<li><p>The flash will be erased.</p></li>
+<li><p>Retry the firmware upgrade.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="building-matter-application-on-efr32-device">
+<h2>Building Matter Application on EFR32 device<a class="headerlink" href="#building-matter-application-on-efr32-device" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>To build Matter Application on EFR32 device, refer <a class="reference internal" href="SW_SETUP.html"><span class="std std-doc">Building Procedure</span></a></p></li>
+</ul>
+</section>
+<section id="flashing-images-binaries-on-efr32-platform-using-ozone-or-simplicity-commander">
+<h2>Flashing Images/Binaries on EFR32 Platform using Ozone, or Simplicity Commander<a class="headerlink" href="#flashing-images-binaries-on-efr32-platform-using-ozone-or-simplicity-commander" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Plug the WSTK and EFR into the laptop.</p></li>
+<li><p>Based on the Application being built, make sure to flash proper <a class="reference internal" href="../general/ARTIFACTS.html"><span class="std std-doc">bootloader</span></a> internal or external binaries.</p></li>
+<li><p>Launch Ozone, or Simplicity Commander Standalone - this
+will display a GUI.</p>
+<p>If you are using Simplicity Commander, you can follow the general instructions for flashing a Silicon Labs device.
+<a class="reference internal" href="../general/FLASH_SILABS_DEVICE.html"><span class="std std-doc">Flash a Silicon Labs Device</span></a>. If you are using Ozone, you can follow the instructions below.</p>
+</li>
+</ol>
+</section>
+<section id="directions-for-flashing-using-ozone">
+<h2>Directions for Flashing using Ozone<a class="headerlink" href="#directions-for-flashing-using-ozone" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>In ‘New Project Wizard’:</p>
+<ol class="arabic simple">
+<li><p>Click the three-dots on the ‘Device’ tab and select ‘Manufacturer’ as
+‘<code class="docutils literal notranslate"><span class="pre">Silicon</span> <span class="pre">Labs</span></code>’</p></li>
+<li><p>Select ‘Device’ as <code class="docutils literal notranslate"><span class="pre">EFR32MG24Bxxx1536</span></code>
+depending on the device you are using.</p></li>
+<li><p>Click ‘OK’</p></li>
+<li><p>The ‘Register set’ tab will get filled automatically</p></li>
+<li><p>‘Peripherals’ tab need not be changed as it is optional</p></li>
+</ol>
+</li>
+<li><p>Click ‘Next’ - the window that is displayed will contain:</p>
+<ul class="simple">
+<li><p>Serial Number: Read from device</p></li>
+<li><p>Target Interface: JTAG</p></li>
+<li><p>Speed: 4MHz</p></li>
+<li><p>Host Interface: USB</p></li>
+<li><p>There will be one product in the ‘Emulators connected via USB’ tab -
+select this and click ‘Next’</p></li>
+</ul>
+</li>
+<li><p>Click on the ‘Silicon Labs device’ detected, and then click ‘Next’</p></li>
+<li><p>You will be asked to select the image/binary to be loaded: click the
+three-dots on that tab and navigate to ‘<code class="docutils literal notranslate"><span class="pre">out/rs911x_lighting/BRD41xxx</span></code>’
+through ‘Browse’, select the file named <code class="docutils literal notranslate"><span class="pre">chip-efr32-lighting-example.out</span></code>
+and click ‘Next’. This is the image built in previous step.</p>
+<blockquote>
+<div><p>Note that you may be using a different board like the
+BRD4186C or BRD4187C, in which case your image will be in a directory
+corresponding to that board identifier.</p>
+</div></blockquote>
+</li>
+<li><p>Make sure the next screen has ‘Initial PC’ selected as ‘ELF Entry Point’ -
+click ‘Finish’</p>
+<blockquote>
+<div><p>Ignore Diagnostics warning about ‘FreeRTOS’ detected - click ‘Continue’</p>
+</div></blockquote>
+</li>
+<li><p>Select ‘Download and Reset Program’ in the dropdown next to the Power button
+on the top left of the page</p>
+<blockquote>
+<div><p>The Silabs chip, EFR32MG24, will be erased and programmed</p>
+</div></blockquote>
+</li>
+<li><p>Run the image by clicking the ‘Play’ button on the top left (or press the F5
+key)</p>
+<blockquote>
+<div><p>The output of the EFR32 can be viewed on the console of the Ozone GUI</p>
+</div></blockquote>
+</li>
+<li><p><strong>[Optional]</strong> This step is for when the device has already been flashed and
+is being used for testing/debug purposes:</p>
+<blockquote>
+<div><p>If you are restarting the device and do not need to re-flash the EFR
+firmware, then you can use these commands (JLinkExe &amp; JLinRTTClient). The
+following commands will provide you with a serial console of the EFR32</p>
+</div></blockquote>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>console<span class="w"> </span>-e<span class="w"> </span>JLinkExe<span class="w"> </span>-device<span class="w"> </span>EFR32MG24Bxxx1536<span class="w"> </span>-if<span class="w"> </span>JTAG<span class="w"> </span>-speed<span class="w"> </span><span class="m">4000</span><span class="w"> </span>-autoconnect<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>(Put it in the background)</p>
+</div></blockquote>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sleep<span class="w"> </span><span class="m">3</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>console<span class="w"> </span>-e<span class="w"> </span>JLinkRTTClient<span class="w"> </span><span class="p">&amp;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>You may need to press <ENTER> in the JLinkExe console first</p>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="enabling-jlink-rtt-logs-for-efr32-boards">
+<h2>Enabling JLink RTT Logs for EFR32 Boards<a class="headerlink" href="#enabling-jlink-rtt-logs-for-efr32-boards" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Open JLink RTT Viewer and click on three dots beside <strong>Specify Target Device</strong></p>
+<p><img alt="Silicon Labs - design" src="../_images/jlink-rtt-ncp-selection.png" /></p>
+</li>
+<li><p>select Manufacturer as <strong>Silicon Labs</strong> and device section search <code class="docutils literal notranslate"><span class="pre">EFR32MG24BxxxF1536</span></code> or <code class="docutils literal notranslate"><span class="pre">EFR32MG12PxxxF1024</span></code> as per board connected to machine then click “ok”</p>
+<p><img alt="Silicon Labs - design" src="../_images/jlink-rtt-ncp-board-selection.png" /></p>
+</li>
+<li><p>Select Target Interface as <code class="docutils literal notranslate"><span class="pre">JTAG</span></code> &amp; Speed as <code class="docutils literal notranslate"><span class="pre">8000KHz</span></code>(Default) then click “ok”</p></li>
+<li><p>Now the JLink-RTT is connected and will print the device logs</p>
+<p><img alt="Silicon Labs - design" src="../_images/jlink-rtt-connected-logs.png" /></p>
+</li>
+</ol>
+</section>
+<section id="demo-execution-commissioning-a-wi-fi-device-using-chip-tool-for-linux">
+<h2>Demo Execution - Commissioning a Wi-Fi Device using chip-tool for Linux<a class="headerlink" href="#demo-execution-commissioning-a-wi-fi-device-using-chip-tool-for-linux" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Commissioning can be done using chip-tool running either on Linux or Raspberry
+Pi</p>
+</div></blockquote>
+<ol class="arabic">
+<li><p>Get the SSID and PSK of the Wi-Fi network (WPA2 - Security) you are connected
+to.</p></li>
+<li><p>Run the following:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$MATTER_WORKDIR</span>/matter
+</pre></div>
+</div>
+<h3 class="rubric" id="commissioning-command">Commissioning Command:</h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>out/standalone/chip-tool<span class="w"> </span>pairing<span class="w"> </span>ble-wifi<span class="w"> </span><span class="m">1122</span><span class="w"> </span><span class="nv">$SSID</span><span class="w"> </span><span class="nv">$PSK</span><span class="w"> </span><span class="m">20202021</span><span class="w"> </span><span class="m">3840</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>The node ID used here is 1122. This will be used in future commands.
+‘$SSID’ is a placeholder for your Wi-Fi SSID and ‘$PSK’ is a placeholder
+for the password of your Wi-Fi network.</p>
+</div></blockquote>
+</li>
+<li><p>To turn <strong>on</strong> the LED on the EFR32MG24:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>out/standalone/chip-tool<span class="w"> </span>onoff<span class="w"> </span>on<span class="w"> </span><span class="m">1122</span><span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</li>
+<li><p>To turn <strong>off</strong> the LED on the EFR32MG24:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>out/standalone/chip-tool<span class="w"> </span>onoff<span class="w"> </span>off<span class="w"> </span><span class="m">1122</span><span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>If there are any failures, run the following command and then re-run the
+chip-tool command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/tmp/chip_*
+</pre></div>
+</div>
+<p>If you are having difficulty getting the chip-tool to commission the device
+successfully, it may be because you have more than one network interface
+available to the chip-tool. The device on which you are running the chip-tool
+must be on the same Wi-Fi network as your RS9116 or WF200 and there cannot be
+another network interface on the device that is running the chip-tool. For
+instance, if you have an Ethernet connection as well as a Wi-Fi connection, you
+need to unplug the Ethernet connection and try running the chip-tool as in step
+#2 above.</p>
+<p>As the device remembers the Access Point credentials given for commissioning, if
+you want to run the demo multiple times, do a factory reset by pressing the BTN0
+on EFR32MG24 for about 6-7 seconds. The LED0 will flash 3 times.</p>
+<p>The commissioning command mentioned above does the following:</p>
+<ul class="simple">
+<li><p>chip-tool scans BLE and locates the Silicon Labs device that uses the
+specified discriminator</p></li>
+<li><p>Sends the Wi-Fi SSID and Passkey</p></li>
+<li><p>The Silicon Labs device will join the Wi-Fi network and get an IP address.
+It then starts providing mDNS records on IPv4 and IPv6</p></li>
+<li><p>chip-tool then locates the device over Wi-Fi and establishes operational
+certificates</p></li>
+<li><p>Future communications (tests) will then happen over Wi-Fi</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

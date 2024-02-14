@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unify Matter Bridge User Guide &mdash; Matter 2.3.0-1.3-alpha.2 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=359c5665"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Building the Unify Matter Bridge" href="readme_building.html" />
+    <link rel="prev" title="Unify Matter Bridge Overview" href="readme_overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Matter
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3-alpha.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Unify Matter Solutions</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Unify Matter Bridge</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme_overview.html">Unify Matter Bridge Overview</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Unify Matter Bridge User Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme_building.html">Building the Unify Matter Bridge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme_building_x86_64.html">Building the Unify Matter Bridge for Debian Bullseye (Or similar Ubuntu) x86_64</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../matter-protocol-controller/index.html">Unify Matter Protocol Controller</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Unify Matter Solutions</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Unify Matter Bridge</a></li>
+      <li class="breadcrumb-item active">Unify Matter Bridge User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/unify/matter-bridge/readme_user.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="unify-matter-bridge-user-guide">
+<h1>Unify Matter Bridge User Guide<a class="headerlink" href="#unify-matter-bridge-user-guide" title="Link to this heading"></a></h1>
+<p>The Unify Matter Bridge is a Unify IoT Service that enables interaction with
+Unify devices from a Matter fabric. For a more thorough description see the
+<a class="reference internal" href="readme_overview.html"><span class="std std-doc">Unify Matter Bridge Overview</span></a>.</p>
+<p>As a prerequisite for the Matter Bridge to work, at least one Unify protocol
+controller should be set up and running. This guide assumes that you have set up
+the Z-Wave Protocol Controller (uic-zpc) to run on a Raspberry Pi 4 and
+connected it to an MQTT broker in your network. Read the
+<a class="reference external" href="https://siliconlabs.github.io/UnifySDK/doc/getting_started.html">Unify Host SDK’s Getting Started Guide</a>
+for information on how to set this up.</p>
+<p>Once a protocol controller is running, the Matter Bridge can be started.</p>
+<p>The following documentation assumes that you have built the Unify Matter Bridge
+application by following the <em><a class="reference internal" href="readme_building.html"><span class="std std-doc">Build Guide</span></a></em> and have
+transferred the <em><code class="docutils literal notranslate"><span class="pre">unify-matter-bridge</span></code></em> to your Raspberry Pi 4 (RPi4) running
+the 64-bit version of Raspberry Pi OS Bullseye.</p>
+<section id="running-the-matter-bridge">
+<h2>Running the Matter Bridge<a class="headerlink" href="#running-the-matter-bridge" title="Link to this heading"></a></h2>
+<p>At start-up, the Matter Bridge needs to connect to the Matter Fabric as well as
+the MQTT Broker. It is therefore critical that you have access to port 1883, the
+default MQTT Broker’s port, as well as a network setup that allows mDNS through.</p>
+<p>A few important runtime configurations must be considered, along with some other
+configuration options. A full list of command-line parameters is provided in the
+<a class="reference internal" href="#command-line-arguments">Command line arguments</a> section.</p>
+<section id="important-configuration-settings">
+<h3>Important Configuration Settings<a class="headerlink" href="#important-configuration-settings" title="Link to this heading"></a></h3>
+<ul>
+<li><h4 class="rubric" id="network-interface">Network Interface</h4>
+<p>Specify the network interface on which the Matter Fabric runs. In a regular
+RPi4 setup it would be <code class="docutils literal notranslate"><span class="pre">wlan0</span></code> for WiFi and <code class="docutils literal notranslate"><span class="pre">eth0</span></code> for ethernet. Specify
+this with the ‘<code class="docutils literal notranslate"><span class="pre">--umb.interface</span></code>’ argument, as such:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./unify-matter-bridge<span class="w"> </span>--umb.interface<span class="w"> </span>eth0
+</pre></div>
+</div>
+</li>
+<li><h4 class="rubric" id="key-value-store-kvs">Key-Value store (KVS)</h4>
+<p>The Matter Bridge uses a Key-Value store for persisting various run-time
+configurations. Make sure to have read/write access to the default path
+‘<code class="docutils literal notranslate"><span class="pre">/var/chip_unify_bridge.kvs</span></code>’ or provide the path to where writing this
+data is allowed. If this file is deleted before start-up, everything is
+reset and the bridge will not belong to any Matter Fabric until it has again
+been commissioned.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./unify-matter-bridge<span class="w"> </span>--umb.kvs<span class="w"> </span>./matter-bridge.kvs
+</pre></div>
+</div>
+</li>
+<li><h4 class="rubric" id="mqtt-host">MQTT Host</h4>
+<p>If you have followed the
+<a class="reference external" href="https://siliconlabs.github.io/UnifySDK/doc/getting_started.html">Unify Host SDK’s Getting Started Guide</a>,
+your MQTT Broker should now be running on ‘<code class="docutils literal notranslate"><span class="pre">localhost</span></code>’. If you have decided
+to run the MQTT broker on a different host, you can tell the Unify Matter
+Bridge to connect to a different host.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./unify-matter-bridge<span class="w"> </span>--mqtt.host<span class="w"> </span><span class="m">10</span>.0.0.42
+</pre></div>
+</div>
+</li>
+<li><h4 class="rubric" id="vendor-and-product-id">Vendor and Product ID</h4>
+<p>If you have access to the EAP and you want to use the Google Home App, you
+need to set a specific VID and PID for the Matter Bridge.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./unify-matter-bridge<span class="w"> </span>--umb.vendor<span class="w"> </span>fff1<span class="w"> </span>--umb.product<span class="w"> </span><span class="m">8001</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="starting-the-matter-bridge">
+<h3>Starting the Matter Bridge<a class="headerlink" href="#starting-the-matter-bridge" title="Link to this heading"></a></h3>
+<p>Once the configuration parameters are set it is time to start the bridge
+application.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./unify-matter-bridge<span class="w"> </span>--umb.interface<span class="w"> </span>eth0<span class="w"> </span>--umb.kvs<span class="w"> </span>./matter-bridge.kvs<span class="w"> </span>--mqtt.host<span class="w"> </span>localhost<span class="w"> </span>--mqtt.port<span class="w"> </span><span class="m">1337</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="commissioning-the-bridge-to-a-network">
+<h2>Commissioning the Bridge to a Network<a class="headerlink" href="#commissioning-the-bridge-to-a-network" title="Link to this heading"></a></h2>
+<p>To include the bridge in the Matter network, it must first be commissioned. The
+first time the bridge starts it will automatically go into commissioning mode.
+After 10 minutes the bridge will exit commissioning mode. If the bridge has not
+been commissioned within this window, the application must be restarted to open
+the commissioning window again or the window can be opened by writing
+<code class="docutils literal notranslate"><span class="pre">commission</span></code> in the CLI when running the bridge. The commission command may also
+be used for multi-fabric commissioning.</p>
+<p>The Unify Matter Bridge uses the “On Network” commissioning method. For now,
+there is no Bluetooth commissioning support.</p>
+<p>The commissioning procedure requires use of a pairing code. This pairing code is
+written to the console when running the Matter Bridge. Look for something
+similar to ‘<code class="docutils literal notranslate"><span class="pre">MT:-24J029Q00KA0648G00</span></code>’, used as the pairing code in the following
+example. This code can be used when commissioning with the CLI commissioning
+tool <code class="docutils literal notranslate"><span class="pre">chip-tool</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">1659615301</span>.367669<span class="o">][</span><span class="m">1967</span>:1967<span class="o">]</span><span class="w"> </span>CHIP:SVR:<span class="w"> </span>SetupQRCode:<span class="w"> </span><span class="o">[</span>MT:-24J029Q00KA0648G00<span class="o">]</span>
+</pre></div>
+</div>
+<p>Additionally the pairing code will be published on the MQTT Broker on the topic
+ucl/SmartStart/CommissionableDevice/MT:-24J029Q00KA0648G00. The Unify Developer
+GUI has a page which display the QRCodes of all commissionable bridge which are
+connected to the broker, ready to be scanned with a Google Home App or similar.</p>
+<p>Another way to get the QR code is to look for an url in the console log similar
+to and copy the link into a browser. Note that two codes a printed at startup
+one for <em>Standard Commissioning flow</em>  and one for custom commissioning flow.
+Be sure to use the standard flow with Eco system devices.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">1659615301</span>.367723<span class="o">][</span><span class="m">1967</span>:1967<span class="o">]</span><span class="w"> </span>CHIP:SVR:<span class="w"> </span>https://dhrishi.github.io/connectedhomeip/qrcode.html?data<span class="o">=</span>MT%3A-24J029Q00KA0648G00
+</pre></div>
+</div>
+<p>It should be noted that the commissioner <strong>must</strong> be on the same network as the
+Raspberry Pi. Note that by default the bridge binds to the eth0 interface. If
+another interface is to be used, see the description of the command line
+arguments for setting <a class="reference internal" href="#network-interface">Network Interface</a>.</p>
+<section id="using-the-chip-tool-to-commission">
+<h3>Using the chip-tool to Commission<a class="headerlink" href="#using-the-chip-tool-to-commission" title="Link to this heading"></a></h3>
+<p>In the following procedure make sure to use the pairing code taken from the
+console output, as described above. To commission the Matter Bridge with the
+<code class="docutils literal notranslate"><span class="pre">chip-tool</span></code> and assign the bridge the Node ID 1:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chip-tool<span class="w"> </span>pairing<span class="w"> </span>code<span class="w"> </span><span class="m">1</span><span class="w"> </span>MT:-24J0AFN00KA0648G00
+</pre></div>
+</div>
+</section>
+<section id="using-google-nest-hub">
+<h3>Using Google Nest Hub<a class="headerlink" href="#using-google-nest-hub" title="Link to this heading"></a></h3>
+<p>It is possible to use the Google Nest Hub (2nd. Gen) for controlling the Matter devices on the Unify Matter Bridge. Go through the following steps to configure this:</p>
+<p>Prerequisites:</p>
+<ul class="simple">
+<li><p>Android Phone, Android 12 or newer</p></li>
+<li><p>Google Nest Hub, 2nd. Generation</p></li>
+</ul>
+<p>Setup:</p>
+<ul class="simple">
+<li><p>Create a Google Account or using existing</p></li>
+<li><p>Go to <a class="reference external" href="https://console.home.google.com/projects">Google Developer Console</a></p>
+<ul>
+<li><p>Click “Create a new project”</p>
+<ul>
+<li><p>Next page click “Create project”</p></li>
+<li><p>Input a unique project name</p></li>
+</ul>
+</li>
+<li><p>Click “+ Add Matter integration”</p>
+<ul>
+<li><p>Next: Develop</p></li>
+<li><p>Next: Setup</p></li>
+<li><p>Input following fields:</p>
+<ul>
+<li><p>Product name of your choice</p></li>
+<li><p>Device Type: Control Bridge</p></li>
+<li><p>Test VID: default</p></li>
+<li><p>Product ID (PID): 0x8001</p></li>
+</ul>
+</li>
+<li><p>Save &amp; Continue</p></li>
+<li><p>Save</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>On your Android Phone</p>
+<ul>
+<li><p>Configure the phone to use the same Google Account</p></li>
+<li><p>Install Google Home application</p></li>
+<li><p>To add the Nest Hub</p>
+<ul>
+<li><p>Click “+” in the Google Home app - Add new device and let the phone search for your hub over BT - make sure hub is in reach</p></li>
+</ul>
+</li>
+<li><p>To add the Matter Bridge to your Google Home (and Hub)</p>
+<ul>
+<li><p>In the console of the Matter Bridge application running on the Raspberry Pi</p>
+<ul>
+<li><p>Hit <code class="docutils literal notranslate"><span class="pre">Return</span></code>, this should present <code class="docutils literal notranslate"><span class="pre">Unify&gt;</span></code></p></li>
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">commission</span></code>, this will show SetupQRCode, either click the link or in the Developer UI go to the “Commissionable Devices” page (note that a new QR code will be created whenever bridge is restarted, make sure to use the latest as identified in the output on the console)</p></li>
+</ul>
+</li>
+<li><p>In the Google Home app click “+”</p>
+<ul>
+<li><p>Google Home should report “Matter-enabled device found”</p></li>
+<li><p>If the bridge is not automatically found, a list of device types will be shown, click the “Matter-device” on the list</p></li>
+<li><p>Google Home will now ask for scanning the QR code - scan the QR code as described above</p>
+<ul>
+<li><p>If Google Home is stuck during commissioning, type <code class="docutils literal notranslate"><span class="pre">commission</span></code> again in the Matter Bridge console while Google Home is waiting</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>All supported Unify devices should now be available for control in both Google Home application as well as the Google Nest Hub</p>
+<ul>
+<li><p>On the Nest Hub, swipe down from the top of the display or select “Home Control” to access the devices</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="toggle-an-onoff-device">
+<h3>Toggle an OnOff device<a class="headerlink" href="#toggle-an-onoff-device" title="Link to this heading"></a></h3>
+<p>To send an OnOff cluster Toggle command to a bridged endpoint with id 2, via
+Matter Fabric Node ID 1:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chip-tool<span class="w"> </span>onoff<span class="w"> </span>toggle<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span>
+</pre></div>
+</div>
+<p>For more information on how to use the <code class="docutils literal notranslate"><span class="pre">chip-tool</span></code> see the
+<a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/docs/guides/chip_tool_guide.md">chip-tool manual</a> on the Matter website.</p>
+</section>
+</section>
+<section id="toggle-a-group-of-onoff-devices">
+<h2>Toggle a Group of OnOff Devices<a class="headerlink" href="#toggle-a-group-of-onoff-devices" title="Link to this heading"></a></h2>
+<p>The Matter Bridge has support for forwarding group messages from the Matter
+Fabric to Unify Nodes. The protocol controllers will send the group messages as
+actual group cast messages on the destination network (Z-Wave/Zigbee).</p>
+<p>To send a group command, first set up the group keys in the bridge. This example
+assumes the bridge to be Node ID 1, and GroupKeySetID 42 is added to Group ID 1:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chip-tool<span class="w"> </span>accesscontrol<span class="w"> </span>write<span class="w"> </span>acl<span class="w"> </span><span class="s1">&#39;[{&quot;fabricIndex&quot;: 1, &quot;privilege&quot;: 5, &quot;authMode&quot;: 2, &quot;subjects&quot;: [112233], &quot;targets&quot;: null },{&quot;fabricIndex&quot;: 1, &quot;privilege&quot;: 4, &quot;authMode&quot;: 3, &quot;subjects&quot;: [1], &quot;targets&quot;: null }]&#39;</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span>
+chip-tool<span class="w"> </span>groupkeymanagement<span class="w"> </span>key-set-write<span class="w"> </span><span class="s1">&#39;{&quot;groupKeySetID&quot;: 42, &quot;groupKeySecurityPolicy&quot;: 0, &quot;epochKey0&quot;: &quot;d0d1d2d3d4d5d6d7d8d9dadbdcdddedf&quot;, &quot;epochStartTime0&quot;: 2220000,&quot;epochKey1&quot;: &quot;d1d1d2d3d4d5d6d7d8d9dadbdcdddedf&quot;, &quot;epochStartTime1&quot;: 2220001,&quot;epochKey2&quot;: &quot;d2d1d2d3d4d5d6d7d8d9dadbdcdddedf&quot;, &quot;epochStartTime2&quot;: 2220002 }&#39;</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span>
+chip-tool<span class="w"> </span>groupkeymanagement<span class="w"> </span>write<span class="w"> </span>group-key-map<span class="w"> </span><span class="s1">&#39;[{&quot;groupId&quot;: 1, &quot;groupKeySetID&quot;: 42, &quot;fabricIndex&quot;: 1}]&#39;</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+<p>Next, add bridge endpoint 2 to Group ID 0x0001</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chip-tool<span class="w"> </span>groups<span class="w"> </span>add-group<span class="w"> </span>0x0001<span class="w"> </span>grp1<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span>
+</pre></div>
+</div>
+<p>Next, program the chip-tool:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chip-tool<span class="w"> </span>groupsettings<span class="w"> </span>add-group<span class="w"> </span>grp1<span class="w"> </span>0x0002
+chip-tool<span class="w"> </span>groupsettings<span class="w"> </span>add-keysets<span class="w"> </span>0x0042<span class="w"> </span><span class="m">0</span><span class="w"> </span>0x000000000021dfe0<span class="w"> </span>hex:d0d1d2d3d4d5d6d7d8d9dadbdcdddedf
+chip-tool<span class="w"> </span>groupsettings<span class="w"> </span>bind-keyset<span class="w"> </span>0x0001<span class="w"> </span>0x0042
+</pre></div>
+</div>
+<p>Finally, a multicast command may be sent using the chip-tool.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//<span class="w"> </span>Send<span class="w"> </span>actual<span class="w"> </span>multicast<span class="w"> </span><span class="nb">command</span>
+./chip-tool<span class="w"> </span>onoff<span class="w"> </span>toggle<span class="w"> </span>0xffffffffffff0001<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</section>
+<section id="running-the-matter-bridge-in-strict-device-mapping-mode">
+<h2>Running the matter bridge in strict device mapping mode<a class="headerlink" href="#running-the-matter-bridge-in-strict-device-mapping-mode" title="Link to this heading"></a></h2>
+<p>By default Unify Matter Bridge tries and map devices that does not necessarily conform to the
+Matter specification.</p>
+<p>To enable a mode where Unify Matter Bridge strictly only maps devices from the Unify
+Controller Language protocol to the Matter protocol that complies with the
+Matter specification. You can run the bridge with the command line argument</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./unify-matter-bridge<span class="w"> </span>--umb.strict_device_mapping<span class="w"> </span><span class="nb">true</span>
+</pre></div>
+</div>
+</section>
+<section id="command-line-arguments">
+<h2>Command Line Arguments<a class="headerlink" href="#command-line-arguments" title="Link to this heading"></a></h2>
+<p>The Unify Matter Bridge provides the following command line arguments:</p>
+<p>Using –help displays the following text.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Usage:<span class="w"> </span>./unify_matter_bridge<span class="w"> </span><span class="o">[</span>Options<span class="o">]</span>
+Options:
+<span class="w">  </span>--conf<span class="w"> </span>arg<span class="w"> </span><span class="o">(=</span>/etc/uic/uic.cfg<span class="o">)</span><span class="w">        </span>Config<span class="w"> </span>file<span class="w"> </span><span class="k">in</span><span class="w"> </span>YAML<span class="w"> </span>format.<span class="w"> </span>UIC_CONF
+<span class="w">                                        </span>env<span class="w"> </span>variable<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span><span class="nb">set</span><span class="w"> </span>to<span class="w"> </span>override<span class="w"> </span>the
+<span class="w">                                        </span>default<span class="w"> </span>config<span class="w"> </span>file<span class="w"> </span>path
+<span class="w">  </span>--help<span class="w">                                </span>Print<span class="w"> </span>this<span class="w"> </span><span class="nb">help</span><span class="w"> </span>message<span class="w"> </span>and<span class="w"> </span>quit
+<span class="w">  </span>--dump-config<span class="w">                         </span>Dump<span class="w"> </span>the<span class="w"> </span>current<span class="w"> </span>configuration<span class="w"> </span><span class="k">in</span><span class="w"> </span>a
+<span class="w">                                        </span>YAML<span class="w"> </span>config<span class="w"> </span>file<span class="w"> </span>format<span class="w"> </span>that<span class="w"> </span>can<span class="w"> </span>be
+<span class="w">                                        </span>passed<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>--conf<span class="w"> </span>option
+<span class="w">  </span>--version<span class="w">                             </span>Print<span class="w"> </span>version<span class="w"> </span>information<span class="w"> </span>and<span class="w"> </span>quit
+</pre></div>
+</div>
+<p>The following options can also be in a config file. Options and values passed on
+the command line take precedence over the options and values in the config file.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>--log.level<span class="w"> </span>arg<span class="w"> </span><span class="o">(=</span>i<span class="o">)</span><span class="w">                  </span>Log<span class="w"> </span>Level<span class="w"> </span><span class="o">(</span>d,i,w,e,c<span class="o">)</span>
+<span class="w"> </span>--log.tag_level<span class="w"> </span>arg<span class="w">                   </span>Tag-based<span class="w"> </span>log<span class="w"> </span>level
+<span class="w">                                       </span>Format:<span class="w"> </span>&lt;tag&gt;:&lt;severity&gt;,
+<span class="w">                                       </span>&lt;tag&gt;:&lt;severity&gt;,<span class="w"> </span>...
+<span class="w"> </span>--umb.interface<span class="w"> </span>arg<span class="w"> </span><span class="o">(=</span>en0<span class="o">)</span><span class="w">            </span>Ethernet<span class="w"> </span>interface<span class="w"> </span>to<span class="w"> </span>use
+<span class="w"> </span>--umb.kvs<span class="w"> </span>arg<span class="w"> </span><span class="o">(=</span>/var/chip_unify_bridge.kvs<span class="o">)</span>
+<span class="w">                                       </span>Matter<span class="w"> </span>key<span class="w"> </span>value<span class="w"> </span>store<span class="w"> </span>path
+<span class="w"> </span>--umb.vendor<span class="w"> </span>arg<span class="w"> </span><span class="o">(=</span><span class="m">65521</span><span class="o">)</span><span class="w">             </span>Vendor<span class="w"> </span>ID
+<span class="w"> </span>--umb.product<span class="w"> </span>arg<span class="w"> </span><span class="o">(=</span><span class="m">32769</span><span class="o">)</span><span class="w">            </span>Product<span class="w"> </span>ID
+<span class="w"> </span>--mqtt.host<span class="w"> </span>arg<span class="w"> </span><span class="o">(=</span>localhost<span class="o">)</span><span class="w">          </span>MQTT<span class="w"> </span>broker<span class="w"> </span>hostname<span class="w"> </span>or<span class="w"> </span>IP
+<span class="w"> </span>--mqtt.port<span class="w"> </span>arg<span class="w"> </span><span class="o">(=</span><span class="m">1883</span><span class="o">)</span><span class="w">               </span>MQTT<span class="w"> </span>broker<span class="w"> </span>port
+<span class="w"> </span>--mqtt.cafile<span class="w"> </span>arg<span class="w">                     </span>Path<span class="w"> </span>to<span class="w"> </span>file<span class="w"> </span>containing<span class="w"> </span>the<span class="w"> </span>PEM-encoded
+<span class="w">                                       </span>CA<span class="w"> </span>certificate<span class="w"> </span>to<span class="w"> </span>connect<span class="w"> </span>to<span class="w"> </span>Mosquitto
+<span class="w">                                       </span>MQTT<span class="w"> </span>broker<span class="w"> </span><span class="k">for</span><span class="w"> </span>TLS<span class="w"> </span>encryption
+<span class="w"> </span>--mqtt.certfile<span class="w"> </span>arg<span class="w">                   </span>Path<span class="w"> </span>to<span class="w"> </span>file<span class="w"> </span>containing<span class="w"> </span>the<span class="w"> </span>PEM-encoded
+<span class="w">                                       </span>client<span class="w"> </span>certificate<span class="w"> </span>to<span class="w"> </span>connect<span class="w"> </span>to
+<span class="w">                                       </span>Mosquitto<span class="w"> </span>MQTT<span class="w"> </span>broker<span class="w"> </span><span class="k">for</span><span class="w"> </span>TLS
+<span class="w">                                       </span>encryption
+<span class="w"> </span>--mqtt.keyfile<span class="w"> </span>arg<span class="w">                    </span>Path<span class="w"> </span>to<span class="w"> </span>a<span class="w"> </span>file<span class="w"> </span>containing<span class="w"> </span>the<span class="w"> </span>PEM-
+<span class="w">                                       </span>encoded<span class="w"> </span>unencrypted<span class="w"> </span>private<span class="w"> </span>key<span class="w"> </span><span class="k">for</span>
+<span class="w">                                       </span>this<span class="w"> </span>client
+<span class="w"> </span>--mqtt.client_id<span class="w"> </span>arg<span class="w"> </span><span class="o">(=</span>unify_matter_bridge_71460<span class="o">)</span>
+<span class="w">                                       </span>Set<span class="w"> </span>the<span class="w"> </span>MQTT<span class="w"> </span>client<span class="w"> </span>ID<span class="w"> </span>of<span class="w"> </span>the
+<span class="w">                                       </span>application.
+</pre></div>
+</div>
+</section>
+<section id="running-chip-tool-tests-on-unify-matter-bridge-endpoints">
+<h2>Running chip-tool tests on Unify Matter Bridge endpoints<a class="headerlink" href="#running-chip-tool-tests-on-unify-matter-bridge-endpoints" title="Link to this heading"></a></h2>
+<p>For e.g. OnOff Cluster chip-tool test Test_TC_OO_2_3 can be ran on Unify Matter
+Bridge endpoint 2 for node 1 as follows.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./chip-tool<span class="w"> </span>tests<span class="w"> </span>Test_TC_OO_2_3<span class="w"> </span>--nodeId<span class="w"> </span><span class="m">1</span><span class="w"> </span>--endpoint<span class="w"> </span><span class="m">2</span><span class="w"> </span>--delayInMs<span class="w"> </span><span class="m">1400</span>
+</pre></div>
+</div>
+<p>Mapping of Matter Endpoint to Unify Node IDs can be seen by giving
+“epmap” command to Unify matter bridge command prompt as follows</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>Unify&gt;epmap
+Unify<span class="w"> </span>Unid<span class="w"> </span><span class="p">|</span>Unify<span class="w"> </span>Endpoint<span class="w"> </span><span class="p">|</span>Matter<span class="w"> </span>Endpoint
+zw-CE7F3772-0008<span class="p">|</span><span class="w">         </span><span class="p">|</span><span class="w">         </span><span class="m">2</span>
+</pre></div>
+</div>
+<p>Note: Endpoint 0(Root) and Endpoint 1(Aggregator) are Bridge itself. They are
+not shown in the epmap. But these endpoints support some clusters as well. For
+e.g. Identify. Where you might want to run chip-tool tests on those endpoints</p>
+<p>For further information on chip-tool tests, refer to the <a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/src/app/tests/suites/README.md">test suite’s README</a></p>
+<section id="troubleshooting">
+<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Time sensitive chip-tool tests might fail because of the latencies in Unify Matter Bridge. The ’<code class="docutils literal notranslate"> <span class="pre">--delayInMs</span> <span class="pre">&lt;number</span> <span class="pre">of</span> <span class="pre">milliseconds&gt;</span></code>’ command line option to chip-tool can be helpful in such cases.</p></li>
+<li><p>The Unify Matter Bridge needs to be commissioned to the Matter fabric before running the tests. Or you will see following message on the chip-tool tests</p></li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>*****<span class="w"> </span>Test<span class="w"> </span>Step<span class="w"> </span><span class="m">0</span><span class="w"> </span>:<span class="w"> </span><span class="m">1</span>:<span class="w"> </span>Wait<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>commissioned<span class="w"> </span>device<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>retrieved
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>To run all the tests without exiting on a failed one, ‘<code class="docutils literal notranslate"><span class="pre">--continueOnFailure</span> <span class="pre">true</span></code>’
+can be used.</p></li>
+<li><p>Every cluster command sent by chip-tool can be seen on Unify Matter bridge as MQTT topic publish as follows</p></li>
+</ul>
+<p>for .e.g if chip-tool sends OnOff On command on zw-CE7F3772-0008 Unify end node(Matter Endpoint 2).
+Then Unify Matter bridge publishes following MQTT payload and topic</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="m">2023</span>-Jan-30<span class="w"> </span><span class="m">10</span>:36:43.803360<span class="w"> </span>&lt;d&gt;<span class="w"> </span><span class="o">[</span>command_translator_interface<span class="o">]</span><span class="w"> </span>---<span class="w"> </span>send_unify_mqtt_cmd<span class="w"> </span>ucl/by-unid/zw-CE7F3772-0008/ep0/OnOff/Commands/On<span class="w"> </span>-&gt;<span class="w"> </span><span class="o">{}</span><span class="w"> </span>---
+</pre></div>
+</div>
+<p>The above MQTT debug message can also be traced in Unify logs.</p>
+<ul class="simple">
+<li><p>Every attribute read sent by chip-tool will only get correct value, if Unify Matter
+Bridge publishes MQTT payload and topic like following, before chip-tool sends the attribute
+read command.</p></li>
+</ul>
+<p>For e.g. if chip-tool tries to read OnOff attribute of OnOff cluster on
+zw-CE7F3772-0008 Unify end node(Matter Endpoint 2) Unify Matter Bridge must
+have received following kind of MQTT message before the correct attribute value
+will be reflected in Unify Matter Bridge.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="m">2023</span>-Jan-30<span class="w"> </span><span class="m">10</span>:36:44.515748<span class="w"> </span>&lt;d&gt;<span class="w"> </span><span class="o">[</span>mqtt_client<span class="o">]</span><span class="w"> </span>mqtt_client::on_message:<span class="w"> </span>ucl/by-unid/zw-CE7F3772-0008/ep0/OnOff/Attributes/OnOff/Reported,<span class="w"> </span><span class="o">{</span><span class="s2">&quot;value&quot;</span>:true<span class="o">}</span>,<span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+<p>The above MQTT debug messages can also be traced in Unify logs.</p>
+<ul class="simple">
+<li><p>Alternatively to disable a particular command or disable reading particular
+attributes from the test refer to PICS Usage from <a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/src/app/tests/suites/README.md">README</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

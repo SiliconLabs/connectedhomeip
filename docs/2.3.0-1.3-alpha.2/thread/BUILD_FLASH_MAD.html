@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Build and Flash the Matter Accessory Device (MAD) &mdash; Matter 2.3.0-1.3-alpha.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=359c5665"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using the Matter Hub and the Mattertool (chip-tool)" href="CHIP_TOOL.html" />
+    <link rel="prev" title="How to Build and Flash the Radio Co-Processor (RCP)" href="RCP.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3-alpha.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="THREAD.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DEMO_OVERVIEW.html">Demo Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RASPI_IMG.html">Setting up the Matter Hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RCP.html">Setting up the RCP</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Build, Flash Matter Device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-get-the-image-file-to-flash-the-mad">Step 1: Get the Image File to Flash the MAD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-flash-the-matter-accessory-device">Step 2: Flash the Matter Accessory Device</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="CHIP_TOOL.html">Using the Matter Hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OT_SLEEPY_END_DEVICE.html">Intermittently Connected Devices over OpenThread</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_4_thread.html">Matter Over Thread</a></li>
+      <li class="breadcrumb-item active">How to Build and Flash the Matter Accessory Device (MAD)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/thread/BUILD_FLASH_MAD.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="how-to-build-and-flash-the-matter-accessory-device-mad">
+<h1>How to Build and Flash the Matter Accessory Device (MAD)<a class="headerlink" href="#how-to-build-and-flash-the-matter-accessory-device-mad" title="Link to this heading"></a></h1>
+<p>The Matter Accessory Device, such as the lighting-app, is the actual Matter
+device that you will commission onto the Matter network and control using the
+chip-tool.</p>
+<section id="step-1-get-the-image-file-to-flash-the-mad">
+<h2>Step 1: Get the Image File to Flash the MAD<a class="headerlink" href="#step-1-get-the-image-file-to-flash-the-mad" title="Link to this heading"></a></h2>
+<p>We have provided two ways to get the required image to flash the MAD. You can
+use one of the following options:</p>
+<ol class="arabic simple">
+<li><p>Use the pre-built image file</p></li>
+<li><p>Build the image file from the ‘<code class="docutils literal notranslate"><span class="pre">matter</span></code>’ repository</p></li>
+</ol>
+<br>
+<ul>
+<li><h3 class="rubric" id="using-the-pre-built-image-file"><strong>Using the Pre-Built Image File</strong></h3>
+<p>All of the Matter Accessory Device image files are accessible through the
+<a class="reference internal" href="../general/ARTIFACTS.html"><span class="std std-doc">Matter Artifacts Page</span></a>. If you are using a
+pre-built image file, you can skip forward to Step #2: Flashing the MAD.</p>
+<p>If you are coming from Simplicity Studio, you may have already installed the
+demo image in Simplicity Studio in which case you can skip forward to the
+next step.</p>
+</li>
+</ul>
+<br>
+<ul>
+<li><h3 class="rubric" id="building-the-matter-image-file-from-the-repository"><strong>Building the Matter Image File from the Repository</strong></h3>
+<blockquote>
+<div><p><strong>IMPORTANT:</strong> A complete list of software requirements for Silicon Labs
+Matter 15.4 development is included on the
+<a class="reference internal" href="../general/SOFTWARE_REQUIREMENTS.html"><span class="std std-doc">Matter Software Requirements</span></a> page.
+Be sure that you have satisfied these requirements before proceeding.
+Users may need to run the various commands as the root user or with certain privilges enabled.</p>
+</div></blockquote>
+<p>The Matter Accessory Device (lighting-app) can be built out of this repo.</p>
+<p>Documentation on how to build and use the lighting-app Matter Accessory
+Device is provided in this
+<a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/examples/lighting-app/silabs/README.md">README.md</a></p>
+<p>Please note that you only need to build a single device for the demo such as
+the lighting-app. If you wish to build other examples such as the sleepy end
+device you are welcome to, but it is not necessary for the demo.</p>
+<blockquote>
+<div><p>Additional examples are provided in <a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/examples/">/examples</a> directory,
+or <a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/silabs_examples/">/silabs_examples</a> (such as <code class="docutils literal notranslate"><span class="pre">onoff-plug-app</span></code>).</p>
+</div></blockquote>
+<p>The build process puts all image files in the following location:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;git</span> <span class="pre">location&gt;/matter/out/&lt;app</span> <span class="pre">name&gt;/&lt;board</span> <span class="pre">name&gt;</span></code></p>
+</li>
+</ul>
+<br>
+</section>
+<section id="step-2-flash-the-matter-accessory-device">
+<h2>Step 2: Flash the Matter Accessory Device<a class="headerlink" href="#step-2-flash-the-matter-accessory-device" title="Link to this heading"></a></h2>
+<p>For more information on how to flash your Silabs development platform see the
+following instructions:
+<a class="reference internal" href="../general/FLASH_SILABS_DEVICE.html"><span class="std std-doc">How to Flash a Silicon Labs Device</span></a></p>
+<p>Once your Matter Accessory Device has been flashed it should show a QR code on
+the LCD. If no QR Code is present it may be that you need to add a bootloader to
+your device. Bootloader images are provided on the
+<a class="reference internal" href="../general/ARTIFACTS.html"><span class="std std-doc">Matter Artifacts page</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

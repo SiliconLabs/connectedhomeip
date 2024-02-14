@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matter Intermittently Connected Devices over OpenThread &mdash; Matter 2.3.0-1.3-alpha.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=359c5665"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Matter Over Wi-Fi" href="../nav_5_wifi.html" />
+    <link rel="prev" title="Using the Matter Hub and the Mattertool (chip-tool)" href="CHIP_TOOL.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3-alpha.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="THREAD.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DEMO_OVERVIEW.html">Demo Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RASPI_IMG.html">Setting up the Matter Hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RCP.html">Setting up the RCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BUILD_FLASH_MAD.html">Build, Flash Matter Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CHIP_TOOL.html">Using the Matter Hub</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Intermittently Connected Devices over OpenThread</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#operating-modes">Operating Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thread-communication">Thread Communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building">Building</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_4_thread.html">Matter Over Thread</a></li>
+      <li class="breadcrumb-item active">Matter Intermittently Connected Devices over OpenThread</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/thread/OT_SLEEPY_END_DEVICE.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="matter-intermittently-connected-devices-over-openthread">
+<h1>Matter Intermittently Connected Devices over OpenThread<a class="headerlink" href="#matter-intermittently-connected-devices-over-openthread" title="Link to this heading"></a></h1>
+<p>This page explains how Matter OpenThread Intermittently Connected Devices (ICDs) work and how to configure an ICD example.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Matter provides an Intermittently Connected Device (ICD) operating mode to extend the battery life of power-limited devices.
+The Matter ICD manager leverages subscription report synchronization and OpenThread functionalities to allow devices to sleep for set periods
+without disrupting their Matter sessions.</p>
+<p>In Matter v1.2, only ICD’s with Short Idle Time (SIT) are supported. Matter 1.3 alpha provides provisional support for Long Idle Time (LIT) ICD’s. A SIT ICD  are devices that SHOULD be configured with a Slow Polling Interval shorter than or equal to 15 seconds. For example, in a typical scenario for door locks and window coverings, commands need to be sent to the ICD with a use-case imposed latency requirement. Typically, devices that are Short Idle Time ICDs are not initiators in the communication flow.</p>
+</section>
+<section id="operating-modes">
+<h2>Operating Modes<a class="headerlink" href="#operating-modes" title="Link to this heading"></a></h2>
+<p>ICDs have two operating modes, Idle and Active. An ICD alternates normally between the Idle mode and Active mode  based on the  <code class="docutils literal notranslate"><span class="pre">IdleModeInterval</span></code> and <code class="docutils literal notranslate"><span class="pre">ActiveModeInterval</span></code> respectively</p>
+<p>When the device is in <em>Active Mode</em>, the ICD is set into a fast-polling interval for maximum responsiveness.
+The <code class="docutils literal notranslate"><span class="pre">CHIP_DEVICE_CONFIG_ICD_FAST_POLL_INTERVAL</span></code> parameter communicates the maximum sleep interval of a node in active mode.</p>
+<p>Any of the following device states will start or keep the ICD in <em>Active Mode</em>:</p>
+<ul class="simple">
+<li><p>A commissioning window is open</p></li>
+<li><p>An exchange context is awaiting a response or ack</p></li>
+<li><p>The fail-safe is armed.</p></li>
+</ul>
+<p>Any of the following events can trigger the start of the <em>Active Mode</em> interval or extend it by one <code class="docutils literal notranslate"><span class="pre">ActiveModeThreshold</span></code>:</p>
+<ul class="simple">
+<li><p>A Message needs to be Sent.</p></li>
+<li><p>A Message was received.</p></li>
+<li><p>An implemented User action occurred.</p></li>
+</ul>
+<p>Once the active mode is triggered, the ICD stays in this mode for a minimum duration of <code class="docutils literal notranslate"><span class="pre">ActiveModeInterval</span></code>
+When the active interval has elapsed and none of the aforementioned states are active, the device will switch its operating mode to the Idle Mode.</p>
+<p>In <em>Idle mode</em>, the ICD will poll its associated router at its slow-polling interval to see if another device has tried to communicate with it while it was sleeping.
+If no event occurs, the ICD stays in its idle mode for the entirety of the <code class="docutils literal notranslate"><span class="pre">IdleModeInterval</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">CHIP_DEVICE_CONFIG_ICD_SLOW_POLL_INTERVAL</span></code> parameter communicates the slow-polling interval and therefore the maximum sleep interval of the node in idle mode. This parameter affects both the minimum power consumption and maximum latency.</p>
+</section>
+<section id="thread-communication">
+<h2>Thread Communication<a class="headerlink" href="#thread-communication" title="Link to this heading"></a></h2>
+<p>In order to receive messages that were sent while the ICD was sleeping, the ICD relies on its associated Thread router which buffers any incoming messages.
+The Thread router will send all buffered messages to the ICD when it polls the router at the end of its slow-polling interval.</p>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<p>Matter exposes some defines to configure the polling intervals of the openthread stack in both Idle and Active modes.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Define</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Default Value</p></th>
+<th class="head"><p>Maximum allowed Value</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SlowPollInterval</p></td>
+<td><p>CHIP_DEVICE_CONFIG_ICD_SLOW_POLL_INTERVAL</p></td>
+<td><p>Interval, in milliseconds, at which the thread radio will poll its network in idle mode.</p></td>
+<td><p>15000 ms</p></td>
+<td><p>&lt;= IdleModeInterval</p></td>
+</tr>
+<tr class="row-odd"><td><p>FastPollInterval</p></td>
+<td><p>CHIP_DEVICE_CONFIG_ICD_FAST_POLL_INTERVAL</p></td>
+<td><p>Interval, in milliseconds, at which the thread radio will poll its network in active mode.</p></td>
+<td><p>200 ms</p></td>
+<td><p>&lt; ActiveModeInterval</p></td>
+</tr>
+</tbody>
+</table>
+<p>For Matter configuration, see the <a class="reference internal" href="../general/MATTER_ICD.html"><span class="std std-doc">Matter ICD</span></a> documentation.</p>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
+<p>The default values for these defines for the Silabs platform is split in two files:</p>
+<p>and <code class="docutils literal notranslate"><span class="pre">src/platform/silabs/CHIPDevicePlatformConfig.h</span></code> is where the openthread polling intervals default are set.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef CHIP_DEVICE_CONFIG_ICD_SLOW_POLL_INTERVAL</span>
+<span class="cp">#define CHIP_DEVICE_CONFIG_ICD_SLOW_POLL_INTERVAL chip::System::Clock::Milliseconds32(SL_OT_IDLE_INTERVAL)</span>
+<span class="cp">#endif </span><span class="c1">// CHIP_DEVICE_CONFIG_SED_IDLE_INTERVAL</span>
+
+<span class="cp">#ifndef CHIP_DEVICE_CONFIG_ICD_FAST_POLL_INTERVAL</span>
+<span class="cp">#define CHIP_DEVICE_CONFIG_ICD_FAST_POLL_INTERVAL chip::System::Clock::Milliseconds32(SL_OT_ACTIVE_INTERVAL)</span>
+<span class="cp">#endif </span><span class="c1">// CHIP_DEVICE_CONFIG_SED_ACTIVE_INTERVAL</span>
+</pre></div>
+</div>
+<p>The default values for the defines previously shown are located <code class="docutils literal notranslate"><span class="pre">third_party/silabs/efr32_sdk.gni</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="c1"># ICD Openthread Configuration flags</span>
+<span class="w">  </span><span class="nv">sl_ot_idle_interval_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">15000</span><span class="w">  </span><span class="c1"># 15s Idle Intervals</span>
+<span class="w">  </span><span class="nv">sl_ot_active_interval_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">200</span><span class="w">  </span><span class="c1"># 200ms Active Intervals</span>
+</pre></div>
+</div>
+<p>In some cases, as with the light-switch-app, these default values are overridden as in: <code class="docutils literal notranslate"><span class="pre">examples/light-switch-app/silabs/openthread.gni</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="c1"># Openthread Configuration flags</span>
+<span class="w">  </span><span class="nv">sl_ot_idle_interval_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">30000</span><span class="w">  </span><span class="c1"># 30s Idle Intervals</span>
+<span class="w">  </span><span class="nv">sl_ot_active_interval_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">500</span><span class="w">  </span><span class="c1"># 500ms Active Intervals</span>
+</pre></div>
+</div>
+<p>There are two methods with which you can change these defaults values.</p>
+<p>The first method is by adding these defines to <code class="docutils literal notranslate"><span class="pre">CHIPProjectConfig.h</span></code> file of your project.
+For the lighting-app, the file is <code class="docutils literal notranslate"><span class="pre">examples/lighting-app/silabs/include/CHIPProjectConfig.h</span></code>.</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#define CHIP_DEVICE_CONFIG_ICD_FAST_POLL_INTERVAL chip::System::Clock::Milliseconds32(&lt;value_ms&gt;)</span>
+<span class="cp">#define CHIP_DEVICE_CONFIG_ICD_SLOW_POLL_INTERVAL chip::System::Clock::Milliseconds32(&lt;value_ms&gt;)</span>
+</pre></div>
+</div>
+<p>The second method is by adding arguments to the build command. Here is an example building the EFR32MG24 BRD4186C with different values.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs<span class="w"> </span>out/lighting-app<span class="w"> </span>BRD41686C<span class="w"> </span><span class="nv">sl_ot_idle_interval_ms</span><span class="o">=</span><span class="m">10000</span><span class="w"> </span><span class="nv">sl_ot_active_interval_ms</span><span class="o">=</span><span class="m">200</span><span class="w"> </span><span class="nv">sl_idle_mode_interval_ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">300000</span><span class="w"> </span><span class="nv">sl_active_mode_interval_ms</span><span class="o">=</span><span class="m">5000</span><span class="w"> </span><span class="nv">sl_active_mode_threshold_ms</span><span class="o">=</span><span class="m">1000</span><span class="w"> </span>--icd
+</pre></div>
+</div>
+<p>If both methods of changing the default values are used, the defines added to the <code class="docutils literal notranslate"><span class="pre">CHIPProjectConfig.h</span></code> take precedence on the build arguments.</p>
+</section>
+</section>
+<section id="building">
+<h2>Building<a class="headerlink" href="#building" title="Link to this heading"></a></h2>
+<section id="enabling-sleepy-functionalities">
+<h3>Enabling Sleepy Functionalities<a class="headerlink" href="#enabling-sleepy-functionalities" title="Link to this heading"></a></h3>
+<p>To build an OpenThread ICD example, three conditions must be met:
+1) The Intermittently Connected Device cluster must be enabled as a server on the end device application.
+2) The following macro must be defined : <code class="docutils literal notranslate"><span class="pre">CHIP_CONFIG_ENABLE_ICD_SERVER</span></code>.
+<em>This can be set with gn build argument <code class="docutils literal notranslate"><span class="pre">chip_enable_icd_server=true</span></code></em>
+3) The example must use the MTD OpenThread libraries to be able to leverage OpenThread Sleepy functionalities.</p>
+<p>Adding the preset <code class="docutils literal notranslate"><span class="pre">--icd</span></code> to your build command will ensure that conditions 2 and 3 are met to enable icd functionalities. This of course only works on sample apps that respect the first condition. The Lock and Light-switch sample applications are configured with the ICD cluster enabled.</p>
+<p>Here is an example to build the light-switch-app as an ICD for the EFR32MG24 BRD4186C.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>./examples/light-switch-app/silabs<span class="w"> </span>./out/light-switch-app_SED<span class="w"> </span>BRD4186C<span class="w"> </span>--icd
+</pre></div>
+</div>
+</section>
+<section id="minimal-power-consumption">
+<h3>Minimal Power Consumption<a class="headerlink" href="#minimal-power-consumption" title="Link to this heading"></a></h3>
+<p>Simply enabling ICD functionalities does not give the application the best power consumption.
+By default, several features that increase power consumption are enabled in the example applications.
+The following set of features increase power consumption.</p>
+<ul class="simple">
+<li><p>Matter Shell</p></li>
+<li><p>OpenThread CLI</p></li>
+<li><p>LCD and Qr Code</p></li>
+</ul>
+<p>To achieve the most power-efficient build, add the following build arguments to the build command to disable all power-consuming features.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>./examples/light-switch-app/silabs<span class="w"> </span>./out/light-switch-app_ICD<span class="w"> </span>BRD4186C<span class="w"> </span>--icd<span class="w"> </span>--low-power
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

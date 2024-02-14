@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matter Wi-Fi Direct Internet Connectivity &mdash; Matter 2.3.0-1.3-alpha.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=359c5665"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Build Procedure For Direct Internet Connectivity (DIC)" href="BUILD_DIC.html" />
+    <link rel="prev" title="Wi-Fi Direct Internet Connectivity" href="../nav_5_wifi_dic.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3-alpha.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="DEMO_OVERVIEW.html">Wi-Fi Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SW_SETUP.html">Wi-Fi GitHub Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BUILD_PI_ENV.html">Build Chip Tool on Raspi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RUN_DEMO.html">Matter Demo on EFR32 NCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RUN_DEMO_SiWx917_SoC.html">Matter Demo on 917 SoC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JLINK_GUIDE_917.html">Matter 917 SoC JLink RTT Debugger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SiWx917_Enablement_For_Ozone.html">Enablement of Ozone for 917 SOC</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../nav_5_wifi_dic.html">Wi-Fi Direct Internet Connectivity</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">What is DIC?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="BUILD_DIC.html">How to Build DIC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MOSQUITTO_SETUP.html">MQTT Server with Mosquitto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AWS_CONFIGURATION_REGISTRATION.html">MQTT Server with AWS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="MQTT_EXPLORER_SETUP.html">MQTT Explorer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="OPENSSL_CERTIFICATE_CREATION.html">Open SSL for MQTT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html">Matter Intermittently Connected Devices over WiFi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html#power-measurement">Power Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_Sleepy_Device_Power_Measurement.html">Wi-Fi ICD Power Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MATTER_SHELL.html">Matter Shell Console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_ecosystem.html">Matter Ecosystem Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+          <li class="breadcrumb-item"><a href="../nav_5_wifi_dic.html">Wi-Fi Direct Internet Connectivity</a></li>
+      <li class="breadcrumb-item active">Matter Wi-Fi Direct Internet Connectivity</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/wifi/DIC_Wi-Fi.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="matter-wi-fi-direct-internet-connectivity">
+<h1>Matter Wi-Fi Direct Internet Connectivity<a class="headerlink" href="#matter-wi-fi-direct-internet-connectivity" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Direct Internet Connectivity (DIC) is a silabs only feature to connect matter devices to proprietary cloud solutions(AWS,GCP,APPLE …) directly.  As such, a Matter Wi-Fi device must support connecting locally on the Matter Fabric, via IPv6, and connecting to the Internet via IPv4.</p></li>
+<li><p>Matter devices can be controlled by chip-tool or controller and the respective status of the attribute modified will be published to the cloud.</p></li>
+<li><p>Remote user can install the cloud specific application to get the notification on the attribute status.</p></li>
+</ul>
+<section id="dic-feature-diagram">
+<h2>DIC Feature Diagram<a class="headerlink" href="#dic-feature-diagram" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Below diagram gives end-to-end flow about Direct Internet Connectivity.</p></li>
+</ol>
+<p><img alt="Silicon Labs - DIC design" src="../_images/dic-flow.png" /></p>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<section id="hardware-requirements">
+<h3>Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Hardware required for DIC feature to run on Silicon Labs Platform, refer <a class="reference internal" href="../general/HARDWARE_REQUIREMENTS.html"><span class="std std-doc">Matter Hardware Requirements</span></a></p></li>
+</ul>
+</section>
+<section id="software-requirements">
+<h3>Software Requirements<a class="headerlink" href="#software-requirements" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/thomasnordquist/MQTT-Explorer/releases/download/0.0.0-0.4.0-beta1/MQTT-Explorer-Setup-0.4.0-beta1.exe">Download</a> MQTT Explorer Software for controlling device through cloud.</p></li>
+<li><p>Software required for DIC feature, refer <a class="reference internal" href="../general/SOFTWARE_REQUIREMENTS.html"><span class="std std-doc">Software Requirements</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="end-to-end-set-up-bring-up">
+<h2>End-to-End Set-up bring up<a class="headerlink" href="#end-to-end-set-up-bring-up" title="Link to this heading"></a></h2>
+</section>
+<section id="message-queuing-telemetry-transport-mqtt">
+<h2>Message Queuing Telemetry Transport (MQTT)<a class="headerlink" href="#message-queuing-telemetry-transport-mqtt" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>MQTT is an OASIS standard messaging protocol for the Internet of Things (IoT). It is designed as an extremely lightweight publish/subscribe messaging transport that is ideal for connecting remote devices with a small code footprint and minimal network bandwidth. Refer <a class="reference external" href="https://mqtt.org/">https://mqtt.org/</a> for more details</p></li>
+</ul>
+<section id="configuration-of-mqtt-server">
+<h3>Configuration of MQTT server<a class="headerlink" href="#configuration-of-mqtt-server" title="Link to this heading"></a></h3>
+<p>To set up and configure AWS or Mosquitto for DIC support please see the following documentation:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="AWS_CONFIGURATION_REGISTRATION.html"><span class="std std-doc">AWS installation</span></a></p></li>
+<li><p><a class="reference internal" href="MOSQUITTO_SETUP.html"><span class="std std-doc">Mosquitto installation</span></a></p></li>
+</ul>
+</section>
+<section id="remote-user-setup-mqtt-explorer">
+<h3>Remote User Setup (MQTT Explorer)<a class="headerlink" href="#remote-user-setup-mqtt-explorer" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>A remote user is used to check the state of device. In this context MQTT explorer is used as a remote user.</p></li>
+<li><p><a class="reference internal" href="MQTT_EXPLORER_SETUP.html"><span class="std std-doc">MQTT explorer setup and configuration</span></a></p></li>
+</ul>
+</section>
+<section id="building-matter-dic-application">
+<h3>Building Matter DIC Application<a class="headerlink" href="#building-matter-dic-application" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>To Build DIC Application, refer <a class="reference internal" href="BUILD_DIC.html"><span class="std std-doc">Building of DIC</span></a></p></li>
+<li><p>Commission the Matter Device and confirm DIC connection is done from Device side logs.</p></li>
+</ol>
+</section>
+</section>
+<section id="end-to-end-test-of-dic-application">
+<h2>End-to-End Test of DIC Application<a class="headerlink" href="#end-to-end-test-of-dic-application" title="Link to this heading"></a></h2>
+<ul>
+<li><p><strong>Sharing status of device to cloud</strong></p>
+<ul>
+<li><p>Below diagram gives end-to-end flow for sharing status from matter device to cloud</p>
+<p><img alt="Silicon Labs - DIC design" src="../_images/dic-status-sharing.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Note</strong>: For reference, Lighting App commands given in the above image. Similarly other application commands also can be passed.
+- End-to-end command to be executed from chip-tool, refer <a class="reference internal" href="RUN_DEMO.html#demo-execution-commissioning-a-wi-fi-device-using-chip-tool-for-linux"><span class="std std-ref">Running the Matter Demo</span></a>
+- Below is the application specific attribute/s information or state shared to the cloud through Direct Internet Connectivity Solution
+- For Lighting App, On/Off Attributes
+- For Lock App, lock/unlock Attributes
+- For On/off Plug App, On/Off Attributes
+- For Windows App, lift/tilt Attributes
+- For Thermostat App, SystemMode/CurrentTemp/LocalTemperature/OccupiedCoolingSetpoint/OccupiedHeatingSetpoint Attributes
+- Application status would be updated on the mqtt_explorer UI, as shown in below image.</p>
+<p><img alt="Silicon Labs - DIC design" src="../_images/mqtt_explorer_4.png" /></p>
+<ul>
+<li><p><strong>Control of the device through cloud interface</strong></p>
+<ul class="simple">
+<li><p>Below diagram gives end-to-end flow for Control of the matter device through cloud interface</p></li>
+</ul>
+<p><img alt="Silicon Labs - DIC design" src="../_images/dic-control-part.png" /></p>
+</li>
+</ul>
+<p><strong>Note</strong>: For reference, Lighting App commands given in the above image. Similarly other application commands also can be passed.</p>
+<ul>
+<li><p>Make sure matter device is up and commissioned successfully, refer <a class="reference internal" href="RUN_DEMO.html#demo-execution-commissioning-a-wi-fi-device-using-chip-tool-for-linux"><span class="std std-ref">Running the Matter Demo</span></a></p></li>
+<li><p>For Controlling the device, set topic name and the commands to be executed in the mqtt_explorer for below applications.</p>
+<ul class="simple">
+<li><p>Lighting App</p>
+<ul>
+<li><p>Topic: command</p>
+<ul>
+<li><p>Commands:</p>
+<ul>
+<li><p>toggle</p></li>
+<li><p>on</p></li>
+<li><p>off</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Onoff-plug App</p>
+<ul>
+<li><p>Topic: command</p>
+<ul>
+<li><p>Commands:</p>
+<ul>
+<li><p>toggle</p></li>
+<li><p>on</p></li>
+<li><p>off</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Lock App</p>
+<ul>
+<li><p>Topic: command</p>
+<ul>
+<li><p>Commands:</p>
+<ul>
+<li><p>lock</p></li>
+<li><p>unlock</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Thermostat App</p>
+<ul>
+<li><p>Topic: command</p>
+<ul>
+<li><p>Commands:</p>
+<ul>
+<li><p>SetMode/value(value need to provide 1,2,3,4 ex:SetMode/1)</p></li>
+<li><p>Heating/value(value need to provide 2500,2600 ex:HeatingSetPoint/2500)</p></li>
+<li><p>Cooling/value(value need to provide 2500,2600 ex:CoolingSetPoint/2500)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Window App</p>
+<ul>
+<li><p>Topic: command</p>
+<ul>
+<li><p>Commands:</p></li>
+<li><p>Lift/value(value need to provide in range 1000 to 10000  ex: Lift/2500)</p></li>
+<li><p>Tilt/value(value need to provide in range 1000 to 10000  ex: Tilt/2500)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Then click <code class="docutils literal notranslate"><span class="pre">publish</span></code> button to execute the command.</p>
+<p><img alt="Silicon Labs - DIC design" src="../_images/control-device-through-cloud.png" /></p>
+</li>
+<li><p><strong>Download AWS OTA Image through cloud interface</strong></p>
+<ul>
+<li><p>Below diagram gives the end to end flow of firmware upgrade feature through AWS.</p>
+<p><img alt="Silicon Labs - DIC design" src="../_images/dic-aws-ota.png" /></p>
+</li>
+<li><p>Build DIC with AWS OTA , refer <a class="reference internal" href="BUILD_DIC.html#build-command-with-dic-aws-ota"><span class="std std-ref">Building DIC AWS OTA</span></a></p></li>
+<li><p>Make sure matter device is up and commissioned successfully, refer <a class="reference internal" href="RUN_DEMO.html"><span class="std std-doc">Running the Matter Demo on EFR Hosts</span></a> or <a class="reference internal" href="RUN_DEMO_SiWx917_SoC.html"><span class="std std-doc">Running the Matter Demo on SiWx917 SoC Hosts</span></a></p></li>
+<li><p>Make sure device is connected to MQTT Server successfully.</p></li>
+<li><p>Then Create a AWS OTA Job in the AWS Website, refer <a class="reference internal" href="AWS_CONFIGURATION_REGISTRATION.html"><span class="std std-doc">How to create AWS OTA JOB</span></a></p></li>
+<li><p>Trigger OTA Command through MQTT Explorer like below.</p></li>
+<li><p>Then click <code class="docutils literal notranslate"><span class="pre">publish</span></code> button to execute the AWS OTA command.</p>
+<p><img alt="Silicon Labs - DIC design" src="../_images/download-aws-ota-through-cloud.png" /></p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
