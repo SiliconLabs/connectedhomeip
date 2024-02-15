@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Building a Wi-Fi End Device for Matter in GitHub &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
+  <title>Building a Wi-Fi End Device for Matter in GitHub &mdash; Matter 2.3.0-1.3-alpha.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -16,7 +16,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/documentation_options.js?v=359c5665"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.0-1.3-alpha.1
+                2.3.0-1.3-alpha.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -134,6 +134,20 @@ $<span class="w"> </span>mkdir<span class="w"> </span>out
 </pre></div>
 </div>
 </li>
+<li><p>Troubleshooting the errors:</p>
+<ol class="arabic">
+<li><p>For resolving <a class="reference download internal" download="" href="../_downloads/3824657bd63adea4e7e248075fb03dff/git_submodule_error.png"><span class="xref download myst">Git Submodule Error</span></a>, run below command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--checkout
+</pre></div>
+</div>
+</li>
+<li><p>For resolving <a class="reference download internal" download="" href="../_downloads/66ed1abbaf7274d4ff6c977f23cf536f/Boostrapping_Error.png"><span class="xref download myst">Bootstrapping Error</span></a>, run below command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>prompt-toolkit
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
 </ol>
 </section>
 <section id="compiling-the-chip-tool">
@@ -176,60 +190,65 @@ continue with this documentation.</p>
 </section>
 <section id="building-the-matter-application">
 <h2>Building the Matter Application<a class="headerlink" href="#building-the-matter-application" title="Link to this heading"></a></h2>
-<p>The following commands are for building the Matter application. Depending on which device
-you are using, select the appropriate command to build.</p>
-<blockquote>
-<div><p><strong>Note:</strong></p>
-<ol class="arabic simple">
-<li><p>The build commands given below are for the following applications: <code class="docutils literal notranslate"><span class="pre">lighting-app</span></code>, <code class="docutils literal notranslate"><span class="pre">lock-app</span></code>, <code class="docutils literal notranslate"><span class="pre">light-switch-app</span></code>, <code class="docutils literal notranslate"><span class="pre">window-app</span></code></p></li>
-<li><p>In order to build applications other than those mentioned in # 1, (such as <code class="docutils literal notranslate"><span class="pre">thermostat-app</span></code>), substitute the appropriate application name after the application name.</p></li>
-<li><p>Additional examples (such as <code class="docutils literal notranslate"><span class="pre">onoff-plug-app</span></code>) are provided in the <a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/examples/">/examples</a> or <a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/silabs_examples/">/silabs_examples</a> directory.</p></li>
-<li><p>In order to build applications from <a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/silabs_examples/">/silabs_examples</a> (such as <code class="docutils literal notranslate"><span class="pre">onoff-plug-app</span></code>), substitute <code class="docutils literal notranslate"><span class="pre">examples</span></code> with <code class="docutils literal notranslate"><span class="pre">silabs_examples</span></code>.</p></li>
-<li><p>To build for EFR32MG24 host processors, substitute <code class="docutils literal notranslate"><span class="pre">BRD41xxx</span></code> in the build command with the appropriate MG24 board number
-from the <a class="reference internal" href="../general/HARDWARE_REQUIREMENTS.html"><span class="std std-doc">Hardware Requirements Page</span></a>.</p></li>
-</ol>
-</div></blockquote>
-<p>Run the following:</p>
+<p>Depending on the host processdor used and the application required, select the appropriate build command :</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>matter
 $<span class="w"> </span>&lt;run_appropriate_build_command_from_below&gt;
 </pre></div>
 </div>
-<blockquote>
-<div><p><strong>Note:</strong> The image size currently exceeds the available flash with CHIP logging enabled.</p>
-</div></blockquote>
-<p>Build command for EFR32MG24 + RS9116:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/rs911x_lighting<span class="w"> </span>BRD41xxx<span class="w"> </span><span class="nv">disable_lcd</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">use_external_flash</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">chip_enable_ble_rs911x</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>--wifi<span class="w"> </span>rs9116<span class="w"> </span><span class="p">|&amp;</span><span class="w"> </span>tee<span class="w"> </span>out/rs911x_lighting.log
-</pre></div>
-</div>
-<p>Build command for EFR32MG24 + SiWx917:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/siwx917_lighting<span class="w"> </span>BRD41xxx<span class="w"> </span><span class="nv">disable_lcd</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">use_external_flash</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">chip_enable_ble_rs911x</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>--wifi<span class="w"> </span>SiWx917<span class="w"> </span><span class="p">|&amp;</span><span class="w"> </span>tee<span class="w"> </span>out/siwx917_lighting.log
-</pre></div>
-</div>
-<p>Build command for EFR32MG24 + WF200:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/wf200_lighting<span class="w"> </span>BRD41xxx<span class="w"> </span><span class="nv">chip_build_libshell</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>--wifi<span class="w"> </span>wf200<span class="w"> </span><span class="p">|&amp;</span><span class="w"> </span>tee<span class="w"> </span>out/wf200_lighting.log
-</pre></div>
-</div>
-<p>Build command for SiWx917 SoC processor(common flash):</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/SiWx917_lighting<span class="w"> </span>BRD4338A<span class="w"> </span><span class="p">|&amp;</span><span class="w"> </span>tee<span class="w"> </span>out/soc_lighting.out
+<p>Syntax for the build command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>application<span class="w"> </span>code&gt;<span class="w"> </span>&lt;out<span class="w"> </span>folder<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>generated<span class="w"> </span>binary&gt;<span class="w"> </span>&lt;Device/HW<span class="w"> </span><span class="k">for</span><span class="w"> </span>which<span class="w"> </span>the<span class="w"> </span>binary<span class="w"> </span>is<span class="w"> </span>built&gt;<span class="w"> </span>&lt;build<span class="w"> </span>parameters<span class="w"> </span><span class="k">if</span><span class="w"> </span>required&gt;
 </pre></div>
 </div>
 <blockquote>
 <div><p><strong>Note:</strong></p>
 <ol class="arabic simple">
-<li><p>LED and button features are enabled for SiWx917 SoC.</p></li>
-<li><p>Before building for SiWx917 SoC, you must first obtain the WiseMCU Combo SDK package and install it. See the <a class="reference internal" href="../general/SOFTWARE_REQUIREMENTS.html"><span class="std std-doc">Software Requirements page</span></a>.</p></li>
+<li><p>Build commands should not be executed under root user.</p></li>
+<li><p>The build commands given below are for the <code class="docutils literal notranslate"><span class="pre">lighting-app</span></code> application.</p></li>
+<li><p>In order to build applications other than the <code class="docutils literal notranslate"><span class="pre">lighting-app</span></code>, (such as <code class="docutils literal notranslate"><span class="pre">thermostat-app</span></code>, <code class="docutils literal notranslate"><span class="pre">lock-app</span></code>, <code class="docutils literal notranslate"><span class="pre">light-switch-app</span></code>, <code class="docutils literal notranslate"><span class="pre">window-app</span></code>, <code class="docutils literal notranslate"><span class="pre">onoff-plug-app</span></code>), substitute the appropriate application path in the build command.</p></li>
+<li><p>Path to the sample application examples are provided in the <a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/examples/">/examples</a> or <a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/silabs_examples/">/silabs_examples</a> directory.</p></li>
+<li><p>To build for EFR32MG24 / 917 SoC host processors, substitute <code class="docutils literal notranslate"><span class="pre">BRD41xxx</span></code> in the build command with the appropriate board number from the <a class="reference internal" href="../general/HARDWARE_REQUIREMENTS.html"><span class="std std-doc">Hardware Requirements Page</span></a>.</p></li>
 </ol>
 </div></blockquote>
-<p>A complete list of hardware supported is included on the <a class="reference internal" href="../general/HARDWARE_REQUIREMENTS.html"><span class="std std-doc">Hardware Requirements page</span></a>.</p>
-<p>Enable or disable the lighting application’s features using the following flags.</p>
+<p>Build command for EFR32MG24 + RS9116:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/rs911x_lighting<span class="w"> </span>BRD41xxx<span class="w"> </span>--wifi<span class="w"> </span>rs9116
+</pre></div>
+</div>
+<p>Build command for EFR32MG24 + SiWx917:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/siwx917_lighting<span class="w"> </span>BRD41xxx<span class="w"> </span><span class="nv">disable_lcd</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">use_external_flash</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>--wifi<span class="w"> </span>SiWx917
+</pre></div>
+</div>
+<p>Build command for EFR32MG24 + WF200:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/wf200_lighting<span class="w"> </span>BRD41xxx<span class="w"> </span><span class="nv">chip_build_libshell</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>--wifi<span class="w"> </span>wf200
+</pre></div>
+</div>
+<p>Build command for SiWx917 SoC processor(common flash):</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/SiWx917_lighting<span class="w"> </span>BRD4338A
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Note:</strong></p>
+<ol class="arabic simple">
+<li><p>If the build fails during the creation of the .rps file in WSL, then sym link commander with the proper path to the executable using below command and rebuild the application.</p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>.local/bin
+ln<span class="w"> </span>-s<span class="w"> </span>&lt;commander_path&gt;/commander.exe<span class="w"> </span>commander
+</pre></div>
+</div>
+</div></blockquote>
+<p>Enable or disable the application’s features using the following build parameters.</p>
 <ol class="arabic">
 <li><p><code class="docutils literal notranslate"><span class="pre">segger_rtt_buffer_size_up</span></code> : Flag to get the complete logs without truncation.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/rs911x_lighting<span class="w"> </span>BRD41xxx<span class="w"> </span><span class="nv">segger_rtt_buffer_size_up</span><span class="o">=</span><span class="m">2068</span><span class="w"> </span>--wifi<span class="w"> </span>rs9116<span class="w"> </span><span class="p">|&amp;</span><span class="w"> </span>tee<span class="w"> </span>out/rs911x_lighting.log
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/rs911x_lighting<span class="w"> </span>BRD41xxx<span class="w"> </span><span class="nv">segger_rtt_buffer_size_up</span><span class="o">=</span><span class="m">2068</span><span class="w"> </span>--wifi<span class="w"> </span>rs9116
 </pre></div>
 </div>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">show_qr_code=false</span></code> : Use this flag while building to disable QR code.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/rs911x_lighting<span class="w"> </span>BRD41xxx<span class="w"> </span><span class="nv">show_qr_code</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>--wifi<span class="w"> </span>rs9116<span class="w"> </span><span class="p">|&amp;</span><span class="w"> </span>tee<span class="w"> </span>out/rs911x_lighting.log
+<li><p><code class="docutils literal notranslate"><span class="pre">disable_lcd=true</span></code> : Use this flag while building to disable the LCD.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/rs911x_lighting<span class="w"> </span>BRD41xxx<span class="w"> </span><span class="nv">disable_lcd</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>--wifi<span class="w"> </span>rs9116
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">show_qr_code=false</span></code> : Use this flag while building to disable the QR code.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/rs911x_lighting<span class="w"> </span>BRD41xxx<span class="w"> </span><span class="nv">show_qr_code</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>--wifi<span class="w"> </span>rs9116
 </pre></div>
 </div>
 </li>
@@ -241,26 +260,24 @@ $<span class="w"> </span>&lt;run_appropriate_build_command_from_below&gt;
 <li><p>QR code is disabled for MG24 because of lcd disable. It cannot be enabled using the flag.</p></li>
 </ol>
 </div></blockquote>
-<ol class="arabic" start="3">
+<ol class="arabic" start="4">
 <li><p><code class="docutils literal notranslate"><span class="pre">chip_enable_wifi_ipv4</span></code> : Use this flag while building to enable IPV4 (disabled by default).</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/rs911x_lighting<span class="w"> </span>BRD41xxx<span class="w"> </span><span class="nv">chip_enable_wifi_ipv4</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>--wifi<span class="w"> </span>rs9116<span class="w"> </span><span class="p">|&amp;</span><span class="w"> </span>tee<span class="w"> </span>out/rs911x_lighting.log
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/rs911x_lighting<span class="w"> </span>BRD41xxx<span class="w"> </span><span class="nv">chip_enable_wifi_ipv4</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>--wifi<span class="w"> </span>rs9116<span class="w"> </span>
 </pre></div>
 </div>
 </li>
 </ol>
-<p>The generated software can be found in
-<code class="docutils literal notranslate"><span class="pre">out/rs911x_xxx/BRD41xxx/*.out</span></code> for the RS9116, in <code class="docutils literal notranslate"><span class="pre">out/siwx917_xxx/BRD41xxx/*.out</span></code>  for the
-SiWx917 and in <code class="docutils literal notranslate"><span class="pre">out/wf200_xxx/BRD41xxx/*.out</span></code> for the WF200.</p>
-<p>This is what you will flash onto the EFR32 device or SiWx917 SoC device. For more information on flashing:</p>
+<p>The generated software binaries can be found in the <code class="docutils literal notranslate"><span class="pre">out/</span></code> folder created during the build.
+Once you have downloaded the binaries for your device, you can follow the instructions for running the demo.</p>
 <ul class="simple">
-<li><p>Flashing the EFR32</p>
+<li><p><strong>For EFR32MG24 host processors</strong></p>
 <ul>
-<li><p><a class="reference internal" href="../general/FLASH_SILABS_DEVICE.html"><span class="std std-doc">Flashing a Silicon Labs Device</span></a></p></li>
+<li><p><a class="reference internal" href="RUN_DEMO.html"><span class="std std-doc">Running the Matter Demo for EFR32 device over Wi-Fi page</span></a></p></li>
 </ul>
 </li>
-<li><p>Flashing the SiWx917</p>
+<li><p><strong>For SiWx917 SoC processor</strong></p>
 <ul>
-<li><p><a class="reference internal" href="../general/FLASH_SILABS_SiWx917_SOC_DEVICE.html"><span class="std std-doc">Flashing the SiWX917 SoC Device</span></a></p></li>
+<li><p><a class="reference internal" href="RUN_DEMO_SiWx917_SoC.html"><span class="std std-doc">Running the Matter Demo for SiWx917 SoC device over Wi-Fi page</span></a></p></li>
 </ul>
 </li>
 </ul>
@@ -270,14 +287,6 @@ SiWx917 and in <code class="docutils literal notranslate"><span class="pre">out/
 <code class="docutils literal notranslate"><span class="pre">examples/platform/silabs/efr32/FreeRTOSConfig.h</span></code>. Find the macro:
 `<code class="docutils literal notranslate"><span class="pre">configMINIMAL_STACK_SIZE</span></code>`, and change the macro value from <code class="docutils literal notranslate"><span class="pre">140</span></code> to
 <strong><code class="docutils literal notranslate"><span class="pre">320</span></code></strong>.</p>
-<section id="troubleshooting">
-<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h3>
-<p>If having issues building the above examples, users may need to run the following commands:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git submodule update --init --checkout
-pip install --upgrade prompt-toolkit
-</pre></div>
-</div>
-</section>
 </section>
 </section>
 

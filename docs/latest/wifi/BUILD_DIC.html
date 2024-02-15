@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Build Procedure For Direct Internet Connectivity (DIC) &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
+  <title>Build Procedure For Direct Internet Connectivity (DIC) &mdash; Matter 2.3.0-1.3-alpha.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -16,7 +16,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/documentation_options.js?v=359c5665"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.0-1.3-alpha.1
+                2.3.0-1.3-alpha.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -139,7 +139,7 @@
 </section>
 <section id="here-is-an-example-to-build-the-lighting-app-with-dic-for-the-siwx917-soc">
 <h3>Here is an example to build the lighting-app with DIC for the SiWx917 SoC<a class="headerlink" href="#here-is-an-example-to-build-the-lighting-app-with-dic-for-the-siwx917-soc" title="Link to this heading"></a></h3>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/siwx917_DIC_light<span class="w"> </span>BRD4325B<span class="w"> </span><span class="nv">enable_dic</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">chip_enable_wifi_ipv4</span><span class="o">=</span><span class="nb">true</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/siwx917_DIC_light<span class="w"> </span>BRD4338A<span class="w"> </span><span class="nv">enable_dic</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">chip_enable_wifi_ipv4</span><span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 </section>
@@ -149,21 +149,27 @@
 <ul class="simple">
 <li><p>To enable DIC AWS OTA functionality use the <code class="docutils literal notranslate"><span class="pre">aws_sdk_ota=true</span></code> flag.</p></li>
 </ul>
-<section id="id1">
-<h3>Here is an example to build the lighting-app with DIC feature for the EFR32MG24 + 9116<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<section id="here-is-an-example-to-build-the-lighting-app-with-dic-aws-ota-feature-for-the-efr32mg24-9116">
+<h3>Here is an example to build the lighting-app with DIC AWS OTA feature for the EFR32MG24 + 9116<a class="headerlink" href="#here-is-an-example-to-build-the-lighting-app-with-dic-aws-ota-feature-for-the-efr32mg24-9116" title="Link to this heading"></a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/rs9116_DIC_light<span class="w"> </span>BRD418XX<span class="w"> </span><span class="nv">disable_lcd</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">use_external_flash</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">chip_enable_wifi_ipv4</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">enable_dic</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">aws_sdk_ota</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">chip_enable_ble_rs911x</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>--wifi<span class="w"> </span>rs9116
 </pre></div>
 </div>
 </section>
-<section id="id2">
-<h3>Here is an example to build the lighting-app with DIC feature for the EFR32MG24 + WF200<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<section id="here-is-an-example-to-build-the-lighting-app-with-dic-aws-ota-feature-for-the-efr32mg24-wf200">
+<h3>Here is an example to build the lighting-app with DIC AWS OTA feature for the EFR32MG24 + WF200<a class="headerlink" href="#here-is-an-example-to-build-the-lighting-app-with-dic-aws-ota-feature-for-the-efr32mg24-wf200" title="Link to this heading"></a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/wf200_DIC_light<span class="w"> </span>BRD418XX<span class="w"> </span><span class="nv">chip_build_libshell</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">chip_enable_wifi_ipv4</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">enable_dic</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">aws_sdk_ota</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>--wifi<span class="w"> </span>wf200
 </pre></div>
 </div>
 </section>
-<section id="id3">
-<h3>Here is an example to build the lighting-app with DIC for the EFR32MG24 + 917 NCP<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<section id="here-is-an-example-to-build-the-lighting-app-with-dic-aws-ota-feature-for-the-efr32mg24-917-ncp">
+<h3>Here is an example to build the lighting-app with DIC AWS OTA feature for the EFR32MG24 + 917 NCP<a class="headerlink" href="#here-is-an-example-to-build-the-lighting-app-with-dic-aws-ota-feature-for-the-efr32mg24-917-ncp" title="Link to this heading"></a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/siwx917_DIC_light<span class="w"> </span>BRD418XX<span class="w"> </span><span class="nv">disable_lcd</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">use_external_flash</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">chip_enable_wifi_ipv4</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">enable_dic</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">aws_sdk_ota</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">chip_enable_ble_rs911x</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>--wifi<span class="w"> </span>SiWx917
+</pre></div>
+</div>
+</section>
+<section id="here-is-an-example-to-build-the-lighting-app-with-dic-aws-ota-feature-for-the-siwx917-soc">
+<h3>Here is an example to build the lighting-app with DIC AWS OTA feature for the SiWx917 SoC<a class="headerlink" href="#here-is-an-example-to-build-the-lighting-app-with-dic-aws-ota-feature-for-the-siwx917-soc" title="Link to this heading"></a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs/<span class="w"> </span>out/siwx917_DIC_light<span class="w"> </span>BRD4338A<span class="w"> </span><span class="nv">enable_dic</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">chip_enable_wifi_ipv4</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">aws_sdk_ota</span><span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 </section>

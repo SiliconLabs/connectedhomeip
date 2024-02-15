@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matter Software Update with Silicon Labs Example Applications &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
+  <title>Matter Software Update with Silicon Labs Example Applications &mdash; Matter 2.3.0-1.3-alpha.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -16,7 +16,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/documentation_options.js?v=359c5665"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.0-1.3-alpha.1
+                2.3.0-1.3-alpha.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -65,7 +65,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#hardware-requirements">Hardware Requirements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#software-requirements">Software Requirements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#setting-up-ota-environment">Setting up OTA Environment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#matter-ota-images">Matter OTA Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matter-ota-application-images">Matter OTA Application Images</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-the-ota-download-scenario">Running the OTA Download Scenario</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#additional-info">Additional Info</a></li>
 </ul>
@@ -170,13 +170,13 @@ $<span class="w"> </span>mkdir<span class="w"> </span>out
 <ul class="simple">
 <li><p>To Build OTA-Provider app for Linux Platform, run below command in the matter repository.</p></li>
 </ul>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w">    </span>scripts/examples/gn_build_example.sh<span class="w"> </span>examples/ota-provider-app/linux<span class="w"> </span>out/debug<span class="w"> </span><span class="nv">chip_config_network_layer_ble</span><span class="o">=</span><span class="nb">false</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>scripts/examples/gn_build_example.sh<span class="w"> </span>examples/ota-provider-app/linux<span class="w"> </span>out/debug<span class="w"> </span><span class="nv">chip_config_network_layer_ble</span><span class="o">=</span><span class="nb">false</span>
 </pre></div>
 </div>
 </section>
 </section>
-<section id="matter-ota-images">
-<h2>Matter OTA Images<a class="headerlink" href="#matter-ota-images" title="Link to this heading"></a></h2>
+<section id="matter-ota-application-images">
+<h2>Matter OTA Application Images<a class="headerlink" href="#matter-ota-application-images" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>To create and Build matter OTA from matter code, need two different applications to build mentioned below:</p>
 <ul>
@@ -187,27 +187,27 @@ $<span class="w"> </span>mkdir<span class="w"> </span>out
 </ul>
 <section id="build-ota-a-application">
 <h3>Build OTA A Application<a class="headerlink" href="#build-ota-a-application" title="Link to this heading"></a></h3>
-<ul class="simple">
+<ul>
 <li><p>Matter OTA-A Application will be used to flash on the matter device.</p></li>
-<li><p>In matter cloned directory run below commands to build an OTA A application.</p></li>
-</ul>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">For</span><span class="w"> </span><span class="n">RS9116</span><span class="o">:</span><span class="w"> </span>
-
-<span class="p">.</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">gn_silabs_example</span><span class="p">.</span><span class="n">sh</span><span class="w"> </span><span class="n">examples</span><span class="o">/</span><span class="n">lighting</span><span class="o">-</span><span class="n">app</span><span class="o">/</span><span class="n">silabs</span><span class="o">/</span><span class="w"> </span><span class="n">out</span><span class="o">/</span><span class="n">rs911x_lighting_A</span><span class="w"> </span><span class="n">BRD41xxx</span><span class="w"> </span><span class="n">disable_lcd</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="n">use_external_flash</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="n">chip_enable_ble_rs911x</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="o">--</span><span class="n">wifi</span><span class="w"> </span><span class="n">rs9116</span>
-
-<span class="n">For</span><span class="w"> </span><span class="n">WF200</span>
-
-<span class="p">.</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">gn_silabs_example</span><span class="p">.</span><span class="n">sh</span><span class="w"> </span><span class="n">examples</span><span class="o">/</span><span class="n">lighting</span><span class="o">-</span><span class="n">app</span><span class="o">/</span><span class="n">silabs</span><span class="o">/</span><span class="w"> </span><span class="n">out</span><span class="o">/</span><span class="n">wf200_lighting_A</span><span class="w"> </span><span class="n">BRD41xxx</span><span class="w"> </span><span class="n">chip_build_libshell</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="o">--</span><span class="n">wifi</span><span class="w"> </span><span class="n">wf200</span>
-
-<span class="n">For</span><span class="w"> </span><span class="n">SiWx917</span><span class="w"> </span><span class="n">NCP</span>
-
-<span class="p">.</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">gn_silabs_example</span><span class="p">.</span><span class="n">sh</span><span class="w"> </span><span class="n">examples</span><span class="o">/</span><span class="n">lighting</span><span class="o">-</span><span class="n">app</span><span class="o">/</span><span class="n">silabs</span><span class="o">/</span><span class="w"> </span><span class="n">out</span><span class="o">/</span><span class="n">siwx917_lighting</span><span class="w"> </span><span class="n">BRD41xxx</span><span class="w"> </span><span class="n">disable_lcd</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="n">use_external_flash</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="o">--</span><span class="n">wifi</span><span class="w"> </span><span class="n">SiWx917</span>
-
-<span class="n">For</span><span class="w"> </span><span class="n">SiWx917</span><span class="w"> </span><span class="n">SOC</span>
-
-<span class="p">.</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">gn_silabs_example</span><span class="p">.</span><span class="n">sh</span><span class="w"> </span><span class="n">examples</span><span class="o">/</span><span class="n">lighting</span><span class="o">-</span><span class="n">app</span><span class="o">/</span><span class="n">silabs</span><span class="o">/</span><span class="w"> </span><span class="n">out</span><span class="o">/</span><span class="n">SiWx917_lighting</span><span class="w"> </span><span class="n">BRD4388A</span>
+<li><p>In matter cloned directory run below commands to build an OTA A application.</p>
+<p>For RS9116:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">gn_silabs_example</span><span class="p">.</span><span class="n">sh</span><span class="w"> </span><span class="n">examples</span><span class="o">/</span><span class="n">lighting</span><span class="o">-</span><span class="n">app</span><span class="o">/</span><span class="n">silabs</span><span class="o">/</span><span class="w"> </span><span class="n">out</span><span class="o">/</span><span class="n">rs911x_lighting_A</span><span class="w"> </span><span class="n">BRD41xxx</span><span class="w"> </span><span class="n">disable_lcd</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="n">use_external_flash</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="n">chip_enable_ble_rs911x</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="o">--</span><span class="n">wifi</span><span class="w"> </span><span class="n">rs9116</span>
 </pre></div>
 </div>
+<p>For WF200:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">gn_silabs_example</span><span class="p">.</span><span class="n">sh</span><span class="w"> </span><span class="n">examples</span><span class="o">/</span><span class="n">lighting</span><span class="o">-</span><span class="n">app</span><span class="o">/</span><span class="n">silabs</span><span class="o">/</span><span class="w"> </span><span class="n">out</span><span class="o">/</span><span class="n">wf200_lighting_A</span><span class="w"> </span><span class="n">BRD41xxx</span><span class="w"> </span><span class="n">chip_build_libshell</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="o">--</span><span class="n">wifi</span><span class="w"> </span><span class="n">wf200</span>
+</pre></div>
+</div>
+<p>For SiWx917 NCP:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">gn_silabs_example</span><span class="p">.</span><span class="n">sh</span><span class="w"> </span><span class="n">examples</span><span class="o">/</span><span class="n">lighting</span><span class="o">-</span><span class="n">app</span><span class="o">/</span><span class="n">silabs</span><span class="o">/</span><span class="w"> </span><span class="n">out</span><span class="o">/</span><span class="n">siwx917_lighting</span><span class="w"> </span><span class="n">BRD41xxx</span><span class="w"> </span><span class="n">disable_lcd</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="n">use_external_flash</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="o">--</span><span class="n">wifi</span><span class="w"> </span><span class="n">SiWx917</span>
+</pre></div>
+</div>
+<p>For SiWx917 SOC:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">gn_silabs_example</span><span class="p">.</span><span class="n">sh</span><span class="w"> </span><span class="n">examples</span><span class="o">/</span><span class="n">lighting</span><span class="o">-</span><span class="n">app</span><span class="o">/</span><span class="n">silabs</span><span class="o">/</span><span class="w"> </span><span class="n">out</span><span class="o">/</span><span class="n">SiWx917_lighting</span><span class="w"> </span><span class="n">BRD4388A</span>
+</pre></div>
+</div>
+</li>
+</ul>
 <p><strong>Note:</strong> Matter OTA-A application will be having software version as 1 by default in <strong>third_party/silabs/BUILD.gn</strong> file.</p>
 </section>
 <section id="build-ota-b-application">
@@ -218,7 +218,7 @@ $<span class="w"> </span>mkdir<span class="w"> </span>out
 </ul>
 <p><strong>Note:</strong> Make sure always <strong>sl_matter_version</strong> should be greater than <strong>sl_hardware_version</strong></p>
 <ul class="simple">
-<li><p>After Modifying software version build OTA B application using below commands for EFR boards</p></li>
+<li><p>After Modifying software version build OTA B application using below commands:</p></li>
 </ul>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">For</span><span class="w"> </span><span class="n">RS9116</span><span class="o">:</span><span class="w"> </span>
 
@@ -241,10 +241,20 @@ $<span class="w"> </span>mkdir<span class="w"> </span>out
 </section>
 <section id="running-the-ota-download-scenario">
 <h2>Running the OTA Download Scenario<a class="headerlink" href="#running-the-ota-download-scenario" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Image will be created and uploaded onto Raspberry Pi which provides the firmware image chunk by chunk to the device.</p></li>
+<li><p>Host will initiate the OTA download and provider app will start the OTA image transfer.</p></li>
+<li><p>Host will receive combined image and host will transfer the firmware image on to the flash backup location chunk by chunk.</p></li>
+<li><p>Once image is downloaded, the device will reboot into the downloaded image.</p></li>
+</ul>
+<section id="creation-of-gbl-and-ota-images">
+<h3>Creation of GBL and OTA Images<a class="headerlink" href="#creation-of-gbl-and-ota-images" title="Link to this heading"></a></h3>
+<section id="for-efr-ncp-devices">
+<h4>For EFR NCP Devices<a class="headerlink" href="#for-efr-ncp-devices" title="Link to this heading"></a></h4>
 <ul>
 <li><p>Create a bootable image file (using the Lighting application image as an
 example):</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>commander<span class="w"> </span>gbl<span class="w"> </span>create<span class="w"> </span>chip-efr32-lighting-example.gbl<span class="w"> </span>--compress<span class="w"> </span>lzma<span class="w"> </span>--app<span class="w"> </span>chip-efr32-lighting-example.s37
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>commander<span class="w"> </span>gbl<span class="w"> </span>create<span class="w"> </span>chip-efr32-lighting-example.gbl<span class="w"> </span>--compress<span class="w"> </span>lzma<span class="w"> </span>--app<span class="w"> </span>chip-efr32-lighting-example.s37
 </pre></div>
 </div>
 </li>
@@ -257,6 +267,76 @@ example):</p>
 </div>
 </li>
 </ul>
+</section>
+<section id="for-siwx917-soc-devices">
+<h4>For SiWx917 SoC Devices<a class="headerlink" href="#for-siwx917-soc-devices" title="Link to this heading"></a></h4>
+<p>Storing a single Matter combined upgrade image(TA+M4) and transfer the image to the co-processor and rewrite the 917 firmware as well as M4 firmware Image then boot loading with the upgraded TA processor image and the M4 processor image.</p>
+<p>Host will initiate OTA download to receive combined image (TA+M4) and store M4 and TA image on flash backup location.</p>
+<section id="use-cases">
+<h5>Use Cases<a class="headerlink" href="#use-cases" title="Link to this heading"></a></h5>
+<ul class="simple">
+<li><p>Combined image where TA and M4 images to be upgraded. M4 image also has the <strong>sl_matter_version</strong> modified with the latest version.</p></li>
+<li><p>Only M4 image to be upgraded. M4 image also has the <strong>sl_matter_version</strong> modified with the latest version.</p></li>
+<li><p>Only TA image to be upgraded. In this case, We need to have a M4 image with just <strong>sl_matter_version</strong> modified with the latest version. This would be similar to Combined image upgrade.</p></li>
+</ul>
+</section>
+<section id="creation-of-ota-images">
+<h5>Creation of OTA Images<a class="headerlink" href="#creation-of-ota-images" title="Link to this heading"></a></h5>
+<ul class="simple">
+<li><p>The first step is to create a combined image that contains both the firmwares (TA &amp; M4).</p></li>
+<li><p>This image is created by combining the binary images of both firmwares.</p></li>
+<li><p>For the Matter OTA file, create a bootable image file with the .rps format (using the Lighting application image as an example) and then create the Matter OTA file from the bootable image file using commands provided below.</p></li>
+<li><p>Once the .ota file is created, it will be uploaded onto the Raspberry Pi where the OTA provider application is running.</p></li>
+</ul>
+<section id="generating-the-combined-ota-image">
+<h6>Generating The Combined OTA image<a class="headerlink" href="#generating-the-combined-ota-image" title="Link to this heading"></a></h6>
+<ul>
+<li><p>Create TA  image (.rps) with combined image flag set by using command.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>commander<span class="w"> </span>rps<span class="w"> </span>convert<span class="w"> </span>&lt;ta_image_combined.rps&gt;<span class="w"> </span>--taapp<span class="w"> </span>&lt;ta_image.rps&gt;<span class="w"> </span>--combinedimage
+</pre></div>
+</div>
+</li>
+<li><p>Create M4 .rps file from .s37 using below command.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>commander<span class="w"> </span>rps<span class="w"> </span>create<span class="w"> </span>&lt;m4_image.rps&gt;<span class="w"> </span>--app<span class="w"> </span>&lt;m4_image.s37&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Create M4 (.rps) with combined image flag set by using command.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>commander<span class="w"> </span>rps<span class="w"> </span>convert<span class="w"> </span>&lt;m4_image_combined.rps&gt;<span class="w"> </span>--app<span class="w"> </span>&lt;m4_image.rps&gt;<span class="w"> </span>--combinedimage
+</pre></div>
+</div>
+</li>
+<li><p>Create combined image from the above created TA and M4 images.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>commander<span class="w"> </span>rps<span class="w"> </span>convert<span class="w"> </span><span class="s2">&quot;combined_image.rps&quot;</span><span class="w"> </span>--app<span class="w"> </span><span class="s2">&quot;m4_image_combined.rps&quot;</span><span class="w"> </span>--taapp<span class="w"> </span><span class="s2">&quot;ta_image_combined.rps&quot;</span><span class="w"> </span>
+</pre></div>
+</div>
+</li>
+<li><p>Create the Matter OTA file from the bootable image file.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./src/app/ota_image_tool.py<span class="w"> </span>create<span class="w"> </span>-v<span class="w"> </span>0xFFF1<span class="w"> </span>-p<span class="w"> </span>0x8005<span class="w"> </span>-vn<span class="w"> </span><span class="m">2</span><span class="w"> </span>-vs<span class="w"> </span><span class="s2">&quot;2.0&quot;</span><span class="w"> </span>-da<span class="w"> </span>sha256<span class="w"> </span>combined_image.rps<span class="w"> </span>combined_image.ota
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>Note:</strong> For TA(alone) OTA firmware upgrade, follow the same steps as above.</p>
+</section>
+<section id="generating-the-m4-ota-image">
+<h6>Generating The M4 OTA image<a class="headerlink" href="#generating-the-m4-ota-image" title="Link to this heading"></a></h6>
+<ul>
+<li><p>Create M4 (.s37) image to  (.rps) image using below command.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>commander<span class="w"> </span>rps<span class="w"> </span>create<span class="w"> </span>&lt;m4_image.rps&gt;<span class="w"> </span>--app<span class="w"> </span>&lt;m4_image.s37&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Create the Matter OTA file from the bootable image file</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>./src/app/ota_image_tool.py<span class="w"> </span>create<span class="w"> </span>-v<span class="w"> </span>0xFFF1<span class="w"> </span>-p<span class="w"> </span>0x8005<span class="w"> </span>-vn<span class="w"> </span><span class="m">2</span><span class="w"> </span>-vs<span class="w"> </span><span class="s2">&quot;2.0&quot;</span><span class="w"> </span>-da<span class="w"> </span>sha256<span class="w"> </span>m4_image.rps<span class="w"> </span>m4_image.ota
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+</section>
+</section>
 <section id="running-ota-provider">
 <h3>Running OTA Provider<a class="headerlink" href="#running-ota-provider" title="Link to this heading"></a></h3>
 <ul>

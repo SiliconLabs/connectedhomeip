@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Getting Started with SoC Mode &mdash; Matter 2.3.0-1.3-alpha.1 documentation</title>
+  <title>Getting Started with SoC Mode &mdash; Matter 2.3.0-1.3-alpha.2 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -16,7 +16,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=0264dc0f"></script>
+        <script src="../_static/documentation_options.js?v=359c5665"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.0-1.3-alpha.1
+                2.3.0-1.3-alpha.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -206,9 +206,13 @@ SiWx917</p></li>
 <ol class="arabic">
 <li><p>SiWx917 SoC device support is available in the latest Simplicity Commander(version 1v15p3). To flash the TA Firmware/Matter application on SiWx917 SoC,</p>
 <ul>
-<li><p>Convert the .s37 file into .rps file using the below command,</p></li>
+<li><p>Convert the .s37 file into .rps file using the below command,</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>commander<span class="w"> </span>rps<span class="w"> </span>create<span class="w"> </span>&lt;output<span class="w"> </span>file<span class="w"> </span>with<span class="w"> </span>.rps<span class="w"> </span>extension&gt;<span class="w"> </span>--app<span class="w"> </span>&lt;input<span class="w"> </span>file<span class="w"> </span>with<span class="w"> </span>.s37<span class="w"> </span>extension&gt;
+</pre></div>
+</div>
+</li>
 <li><p>Flash to the device using,</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>commander rps load &lt;file-name&gt;.rps 
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>commander<span class="w"> </span>rps<span class="w"> </span>load<span class="w"> </span>&lt;file-name&gt;.rps
 </pre></div>
 </div>
 </li>
