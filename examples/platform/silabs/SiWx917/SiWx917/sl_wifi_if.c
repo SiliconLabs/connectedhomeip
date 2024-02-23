@@ -237,10 +237,6 @@ void sl_wfx_host_si91x_sleep_wakeup()
         }
         if (RSI_NPSSGPIO_GetPin(SL_BUTTON_BTN0_PIN))
         {
-#ifdef DISPLAY_ENABLED
-            // if LCD is enabled, power down the lcd before setting the M4 to sleep
-            sl_si91x_hardware_setup();
-#endif
             btn0_pressed = false;
             /* Configure RAM Usage and Retention Size */
             sl_si91x_m4_sleep_wakeup();

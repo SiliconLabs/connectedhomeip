@@ -201,7 +201,11 @@ See http://www.FreeRTOS.org/RTOS-Cortex-M3-M4.html. */
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION (0)
 #define configUSE_TICKLESS_IDLE_SIMPLE_DEBUG (1) /* See into vPortSuppressTicksAndSleep source code for explanation */
 #define configMAX_PRIORITIES (56)
+#if SIWX_917 && SL_ICD_ENABLED
+#define configMINIMAL_STACK_SIZE (1024) /* Number of words to use for Idle and Timer stacks */
+#else // For EFR32
 #define configMINIMAL_STACK_SIZE (320) /* Number of words to use for Idle and Timer stacks */
+#endif
 
 #ifdef HEAP_MONITORING
 #define configMAX_TASK_NAME_LEN (24)

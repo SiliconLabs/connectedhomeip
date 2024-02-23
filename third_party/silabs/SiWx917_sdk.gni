@@ -255,6 +255,8 @@ template("siwx917_sdk") {
         "SI91X_SYSRTC_COUNT=1",
         "SYSCALLS_WRITE",
         "SPI_MULTI_SLAVE",
+        "SL_ULP_TIMER",
+        "SL_SLEEP_TIMER",
       ]
     }
 
