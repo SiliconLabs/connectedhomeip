@@ -40,7 +40,7 @@ SECTIONS
 	{
 		KEEP(*(.isr_vector))
         KEEP(*(.reset_handler))
-		*(EXCLUDE_FILE(*sl_si91x_bus.c.o *sl_si91x_driver.c.o *sli_si91x_multithreaded.c.o *rsi_hal_mcu_m4_ram.c.o *rsi_deepsleep_soc.c.o *croutine.c.o *event_groups.c.o *list.c.o *queue.c.o *stream_buffer.c.o *tasks.c.o *timers.c.o *cmsis_os2.c.o *freertos_umm_malloc_host.c.o *malloc_buffers.c.o *sl_rsi_utility.c.o *port.c.o *heap_*.c.o) .text*)
+		*(EXCLUDE_FILE(*sl_si91x_bus.c.o *sl_si91x_driver.c.o *sli_si91x_multithreaded.c.o *rsi_hal_mcu_m4_ram.c.o *rsi_hal_mcu_m4_rom.c.o *rsi_deepsleep_soc.c.o *croutine.c.o *event_groups.c.o *list.c.o *queue.c.o *stream_buffer.c.o *tasks.c.o *timers.c.o *cmsis_os2.c.o *freertos_umm_malloc_host.c.o *malloc_buffers.c.o *sl_rsi_utility.c.o *port.c.o *heap_*.c.o) .text*)
 		
     /* .ctors */
     *crtbegin.o(.ctors)
@@ -131,6 +131,7 @@ SECTIONS
 		*sl_si91x_driver.c.o(.text*)
 		*sli_si91x_multithreaded.c.o(.text*)
 		*rsi_hal_mcu_m4_ram.c.o(.text*)
+		*rsi_hal_mcu_m4_rom.c.o(.text*)
   	    	*rsi_deepsleep_soc.c.o(.text*)
 		*croutine.c.o(.text*)
 		*event_groups.c.o(.text*)
@@ -252,4 +253,3 @@ SECTIONS
   app_flash_end = 0x8202000 + 0x1fe000;
   ASSERT( (linker_nvm_begin + SIZEOF(.nvm)) <= app_flash_end, "NVM3 is excessing the flash size !")
 }
-
