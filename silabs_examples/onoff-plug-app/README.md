@@ -97,7 +97,7 @@ Silicon Labs platform.
 
     OR use GN/Ninja directly
 
-          $ cd ~/connectedhomeip/examples/onoff-plug-app/efr32
+          $ cd ~/connectedhomeip/silabs_examples/onoff-plug-app
           $ git submodule update --init
           $ source third_party/connectedhomeip/scripts/activate.sh
           $ export EFR32_BOARD=BRD4161A
@@ -106,12 +106,12 @@ Silicon Labs platform.
 
 -   To delete generated executable, libraries and object files use:
 
-          $ cd ~/connectedhomeip/examples/onoff-plug-app/efr32
+          $ cd ~/connectedhomeip/silabs_examples/onoff-plug-app
           $ rm -rf out/
 
 *   Build the example as Sleepy End Device (SED)
 
-          $ ./scripts/examples/gn_efr32_example.sh ./examples/onoff-plug-app/efr32/ ./out/onoff-plug-app_SED BRD4161A --sed
+          $ ./scripts/examples/gn_silabs_example.sh ./silabs_examples/onoff-plug-app/ ./out/onoff-plug-app_SED BRD4161A --sed
 
     or use gn as previously mentioned but adding the following arguments:
 
@@ -120,7 +120,7 @@ Silicon Labs platform.
 For more build options, help is provided when running the build script without
 arguments
 
-         ./scripts/examples/gn_efr32_example.sh
+         ./scripts/examples/gn_silabs_example.sh
 
 <a name="flashing"></a>
 
@@ -128,7 +128,7 @@ arguments
 
 -   On the command line:
 
-          $ cd ~/connectedhomeip/examples/onoff-plug-app/efr32
+          $ cd ~/connectedhomeip/silabs_examples/onoff-plug-app
           $ python3 out/debug/matter-efr32-onoff-plug-example.flash.py
 
 -   Or with the Ozone debugger, just load the .out file.
@@ -327,19 +327,19 @@ passed to the build scripts.
 
 `matter_progress_logging, matter_detail_logging, matter_automation_logging`
 
-    $ ./scripts/examples/gn_efr32_example.sh ./examples/onoff-plug-app/efr32 ./out/onoff-plug-app BRD4164A "matter_detail_logging=false matter_automation_logging=false matter_progress_logging=false"
+    $ ./scripts/examples/gn_silabs_example.sh ./silabs_examples/onoff-plug-app ./out/onoff-plug-app BRD4164A "matter_detail_logging=false matter_automation_logging=false matter_progress_logging=false"
 
 ### Debug build / release build
 
 `is_debug`
 
-    $ ./scripts/examples/gn_efr32_example.sh ./examples/onoff-plug-app/efr32 ./out/onoff-plug-app BRD4164A "is_debug=false"
+    $ ./scripts/examples/gn_silabs_example.sh ./silabs_examples/onoff-plug-app ./out/onoff-plug-app BRD4164A "is_debug=false"
 
 ### Disabling LCD
 
 `show_qr_code`
 
-    $ ./scripts/examples/gn_efr32_example.sh ./examples/onoff-plug-app/efr32 ./out/onoff-plug-app BRD4164A "show_qr_code=false"
+    $ ./scripts/examples/gn_silabs_example.sh ./silabs_examples/onoff-plug-app ./out/onoff-plug-app BRD4164A "show_qr_code=false"
 
 ### KVS maximum entry count
 
@@ -348,4 +348,4 @@ passed to the build scripts.
     Set the maximum Kvs entries that can be stored in NVM (Default 75)
     Thresholds: 30 <= kvs_max_entries <= 255
 
-    $ ./scripts/examples/gn_efr32_example.sh ./examples/onoff-plug-app/efr32 ./out/onoff-plug-app BRD4164A kvs_max_entries=50
+    $ ./scripts/examples/gn_silabs_example.sh ./silabs_examples/onoff-plug-app ./out/onoff-plug-app BRD4164A kvs_max_entries=50
