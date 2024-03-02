@@ -88,7 +88,7 @@ Silicon Labs platform.
 *   Build the example application:
 
           cd ~/connectedhomeip
-          ./scripts/examples/gn_efr32_example.sh ./examples/onoff-plug-app/efr32/ ./out/onoff-plug-app BRD4161A
+          ./scripts/examples/gn_silabs_example.sh ./silabs_examples/onoff-plug-app/ ./out/onoff-plug-app BRD4161A
 
 -   To delete generated executable, libraries and object files use:
 
