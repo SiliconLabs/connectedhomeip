@@ -189,7 +189,7 @@ prettytable==2.5.0
     # via
     #   mbed-ls
     #   mbed-os-tools
-prompt-toolkit==3.0.26
+prompt-toolkit==3.0.43
     # via ipython
 protobuf==3.17.3
     # via -r requirements.txt
