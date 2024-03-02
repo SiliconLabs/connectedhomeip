@@ -23,6 +23,7 @@
 #include "AppTask.h"
 #include <FreeRTOS.h>
 #include "LEDWidget.h"
+#include "BaseApplication.h"
 
 #include "operational-state-delegate-impl.h"
 
@@ -50,6 +51,8 @@ TimerHandle_t sDishwasherTimer;
 
 CHIP_ERROR DishwasherManager::Init()
 {
+    BaseApplication baseApp;
+    baseApp.LinkAppLed(&sDishwasherLED);
     sDishwasherLED.Init(DW_STATE_LED);
 
     chip::DeviceLayer::PlatformMgr().LockChipStack();
