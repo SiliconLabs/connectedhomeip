@@ -44,8 +44,8 @@
 #if SL_ICD_ENABLED && SIWX_917
 #include "rsi_rom_power_save.h"
 #include "sl_si91x_button_pin_config.h"
-#include "sl_si91x_m4_ps.h"
 #include "sl_si91x_driver.h"
+#include "sl_si91x_m4_ps.h"
 
 // TODO: should be removed once we are getting the press interrupt for button 0 with sleep
 #define BUTTON_PRESSED 1
@@ -214,38 +214,51 @@ sl_status_t join_callback_handler(sl_wifi_event_t event, char * result, uint32_t
 }
 
 #if SL_ICD_ENABLED
-
 #if SIWX_917
-/******************************************************************
- * @fn   sl_wfx_host_si91x_sleep_wakeup()
- * @brief
- *       M4 going to sleep
- *
- * @param[in] None
- * @return
- *        None
- *********************************************************************/
-void sl_wfx_host_si91x_sleep_wakeup()
+// Required to invoke button press event during sleep as falling edge is not detected
+void invoke_btn_press_event()
 {
-    if (wfx_rsi.dev_state & WFX_RSI_ST_SLEEP_READY)
+    // TODO: should be removed once we are getting the press interrupt for button 0 with sleep
+    if (!RSI_NPSSGPIO_GetPin(SL_BUTTON_BTN0_PIN) && !btn0_pressed)
     {
-        // TODO: should be removed once we are getting the press interrupt for button 0 with sleep
-        if (!RSI_NPSSGPIO_GetPin(SL_BUTTON_BTN0_PIN) && !btn0_pressed)
-        {
-            sl_button_on_change(SL_BUTTON_BTN0_NUMBER, BUTTON_PRESSED);
-            btn0_pressed = true;
-        }
-        if (RSI_NPSSGPIO_GetPin(SL_BUTTON_BTN0_PIN))
-        {
-            btn0_pressed = false;
-            /* Configure RAM Usage and Retention Size */
-            sl_si91x_m4_sleep_wakeup();
-#if SILABS_LOG_ENABLED
-            silabsInitLog();
-#endif
-        }
+        sl_button_on_change(SL_BUTTON_BTN0_NUMBER, BUTTON_PRESSED);
+        btn0_pressed = true;
+    }
+    if (RSI_NPSSGPIO_GetPin(SL_BUTTON_BTN0_PIN))
+    {
+        btn0_pressed = false;
     }
 }
+
+/**
+ * @brief Checks if the Wi-Fi module is ready for sleep.
+ *
+ * This function checks if the Wi-Fi module is ready to enter sleep mode.
+ *
+ * @return true if the Wi-Fi module is ready for sleep, false otherwise.
+ */
+bool wfx_is_sleep_ready()
+{
+    // BRD4002A board BTN_PRESS is 0 when pressed, release is 1
+    // sli_si91x_is_sleep_ready requires OS Scheduler to be active
+    return ((RSI_NPSSGPIO_GetPin(SL_BUTTON_BTN0_PIN) != 0) && (wfx_rsi.dev_state & WFX_RSI_ST_SLEEP_READY) &&
+            sli_si91x_is_sleep_ready());
+}
+
+/**
+ * @brief Sleeps for a specified duration and then wakes up.
+ *
+ * This function puts the SI91x host into sleep mode for the specified duration
+ * in milliseconds and then wakes it up.
+ *
+ * @param sleep_time_ms The duration in milliseconds to sleep.
+ */
+void sl_wfx_host_si91x_sleep(uint16_t * sleep_time_ms)
+{
+    SL_ASSERT(sleep_time_ms != NULL);
+    sl_si91x_m4_sleep_wakeup(sleep_time_ms);
+}
+
 #endif /* SIWX_917 */
 
 /******************************************************************
@@ -258,7 +271,7 @@ void sl_wfx_host_si91x_sleep_wakeup()
  * @return
  *        None
  *********************************************************************/
-int32_t wfx_rsi_power_save(rsi_power_save_profile_mode_t sl_si91x_ble_state,sl_si91x_performance_profile_t sl_si91x_wifi_state)
+int32_t wfx_rsi_power_save(rsi_power_save_profile_mode_t sl_si91x_ble_state, sl_si91x_performance_profile_t sl_si91x_wifi_state)
 {
     int32_t status;
 
@@ -275,11 +288,12 @@ int32_t wfx_rsi_power_save(rsi_power_save_profile_mode_t sl_si91x_ble_state,sl_s
         SILABS_LOG("Powersave Config Failed, Error Code : 0x%lX", status);
         return status;
     }
-    if(sl_si91x_wifi_state == HIGH_PERFORMANCE)
+    if (sl_si91x_wifi_state == HIGH_PERFORMANCE)
     {
         wfx_rsi.dev_state &= ~(WFX_RSI_ST_SLEEP_READY);
     }
-    else{
+    else
+    {
         wfx_rsi.dev_state |= WFX_RSI_ST_SLEEP_READY;
     }
     return status;
@@ -380,7 +394,7 @@ static sl_status_t wfx_rsi_init(void)
     }
 
     // Initiate and program the key required for TRNG hardware engine
-    status = sl_si91x_trng_program_key((uint32_t *)trngKey, TRNGKEY_SIZE);
+    status = sl_si91x_trng_program_key((uint32_t *) trngKey, TRNGKEY_SIZE);
     if (status != SL_STATUS_OK)
     {
         SILABS_LOG("TRNG Key Programming Failed");
@@ -591,7 +605,7 @@ static sl_status_t wfx_rsi_do_join(void)
         sl_wifi_listen_interval_t sleep_interval = { .listen_interval = 0 };
         status                                   = sl_wifi_set_listen_interval(SL_WIFI_CLIENT_INTERFACE, sleep_interval);
 
-        sl_wifi_advanced_client_configuration_t client_config = { .max_retry_attempts = 5};
+        sl_wifi_advanced_client_configuration_t client_config = { .max_retry_attempts = 5 };
         sl_wifi_set_advanced_client_configuration(SL_WIFI_CLIENT_INTERFACE, &client_config);
 #endif // SL_ICD_ENABLED
         /* Try to connect Wifi with given Credentials

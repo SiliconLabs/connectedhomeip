@@ -40,7 +40,7 @@ SECTIONS
 	{
 		KEEP(*(.isr_vector))
         KEEP(*(.reset_handler))
-		*(EXCLUDE_FILE(*sl_si91x_bus.c.o *sl_si91x_driver.c.o *sli_si91x_multithreaded.c.o *rsi_hal_mcu_m4_ram.c.o *rsi_hal_mcu_m4_rom.c.o *rsi_deepsleep_soc.c.o *croutine.c.o *event_groups.c.o *list.c.o *queue.c.o *stream_buffer.c.o *tasks.c.o *timers.c.o *cmsis_os2.c.o *freertos_umm_malloc_host.c.o *malloc_buffers.c.o *sl_rsi_utility.c.o *port.c.o *heap_*.c.o) .text*)
+		*(EXCLUDE_FILE(*sl_si91x_bus.c.o *sl_si91x_driver.c.o *sli_si91x_multithreaded.c.o *rsi_hal_mcu_m4_ram.c.o *rsi_hal_mcu_m4_rom.c.o *rsi_deepsleep_soc.c.o *croutine.c.o *event_groups.c.o *list.c.o *queue.c.o *stream_buffer.c.o *tasks.c.o *timers.c.o *cmsis_os2.c.o *freertos_umm_malloc_host.c.o *malloc_buffers.c.o *sl_rsi_utility.c.o *port.c.o *heap_*.c.o *os_systick.c.o *sl_wifi_if.c.o *sl_si91x_m4_ps.c.o *sl_platform_wireless.c.o) .text*)
 		
     /* .ctors */
     *crtbegin.o(.ctors)
@@ -146,6 +146,10 @@ SECTIONS
 		*sl_rsi_utility.c.o(.text*)
 		*port.c.o(.text*)
 		*heap_*.c.o(.text*)
+    *os_systick.c.o(.text*)
+    *sl_wifi_if.c.o(.text*)
+    *sl_si91x_m4_ps.c.o(.text*)
+    *sl_platform_wireless.c.o(.text*)
 
     . = ALIGN(4);
     /* preinit data */

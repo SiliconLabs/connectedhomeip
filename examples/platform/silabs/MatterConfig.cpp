@@ -311,9 +311,22 @@ CHIP_ERROR SilabsMatterConfig::InitWiFi(void)
 // ================================================================================
 // FreeRTOS Callbacks
 // ================================================================================
+#if SIWX_917 && CHIP_CONFIG_ENABLE_ICD_SERVER
+static bool is_sleep_ready = false;
+void vTaskPreSuppressTicksAndSleepProcessing(uint16_t * xExpectedIdleTime)
+{
+    if (!is_sleep_ready)
+    {
+        *xExpectedIdleTime = 0;
+    }
+}
+#endif // SIWX_917 && CHIP_CONFIG_ENABLE_ICD_SERVER
+
 extern "C" void vApplicationIdleHook(void)
 {
 #if SIWX_917 && CHIP_CONFIG_ENABLE_ICD_SERVER
-    sl_wfx_host_si91x_sleep_wakeup();
-#endif
+    invoke_btn_press_event();
+    // is_sleep_ready is required since wfx_is_sleep_ready() is not FreeRTOS scheduler agnostic
+    is_sleep_ready = wfx_is_sleep_ready();
+#endif // SIWX_917 && CHIP_CONFIG_ENABLE_ICD_SERVER
 }

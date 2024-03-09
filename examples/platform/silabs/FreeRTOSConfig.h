@@ -141,11 +141,21 @@ extern uint32_t SystemCoreClock;
 /* Energy saving modes. */
 #if defined(SL_CATALOG_POWER_MANAGER_PRESENT)
 #define configUSE_TICKLESS_IDLE 1
+#elif SL_ICD_ENABLED && SIWX_917
+#define configUSE_TICKLESS_IDLE 1
+#define configEXPECTED_IDLE_TIME_BEFORE_SLEEP 70
+#define configPRE_SUPPRESS_TICKS_AND_SLEEP_PROCESSING(x) vTaskPreSuppressTicksAndSleepProcessing(&x)
+#define configPRE_SLEEP_PROCESSING(x) sl_wfx_host_si91x_sleep(&x)
+#define configPOST_SLEEP_PROCESSING(x) sl_si91x_post_sleep_update_ticks(&x)
 #else
 #define configUSE_TICKLESS_IDLE 0
 #endif // SL_CATALOG_POWER_MANAGER_PRESENT
 
+#if defined(SIWX_917)
+#define configTICK_RATE_HZ (1000)
+#else
 #define configTICK_RATE_HZ (1024)
+#endif // SIWX_917
 /* Definition used by Keil to replace default system clock source. */
 #define configOVERRIDE_DEFAULT_TICK_CONFIGURATION 1
 
@@ -203,8 +213,8 @@ See http://www.FreeRTOS.org/RTOS-Cortex-M3-M4.html. */
 #define configMAX_PRIORITIES (56)
 #if SIWX_917 && SL_ICD_ENABLED
 #define configMINIMAL_STACK_SIZE (1024) /* Number of words to use for Idle and Timer stacks */
-#else // For EFR32
-#define configMINIMAL_STACK_SIZE (320) /* Number of words to use for Idle and Timer stacks */
+#else                                   // For EFR32
+#define configMINIMAL_STACK_SIZE (320)  /* Number of words to use for Idle and Timer stacks */
 #endif
 
 #ifdef HEAP_MONITORING
