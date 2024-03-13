@@ -234,7 +234,7 @@
 [submodule "third_party/silabs/matter_support"]
 	path = third_party/silabs/matter_support
 	url = https://github.com/SiliconLabs/sdk_support.git
-	branch = hotfix/allegion_fixes
+	branch = main
 	platforms = silabs,silabs_docker
 [submodule "third_party/silabs/gecko_sdk"]
 	path = third_party/silabs/gecko_sdk
@@ -249,7 +249,7 @@
 [submodule "third_party/silabs/wifi_sdk"]
 	path = third_party/silabs/wifi_sdk
 	url = https://github.com/SiliconLabs/wiseconnect.git
-	branch = hotfix/allegion_fixes
+	branch = 3.1.3/matter-hotfix
 	platforms = silabs
 [submodule "editline"]
 	path = third_party/editline/repo
