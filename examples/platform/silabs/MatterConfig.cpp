@@ -311,7 +311,7 @@ CHIP_ERROR SilabsMatterConfig::InitWiFi(void)
 // ================================================================================
 // FreeRTOS Callbacks
 // ================================================================================
-#if SIWX_917 && CHIP_CONFIG_ENABLE_ICD_SERVER
+#if CHIP_CONFIG_ENABLE_ICD_SERVER && SI917_M4_SLEEP_ENABLED
 static bool is_sleep_ready = false;
 void vTaskPreSuppressTicksAndSleepProcessing(uint16_t * xExpectedIdleTime)
 {
@@ -320,13 +320,13 @@ void vTaskPreSuppressTicksAndSleepProcessing(uint16_t * xExpectedIdleTime)
         *xExpectedIdleTime = 0;
     }
 }
-#endif // SIWX_917 && CHIP_CONFIG_ENABLE_ICD_SERVER
+#endif // CHIP_CONFIG_ENABLE_ICD_SERVER && SI917_M4_SLEEP_ENABLED
 
 extern "C" void vApplicationIdleHook(void)
 {
-#if SIWX_917 && CHIP_CONFIG_ENABLE_ICD_SERVER
+#if CHIP_CONFIG_ENABLE_ICD_SERVER && SI917_M4_SLEEP_ENABLED
     invoke_btn_press_event();
     // is_sleep_ready is required since wfx_is_sleep_ready() is not FreeRTOS scheduler agnostic
     is_sleep_ready = wfx_is_sleep_ready();
-#endif // SIWX_917 && CHIP_CONFIG_ENABLE_ICD_SERVER
+#endif // CHIP_CONFIG_ENABLE_ICD_SERVER && SI917_M4_SLEEP_ENABLED
 }

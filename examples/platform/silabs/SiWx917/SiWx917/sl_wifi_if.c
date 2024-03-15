@@ -214,7 +214,7 @@ sl_status_t join_callback_handler(sl_wifi_event_t event, char * result, uint32_t
 }
 
 #if SL_ICD_ENABLED
-#if SIWX_917
+#if SI917_M4_SLEEP_ENABLED
 // Required to invoke button press event during sleep as falling edge is not detected
 void invoke_btn_press_event()
 {
@@ -259,7 +259,7 @@ void sl_wfx_host_si91x_sleep(uint16_t * sleep_time_ms)
     sl_si91x_m4_sleep_wakeup(sleep_time_ms);
 }
 
-#endif /* SIWX_917 */
+#endif /* SI917_M4_SLEEP_ENABLED */
 
 /******************************************************************
  * @fn   wfx_rsi_power_save()
