@@ -221,6 +221,10 @@
                 <debug>1</debug>
                 <option>
                     <name>CCDefines</name>
+                    <state>CHIP_CONFIG_SHA256_CONTEXT_SIZE=256</state>
+                    <state>CHIP_SYSTEM_CONFIG_USE_SOCKETS=1</state>
+                    <state>SILABS_PROVISION_PROTOCOL_V1=1</state>
+                    <state>SL_PROVISION_CHANNEL_ENABLED=1</state>
                     <state>EFR32MG12P232F512GM68=1</state>
                     <state>SL_APP_PROPERTIES=1</state>
                     <state>configNUM_SDK_THREAD_LOCAL_STORAGE_POINTERS=2</state>
@@ -288,7 +292,7 @@
                 <option>
                     <name>CCAllowList</name>
                     <version>1</version>
-                    <state>11111110</state>
+                    <state>00000000</state>
                 </option>
                 <option>
                     <name>CCDebugInfo</name>
@@ -363,29 +367,31 @@
                     <state>$PROJ_DIR$\..\..\..\zzz_generated\app-common</state>
                     <state>$PROJ_DIR$\..\..\..\third_party\nlassert\repo\include</state>
                     <state>$PROJ_DIR$\..\..\..\third_party\nlio\repo\include</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\Device\SiliconLabs\EFR32MG12P\Include</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\common\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\CMSIS\Core\Include</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\CMSIS\RTOS2\Include</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\service\device_init\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\emdrv\common\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\emlib\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\util\third_party\freertos\cmsis\Include</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\util\third_party\freertos\kernel\include</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\util\third_party\freertos\kernel\portable\IAR\ARM_CM4F</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\service\iostream\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\security\sl_component\sl_mbedtls_support\config</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\security\sl_component\sl_mbedtls_support\config\preset</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\security\sl_component\sl_mbedtls_support\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\util\third_party\mbedtls\include</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\util\third_party\mbedtls\library</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\emdrv\nvm3\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\security\sl_component\sl_psa_driver\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\util\third_party\segger\systemview\SEGGER</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\util\silicon_labs\silabs_core\memory_manager</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\common\toolchain\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\service\system\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\service\sleeptimer\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\bootloader</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\protocol\bluetooth\config</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\Device\SiliconLabs\EFR32MG12P\Include</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\common\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\CMSIS\Core\Include</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\CMSIS\RTOS2\Include</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\service\device_init\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\emdrv\common\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\emlib\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\util\third_party\freertos\cmsis\Include</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\util\third_party\freertos\kernel\include</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\util\third_party\freertos\kernel\portable\IAR\ARM_CM4F</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\service\iostream\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\security\sl_component\sl_mbedtls_support\config</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\security\sl_component\sl_mbedtls_support\config\preset</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\security\sl_component\sl_mbedtls_support\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\util\third_party\mbedtls\include</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\util\third_party\mbedtls\library</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\emdrv\nvm3\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\security\sl_component\sl_psa_driver\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\util\third_party\segger\systemview\SEGGER</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\util\silicon_labs\silabs_core\memory_manager</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\common\toolchain\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\service\system\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\service\sleeptimer\inc</state>
                 </option>
                 <option>
                     <name>CCStdIncCheck</name>
@@ -401,7 +407,7 @@
                 </option>
                 <option>
                     <name>CCOptLevel</name>
-                    <state>3</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>CCOptStrategy</name>
@@ -559,6 +565,10 @@
                 </option>
                 <option>
                     <name>ADefines</name>
+                    <state>CHIP_CONFIG_SHA256_CONTEXT_SIZE=256</state>
+                    <state>CHIP_SYSTEM_CONFIG_USE_SOCKETS=1</state>
+                    <state>SILABS_PROVISION_PROTOCOL_V1=1</state>
+                    <state>SL_PROVISION_CHANNEL_ENABLED=1</state>
                     <state>EFR32MG12P232F512GM68=1</state>
                     <state>SL_APP_PROPERTIES=1</state>
                     <state>configNUM_SDK_THREAD_LOCAL_STORAGE_POINTERS=2</state>
@@ -668,29 +678,31 @@
                     <state>$PROJ_DIR$\..\..\..\zzz_generated\app-common</state>
                     <state>$PROJ_DIR$\..\..\..\third_party\nlassert\repo\include</state>
                     <state>$PROJ_DIR$\..\..\..\third_party\nlio\repo\include</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\Device\SiliconLabs\EFR32MG12P\Include</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\common\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\CMSIS\Core\Include</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\CMSIS\RTOS2\Include</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\service\device_init\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\emdrv\common\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\emlib\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\util\third_party\freertos\cmsis\Include</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\util\third_party\freertos\kernel\include</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\util\third_party\freertos\kernel\portable\IAR\ARM_CM4F</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\service\iostream\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\security\sl_component\sl_mbedtls_support\config</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\security\sl_component\sl_mbedtls_support\config\preset</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\security\sl_component\sl_mbedtls_support\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\util\third_party\mbedtls\include</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\util\third_party\mbedtls\library</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\emdrv\nvm3\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\security\sl_component\sl_psa_driver\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\util\third_party\segger\systemview\SEGGER</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\util\silicon_labs\silabs_core\memory_manager</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\common\toolchain\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\service\system\inc</state>
-                    <state>$PROJ_DIR$\..\..\..\..\..\gsdk\platform\service\sleeptimer\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\bootloader</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\protocol\bluetooth\config</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\Device\SiliconLabs\EFR32MG12P\Include</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\common\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\CMSIS\Core\Include</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\CMSIS\RTOS2\Include</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\service\device_init\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\emdrv\common\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\emlib\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\util\third_party\freertos\cmsis\Include</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\util\third_party\freertos\kernel\include</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\util\third_party\freertos\kernel\portable\IAR\ARM_CM4F</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\service\iostream\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\security\sl_component\sl_mbedtls_support\config</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\security\sl_component\sl_mbedtls_support\config\preset</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\security\sl_component\sl_mbedtls_support\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\util\third_party\mbedtls\include</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\util\third_party\mbedtls\library</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\emdrv\nvm3\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\security\sl_component\sl_psa_driver\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\util\third_party\segger\systemview\SEGGER</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\util\silicon_labs\silabs_core\memory_manager</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\common\toolchain\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\service\system\inc</state>
+                    <state>$PROJ_DIR$\..\..\..\third_party\silabs\gecko_sdk\platform\service\sleeptimer\inc</state>
                 </option>
                 <option>
                     <name>AExtraOptionsCheckV2</name>

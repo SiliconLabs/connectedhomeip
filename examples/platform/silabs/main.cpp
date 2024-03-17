@@ -57,16 +57,8 @@ int main(void)
 {
     GetPlatform().Init();
 
-    if(Provision::Manager::GetInstance().ProvisionRequired())
-    {
-        Provision::Manager::GetInstance().Start();
-    }
-    else
-    {
-        xTaskCreate(application_start, "main_task", MAIN_TASK_STACK_SIZE, NULL, MAIN_TASK_PRIORITY, &main_Task);
-        SILABS_LOG("Starting scheduler");
-    }
-
+    xTaskCreate(application_start, "main_task", MAIN_TASK_STACK_SIZE, NULL, MAIN_TASK_PRIORITY, &main_Task);
+    SILABS_LOG("Starting scheduler");
     GetPlatform().StartScheduler();
 
     // Should never get here.
