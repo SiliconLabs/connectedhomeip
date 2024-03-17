@@ -21,10 +21,13 @@
 #include "BaseApplication.h"
 #include "OTAConfig.h"
 #include <MatterConfig.h>
-
 #include <FreeRTOS.h>
 
 #include <mbedtls/platform.h>
+
+#if CHIP_CONFIG_ENABLE_ICD_SERVER && SI917_M4_SLEEP_ENABLED
+#include "rsi_m4.h"
+#endif // CHIP_CONFIG_ENABLE_ICD_SERVER && SI917_M4_SLEEP_ENABLED
 
 #ifdef SL_WIFI
 #include "wfx_host_events.h"
@@ -309,13 +312,28 @@ CHIP_ERROR SilabsMatterConfig::InitWiFi(void)
 static bool is_sleep_ready = false;
 void vTaskPreSuppressTicksAndSleepProcessing(uint16_t * xExpectedIdleTime)
 {
-    if (!is_sleep_ready)
-    {
+    if (!is_sleep_ready) {
         *xExpectedIdleTime = 0;
+    } else {
+        // Indicate M4 is Inactive
+        P2P_STATUS_REG &= ~M4_is_active;
+        P2P_STATUS_REG;
+
+        /* Delay is added to sync between M4 and TA */
+        for (uint8_t delay = 0; delay < 10; delay++) {
+            __ASM("NOP");
+        }
+
+        // Checking if TA has already triggered a packet to M4
+        // RX_BUFFER_VALID will be cleared by TA if any packet is triggered
+        if ((P2P_STATUS_REG & TA_wakeup_M4) || (P2P_STATUS_REG & M4_wakeup_TA)
+        || (!(M4SS_P2P_INTR_SET_REG & RX_BUFFER_VALID))) {
+            P2P_STATUS_REG |= M4_is_active;
+            *xExpectedIdleTime = 0;
+        }
     }
 }
 #endif // CHIP_CONFIG_ENABLE_ICD_SERVER && SI917_M4_SLEEP_ENABLED
-
 extern "C" void vApplicationIdleHook(void)
 {
 #if CHIP_CONFIG_ENABLE_ICD_SERVER && SI917_M4_SLEEP_ENABLED
