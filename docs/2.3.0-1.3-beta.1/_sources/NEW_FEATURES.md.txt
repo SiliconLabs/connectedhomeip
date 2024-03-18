@@ -14,7 +14,7 @@
   - Added configuration to override M4 sleep mode:
     - By default, M4 is active and TA will be in sleep mode. This configuration provides high stability.
     - To enable both M4 and TA sleep modes, enable the flag ```si917_m4_sleep_enabled = true```.
-- Adds Provision 2.0 support. Provision feature currently works on EFR32 only, there is a known issue and workaround with SiWx917 SoC.
+- Adds Provision 2.0 support. Provision feature currently works on EFR32 only, there is a known issue with SiWx917 SoC and workaround is to use Provision 1.0.
   - New protocol support that can be used with different communication channels.
   - Provisioning and re-provisioning through BLE channel.
   - Backwards compatibility support to use v1.x provisioning protocol for older devices.
