@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matter over Wi-Fi Demo Overview &mdash; Matter 2.3.0-1.3-beta.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=a9161dfc"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Building a Wi-Fi End Device for Matter in GitHub" href="SW_SETUP.html" />
+    <link rel="prev" title="Matter Over Wi-Fi" href="../nav_5_wifi.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3-beta.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Wi-Fi Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-matter-wi-fi-prerequisites">Step 1: Matter Wi-Fi Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-building-the-chip-tool-for-wi-fi">Step 2: Building the chip-tool for Wi-Fi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-building-the-matter-accessory-device-mad-for-wi-fi">Step 3: Building the Matter Accessory Device (MAD) for Wi-Fi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-4-running-the-demo">Step 4: Running the Demo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SW_SETUP.html">Wi-Fi GitHub Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BUILD_PI_ENV.html">Build Chip Tool on Raspi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RUN_DEMO.html">Matter Demo on EFR32 NCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RUN_DEMO_SiWx917_SoC.html">Matter Demo on 917 SoC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JLINK_GUIDE_917.html">Matter 917 SoC JLink RTT Debugger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SiWx917_Enablement_For_Ozone.html">Enablement of Ozone for 917 SOC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_dic.html">Wi-Fi Direct Internet Connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html">Matter Intermittently Connected Devices over WiFi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html#power-measurement">Power Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_Sleepy_Device_Power_Measurement.html">Wi-Fi ICD Power Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MATTER_SHELL.html">Matter Shell Console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_ecosystem.html">Matter Ecosystem Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+      <li class="breadcrumb-item active">Matter over Wi-Fi Demo Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/wifi/DEMO_OVERVIEW.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="matter-over-wi-fi-demo-overview">
+<h1>Matter over Wi-Fi Demo Overview<a class="headerlink" href="#matter-over-wi-fi-demo-overview" title="Link to this heading"></a></h1>
+<p>This document walks through the steps to build the Matter 1.1 and 1.2 applications, such as Lighting, Light Switch, Window Covering, Thermostat, Door Lock and On/Off Plug for both the NCP and SoC examples on the
+EFR32MG24 and SiWx917 SoC boards. A complete list of hardware supported for Wi-Fi is included on the <a class="reference internal" href="../general/HARDWARE_REQUIREMENTS.html"><span class="std std-doc">Hardware Requirements page</span></a>.</p>
+<section id="step-1-matter-wi-fi-prerequisites">
+<h2>Step 1: Matter Wi-Fi Prerequisites<a class="headerlink" href="#step-1-matter-wi-fi-prerequisites" title="Link to this heading"></a></h2>
+<p>Before running the Matter Wi-Fi demo or developing for Wi-Fi make sure that you have all the required hardware and software for each
+use case.</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../general/HARDWARE_REQUIREMENTS.html"><span class="std std-doc">Matter Hardware Requirements</span></a></p></li>
+<li><p><a class="reference internal" href="../general/SOFTWARE_REQUIREMENTS.html"><span class="std std-doc">Matter Software Requirements</span></a></p></li>
+</ol>
+</section>
+<section id="step-2-building-the-chip-tool-for-wi-fi">
+<h2>Step 2: Building the chip-tool for Wi-Fi<a class="headerlink" href="#step-2-building-the-chip-tool-for-wi-fi" title="Link to this heading"></a></h2>
+<p>In order to run the Matter over Wi-Fi demo you will need to run the chip-tool on one
+of two platforms, either Linux/Mac or Raspberry Pi.</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="SW_SETUP.html"><span class="std std-doc">Build Linux Environment</span></a></p></li>
+<li><p><a class="reference internal" href="BUILD_PI_ENV.html"><span class="std std-doc">Build Raspberry-Pi Environment</span></a></p></li>
+</ol>
+</section>
+<section id="step-3-building-the-matter-accessory-device-mad-for-wi-fi">
+<h2>Step 3: Building the Matter Accessory Device (MAD) for Wi-Fi<a class="headerlink" href="#step-3-building-the-matter-accessory-device-mad-for-wi-fi" title="Link to this heading"></a></h2>
+<p>To build a Matter Wi-Fi Accessory Device, follow the steps in the <a class="reference internal" href="SW_SETUP.html"><span class="std std-doc">Software Setup</span></a></p>
+<p>Build commands are provided for the EFR32MG24 host processor, with the RS9116, SiWx917 and WF200 network co-processors.</p>
+<p>Build commands are also provided for the SiWx917 SoC processor.</p>
+</section>
+<section id="step-4-running-the-demo">
+<h2>Step 4: Running the Demo<a class="headerlink" href="#step-4-running-the-demo" title="Link to this heading"></a></h2>
+<p><a class="reference internal" href="RUN_DEMO.html"><span class="std std-doc">Running the Matter Demo on EFR32 hosts</span></a></p>
+<p><a class="reference internal" href="RUN_DEMO_SiWx917_SoC.html"><span class="std std-doc">Running the Matter Demo on SiWx917 SoC</span></a></p>
+<p>This contains instructions to run the Matter Wi-Fi demo using the chip-tool
+running on a Linux Machine (either Laptop or Raspberry Pi) - follow this
+after successfully executing the above steps.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

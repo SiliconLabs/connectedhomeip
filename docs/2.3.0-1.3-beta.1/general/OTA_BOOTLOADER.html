@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creating Gecko Bootloader for Use in Matter OTA Software Update &mdash; Matter 2.3.0-1.3-beta.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=a9161dfc"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Matter Software Update with Silicon Labs Example Applications" href="OTA_SOFTWARE_UPDATE.html" />
+    <link rel="prev" title="Matter Intermittently Connected Devices (ICD)" href="MATTER_ICD.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3-beta.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_INTRO.html">Introduction to Matter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_DATA_MODEL.html">The Matter Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FUNDAMENTALS_INTERACTION_MODEL.html">The Matter Interaction Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="COMMISSIONING.html">Commissioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SECURITY.html">Matter Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MATTER_ICD.html">Matter Intermittently Connected Devices (ICD)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Creating Gecko Bootloader for Use in Matter OTA Software Update</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bootloader-project-in-studio">Bootloader Project In Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#internal-bootloader-image-size-selecting-storage-slot-address-and-size">Internal Bootloader: Image Size, Selecting Storage Slot Address and Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="OTA_SOFTWARE_UPDATE.html">Matter Software Update with Silicon Labs Example Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_1_overview.html">Matter Overview</a></li>
+      <li class="breadcrumb-item active">Creating Gecko Bootloader for Use in Matter OTA Software Update</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/general/OTA_BOOTLOADER.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="creating-gecko-bootloader-for-use-in-matter-ota-software-update">
+<h1>Creating Gecko Bootloader for Use in Matter OTA Software Update<a class="headerlink" href="#creating-gecko-bootloader-for-use-in-matter-ota-software-update" title="Link to this heading"></a></h1>
+<p>The Matter OTA Software Update functionality on EFR32 devices requires the use
+of a Gecko Bootloader built with correct configuration parameters. The key
+parameters are the storage slot size and (in case of internal storage) storage
+slot address. The current document lists the steps required to build the Gecko
+Bootloader for Matter OTA Update and discusses the configuration parameter
+selection. For a detailed discussion of Gecko Bootloader refer to <em>UG489:
+Silicon Labs Gecko Bootloader User’s Guide for GSDK 4.0 and Higher</em>.</p>
+<p>The Gecko Bootloader is built with Silicon Labs Simplicity Studio. These
+instructions assume that you have installed Simplicity Studio 5, the Simplicity
+Commander tool (installed by default with Simplicity Studio), the GSDK and
+associated utilities, and that you are familiar with generating, compiling, and
+flashing an example application in the relevant version.</p>
+<section id="bootloader-project-in-studio">
+<h2>Bootloader Project In Studio<a class="headerlink" href="#bootloader-project-in-studio" title="Link to this heading"></a></h2>
+<section id="creating-the-project">
+<h3>Creating the Project<a class="headerlink" href="#creating-the-project" title="Link to this heading"></a></h3>
+<p>In Simplicity Studio click on Project-&gt;New-&gt;Silicon Labs Project Wizard to
+create a new project. Select the correct Target Board, SDK and the Toolchain.
+For Matter 1.0 it is recommended that the bootloader is built with GSDK 4.1.</p>
+<p>In the next screen select the example project the bootloader will be based on.
+For a bootloader using external storage select “Bootloader SoC SPI Flash Storage
+(single image with slot size of 1024K)”. For a bootloader using internal storage
+select “Bootloader - SoC Internal Storage (single image on 512kB device)”</p>
+</section>
+<section id="configuring-storage-components-and-parameters">
+<h3>Configuring Storage Components and Parameters<a class="headerlink" href="#configuring-storage-components-and-parameters" title="Link to this heading"></a></h3>
+<p>In the newly created project select the project’s .slcp file, click the
+“Software Components” tab, and select Platform-&gt;Bootloader-&gt;Storage. In the
+Bootloader Storage Slot component (it should be already installed) configure
+Slot 0’s Start Address and Slot size.</p>
+<ul class="simple">
+<li><p>For external storage bootloaders the Start Address should be 0 and Slot size
+should be 1048576 – both values are set by default</p></li>
+<li><p>For internal storage bootloaders see the “Internal Bootloader: Image Size,
+Selecting Storage Slot Address and Size” section below In the Common Storage
+component leave the “Start address of bootload info” at 0.</p></li>
+</ul>
+</section>
+<section id="configuring-other-components">
+<h3>Configuring Other Components<a class="headerlink" href="#configuring-other-components" title="Link to this heading"></a></h3>
+<p>It is recommended to install the “GBL Compression (LZMA)” component under
+Platform-&gt;Bootloader-&gt;Core: this allows the bootloader to handle compressed GBL
+files. This component is required for internal storage bootloaders.</p>
+<p>At this point the project contains all the components necessary to support the
+Matter OTA Software Update functionality. Other components can now be added to
+support additional features such as Secure Boot. Refer to <em>UG489: Silicon Labs
+Gecko Bootloader User’s Guide for GSDK 4.0 and Higher</em> for the description of
+various Bootloader features and the steps to enable them.</p>
+</section>
+<section id="building-and-flashing-the-bootloader">
+<h3>Building and Flashing the Bootloader<a class="headerlink" href="#building-and-flashing-the-bootloader" title="Link to this heading"></a></h3>
+<p>Build the project by clicking on the hammer icon in the Studio toolbar. Flash
+the bootloader to the board using the “Upload Application” option from the Debug
+Adapters view.</p>
+</section>
+<section id="combined-bootloader-for-mg12-boards">
+<h3>Combined bootloader for MG12 boards<a class="headerlink" href="#combined-bootloader-for-mg12-boards" title="Link to this heading"></a></h3>
+<p>The MG12 boards (which are Series 1 EFR32 boards) require a combined bootloader
+image (first stage bootloader + main bootloader) the first time a device is
+programmed – whether during development or manufacturing. For subsequent
+programming, if the combined bootloader had been previously flashed to the
+device use the regular version.</p>
+<p>To create the combined bootloader follow this additional step (Step 6 in Section
+6 of <em>UG489: Silicon Labs Gecko Bootloader User’s Guide for GSDK 4.0 and
+Higher</em>) before clicking the build icon: Right-click the project name in the
+Project Explorer view and select Properties. In the C/C++ Build group, click
+Settings. On the Build Steps tab, in the Post Build Steps Command field enter</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>../postbuild.sh<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">ProjDirPath</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">StudioSdkPath</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CommanderAdapterPackPath</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>Click Apply and Close. Three bootloader images will be generated into the build
+directory: a main bootloader, a main bootloader with CRC32 checksum, and a
+combined first stage and main bootloader with CRC32 checksum. The main
+bootloader image is called <project-name>.s37, the main bootloader with CRC32
+checksum is called <projectname>-crc.s37, while the combined first stage image +
+main bootloader image with a CRC32 checksum is called
+<projectname>-combined.s37.</p>
+</section>
+</section>
+<section id="internal-bootloader-image-size-selecting-storage-slot-address-and-size">
+<h2>Internal Bootloader: Image Size, Selecting Storage Slot Address and Size<a class="headerlink" href="#internal-bootloader-image-size-selecting-storage-slot-address-and-size" title="Link to this heading"></a></h2>
+<p>The internal storage bootloader for Matter OTA software update is supported on
+MG24 boards only. In this use case both the running image and the downloadable
+update image must fit on the internal flash at the same time. This in turn
+requires that both images are built with a reduced feature set such as disabled
+logging and Matter shell (see
+<a class="reference internal" href="OTA_SOFTWARE_UPDATE.html"><span class="std std-doc">here</span></a> for the list of
+features). Using LZMA compression when building the GBL file further reduces the
+downloaded image size.</p>
+<p>When building an internal storage bootloader the two key configuration
+parameters are the Slot Start Address and Slot Size in the Bootloader Storage
+Slot component. The storage slot must not overlap with the running image and the
+NVM section of the flash. In other words, the slot start address must be greater
+than the end of the running image address and the sum of the start address and
+the slot size must be less than the address of the NVM section.</p>
+<p><img alt="Internal Flash Layout" src="../_images/InternalFlashLayout.png" /></p>
+<p>The simplest way to get the relevant addresses for the running image and NVM is
+by using the Simplicity Commander tool:</p>
+<ul class="simple">
+<li><p>Build the running image for the Matter application</p></li>
+<li><p>Erase the chip and flash the running image to it (For example: use
+Simplicity Studio’s Debug Adapters view context menu to flash the
+application image and some bootloader valid for the device board. Make sure
+to select the “Erase chip before uploading image” option).</p></li>
+<li><p>In Simplicity Commander, select Device Info -&gt; Flash Map. The blank area in
+the middle of the flash (between the running image in the beginning and NVM
+at the end) is available for the bootloader storage slot. Each block
+represents a flash page (8K on MG24 boards). Hovering the mouse over a block
+shows the block’s start and end address.</p></li>
+<li><p>Set the Slot Start Address to be the address of the first available block.
+Calculate the Slot Size to be the difference between the end address of the
+last free block and the Slot Start Address. The Slot Size must be greater
+that the size of the GBL file for the update image.</p></li>
+<li><p>(Optional) It might be advisable to set the Slot Start Address to the
+beginning of the second or third available block to account for potential
+growth of the application image – this way the bootloader won’t have to be
+reconfigured for every increase in the image size. The storage slot must
+still be able to accommodate the GBL image for the update. Another way to
+calculate the Storage Slot parameters is by examining the application’s .map
+file:</p></li>
+<li><p>Build the running image for the Matter application</p></li>
+<li><p>In the application .map file find the highest address preceding the .data
+section, round it up to align on the 8K page boundary (e.g.
+0x00000000080f1704 would round up to 0x00000000080f2000) and then add 0x2000
+get the next page block address – the result would be the Slot Start
+Address. The address of the .nvm section in the .map file is the end of the
+space available for the Storage Slot. The Slot Size is the difference of the
+.nvm address and the Slot Start Address.</p></li>
+</ul>
+</section>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<p>This example is for an internal storage bootloader for the Matter lighting app
+on BRD4186C.</p>
+<ul>
+<li><p>Build the application disabling all optional features</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lighting-app/silabs<span class="w"> </span>out<span class="w"> </span>lighting-app<span class="w"> </span>BRD4186A<span class="w"> </span><span class="nv">chip_detail_logging</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">chip_automation_logging</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">chip_progress_logging</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">is_debug</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">show_qr_code</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">chip_build_libshell</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">enable_openthread_cli</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">chip_openthread_ftd</span><span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+</li>
+<li><p>Build the GBL file for the update image and note its size</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>commander<span class="w"> </span>gbl<span class="w"> </span>create<span class="w"> </span>--compress<span class="w"> </span>lzma<span class="w"> </span>~/chip/connectedhomeip/out/lighting-app/BRD4186A/chip-efr32-lighting-example.gbl<span class="w"> </span>--app<span class="w"> </span>~/chip/connectedhomeip/out/lighting-app/BRD4186A/chip-efr32-lighting-example.s37
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-la<span class="w"> </span>out/lighting-app/BRD4186A/chip-efr32-lighting-example.gbl
+<span class="m">451176</span><span class="w"> </span>Jul<span class="w"> </span><span class="m">19</span><span class="w"> </span><span class="m">16</span>:39<span class="w"> </span>out/lighting-app/BRD4186A/chip-efr32-lighting-example.gbl
+</pre></div>
+</div>
+</li>
+<li><p>Flash the application image, bootloader (pre-built BRD4186C bootloader
+binary from the <a class="reference internal" href="ARTIFACTS.html"><span class="std std-doc">Matter Artifacts page</span></a>. Erase the flash.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>![Erase Flash](./images/ApplicationUploadEraseFlash.png)
+</pre></div>
+</div>
+</li>
+<li><p>In Simplicity Commander display the flash map</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>![Flash Map](./images/CommanderFlashMap.png)
+</pre></div>
+</div>
+</li>
+<li><p>The address of the first available page is 0x080b8000, the end address of
+the last available block is 0x08172000. This means you can set the Slot
+Start Address to 0x080b8000 and the Slot Size to 761856 (761856 =
+0x08172000 - 0x080b8000). The slot size is sufficient for our GBL file
+(451176 bytes)</p></li>
+<li><p>Create a project base on the “Bootloader - SoC Internal Storage (single
+image on 512kB device)” example. Configure the Bootloader Storage Slot
+component and set Slot Address and Slot Size.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>![StudioProject](./images/StudioProject.png)
+</pre></div>
+</div>
+</li>
+<li><p>Enable the “GBL Compression (LZMA)” component.</p></li>
+<li><p>Build the project</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

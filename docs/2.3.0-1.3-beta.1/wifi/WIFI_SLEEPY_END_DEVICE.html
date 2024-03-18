@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matter Intermittently Connected Devices over WiFi &mdash; Matter 2.3.0-1.3-beta.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=a9161dfc"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Power Measurements for Wi-Fi Devices" href="WIFI_Sleepy_Device_Power_Measurement.html" />
+    <link rel="prev" title="Openssl Certificate Creation" href="OPENSSL_CERTIFICATE_CREATION.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3-beta.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="DEMO_OVERVIEW.html">Wi-Fi Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SW_SETUP.html">Wi-Fi GitHub Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BUILD_PI_ENV.html">Build Chip Tool on Raspi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RUN_DEMO.html">Matter Demo on EFR32 NCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RUN_DEMO_SiWx917_SoC.html">Matter Demo on 917 SoC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JLINK_GUIDE_917.html">Matter 917 SoC JLink RTT Debugger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SiWx917_Enablement_For_Ozone.html">Enablement of Ozone for 917 SOC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_dic.html">Wi-Fi Direct Internet Connectivity</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Matter Intermittently Connected Devices over WiFi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#power-save-methods">Power Save Methods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#building-with-icd-functionality">Building with ICD Functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#power-measurement">Power Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_Sleepy_Device_Power_Measurement.html">Wi-Fi ICD Power Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MATTER_SHELL.html">Matter Shell Console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_ecosystem.html">Matter Ecosystem Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+      <li class="breadcrumb-item active">Matter Intermittently Connected Devices over WiFi</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/wifi/WIFI_SLEEPY_END_DEVICE.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="matter-intermittently-connected-devices-over-wifi">
+<h1>Matter Intermittently Connected Devices over WiFi<a class="headerlink" href="#matter-intermittently-connected-devices-over-wifi" title="Link to this heading"></a></h1>
+<p>This page explains how Matter Wi-Fi Intermittently Connected Devices (ICDs) work and how to configure a Matter Wi-Fi ICD example.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Matter provides the Intermittently Connected Device (ICD) operating mode to extend the battery life of power-limited devices. This operating mode leverages native Wi-Fi functionality to enhance the power management features provided within the Matter protocol.</p>
+<p>Wi-Fi module power saving is achieved by the Wi-Fi Station notifying the Access Point (AP) that it is entering its power save (PS) mode. Afterwards, the Wi-Fi station will shut down its RF and Wi-Fi SoC blocks to enter power saving mode.</p>
+<p>The Access Point (AP) buffers the frames destined to a Wi-Fi station while it is in power save mode. The Access Point (AP) will send the buffered frames to the Wi-Fi station when requested to do so.</p>
+<p>During association, the Wi-Fi Station uses the Delivery Traffic Information Map (DTIM) parameter to get from the Access Point (AP) how many beacon intervals it shall spend in sleep mode before it needs to retrieve the queued frames from the Access Point (AP).</p>
+<p>Wi-Fi module sleep is implemented by using the PS-Poll Legacy Power Save (DTIM based) method. EFR sleep is implemented by using the power manager (EM2).</p>
+<p><strong>Note</strong>: Wi-Fi module sleep is enabled after successful commissioning and EFR sleep is enabled after system bootup.</p>
+<p><strong>Note</strong>: Wi-Fi is implemented with DTIM-based sleep, since the operational discovery packet is a broadcast packet that will not be buffered by the Wi-Fi router.</p>
+</section>
+<section id="power-save-methods">
+<h2>Power Save Methods<a class="headerlink" href="#power-save-methods" title="Link to this heading"></a></h2>
+<section id="deep-sleep-power-save-mode-for-efr32">
+<h3>Deep Sleep Power Save Mode for EFR32<a class="headerlink" href="#deep-sleep-power-save-mode-for-efr32" title="Link to this heading"></a></h3>
+<p>The EFR32 will go into deep sleep (EM2) power save mode by using the power manager module. The power manager is used to transition the system to a power mode when the application is the Idle Task.</p>
+<p>In EM2 energy mode, all high frequency clock sources are shut down. Peripherals that require a high frequency clock are unavailable or have limited functionality.</p>
+</section>
+<section id="ps-poll-legacy-power-save-for-wi-fi-module">
+<h3>PS-Poll Legacy Power Save for Wi-Fi Module<a class="headerlink" href="#ps-poll-legacy-power-save-for-wi-fi-module" title="Link to this heading"></a></h3>
+<p>The PS-Poll Legacy power save mode leverages the PS-Poll frame to retrieve the buffered frames from the Access Point (AP). The PS-Poll frame is a short Control Frame containing the Association Identifier (AID) value of the Wi-Fi station.
+In the Legacy power save mode, when the Wi-Fi station receives a beacon with its Association Identifier (AID) in the TIM element, it initiates the buffered frame delivery by transmitting a PS-POLL control frame to the Access Point (AP).
+The AP acknowledges the PS-Poll frame and responds with a single buffered frame.</p>
+<p>In this mode, the Wi-Fi station stays active and retrieves a single buffered frame at a time. The AP also indicates that there are more buffered frames for the station using the More Data subfield.
+The Wi-Fi station continues to retrieve buffered frames using the PS-Poll frame until there are no more buffered frames and the More Data subfield is set to 0. The Wi-Fi station goes back into the sleep afterwards.</p>
+<p>A Wi-Fi station can enter sleep mode after sending a Null frame to the AP with the power management (PM) bit set. From then on, the AP will store all packets destined to the Wi-Fi station in a per-device queue and sets the TIM field in the beacon frame to indicate that packets destined for the Wi-Fi station have been queued.</p>
+<p>The Wi-Fi station wakes up to receive buffered traffic for every Delivery Traffic Indication Message (DTIM) beacon.
+When it detects that the Traffic Indication Map (TIM) field for it has been set, it sends a PS-Poll control frame to the AP.</p>
+</section>
+<section id="delivery-traffic-indication-message-dtim">
+<h3>Delivery Traffic Indication Message (DTIM)<a class="headerlink" href="#delivery-traffic-indication-message-dtim" title="Link to this heading"></a></h3>
+<p>A Wi-Fi station in DTIM Power Save mode can wake at any time to transmit uplink traffic, but can only receive downlink traffic (broadcast, multicast or unicast) immediately after receiving a DTIM beacon.
+In order to inform the Wi-Fi station in Power Save mode that the access point has buffered downlink traffic, the access point uses the Traffic Indication Map element present in the beacon frames.
+The Wi-Fi station in Power Save mode wakes up to receive the DTIM beacon and checks the status of the TIM element. This element indicates whether any frames need to be retrieved from the Access Point (AP).</p>
+<p><strong>Note</strong>: The DTIM parameter can be configured on the access point settings.</p>
+</section>
+</section>
+<section id="building-with-icd-functionality">
+<h2>Building with ICD Functionality<a class="headerlink" href="#building-with-icd-functionality" title="Link to this heading"></a></h2>
+<section id="enabling-icd-functionalities">
+<h3>Enabling ICD Functionalities<a class="headerlink" href="#enabling-icd-functionalities" title="Link to this heading"></a></h3>
+<p>To enable ICD functionality, the <code class="docutils literal notranslate"><span class="pre">chip_enable_icd_server</span></code> build argument needs to be set to true. It will enable the following macro: <code class="docutils literal notranslate"><span class="pre">CHIP_CONFIG_ENABLE_ICD_SERVER</span></code></p>
+<p>Here is an example to build the lock-app as an ICD for the EFR32MG24 + RS9116.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lock-app/silabs/<span class="w"> </span>out/rs9116/lock_sleep<span class="w"> </span>BRD41xxx<span class="w"> </span><span class="nv">chip_enable_icd_server</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">disable_lcd</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">use_external_flash</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">chip_enable_ble_rs911x</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>--wifi<span class="w"> </span>rs9116
+</pre></div>
+</div>
+<p>Here is an example to build the lock-app as an ICD for the EFR32MG24 + RS917 (NCP).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lock-app/silabs/<span class="w"> </span>out/SiWx917/lock_sleep<span class="w"> </span>BRD41xxx<span class="w"> </span><span class="nv">chip_enable_icd_server</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">disable_lcd</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">use_external_flash</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span><span class="nv">chip_enable_ble_rs911x</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>--wifi<span class="w"> </span>SiWx917
+</pre></div>
+</div>
+<p>Here is an example to build the lock-app as an ICD for the EFR32MG24 + WF200.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lock-app/silabs/<span class="w"> </span>out/wf200_lock_sleep<span class="w"> </span>BRD41xxx<span class="w"> </span><span class="nv">chip_enable_icd_server</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="nv">chip_build_libshell</span><span class="o">=</span><span class="nb">false</span><span class="w"> </span>--wifi<span class="w"> </span>wf200
+</pre></div>
+</div>
+<p>Here is an example to build the lock-app as an ICD for the SiWx917 SoC</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lock-app/silabs/<span class="w"> </span>out/SiWx917_lock_sleep<span class="w"> </span>BRD4338A<span class="w"> </span><span class="nv">chip_enable_icd_server</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>
+</pre></div>
+</div>
+<p><strong>Note</strong>: By Default, ICD functionality is enabled for Lock Application.</p>
+</section>
+<section id="minimal-power-consumption">
+<h3>Minimal Power Consumption<a class="headerlink" href="#minimal-power-consumption" title="Link to this heading"></a></h3>
+<p>Simply enabling Sleepy functionalities does not give the application the best power consumption.
+By default, several features that increase power consumption are enabled in the example applications.
+The following set of features increase power consumption.</p>
+<ul class="simple">
+<li><p>Matter Shell</p></li>
+<li><p>LCD and Qr Code</p></li>
+</ul>
+<p>To achieve the most power-efficient build, add these build arguments to the build command to disable all power-consuming features.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./scripts/examples/gn_silabs_example.sh<span class="w"> </span>examples/lock-app/silabs/<span class="w"> </span>out/SiWx917/lock_sleep<span class="w"> </span>BRD4338A<span class="w"> </span><span class="nv">chip_enable_icd_server</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>--low_power<span class="w">  </span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="power-measurement">
+<h1>Power Measurement<a class="headerlink" href="#power-measurement" title="Link to this heading"></a></h1>
+<p>Refer to <a class="reference internal" href="WIFI_Sleepy_Device_Power_Measurement.html"><span class="std std-doc"> Power Measurement </span></a></p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

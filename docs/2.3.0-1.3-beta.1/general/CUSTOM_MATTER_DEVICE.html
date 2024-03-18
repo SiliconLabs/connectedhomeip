@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom Matter Device Development &mdash; Matter 2.3.0-1.3-beta.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=a9161dfc"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How to find your Raspberry Pi on the Network" href="FIND_RASPI.html" />
+    <link rel="prev" title="Matter Repositories and Commit Hashes" href="COMMIT_HASHES.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3-beta.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="CODE_SIZE_SAVINGS.html">Code Savings Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="COMMIT_HASHES.html">Commit Hash Reference</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Custom Matter Device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-matter-with-clusters">Using Matter with Clusters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#zap-configuration">ZAP Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#receiving-matter-commands">Receiving Matter Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-cluster-to-a-zap-configuration">Adding a Cluster to a ZAP Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-new-attribute">Adding a New Attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-new-command">Adding a New Command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#react-to-level-control-cluster-commands-in-zclcallbacks">React to Level Control Cluster Commands in ZclCallbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#send-a-movetolevel-command-and-read-the-currentlevel-attribute">Send a MoveToLevel Command and Read the CurrentLevel Attribute</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="FIND_RASPI.html">Find Your Raspberry Pi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FLASHING_USING_COMMANDER.html">Flashing Using Simplicity Commander</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FLASH_SILABS_DEVICE.html">Flash an EFR32 Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FLASH_SILABS_SiWx917_SOC_DEVICE.html">Flash a 917SoC Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ZAP.html">Using ZAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIRESHARK.html">Using Wireshark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EP.html">Using Energy Profiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GATT.html">BLE GATT Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PINTOOL.html">Hardware Pin Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dev/vscode/index.html">VS Code Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_3_general.html">Developer Reference</a></li>
+      <li class="breadcrumb-item active">Custom Matter Device Development</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/general/CUSTOM_MATTER_DEVICE.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="custom-matter-device-development">
+<h1>Custom Matter Device Development<a class="headerlink" href="#custom-matter-device-development" title="Link to this heading"></a></h1>
+<p>Build a customizable lighting app using the Matter protocol.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>This guide covers the basics of building a customizable lighting application
+using Matter.</p>
+</section>
+<section id="using-matter-with-clusters">
+<h2>Using Matter with Clusters<a class="headerlink" href="#using-matter-with-clusters" title="Link to this heading"></a></h2>
+<p>In Matter, commands can be issued by using a cluster. A cluster is a set of
+attributes and commands which are grouped together under a relevant theme.</p>
+<p>Attributes store values (think of them as variables). Commands are used to
+modify the value of attributes.</p>
+<p>For example, the “On/Off” cluster has an attribute named “OnOff” of type
+boolean. The value of this attribute can be set to “1” by sending an “On”
+command or it can be set to “0” by sending an “Off” command.</p>
+<p>The C++ implementation of these clusters is located in the clusters directory.
+Note that you can also create your own custom cluster.</p>
+</section>
+<section id="zap-configuration">
+<h2>ZAP Configuration<a class="headerlink" href="#zap-configuration" title="Link to this heading"></a></h2>
+<p>From the matter repository, run the following command in a terminal to launch
+the ZAP user interface (UI). This will open up the ZAP configuration for the EFR32 lighting
+application example.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./scripts/tools/zap/run_zaptool.sh<span class="w"> </span>examples/lighting-app/lighting-common/lighting-app.zap
+</pre></div>
+</div>
+<p>On the left side of the application, there is a tab for Endpoint 0 and
+Endpoint 1. Endpoint 0 is known as the root node. This endpoint is akin to a
+“read me first” endpoint that describes itself and the other endpoints that make
+up the node. Endpoint 1 represents a lighting application device type. There are
+a number of required ZCL clusters enabled in Endpoint 1. Some clusters are
+common across most device types, such as identify and group clusters. Others,
+such as the On/Off, Level Control and Color Control clusters are required for a
+lighting application device type.</p>
+<p>Clicking on the blue settings icon on the right side of the application
+brings you to the zap configuration settings for that cluster. Each cluster
+has some required attributes that may cause compile-time errors if they are not
+selected in the zap configuration. Other attributes are optional and are allowed
+to be disabled. Clusters also have a list of client-side commands, again some
+are mandatory and others are optional depending on the cluster. ZCL offers an
+extensive list of optional attributes and commands that allow you to customize
+your application to the full power of the Matter SDK.</p>
+<p>For example, if a lighting application only includes
+single color LEDs instead of RGB LEDs, it might make sense to disable the Color
+Control cluster in the ZAP configuration. Similarly, if a
+lighting application does not take advantage of the Level Control cluster,
+which allows you to customize current flow to an LED, it might make sense to
+disable the Level Control cluster.</p>
+<p>Each time a modification is made to the ZAP UI, save (Electron→Save on
+a Mac toolbar) the current ZAP configuration and run the following command to
+generate ZAP code.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./scripts/tools/zap/generate.py<span class="w"> </span>examples/lighting-app/lighting-common/lighting-app.zap<span class="w"> </span>-o<span class="w"> </span>zzz_generated/lighting-app/zap-generated/
+</pre></div>
+</div>
+</section>
+<section id="receiving-matter-commands">
+<h2>Receiving Matter Commands<a class="headerlink" href="#receiving-matter-commands" title="Link to this heading"></a></h2>
+<p>All Matter commands reach the application through the intermediate function
+<code class="docutils literal notranslate"><span class="pre">MatterPostAttributeChangeCallback()</span></code>. When a request is made by a Matter client,
+the information contained in the request is forwarded to a Matter application
+through this function. The command can then be dissected using conditional logic
+to call the proper application functions based on the most recent command
+received.</p>
+</section>
+<section id="adding-a-cluster-to-a-zap-configuration">
+<h2>Adding a Cluster to a ZAP Configuration<a class="headerlink" href="#adding-a-cluster-to-a-zap-configuration" title="Link to this heading"></a></h2>
+<p>In the ZAP UI, navigate to the Level Control cluster. Make sure this cluster is
+enabled as a server in the drop-down menu in the “Enable” column. Then click on
+the blue settings wheel in the “Configure” column. This cluster can be used to
+gather power source configuration settings from a Matter device. It contains a
+few required attributes, and a number of optional attributes.</p>
+</section>
+<section id="adding-a-new-attribute">
+<h2>Adding a New Attribute<a class="headerlink" href="#adding-a-new-attribute" title="Link to this heading"></a></h2>
+<p>In the Level Control cluster configurations, ensure the CurrentLevel attribute
+is set to enabled. Set the default value of this attribute as 1.</p>
+</section>
+<section id="adding-a-new-command">
+<h2>Adding a New Command<a class="headerlink" href="#adding-a-new-command" title="Link to this heading"></a></h2>
+<p>Navigate to the commands tab in zap and enable the MoveToLevel command. Now save
+the current zap configuration, and run the <a class="reference external" href="http://generate.py">generate.py</a> script above.</p>
+</section>
+<section id="react-to-level-control-cluster-commands-in-zclcallbacks">
+<h2>React to Level Control Cluster Commands in ZclCallbacks<a class="headerlink" href="#react-to-level-control-cluster-commands-in-zclcallbacks" title="Link to this heading"></a></h2>
+<p>In the MatterPostAttributeCallback function in ZclCallbacks, add the following
+line of code or a similar line. This will give the application the ability to react to
+MoveToLevel commands. You can define platform-specific behavior for a
+MoveToLevel action.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">clusterId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LevelControl</span><span class="o">::</span><span class="n">Id</span><span class="p">)</span>
+<span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ChipLogProgress</span><span class="p">(</span><span class="n">Zcl</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Level Control attribute ID: &quot;</span><span class="w"> </span><span class="n">ChipLogFormatMEI</span><span class="w"> </span><span class="s">&quot; Type: %u Value: %u, length %u&quot;</span><span class="p">,</span>
+<span class="w">                     </span><span class="n">ChipLogValueMEI</span><span class="p">(</span><span class="n">attributeId</span><span class="p">),</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">attributeId</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LevelControl</span><span class="o">::</span><span class="n">Attributes</span><span class="o">::</span><span class="n">CurrentLevel</span><span class="o">::</span><span class="n">Id</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">       </span><span class="n">action_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LightingManager</span><span class="o">::</span><span class="n">MOVE_TO_LEVEL</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">LightMgr</span><span class="p">().</span><span class="n">InitiateActionLight</span><span class="p">(</span><span class="n">AppEvent</span><span class="o">::</span><span class="n">kEventType_Light</span><span class="p">,</span><span class="w"> </span><span class="n">action_type</span><span class="p">,</span><span class="w"> </span><span class="n">endpoint</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">);</span>
+<span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="send-a-movetolevel-command-and-read-the-currentlevel-attribute">
+<h2>Send a MoveToLevel Command and Read the CurrentLevel Attribute<a class="headerlink" href="#send-a-movetolevel-command-and-read-the-currentlevel-attribute" title="Link to this heading"></a></h2>
+<p>Rebuild the application and load the new executable on your EFR32 device. Send
+the following mattertool commands and verify that the current-level default
+attribute was updated as was configured. Replace {desired_level} with 10, and
+node_ID with the node ID assigned to the device upon commissioning.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mattertool<span class="w"> </span>levelcontrol<span class="w"> </span><span class="nb">read</span><span class="w"> </span>current-level<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>//<span class="w"> </span>Returns<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mattertool<span class="w"> </span>levelcontrol<span class="w"> </span>move-to-level<span class="w"> </span><span class="o">{</span>desired_level<span class="o">}</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">{</span>node_ID<span class="o">}</span><span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mattertool<span class="w"> </span>levelcontrol<span class="w"> </span><span class="nb">read</span><span class="w"> </span>current-level<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>//<span class="w"> </span>Returns<span class="w"> </span><span class="m">10</span>
+</pre></div>
+</div>
+<p>For more information on running a Silicon Labs lighting example on a Thunderboard Sense 2 see
+<a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/silabs_examples/sl-newLight/efr32/README.md">sl-newlight/efr32</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

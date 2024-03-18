@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matter Device Attestation &mdash; Matter 2.3.0-1.3-beta.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=a9161dfc"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Matter, CPMS, and Kudelski" href="KUDELSKI.html" />
+    <link rel="prev" title="Using Custom Part Manufacturing Services (CPMS)" href="USING_CPMS.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3-beta.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="CPMS_PREREQS.html">Device Development Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="USING_CPMS.html">Using Custom Part Manufacturing Services (CPMS)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Matter Device Attestation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#matter-certificate-overview">Matter Certificate Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#device-attestation-public-key-infrastructure-and-certification-declaration">Device Attestation Public Key Infrastructure and Certification Declaration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#certification-authorities-and-recommended-certificate-use">Certification Authorities and Recommended Certificate Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#device-attestation-procedure">Device Attestation Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="KUDELSKI.html">Matter, CPMS, and Kudelski</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+      <li class="breadcrumb-item active">Matter Device Attestation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/production/CPMS_ATTESTATION.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="matter-device-attestation">
+<h1>Matter Device Attestation<a class="headerlink" href="#matter-device-attestation" title="Link to this heading"></a></h1>
+<section id="matter-certificate-overview">
+<h2>Matter Certificate Overview<a class="headerlink" href="#matter-certificate-overview" title="Link to this heading"></a></h2>
+<p>For Matter devices to be commissioned into a Matter network, a Matter commissioner must verify that the devices are certified by the Connectivity Standards Alliance, this step in the Commissioning process is called Device Attestation. Each certified device must be configured with a unique Device Attestation Certificate (DAC) and its corresponding DAC private key, which will be checked by a commissioner to add this device to its Matter fabric. For a more conceptual overview of the Matter Certificates and Device Attestation Procedure, refer to <a class="reference internal" href="../general/SECURITY.html"><span class="std std-doc">Matter Security</span></a>.</p>
+</section>
+<section id="device-attestation-public-key-infrastructure-and-certification-declaration">
+<h2>Device Attestation Public Key Infrastructure and Certification Declaration<a class="headerlink" href="#device-attestation-public-key-infrastructure-and-certification-declaration" title="Link to this heading"></a></h2>
+<p>Device Attestation Certificates or DACs must be included in all commissionable Matter products and must be unique in each product. DACs are immutable, so they must be installed in-factory and must be issued by a Product Attestation Intermediate (PAI) which chains directly to a Product Attestation Authority (PAA), issued by specified root Certification Authorities (CAs). These root CAs are entities that have been approved by the CSA to issue digital Matter Certificates. Therefore, if you decide not to apply to become a Certification Authority, you will need to request the generation of the Matter Certificate Chain which is a Public Key Infrastructure. To request these certificates, you must meet the following requirements:</p>
+<ul class="simple">
+<li><p>Certify your Matter Product. CSA will issue a CD with a corresponding VID and PID.</p></li>
+<li><p>Select a Certification Authority where you will request your DACs. At Silicon Labs, we have partnered with Kudelski to offer the <a class="reference internal" href="USING_CPMS.html"><span class="std std-doc">Custom Manufacturing Service</span></a> to facilitate this process.</p></li>
+</ul>
+<p>The PAA are root certificates (certificates of a Root Certificate Authority) and are used to sign PAIs (intermediate certificates). For the attestation process to succeed, the certificate chain must start from a trusted Root Certificate; for this purpose, Matter has a database, called <a class="reference external" href="https://webui.dcl.csa-iot.org/">Distributed Compliance Ledger (DCL)</a>, where the PAAs will reside.</p>
+<blockquote>
+<div><p>Note: PAAs are not stored on the target devices.</p>
+</div></blockquote>
+<p>The PAIs are intermediate certificates, signed by the PAA’s private key, and are used to sign the DACs (device certificates). The PAI is stored on the target device and is sent to the Commissioner during the attestation process.</p>
+<p>The DAC is the certificate that uniquely identifies the device itself. It is signed by the PAI, and like the PAI itself, it is sent to the Commissioner during the attestation process. The DAC public-key must match the device’s private-key, which should be stored in the most secure location possible and is used to sign outgoing messages during commissioning.</p>
+<p>The CD (Certification Declaration) is a file issued by CSA upon the firmware’s certification process. It contains the Vendor ID (VID), and a list of Product IDs (PIDs), which should match the VID, and PID stored in the Subject field of both the PID, and DAC certificates. Along with the PID and DAC, the CD is stored on the device and sent to the Commissioner during the commissioning process.</p>
+</section>
+<section id="certification-authorities-and-recommended-certificate-use">
+<h2>Certification Authorities and Recommended Certificate Use<a class="headerlink" href="#certification-authorities-and-recommended-certificate-use" title="Link to this heading"></a></h2>
+<p>The Certification Authority’s certificate chain is used to validate any certificate said authority has signed and confirm the Matter Device Identity. A Root Certification Authority is a CA whose certificates are self-signed. They are the root of trust. These are the most trusted and secured CAs, and their private keys are expected to be the most highly secured keys. Root CAs can generate the whole Certificate Chain (PAA &gt; PAI &gt; DAC). Intermediate Certificate Authorities are CAs whose certificates have been signed by a higher-level CA from which you can generate DACs that will be signed by these Intermediate CAs and saved on Matter Devices. These CAs will generate (PAI-DAC). A compromise in the private key of the Root CA would jeopardize not only their issued Root Certificates, but also all the certificates in that chain including PAIs and DACs.</p>
+<p><img alt="Certification Authorities" src="../_images/certification-authorities.png" /></p>
+<p>While the information in the certificate location is public, write access to the certificate location should be restricted. Usually the certificates are installed in-factory, but the exact procedure depends on the CAs involved, and the mechanisms available to secure the DAC private-key, and the certificate files. Ideally:</p>
+<ol class="arabic simple">
+<li><p>The device must run a small application in privilege mode that generates the key-pair in a secured environment. This procedure should run on-device.</p></li>
+<li><p>The device issues a CSR, signed with its new private key, that is sent to the CA.</p></li>
+<li><p>The CA issues the new certificate from the certificate Chain and signs it using its own PAI private key.</p></li>
+<li><p>The newly created DAC is returned to the device.</p></li>
+<li><p>The device stores the new DAC in a read-only section of non-volatile memory.</p></li>
+<li><p>The device boots into normal operation mode, thus forbidding any further modification of either the DAC key-pair, and the DAC.</p></li>
+<li><p>From this point on, the DAC private-key value should never be exposed, and the DAC should never be modified, unless it is compromised.</p></li>
+</ol>
+<p>However, in some environments, the key-pair is generated outside the device. A CA may generate the DAC private keys on behalf of the device and use the keys to generate the DAC too. In this case, both the DAC key-pair, and the DAC are stored into the device on secured locations, and any external copy of the DAC private-key must be destroyed.</p>
+</section>
+<section id="device-attestation-procedure">
+<h2>Device Attestation Procedure<a class="headerlink" href="#device-attestation-procedure" title="Link to this heading"></a></h2>
+<p>When commissioning a device, the Commissioner must execute this procedure to validate if the device is indeed Matter certified and compliant, and if it has been produced by a certified manufacturer. The procedure is as follows:</p>
+<ol class="arabic simple">
+<li><p>The commissioner generates a random 32-byte nonce meant for attestation.</p></li>
+<li><p>The commissioner sends the generated nonce to the commissionee (Matter Device being attested) and makes an Attestation Request.</p></li>
+<li><p>The commissionee responds with an Attestation Response including an Attestation Information message signed with the DAC private key. This Attestation Information must be validated by the commissioner to accept the Matter Device into its Matter Fabric (Network).</p></li>
+<li><p>The commissioner will retrieve the Matter Certificate Chain in order to attest the Matter Device.</p></li>
+</ol>
+<p>Attestation Information to validate:</p>
+<ul class="simple">
+<li><p>The commissioner validates the PAA retrieved is trusted. Generally, the trusted PAA certificates are included in the Distributed Compliance Ledger (DCL).</p></li>
+<li><p>The device presents a valid CD, PAI, and DAC. This is determined by verifying the Certificate Chain.</p></li>
+<li><p>The VIDs and PIDs on the CD, PAI, and DAC must match. If the VID is included in the PAA, it must also match the other certificates.</p></li>
+<li><p>DAC must be valid, and signed by the PAI.</p></li>
+<li><p>The PAI must be valid, and signed by a trusted PAA.</p></li>
+<li><p>The Discriminator stored on the device must match the one searched by the Commissioner.</p></li>
+<li><p>The Passcode provided by the Commissioner must match the one stored on the device.</p></li>
+<li><p>The Attestation nonce from the device must match the Commissioners provided nonce.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
