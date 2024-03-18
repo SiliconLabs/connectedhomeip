@@ -119,14 +119,18 @@
 <li><p>Documentation found <a class="reference external" href="https://docs.silabs.com/wiseconnect/3.1.3/wiseconnect-developing-with-wiseconnect-sdk/">here</a></p></li>
 </ul>
 </li>
-<li><p>Enhanced 917 SoC stability and sleep functionality</p>
+<li><p>Enhanced 917 SoC stability and sleep functionality. Some stability fixes are associated with increased power consumption.</p>
 <ul class="simple">
+<li><p>TA/M4 stability improvements</p>
+<ul>
 <li><p>Tickless idle support</p></li>
 <li><p>TA workaround with XTAL always enabled</p></li>
-<li><p>TA/M4 stability improvements</p></li>
+</ul>
+</li>
 <li><p>M4 sleep configuration override (active by default)</p>
 <ul>
-<li><p>To enable both M4 and TA sleep modes, enable the flag <strong>“si917_m4_sleep_enabled = true”</strong></p></li>
+<li><p>By default, M4 is active and TA will be in sleep mode. This configuration provides high stability.</p></li>
+<li><p>To enable both M4 and TA sleep modes, enable the flag <code class="docutils literal notranslate"><span class="pre">si917_m4_sleep_enabled</span> <span class="pre">=</span> <span class="pre">true</span></code></p></li>
 </ul>
 </li>
 </ul>
@@ -134,10 +138,10 @@
 <li><p>Alpha support for Multi-OTA framework</p></li>
 <li><p>Provision 2.0 support</p>
 <ul>
-<li><p>Support for different communication channels</p></li>
+<li><p>Support for new protocol with different communication channels</p></li>
 <li><p>Support for provisioning/re-provisioning via BLE channel</p></li>
 <li><p>Backwards compatability with v1.x provisioning protocol</p></li>
-<li><p>Increased parameter support as well as some parameter refactorization</p>
+<li><p>Increased parameter support coupled with some parameter refactorization</p>
 <ul>
 <li><p>Changes</p>
 <table class="docutils align-default">
