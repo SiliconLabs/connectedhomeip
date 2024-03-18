@@ -32,10 +32,10 @@ in this release of the Silicon Labs Matter Out of Box Experience
 
 | Repo                                            | Branch                     | Commit Hash       |
 | ----------------------------------------------- | ------------------------   | ----------------- |
-| https://github.com/SiliconLabs/matter           | release_2.3.0-1.3-alpha.2  | 42c44d544b059a8f0d9e3b86e9a1f6cc94cd0ea9 |
+| https://github.com/SiliconLabs/matter           | release_2.3.0-1.3-beta.1  | 42c44d544b059a8f0d9e3b86e9a1f6cc94cd0ea9 |
 
 ## Matter Accessory Device (MAD)
 
 | Repo                                            | Branch                     | Commit Hash           |
 | ----------------------------------------------- | ------------------------   | ----------------------|
-| https://github.com/SiliconLabs/matter           | release_2.3.0-1.3-alpha.2  | 42c44d544b059a8f0d9e3b86e9a1f6cc94cd0ea9|
+| https://github.com/SiliconLabs/matter           | release_2.3.0-1.3-beta.1  | 42c44d544b059a8f0d9e3b86e9a1f6cc94cd0ea9|

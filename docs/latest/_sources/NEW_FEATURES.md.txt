@@ -1,5 +1,67 @@
 # Silicon Labs Matter New Features
 
+## New Features for v2.3.0-1.3-beta.1
+
+- Matter 1.3 Beta1 solution for Thread (MG12, MG24), Wi-Fi NCP platforms (MG24/RS9116, MG24/WF200, MG24/SiWx917) and Wi-Fi SoC platform (SiWx917).
+  - Provides incremental bug fixes to support Matter 1.3 Test Event.
+  - Provides alpha support for multi-OTA framework.
+- Works using Gecko SDK v4.4.1 and WiSeConnect SDK v3.1.3.2.
+- Provides targeted improvements in stability & sleep functionality for Wi-Fi SoC platform (SiWx917).
+  - Added partial low-power 917 stability fixes. Some stability fixes are associated with increased power consumption.
+    - Stability improvements have been added for both the TA and M4.
+    - TA workaround with XTAL always enabled.
+    - Tickless idle support feature has been enabled.
+  - Added configuration to override M4 sleep mode:
+    - By default, M4 is active and TA will be in sleep mode. This configuration provides high stability.
+    - To enable both M4 and TA sleep modes, enable the flag ```si917_m4_sleep_enabled = true```.
+- Adds Provision 2.0 support. Provision feature currently works on EFR32 only, there is a known issue and workaround with SiWx917 SoC.
+  - New protocol support that can be used with different communication channels.
+  - Provisioning and re-provisioning through BLE channel.
+  - Backwards compatibility support to use v1.x provisioning protocol for older devices.
+  - Support for well-known parameters. Due to this, some parameter identifier shortcuts were changed and some single letters were reused for script configuration options.
+
+    - Changes
+      |  Parameter  | Former flag | New flag |
+      | :---------------- | :------: | :---- |
+      | --pylink_lib           |   -l   | -jl |
+      | --vendor_id           |   -v    | -vi |
+      | --vendor_name   |  -V     | -vn |
+      | --product_id   |  -p    | -pi |
+      | --product_name |  -P    | -pn |
+      | --unique_id |  -u    | -ui |
+      | --discriminator |  -d    | -sd |
+      | --part_number |  -pn   | -pm|
+      | --key_id |  -ki   | -di |
+      | --key_pass |  -kp   | -dp |
+      | --common_name |  -cn   | -dn |
+
+    - New additions
+      |  Parameter  | New flag |
+      | :---------------- | :------: | 
+      | --version | -v |      
+      | --params | -p |        
+      | --inputs | -i |        
+      | --output | -o |         
+      | --temp  | -t |          
+      | --device | -d |       
+      | --channel | -c |      
+      | --serial_number | -sn | 
+      | --setup_payload | -sy | 
+      | --firmware_info | -fi | 
+      | --pkcs12 | -dx |        
+      | --cd_cert | -cc |       
+      | --cd_key | -ck |       
+      | --paa_cert | -ac |     
+      | --paa-key | -ak |      
+      | --pai_key | -ik | 
+
+    - Removals
+      |  Parameter  | Former flag | Reason |
+      | :---------------- | :------: | :---- |
+      | --config              |   -c   | replaced by --inputs |
+      | --jlink           |   -j    | Reprovisioning now done by BLE |
+      | --att_certs   |  -xc     | replaced by --pkcs12  |    
+
 ## New Features for v2.3.0-1.3-alpha.2
 
 - Update to use [Gecko SDK (GSDK) v4.4.1](https://docs.silabs.com/gecko-platform/4.4.1/platform-overview/)
