@@ -22,7 +22,6 @@
 #include "OTAConfig.h"
 #include <MatterConfig.h>
 #include <FreeRTOS.h>
-
 #include <mbedtls/platform.h>
 
 #if CHIP_CONFIG_ENABLE_ICD_SERVER && SI917_M4_SLEEP_ENABLED
@@ -47,6 +46,7 @@
 
 #ifdef SIWX_917
 #include "wfx_rsi.h"
+#include "rsi_m4.h"
 #endif /* SIWX_917 */
 
 using namespace ::chip;
@@ -312,24 +312,50 @@ CHIP_ERROR SilabsMatterConfig::InitWiFi(void)
 static bool is_sleep_ready = false;
 void vTaskPreSuppressTicksAndSleepProcessing(uint16_t * xExpectedIdleTime)
 {
-    if (!is_sleep_ready) {
+    // pointer check
+    if(xExpectedIdleTime == NULL)
+    {
+        return;
+    }
+
+    if (!is_sleep_ready)
+    {
         *xExpectedIdleTime = 0;
-    } else {
-        // Indicate M4 is Inactive
-        P2P_STATUS_REG &= ~M4_is_active;
-        P2P_STATUS_REG;
+    }
+    else
+    {
+        // a preliminary check of the expected idle time is performed without making M4 inactive
+        if (*xExpectedIdleTime >= configEXPECTED_IDLE_TIME_BEFORE_SLEEP)
+        {
+            // Indicate M4 is Inactive
+            P2P_STATUS_REG &= ~M4_is_active;
+            // Waiting for one more clock cycle to make sure M4 H/W Register is updated
+            P2P_STATUS_REG;
 
-        /* Delay is added to sync between M4 and TA */
-        for (uint8_t delay = 0; delay < 10; delay++) {
-            __ASM("NOP");
-        }
+            // TODO: This delay is added to sync between M4 and TA. It should be removed once the logic is moved to wifi SDK
+            for (uint8_t delay = 0; delay < 10; delay++)
+            {
+                __ASM("NOP");
+            }
+            // Checking if TA has already triggered a packet to M4
+            // RX_BUFFER_VALID will be cleared by TA if any packet is triggered
+            if ((P2P_STATUS_REG & TA_wakeup_M4) || (P2P_STATUS_REG & M4_wakeup_TA) || (!(M4SS_P2P_INTR_SET_REG & RX_BUFFER_VALID)))
+            {
+                P2P_STATUS_REG |= M4_is_active;
+                *xExpectedIdleTime = 0;
+            }
+            else
+            {
+                M4SS_P2P_INTR_CLR_REG = RX_BUFFER_VALID;
+                M4SS_P2P_INTR_CLR_REG;
 
-        // Checking if TA has already triggered a packet to M4
-        // RX_BUFFER_VALID will be cleared by TA if any packet is triggered
-        if ((P2P_STATUS_REG & TA_wakeup_M4) || (P2P_STATUS_REG & M4_wakeup_TA)
-        || (!(M4SS_P2P_INTR_SET_REG & RX_BUFFER_VALID))) {
-            P2P_STATUS_REG |= M4_is_active;
-            *xExpectedIdleTime = 0;
+                TASS_P2P_INTR_MASK_SET = (TX_PKT_TRANSFER_DONE_INTERRUPT | RX_PKT_TRANSFER_DONE_INTERRUPT |
+                                          TA_WRITING_ON_COMM_FLASH | NWP_DEINIT_IN_COMM_FLASH
+#ifdef SL_SI91X_SIDE_BAND_CRYPTO
+                                          | SIDE_BAND_CRYPTO_DONE
+#endif
+                );
+            }
         }
     }
 }

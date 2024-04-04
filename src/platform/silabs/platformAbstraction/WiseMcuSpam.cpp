@@ -34,6 +34,7 @@ extern "C" {
 #include "sl_si91x_led_config.h"
 #include "sl_system_init.h"
 #include "sl_si91x_button.h"
+#include "app/icd/ICDConfig.h"
 void soc_pll_config(void);
 }
 
@@ -62,7 +63,7 @@ CHIP_ERROR SilabsPlatform::Init(void)
     // TODO: Setting the highest priority for SVCall_IRQn to avoid the HardFault issue
     NVIC_SetPriority(SVCall_IRQn, CORE_INTERRUPT_HIGHEST_PRIORITY);
 
-#if !CHIP_CONFIG_ENABLE_ICD_SERVER
+#if CHIP_CONFIG_ENABLE_ICD_SERVER == 0
     // Configuration the clock rate
     soc_pll_config();
 #endif

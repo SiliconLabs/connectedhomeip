@@ -214,6 +214,7 @@ template("siwx917_sdk") {
       "SLI_SI91X_MCU_ENABLE_IPMU_APIS=1",
       "RADIO_CONFIG_DMP_SUPPORT=1",
       "configUSE_POSIX_ERRNO=1",
+      "NVM3_LOCK_OVERRIDE=1",
     ]
 
     if (chip_build_libshell) {
@@ -285,7 +286,10 @@ template("siwx917_sdk") {
       }
 
       if (si917_m4_sleep_enabled) {
-        defines += [ "SI917_M4_SLEEP_ENABLED=1" ]
+        defines += [ 
+          "SI917_M4_SLEEP_ENABLED=1",
+          "XTAL_OFF", 
+        ]
       }
     }
 

@@ -69,7 +69,8 @@ bool btn0_pressed = false;
 #endif // SIWX_917
 
 struct wfx_rsi wfx_rsi;
-
+// TODO: remove this. Added only to monitor how many watch dog reset have happened during testing.
+volatile uint32_t watchdog_reset = 0;
 /* Declare a variable to hold the data associated with the created event group. */
 StaticEventGroup_t rsiDriverEventGroup;
 
@@ -317,9 +318,14 @@ int32_t wfx_wifi_rsi_init(void)
     {
         SILABS_LOG("wfx_wifi_rsi_init failed %x", status);
     }
-    return status;
-}
-
+#ifdef SLI_SI91X_MCU_INTERFACE
+    // TODO: remove this. Added only to monitor how many watch dog reset have happened during testing.
+    if((MCU_FSM->MCU_FSM_WAKEUP_STATUS_REG) & BIT(5)) {
+        watchdog_reset++;
+    }
+#endif
+  return status;
+}    
 /*************************************************************************************
  * @fn  static void sl_print_firmware_version(sl_wifi_firmware_version_t*)
  * @brief

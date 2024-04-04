@@ -35,7 +35,7 @@
 
 #include <FreeRTOS.h>
 #include <semphr.h>
-#ifndef SIWX_917
+
 // Substitute the GSDK weak nvm3_lockBegin and nvm3_lockEnd
 // for an application controlled re-entrance protection
 static SemaphoreHandle_t nvm3_Sem;
@@ -58,7 +58,6 @@ void nvm3_lockEnd(void)
     VerifyOrDie(nvm3_Sem != NULL);
     xSemaphoreGive(nvm3_Sem);
 }
-#endif
 
 namespace chip {
 namespace DeviceLayer {
