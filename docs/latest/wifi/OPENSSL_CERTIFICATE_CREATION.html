@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Openssl Certificate Creation &mdash; Matter 2.3.0-1.3-beta.1 documentation</title>
+  <title>Openssl Certificate Creation &mdash; Matter 2.3.0-1.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -16,7 +16,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=a9161dfc"></script>
+        <script src="../_static/documentation_options.js?v=cdec6f82"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.0-1.3-beta.1
+                2.3.0-1.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -146,7 +146,25 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">x509</span> <span class="pre">-req</span> <span class="pre">-in</span> <span class="pre">device.csr</span> <span class="pre">-CA</span> <span class="pre">CA.crt</span> <span class="pre">-CAkey</span> <span class="pre">CA.key</span> <span class="pre">-CAcreateserial</span> <span class="pre">-out</span> <span class="pre">device.crt</span> <span class="pre">-days</span> <span class="pre">360</span></code></p></li>
 </ul>
 </li>
-<li><p>Repeat step 3 and 4 to create an additional set of certificate to use in MQTT explorer (ex: <code class="docutils literal notranslate"><span class="pre">explorer.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">explorer.key</span></code>). (Create with different name for Identification)</p></li>
+<li><p>To generate CA verification certification key:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">genrsa</span> <span class="pre">-out</span> <span class="pre">verification_cert.key</span> <span class="pre">2048</span></code></p></li>
+</ul>
+</li>
+<li><p>To generate Certificate Signing Request (CSR) file:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">req</span> <span class="pre">-new</span> <span class="pre">-key</span> <span class="pre">verification_cert.key</span> <span class="pre">-out</span> <span class="pre">verification_cert_csr.csr</span></code>
+<strong>NOTE:</strong></p></li>
+<li><p>The information that the openssl command prompts you for is shown in the following example. Except for the Common Name field, you can enter your own values or keep them blank.</p></li>
+<li><p>In the Common Name field, paste the registration code from the Verification certificate container of the AWS IoT console. Reference Image <a class="reference download internal" download="" href="../_downloads/003bc9db46aa878172df577b4d85fd77/openssl_csr_common_name_ref.png"><span class="xref download myst">to add registration code</span></a>.</p></li>
+</ul>
+</li>
+<li><p>To generate CA verification certificate:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">openssl</span> <span class="pre">x509</span> <span class="pre">-req</span> <span class="pre">-in</span> <span class="pre">verification_cert_csr.csr</span> <span class="pre">-CA</span> <span class="pre">CA.crt</span> <span class="pre">-CAkey</span> <span class="pre">CA.key</span> <span class="pre">-CAcreateserial</span> <span class="pre">-out</span> <span class="pre">verification_cert.pem</span> <span class="pre">-days</span> <span class="pre">500</span> <span class="pre">-sha256</span></code></p></li>
+</ul>
+</li>
+<li><p>Repeat step 3 and 4 to create an additional set of certificate to use in MQTT explorer (ex: <code class="docutils literal notranslate"><span class="pre">explorer.crt</span></code> and <code class="docutils literal notranslate"><span class="pre">explorer.key</span></code>). (Create with different name for Identification).</p></li>
 </ol>
 </section>
 </section>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Unify Matter Bridge Overview &mdash; Matter 2.3.0-1.3-beta.1 documentation</title>
+  <title>Unify Matter Bridge Overview &mdash; Matter 2.3.0-1.3 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
@@ -16,7 +16,7 @@
   
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=a9161dfc"></script>
+        <script src="../../_static/documentation_options.js?v=cdec6f82"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -39,7 +39,7 @@
               <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.0-1.3-beta.1
+                2.3.0-1.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -120,8 +120,16 @@ and two Unify protocol controllers.</p>
 <p><img alt="UnifyMatterBridgeSystem" src="../../_images/UnifyMatterSystem.png" /></p>
 <p>More Information about the Unify Framework can be found
 <a class="reference external" href="https://siliconlabs.github.io/UnifySDK/doc/UnifySDK.html">here</a></p>
-<section id="trying-out-the-unify-matter-bridge">
-<h2>Trying Out the Unify Matter Bridge<a class="headerlink" href="#trying-out-the-unify-matter-bridge" title="Link to this heading"></a></h2>
+<section id="trying-out-the-unify-matter-bridge-using-portable-runtime-environment">
+<h2>Trying Out the Unify Matter Bridge using Portable Runtime Environment.<a class="headerlink" href="#trying-out-the-unify-matter-bridge-using-portable-runtime-environment" title="Link to this heading"></a></h2>
+<p>The Unify Portable Runtime Environment strives to get the unify matter bridge running as fast as
+possible on your desktop. Prerequisites for bringing up unify matter bridge with portable runtime
+are given <a class="reference external" href="https://siliconlabs.github.io/UnifySDK/portable_runtime/readme_user_cli.html">here</a>.</p>
+<p>Detailed steps to quick start unify matter bridge using GUI can be found <a class="reference external" href="https://siliconlabs.github.io/UnifySDK/portable_runtime/readme_user_gui.html">here</a>.</p>
+<p>Detailed steps to quick start unify matter bridge using cli can be found <a class="reference external" href="https://siliconlabs.github.io/UnifySDK/portable_runtime/readme_user_cli.html#Unify-Matter-Bridge-selection">here</a>.</p>
+</section>
+<section id="trying-out-the-unify-matter-bridge-manually">
+<h2>Trying Out the Unify Matter Bridge Manually<a class="headerlink" href="#trying-out-the-unify-matter-bridge-manually" title="Link to this heading"></a></h2>
 <p>To test the Unify Matter Bridge, a Raspberry Pi 4 is recommended. Install the
 latest release of the Unify SDK following the
 <a class="reference external" href="https://siliconlabs.github.io/UnifySDK/doc/getting_started.html">Unify Host SDK Getting Started Guide</a>.
@@ -194,27 +202,31 @@ types.</p>
 <td class="text-center"><p>✅</p></td>
 <td class="text-center"><p>✅</p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>Temperature Measurement</p></td>
+<tr class="row-odd"><td class="text-left"><p>DoorLock</p></td>
+<td class="text-center"><p>✅</p></td>
+<td class="text-center"><p>✅</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Temperature Measurement</p></td>
 <td class="text-center"><p>❌</p></td>
 <td class="text-center"><p>✅</p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p>Illuminance Measurement</p></td>
+<tr class="row-odd"><td class="text-left"><p>Illuminance Measurement</p></td>
 <td class="text-center"><p>❌</p></td>
 <td class="text-center"><p>✅</p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>Pressure Measurement</p></td>
+<tr class="row-even"><td class="text-left"><p>Pressure Measurement</p></td>
 <td class="text-center"><p>❌</p></td>
 <td class="text-center"><p>✅</p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p>Flow Measurement</p></td>
+<tr class="row-odd"><td class="text-left"><p>Flow Measurement</p></td>
 <td class="text-center"><p>❌</p></td>
 <td class="text-center"><p>❌</p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p>RelativeHumidity Measurement</p></td>
+<tr class="row-even"><td class="text-left"><p>RelativeHumidity Measurement</p></td>
 <td class="text-center"><p>❌</p></td>
 <td class="text-center"><p>✅</p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p>Thermostat</p></td>
+<tr class="row-odd"><td class="text-left"><p>Thermostat</p></td>
 <td class="text-center"><p>✅</p></td>
 <td class="text-center"><p>✅</p></td>
 </tr>
@@ -228,6 +240,7 @@ types.</p>
 <li><p><a class="reference internal" href="readme_user.html#running-the-matter-bridge"><span class="std std-ref">Running the Matter Bridge</span></a></p></li>
 <li><p><a class="reference internal" href="readme_user.html#toggle-an-onoff-device"><span class="std std-ref">Controlling a Z-Wave OnOff device</span></a></p></li>
 <li><p><a class="reference internal" href="readme_user.html#toggle-a-group-of-onoff-devices"><span class="std std-ref">Toggling a group of OnOff devices</span></a></p></li>
+<li><p><a class="reference internal" href="readme_user.html#controlling-a-doorlock-device-using-the-chip-tool"><span class="std std-ref">Controlling a DoorLock device using Chip-tool</span></a></p></li>
 </ul>
 <p>For more information about the Unify SDK see
 <a class="reference external" href="https://siliconlabs.github.io/UnifySDK/doc/UnifySDK.html">Unify Host SDK Documentation</a></p>

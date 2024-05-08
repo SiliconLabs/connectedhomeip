@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amazon Web Services (AWS) &mdash; Matter 2.3.0-1.3-beta.1 documentation</title>
+  <title>Amazon Web Services (AWS) &mdash; Matter 2.3.0-1.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -16,7 +16,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=a9161dfc"></script>
+        <script src="../_static/documentation_options.js?v=cdec6f82"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.0-1.3-beta.1
+                2.3.0-1.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -120,14 +120,15 @@
 <section id="aws-ca-certitifcate-registration">
 <h2>AWS CA Certitifcate Registration<a class="headerlink" href="#aws-ca-certitifcate-registration" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
-<li><p>Create a CA certificate, a client certificate and a client key using the <a class="reference internal" href="OPENSSL_CERTIFICATE_CREATION.html"><span class="std std-doc">Openssl Certificate Creation</span></a> documentation.</p></li>
+<li><p>Create a CA certificate, a CA verification certificate, a client certificate and a client key using the  <a class="reference internal" href="OPENSSL_CERTIFICATE_CREATION.html"><span class="std std-doc">Openssl Certificate Creation</span></a> documentation.</p></li>
 <li><p>Open <a class="reference external" href="https://aws.amazon.com/">AWS</a></p></li>
 <li><p>Login using your AWS credentials</p></li>
 <li><p>Register the CA Certificate in AWS:</p>
 <ul class="simple">
-<li><p>Go to <code class="docutils literal notranslate"><span class="pre">Security</span> <span class="pre">-&gt;</span> <span class="pre">Certificate</span> <span class="pre">Authorities</span></code> and <code class="docutils literal notranslate"><span class="pre">Register</span> <span class="pre">CA</span> <span class="pre">Certificate</span></code></p></li>
-<li><p>Select <code class="docutils literal notranslate"><span class="pre">Register</span> <span class="pre">CA</span></code> in the Multi-account mode</p></li>
-<li><p>Choose the CA certificate that you previously created in the Openssl Certificate Creation (CA.crt) step in the CA certificate registration, and set the CA status to <code class="docutils literal notranslate"><span class="pre">Active</span></code> and the <code class="docutils literal notranslate"><span class="pre">Automatic</span> <span class="pre">certificate</span> <span class="pre">registration</span></code> option to <code class="docutils literal notranslate"><span class="pre">ON</span></code></p></li>
+<li><p>Go to <code class="docutils literal notranslate"><span class="pre">Security</span> <span class="pre">-&gt;</span> <span class="pre">Certificate</span> <span class="pre">Authorities</span></code> and <code class="docutils literal notranslate"><span class="pre">Register</span> <span class="pre">CA</span> <span class="pre">Certificate</span></code>.</p></li>
+<li><p>Select <code class="docutils literal notranslate"><span class="pre">Register</span> <span class="pre">CA</span></code> in the Single account mode.</p></li>
+<li><p>Choose the CA certificate (CA.crt) that you previously created above.</p></li>
+<li><p>Choose the CA verification certificate (verification_cert.pem) that you previously created above.</p></li>
 <li><p>Register the CA.</p></li>
 </ul>
 </li>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Custom Matter Device Development &mdash; Matter 2.3.0-1.3-beta.1 documentation</title>
+  <title>Custom Matter Device Development &mdash; Matter 2.3.0-1.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -16,14 +16,14 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=a9161dfc"></script>
+        <script src="../_static/documentation_options.js?v=cdec6f82"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="How to find your Raspberry Pi on the Network" href="FIND_RASPI.html" />
-    <link rel="prev" title="Matter Repositories and Commit Hashes" href="COMMIT_HASHES.html" /> 
+    <link rel="prev" title="Matter Versioning and Release Maintenance" href="VERSIONING_AND_MAINTENANCE.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.0-1.3-beta.1
+                2.3.0-1.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -62,6 +62,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="CODE_SIZE_SAVINGS.html">Code Savings Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="COMMIT_HASHES.html">Commit Hash Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VERSIONING_AND_MAINTENANCE.html">Versioning and Release Maintenance</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Custom Matter Device</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#using-matter-with-clusters">Using Matter with Clusters</a></li>
@@ -72,6 +73,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#adding-a-new-command">Adding a New Command</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#react-to-level-control-cluster-commands-in-zclcallbacks">React to Level Control Cluster Commands in ZclCallbacks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#send-a-movetolevel-command-and-read-the-currentlevel-attribute">Send a MoveToLevel Command and Read the CurrentLevel Attribute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#defining-a-custom-cluster">Defining a Custom Cluster</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="FIND_RASPI.html">Find Your Raspberry Pi</a></li>
@@ -83,6 +85,7 @@
 <li class="toctree-l2"><a class="reference internal" href="EP.html">Using Energy Profiler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GATT.html">BLE GATT Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PINTOOL.html">Hardware Pin Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SMG_TO_SLC_GUIDE.html">SMG to Matter Extension Project Migration Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev/vscode/index.html">VS Code Development</a></li>
 </ul>
 </li>
@@ -236,6 +239,10 @@ node_ID with the node ID assigned to the device upon commissioning.</p>
 </div>
 <p>For more information on running a Silicon Labs lighting example on a Thunderboard Sense 2 see
 <a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/silabs_examples/sl-newLight/efr32/README.md">sl-newlight/efr32</a>.</p>
+</section>
+<section id="defining-a-custom-cluster">
+<h2>Defining a Custom Cluster<a class="headerlink" href="#defining-a-custom-cluster" title="Link to this heading"></a></h2>
+<p>Create an XML file with custom cluster definitions, for an example see <a class="reference external" href="https://github.com/project-chip/connectedhomeip/blob/master/src/app/zap-templates/zcl/data-model/chip/sample-mei-cluster.xml">Sample MEI Cluster</a>. In ZAP click <strong>Extensions</strong> and add the XML file. The newly defined cluster can then be enabled in any endpoint under the domain for which it was defined (for example General), its Commands and Attributes can be managed like those of any other cluster.</p>
 </section>
 </section>
 

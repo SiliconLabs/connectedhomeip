@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Silicon Labs Matter New Features &mdash; Matter 2.3.0-1.3-beta.1 documentation</title>
+  <title>Silicon Labs Matter New Features &mdash; Matter 2.3.0-1.3 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
@@ -16,7 +16,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=a9161dfc"></script>
+        <script src="_static/documentation_options.js?v=cdec6f82"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -39,7 +39,7 @@
               <img src="_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.0-1.3-beta.1
+                2.3.0-1.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -53,7 +53,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="OVERVIEW.html">User's Guide Overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Matter New Features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#new-features-for-v2-3-0-1-3-beta-1">New Features for v2.3.0-1.3-beta.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-features-for-v2-3-0-1-3">New Features for v2.3.0-1.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#new-features-for-v2-3-0-1-3-alpha-2">New Features for v2.3.0-1.3-alpha.2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#new-features-for-v2-3-0-1-3-alpha-1">New Features for v2.3.0-1.3-alpha.1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#new-features-for-v2-2-0-1-2">New Features for v2.2.0-1.2</a><ul>
@@ -111,183 +111,24 @@
              
   <section class="tex2jax_ignore mathjax_ignore" id="silicon-labs-matter-new-features">
 <h1>Silicon Labs Matter New Features<a class="headerlink" href="#silicon-labs-matter-new-features" title="Link to this heading"></a></h1>
-<section id="new-features-for-v2-3-0-1-3-beta-1">
-<h2>New Features for v2.3.0-1.3-beta.1<a class="headerlink" href="#new-features-for-v2-3-0-1-3-beta-1" title="Link to this heading"></a></h2>
-<ul>
-<li><p>Matter 1.3 Beta1 solution for Thread (MG12, MG24), Wi-Fi NCP platforms (MG24/RS9116, MG24/WF200, MG24/SiWx917) and Wi-Fi SoC platform (SiWx917).</p>
+<section id="new-features-for-v2-3-0-1-3">
+<h2>New Features for v2.3.0-1.3<a class="headerlink" href="#new-features-for-v2-3-0-1-3" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>Provides incremental bug fixes to support Matter 1.3 Test Event.</p></li>
-<li><p>Provides alpha support for multi-OTA framework.</p></li>
-</ul>
-</li>
-<li><p>Works using Gecko SDK v4.4.1 and WiSeConnect SDK v3.1.3.2.</p></li>
-<li><p>Provides targeted improvements in stability &amp; sleep functionality for Wi-Fi SoC platform (SiWx917).</p>
-<ul class="simple">
-<li><p>Added partial low-power 917 stability fixes. Some stability fixes are associated with increased power consumption.</p>
+<li><p>Matter 1.3 solution for Thread (MG12, MG24), Wi-Fi NCP platforms (MG24/RS9116, MG24/WF200, MG24/SiWx917) and Wi-Fi SoC platform (SiWx917).</p>
 <ul>
-<li><p>Stability improvements have been added for both the TA and M4.</p></li>
-<li><p>TA workaround with XTAL always enabled.</p></li>
-<li><p>Tickless idle support feature has been enabled.</p></li>
+<li><p>Long Idle Time ICDs are ready for integration.</p></li>
+<li><p>Provides Multi-chip OTA functionality support (EFR32-Thread only).</p></li>
+<li><p>Adds Provisioning 2.0 Support for EFR32 and SiWx917 SoC.</p></li>
 </ul>
 </li>
-<li><p>Added configuration to override M4 sleep mode:</p>
+<li><p>Works using <a class="reference external" href="https://docs.silabs.com/gecko-platform/4.4.2/platform-overview/">Gecko SDK (GSDK) v4.4.2</a> and <a class="reference external" href="https://github.com/SiliconLabs/wiseconnect/tree/v3.1.3-matter-hotfix.4">WiSeConnect SDK v3.1.3.4</a>.</p></li>
+<li><p>Provides targeted improvements for Wi-Fi platforms.</p>
 <ul>
-<li><p>By default, M4 is active and TA will be in sleep mode. This configuration provides high stability.</p></li>
-<li><p>To enable both M4 and TA sleep modes, enable the flag <code class="docutils literal notranslate"><span class="pre">si917_m4_sleep_enabled</span> <span class="pre">=</span> <span class="pre">true</span></code>.</p></li>
+<li><p>Stability and sleep improvements for SiWx917 SoC have been added for both the TA and M4.</p></li>
+<li><p>Enables LCD and OTA support (M4 image only) for MG24+SiWx917 NCP.</p></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><p>Adds Provision 2.0 support. Provision feature currently works on EFR32 only, there is a known issue with SiWx917 SoC and workaround is to use Provision 1.0.</p>
-<ul>
-<li><p>New protocol support that can be used with different communication channels.</p></li>
-<li><p>Provisioning and re-provisioning through BLE channel.</p></li>
-<li><p>Backwards compatibility support to use v1.x provisioning protocol for older devices.</p></li>
-<li><p>Support for well-known parameters. Due to this, some parameter identifier shortcuts were changed and some single letters were reused for script configuration options.</p>
-<ul>
-<li><p>Changes</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head text-left"><p>Parameter</p></th>
-<th class="head text-center"><p>Former flag</p></th>
-<th class="head text-left"><p>New flag</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-left"><p>–pylink_lib</p></td>
-<td class="text-center"><p>-l</p></td>
-<td class="text-left"><p>-jl</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>–vendor_id</p></td>
-<td class="text-center"><p>-v</p></td>
-<td class="text-left"><p>-vi</p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p>–vendor_name</p></td>
-<td class="text-center"><p>-V</p></td>
-<td class="text-left"><p>-vn</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>–product_id</p></td>
-<td class="text-center"><p>-p</p></td>
-<td class="text-left"><p>-pi</p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p>–product_name</p></td>
-<td class="text-center"><p>-P</p></td>
-<td class="text-left"><p>-pn</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>–unique_id</p></td>
-<td class="text-center"><p>-u</p></td>
-<td class="text-left"><p>-ui</p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p>–discriminator</p></td>
-<td class="text-center"><p>-d</p></td>
-<td class="text-left"><p>-sd</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>–part_number</p></td>
-<td class="text-center"><p>-pn</p></td>
-<td class="text-left"><p>-pm</p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p>–key_id</p></td>
-<td class="text-center"><p>-ki</p></td>
-<td class="text-left"><p>-di</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>–key_pass</p></td>
-<td class="text-center"><p>-kp</p></td>
-<td class="text-left"><p>-dp</p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p>–common_name</p></td>
-<td class="text-center"><p>-cn</p></td>
-<td class="text-left"><p>-dn</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li><p>New additions</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head text-left"><p>Parameter</p></th>
-<th class="head text-center"><p>New flag</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-left"><p>–version</p></td>
-<td class="text-center"><p>-v</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>–params</p></td>
-<td class="text-center"><p>-p</p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p>–inputs</p></td>
-<td class="text-center"><p>-i</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>–output</p></td>
-<td class="text-center"><p>-o</p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p>–temp</p></td>
-<td class="text-center"><p>-t</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>–device</p></td>
-<td class="text-center"><p>-d</p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p>–channel</p></td>
-<td class="text-center"><p>-c</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>–serial_number</p></td>
-<td class="text-center"><p>-sn</p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p>–setup_payload</p></td>
-<td class="text-center"><p>-sy</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>–firmware_info</p></td>
-<td class="text-center"><p>-fi</p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p>–pkcs12</p></td>
-<td class="text-center"><p>-dx</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>–cd_cert</p></td>
-<td class="text-center"><p>-cc</p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p>–cd_key</p></td>
-<td class="text-center"><p>-ck</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>–paa_cert</p></td>
-<td class="text-center"><p>-ac</p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p>–paa-key</p></td>
-<td class="text-center"><p>-ak</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>–pai_key</p></td>
-<td class="text-center"><p>-ik</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-<li><p>Removals</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head text-left"><p>Parameter</p></th>
-<th class="head text-center"><p>Former flag</p></th>
-<th class="head text-left"><p>Reason</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-left"><p>–config</p></td>
-<td class="text-center"><p>-c</p></td>
-<td class="text-left"><p>replaced by –inputs</p></td>
-</tr>
-<tr class="row-odd"><td class="text-left"><p>–jlink</p></td>
-<td class="text-center"><p>-j</p></td>
-<td class="text-left"><p>Reprovisioning now done by BLE</p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p>–att_certs</p></td>
-<td class="text-center"><p>-xc</p></td>
-<td class="text-left"><p>replaced by –pkcs12</p></td>
-</tr>
-</tbody>
-</table>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li><p>Miscellaneous bug fixes and improvements.</p></li>
 </ul>
 </section>
 <section id="new-features-for-v2-3-0-1-3-alpha-2">

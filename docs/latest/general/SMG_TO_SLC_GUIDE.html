@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMG to Matter Extension (SLC/Simplicity Studio) Project Migration Guide &mdash; Matter 2.3.0-1.3 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=cdec6f82"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="VS Code Development" href="../dev/vscode/index.html" />
+    <link rel="prev" title="Using Simplicity Studio’s Pintool and Project Configuration with Matter" href="PINTOOL.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="CODE_SIZE_SAVINGS.html">Code Savings Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="COMMIT_HASHES.html">Commit Hash Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VERSIONING_AND_MAINTENANCE.html">Versioning and Release Maintenance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CUSTOM_MATTER_DEVICE.html">Custom Matter Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FIND_RASPI.html">Find Your Raspberry Pi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FLASHING_USING_COMMANDER.html">Flashing Using Simplicity Commander</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FLASH_SILABS_DEVICE.html">Flash an EFR32 Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FLASH_SILABS_SiWx917_SOC_DEVICE.html">Flash a 917SoC Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ZAP.html">Using ZAP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIRESHARK.html">Using Wireshark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="EP.html">Using Energy Profiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GATT.html">BLE GATT Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PINTOOL.html">Hardware Pin Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SMG to Matter Extension Project Migration Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting"><strong>Troubleshooting</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../dev/vscode/index.html">VS Code Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_3_general.html">Developer Reference</a></li>
+      <li class="breadcrumb-item active">SMG to Matter Extension (SLC/Simplicity Studio) Project Migration Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/general/SMG_TO_SLC_GUIDE.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="smg-to-matter-extension-slc-simplicity-studio-project-migration-guide">
+<h1>SMG to Matter Extension (SLC/Simplicity Studio) Project Migration Guide<a class="headerlink" href="#smg-to-matter-extension-slc-simplicity-studio-project-migration-guide" title="Link to this heading"></a></h1>
+<p>Following describes instructions on how to migrate an already created project from SMG to SLC based project in Simplicity Studio.</p>
+<p>Assuming user has installed Simplicity studio (<a class="reference external" href="https://docs.silabs.com/simplicity-studio-5-users-guide/latest/ss-5-users-guide-getting-started/">Getting started with Simplicity Studio</a>) and has an SMG project.</p>
+<ol class="arabic">
+<li><p>Install the same release of GSDK used to create the SMG project and the mapped matter extension in Simplicity studio . Following table shows what GSDK and Matter Extension to be used depending on the SMG version of the project that you are trying to migrate.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><strong>SMG version</strong></p></th>
+<th class="head text-center"><p><strong>Matter Extension Version</strong></p></th>
+<th class="head text-center"><p><strong>GSDK Version</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/tag/v1.1.0-1.1">1.1.0-1.1</a></p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/SiliconLabs/matter_extension/releases/tag/v2.0.0">v2.0.0</a></p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/SiliconLabs/gecko_sdk/tree/v4.3.0">v4.3.0</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/tag/v2.0.0-1.1">2.0.0-1.1</a></p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/SiliconLabs/matter_extension/releases/tag/v2.1.0">v2.1.0</a></p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/SiliconLabs/gecko_sdk/releases/tag/v4.3.1">v4.3.1</a></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/tag/v2.1.0-1.1">2.1.0-1.1</a></p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/SiliconLabs/matter_extension/releases/tag/v2.1.1">v2.1.1</a></p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/SiliconLabs/gecko_sdk/releases/tag/v4.3.2">v4.3.2</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><a class="reference external" href="https://github.com/SiliconLabs/matter/releases/tag/v2.2.0-1.2">2.2.0-1.2</a></p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/SiliconLabs/matter_extension/releases/tag/v2.2.0">v2.2.0</a> (Older Extension versions do not fully work with GSDK 4.4.x)</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/SiliconLabs/gecko_sdk/releases/tag/v4.4.0">v4.4.0</a></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>2.3.0-1.3</p></td>
+<td class="text-center"><p>v2.3.0-1.3 (expected June 2024)</p></td>
+<td class="text-center"><p>TBD</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>Note: New Matter 1.3 features available within SMG release v2.3.0-1.3 will not be available on the Matter Extension side until the expected corresponding Matter 1.3 June 2024 Matter Extension release.</p>
+</div></blockquote>
+<p>†Steps to add GSDK and matter extension to Simplicity Studio. Refer to <a class="reference external" href="https://docs.silabs.com/simplicity-studio-5-users-guide/latest/ss-5-users-guide-getting-started/install-sdk-extensions">Install SDK Extensions</a>.</p>
+<ol class="arabic simple">
+<li><p>Once Simplicity Studio 5 is installed you will be prompted to install the Gecko SDK Suite (GSDK). Install the Matter Extension by making sure the extension is checked. This will install the latest GSDK as well as the Matter Extension.</p></li>
+<li><p>If using an older version of a GSDK corresponding to the SMG version of your project, install by: install -&gt; Manage Installed Packages -&gt; SDKs. Click on menu option next to GSDK version and change the desired version.</p></li>
+<li><p>If you have changes in GSDK and want to use the same GSDK from SMG, complete step 1 and then install your specific GSDK by: preferences -&gt; Simplicity Studio (dropdown) -&gt; SDKs -&gt; Add SDK. Browse to the SDK location. Trust the contents of this GSDK. Download the respective matter extension for that GSDK from <a class="reference external" href="https://github.com/SiliconLabs/matter_extension/releases">matter extension release page</a>, unzip it (make sure to keep <code class="docutils literal notranslate"><span class="pre">matter_extension</span></code> as the folder name) and add the matter extension to the previously added GSDK: Preferences -&gt; Simplicity Studio (dropdown) -&gt; SDKs -&gt; (Select SDK) -&gt; Add Extension, and browse to the extension location. Trust the contents of the extension.</p></li>
+</ol>
+</li>
+<li><p>Create a sample app with the same board and same type. Select Simplicity IDE as project generator.</p>
+<ul class="simple">
+<li><p>For example, if SMG project is lighting app for thread using board BRD4161A: Select BRD4161A in the New Project Wizard and then select SoC Lighting over thread in the Example project selection page.</p></li>
+<li><p>For example, if SMG project is lock app for wifi RS9116 using board BRD4187C: Select BRD4187C in the New Project Wizard and then select NCP Lock over Wifi (with RS9116 in the description) in the Example project selection page.</p></li>
+</ul>
+</li>
+<li><p><strong>Build Flags:</strong> Simplicity Studio has components which map to the build flags option in SMG build scripts. To configure the project through the component library, click the <strong>SOFTWARE COMPONENTS</strong> tab. A number of filters, as well as a keyword search, are available to help you explore the various component categories. Users can install/uninstall components to enable and disable certain functionalities.</p>
+<p>The mapping is as follows:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p><strong>Build Flag</strong></p></th>
+<th class="head text-left"><p><strong>Simplicity Studio Component</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>chip_build_libshell</p></td>
+<td class="text-left"><p>Matter Shell</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>chip_logging</p></td>
+<td class="text-left"><p>Matter Core Components , click on gear icon(configuration) and select the required logging level</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>chip_openthread_ftd</p></td>
+<td class="text-left"><p>Stack (FTD)Configure</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>enable_heap_monitoring</p></td>
+<td class="text-left"><p>Memory Monitoring</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>enable_openthread_cli</p></td>
+<td class="text-left"><p>OpenThread CLI</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>kvs_max_entries</p></td>
+<td class="text-left"><p>Matter Core Components , click on gear icon(configuration) and modify the Maximum amount of KVS Entries value. Default 255. Threshold: 30 &lt;= kvs_max_entries &lt;= 255</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>show_qr_code</p></td>
+<td class="text-left"><p>Matter QR Code Display</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>chip_enable_icd_server</p></td>
+<td class="text-left"><p>Icd Management Server Cluster</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>use_rs9116 ,use_SiWx917 , use_wf200</p></td>
+<td class="text-left"><p>Select the appropriate series-1, series-2 or Siw917Soc boards and select respective projects in new project wizard.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>‘import(“//with_pw_rpc.gni”)’</p></td>
+<td class="text-left"><p>Will be introduced in Matter Extension v2.3.0-1.3 release</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>ota_periodic_query_timeout_sec</p></td>
+<td class="text-left"><p>OTA Requestor, click on gear icon(configuration) and modify the  OTA Requestor periodic timeout</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>rs91x_wpa3_transition</p></td>
+<td class="text-left"><p><p>Add the following statement to the project’s SLCP file:</p><p>define:</p><p>- name: WIFI_ENABLE_SECURITY_WPA3_TRANSITION</p><p>value: “1”</p><p></p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>slc_gen_path</p></td>
+<td class="text-left"><p>Already part of studio project. No need to do anything</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>sl_pre_gen_path</p></td>
+<td class="text-left"><p>Already part of studio project. No need to do anything</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>sl_matter_version</p></td>
+<td class="text-left"><p>Matter Core Components , click on gear icon(configuration) and select Device software version</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>sl_matter_version_str</p></td>
+<td class="text-left"><p>Matter Core Components , click on gear icon(configuration) and select Device software version string</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>sl_hardware_version</p></td>
+<td class="text-left"><p>Matter Core Components , click on gear icon(configuration) and select Device hardware version</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p><strong>Presets</strong></p></th>
+<th class="head text-left"><p><strong>Simplicity Studio Component</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>icd</p></td>
+<td class="text-left"><p><p>Icd Management Server Cluster</p><p></p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>low-power</p></td>
+<td class="text-left"><p><p>Lower Power Mode</p><p></p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>additional_data_advertising</p></td>
+<td class="text-left"><p>GATT Additional Advertising</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>use_ot_lib</p></td>
+<td class="text-left"><p>OpenThread Certification Libraries</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>use_chip_lwip_lib</p></td>
+<td class="text-left"><p>Matter LwIP</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>release</p></td>
+<td class="text-left"><p><br>Install Matter No Debug ,  remove Matter LCD</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>uart_log</p></td>
+<td class="text-left"><p><p>Add the following statement to the project’s SLCP file:</p><p>define:</p><p>- name: SILABS_LOG_OUT_UART</p><p>value: “1”</p><p></p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>slc_generate</p></td>
+<td class="text-left"><p>Already part of studio project. No need to do anything</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>slc_reuse_files</p></td>
+<td class="text-left"><p>Already part of studio project. No need to do anything</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>bootloader</p></td>
+<td class="text-left"><p>Already part of studio project. No need to do anything</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>Once the application is created in Studio, the user can locate all the project files in the <strong>Project Explorer</strong> menu on the left.</p></li>
+<li><p>Zap Changes:</p>
+<ol class="arabic simple">
+<li><p>If there are zap changes for the project, from project explorer menu of studio project, replace the zap file located at <code class="docutils literal notranslate"><span class="pre">config/common/&lt;app-name&gt;.zap</span></code> with the SMG project zap file.</p></li>
+<li><p>Do following to install the cluster components for enabled clusters , Click on <projectname>.slcp from project explorer menu -&gt; Configuration Tools -&gt; Open <strong>Zigbee Cluster Configurator</strong>.</p></li>
+<li><p>Select Enabled Clusters filter from Filters drop down in zap GUI.</p></li>
+<li><p>Go through list of enabled clusters and if shown warning, click on install to get the respective cluster components installed.</p></li>
+<li><p><img alt="ZAP" src="../_images/zap-troubleshooting.png" /></p></li>
+</ol>
+</li>
+<li><p>If there are code changes in the project files such as files located in <code class="docutils literal notranslate"><span class="pre">include/</span></code> and <code class="docutils literal notranslate"><span class="pre">src/</span></code>, replace the files from the SMG project to the respective <code class="docutils literal notranslate"><span class="pre">include/</span></code> and <code class="docutils literal notranslate"><span class="pre">src/</span></code> directories.</p></li>
+<li><p>The matter stack and platform source files can be found in project explorer menu under the <code class="docutils literal notranslate"><span class="pre">matter_&lt;version_number&gt;</span></code> directory. You can move over all the files changed from the SMG project to the Studio project.</p></li>
+<li><p>If you have created new source files then depending on the IDE, users will need to:</p>
+<ul class="simple">
+<li><p>For Simpliciy Studio IDE: copy them over to respective locations in the studio project.</p></li>
+<li><p>For IAR EW: Make use of the <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">File</span></code> mechanism</p></li>
+<li><p>For CMake or Makefile: Add using a custom CMake/Makefile subfile as described in their readmes or comments</p></li>
+</ul>
+</li>
+<li><p>Project should be ready to build and flash.</p></li>
+</ol>
+<section id="troubleshooting">
+<h2><strong>Troubleshooting</strong><a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>If you receive zap feature level error from studio please add the latest zap in studio by <a class="reference external" href="https://docs.silabs.com/zap-tool/1.0.0/zap-users-guide/update-zap">following these instructions</a>.</p></li>
+<li><p>Get Familiar with <a class="reference external" href="https://docs.silabs.com/simplicity-studio-5-users-guide/latest/ss-5-users-guide-developing-with-project-configurator/project-configurator">Simplicity Studio Project Configurator</a>.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

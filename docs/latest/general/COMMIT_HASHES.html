@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matter Repositories and Commit Hashes &mdash; Matter 2.3.0-1.3-beta.1 documentation</title>
+  <title>Matter Repositories and Commit Hashes &mdash; Matter 2.3.0-1.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -16,13 +16,13 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=a9161dfc"></script>
+        <script src="../_static/documentation_options.js?v=cdec6f82"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Custom Matter Device Development" href="CUSTOM_MATTER_DEVICE.html" />
+    <link rel="next" title="Matter Versioning and Release Maintenance" href="VERSIONING_AND_MAINTENANCE.html" />
     <link rel="prev" title="Code Savings Guide for Building Matter Applications" href="CODE_SIZE_SAVINGS.html" /> 
 </head>
 
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.0-1.3-beta.1
+                2.3.0-1.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -66,10 +66,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#radio-co-processor-rcp">Radio Co-Processor (RCP)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#openthread">Openthread</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#connectivity-standards-alliance-csa-connectedhomeip-matter">Connectivity Standards Alliance (CSA) connectedhomeip (Matter)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#matter-chip-tool">Matter chip-tool</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#matter-accessory-device-mad">Matter Accessory Device (MAD)</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="VERSIONING_AND_MAINTENANCE.html">Versioning and Release Maintenance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CUSTOM_MATTER_DEVICE.html">Custom Matter Device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FIND_RASPI.html">Find Your Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FLASHING_USING_COMMANDER.html">Flashing Using Simplicity Commander</a></li>
@@ -80,6 +79,7 @@
 <li class="toctree-l2"><a class="reference internal" href="EP.html">Using Energy Profiler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GATT.html">BLE GATT Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PINTOOL.html">Hardware Pin Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SMG_TO_SLC_GUIDE.html">SMG to Matter Extension Project Migration Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev/vscode/index.html">VS Code Development</a></li>
 </ul>
 </li>
@@ -127,7 +127,7 @@ in this release of the Silicon Labs Matter Out of Box Experience</p>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/SiliconLabs/ot-br-posix">https://github.com/SiliconLabs/ot-br-posix</a></p></td>
 <td><p>main</p></td>
-<td><p>42f98b27bc7f54951c860cd98ce5ff7c7fedc68c</p></td>
+<td><p>42f98b27b</p></td>
 </tr>
 </tbody>
 </table>
@@ -144,7 +144,7 @@ in this release of the Silicon Labs Matter Out of Box Experience</p>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/SiliconLabs/ot-efr32">https://github.com/SiliconLabs/ot-efr32</a></p></td>
 <td><p>main</p></td>
-<td><p>038475dcc21c51448d35309496a2f7401eb2ccfe</p></td>
+<td><p>e75c76737</p></td>
 </tr>
 </tbody>
 </table>
@@ -161,7 +161,7 @@ in this release of the Silicon Labs Matter Out of Box Experience</p>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/openthread/openthread">https://github.com/openthread/openthread</a></p></td>
 <td><p>main</p></td>
-<td><p>7074a43e4577d32d5535d52e7940ed2ea7e3a528</p></td>
+<td><p>7074a43e4</p></td>
 </tr>
 </tbody>
 </table>
@@ -178,41 +178,7 @@ in this release of the Silicon Labs Matter Out of Box Experience</p>
 <tbody>
 <tr class="row-even"><td><p><a class="reference external" href="https://github.com/project-chip/connectedhomeip">https://github.com/project-chip/connectedhomeip</a></p></td>
 <td><p>master</p></td>
-<td><p>42c44d544b059a8f0d9e3b86e9a1f6cc94cd0ea9</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="matter-chip-tool">
-<h2>Matter chip-tool<a class="headerlink" href="#matter-chip-tool" title="Link to this heading"></a></h2>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Repo</p></th>
-<th class="head"><p>Branch</p></th>
-<th class="head"><p>Commit Hash</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/SiliconLabs/matter">https://github.com/SiliconLabs/matter</a></p></td>
-<td><p>release_2.3.0-1.3-beta.1</p></td>
-<td><p>42c44d544b059a8f0d9e3b86e9a1f6cc94cd0ea9</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="matter-accessory-device-mad">
-<h2>Matter Accessory Device (MAD)<a class="headerlink" href="#matter-accessory-device-mad" title="Link to this heading"></a></h2>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Repo</p></th>
-<th class="head"><p>Branch</p></th>
-<th class="head"><p>Commit Hash</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><a class="reference external" href="https://github.com/SiliconLabs/matter">https://github.com/SiliconLabs/matter</a></p></td>
-<td><p>release_2.3.0-1.3-beta.1</p></td>
-<td><p>42c44d544b059a8f0d9e3b86e9a1f6cc94cd0ea9</p></td>
+<td><p>5bb5c9e23d</p></td>
 </tr>
 </tbody>
 </table>

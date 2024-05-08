@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Unify Matter Bridge User Guide &mdash; Matter 2.3.0-1.3-beta.1 documentation</title>
+  <title>Unify Matter Bridge User Guide &mdash; Matter 2.3.0-1.3 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
@@ -16,7 +16,7 @@
   
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=a9161dfc"></script>
+        <script src="../../_static/documentation_options.js?v=cdec6f82"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -39,7 +39,7 @@
               <img src="../../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.0-1.3-beta.1
+                2.3.0-1.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -182,8 +182,10 @@ been commissioned within this window, the application must be restarted to open
 the commissioning window again or the window can be opened by writing
 <code class="docutils literal notranslate"><span class="pre">commission</span></code> in the CLI when running the bridge. The commission command may also
 be used for multi-fabric commissioning.</p>
-<p>The Unify Matter Bridge uses the “On Network” commissioning method. For now,
-there is no Bluetooth commissioning support.</p>
+<p>The Unify Matter Bridge now supports both “On Network” commissioning method and
+bluetooth commissioning.</p>
+<section id="on-network-commissioning">
+<h3>On Network Commissioning<a class="headerlink" href="#on-network-commissioning" title="Link to this heading"></a></h3>
 <p>The commissioning procedure requires use of a pairing code. This pairing code is
 written to the console when running the Matter Bridge. Look for something
 similar to ‘<code class="docutils literal notranslate"><span class="pre">MT:-24J029Q00KA0648G00</span></code>’, used as the pairing code in the following
@@ -207,14 +209,55 @@ Be sure to use the standard flow with Eco system devices.</p>
 Raspberry Pi. Note that by default the bridge binds to the eth0 interface. If
 another interface is to be used, see the description of the command line
 arguments for setting <a class="reference internal" href="#network-interface">Network Interface</a>.</p>
-<section id="using-the-chip-tool-to-commission">
-<h3>Using the chip-tool to Commission<a class="headerlink" href="#using-the-chip-tool-to-commission" title="Link to this heading"></a></h3>
+<section id="using-the-chip-tool-for-on-network-commission">
+<h4>Using the chip-tool for On Network Commission<a class="headerlink" href="#using-the-chip-tool-for-on-network-commission" title="Link to this heading"></a></h4>
 <p>In the following procedure make sure to use the pairing code taken from the
 console output, as described above. To commission the Matter Bridge with the
 <code class="docutils literal notranslate"><span class="pre">chip-tool</span></code> and assign the bridge the Node ID 1:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chip-tool<span class="w"> </span>pairing<span class="w"> </span>code<span class="w"> </span><span class="m">1</span><span class="w"> </span>MT:-24J0AFN00KA0648G00
 </pre></div>
 </div>
+</section>
+</section>
+<section id="bluetooth-commissioning">
+<h3>Bluetooth Commissioning<a class="headerlink" href="#bluetooth-commissioning" title="Link to this heading"></a></h3>
+<p>The commissioning procedure requires the use of Wi-Fi credentials(SSID, password), PIN code,
+and discriminator. This pin code and discriminator are written to the console when running
+the Matter Bridge. Look for something similar to ‘<code class="docutils literal notranslate"><span class="pre">Setup</span> <span class="pre">Pin</span> <span class="pre">Code</span> <span class="pre">(0</span> <span class="pre">for</span> <span class="pre">UNKNOWN/ERROR)</span></code>’,
+and ‘<code class="docutils literal notranslate"><span class="pre">Setup</span> <span class="pre">Discriminator</span> <span class="pre">(0xFFFF</span> <span class="pre">for</span> <span class="pre">UNKNOWN/ERROR)</span></code>’ used as the pin code and
+discriminator in the following example. This pin code and discriminator can be used when
+commissioning with the CLI commissioning tool <code class="docutils literal notranslate"><span class="pre">chip-tool</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">1712812027</span>.852009<span class="o">][</span><span class="m">22228</span>:22228<span class="o">]</span><span class="w"> </span>CHIP:DL:<span class="w"> </span>Device<span class="w"> </span>Configuration:
+<span class="o">[</span><span class="m">1712812027</span>.852071<span class="o">][</span><span class="m">22228</span>:22228<span class="o">]</span><span class="w"> </span>CHIP:DL:<span class="w">   </span>Serial<span class="w"> </span>Number:<span class="w"> </span>TEST_SN
+<span class="o">[</span><span class="m">1712812027</span>.852134<span class="o">][</span><span class="m">22228</span>:22228<span class="o">]</span><span class="w"> </span>CHIP:DL:<span class="w">   </span>Vendor<span class="w"> </span>Id:<span class="w"> </span><span class="m">65521</span><span class="w"> </span><span class="o">(</span>0xFFF1<span class="o">)</span>
+<span class="o">[</span><span class="m">1712812027</span>.852176<span class="o">][</span><span class="m">22228</span>:22228<span class="o">]</span><span class="w"> </span>CHIP:DL:<span class="w">   </span>Product<span class="w"> </span>Id:<span class="w"> </span><span class="m">32769</span><span class="w"> </span><span class="o">(</span>0x8001<span class="o">)</span>
+<span class="o">[</span><span class="m">1712812027</span>.852208<span class="o">][</span><span class="m">22228</span>:22228<span class="o">]</span><span class="w"> </span>CHIP:DL:<span class="w">   </span>Product<span class="w"> </span>Name:<span class="w"> </span>TEST_PRODUCT
+<span class="o">[</span><span class="m">1712812027</span>.852244<span class="o">][</span><span class="m">22228</span>:22228<span class="o">]</span><span class="w"> </span>CHIP:DL:<span class="w">   </span>Hardware<span class="w"> </span>Version:<span class="w"> </span><span class="m">0</span>
+<span class="o">[</span><span class="m">1712812027</span>.852275<span class="o">][</span><span class="m">22228</span>:22228<span class="o">]</span><span class="w"> </span>CHIP:DL:<span class="w">   </span>Setup<span class="w"> </span>Pin<span class="w"> </span>Code<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>UNKNOWN/ERROR<span class="o">)</span>:<span class="w"> </span><span class="m">4000</span>
+<span class="o">[</span><span class="m">1712812027</span>.852303<span class="o">][</span><span class="m">22228</span>:22228<span class="o">]</span><span class="w"> </span>CHIP:DL:<span class="w">   </span>Setup<span class="w"> </span>Discriminator<span class="w"> </span><span class="o">(</span>0xFFFF<span class="w"> </span><span class="k">for</span><span class="w"> </span>UNKNOWN/ERROR<span class="o">)</span>:<span class="w"> </span><span class="m">4094</span><span class="w"> </span><span class="o">(</span>0xFFE<span class="o">)</span>
+</pre></div>
+</div>
+<p>Additionally, the pin code and discriminator can be set with the argument “–umb.pin 4000 –umb.discriminator 4094”
+while bringing up the unify matter bridge in stand-alone mode.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./unify-matter-bridge<span class="w"> </span>--umb.interface<span class="w"> </span>eth0<span class="w"> </span>--umb.kvs<span class="w"> </span>./matter-bridge.kvs<span class="w"> </span>--umb.pin<span class="w"> </span><span class="m">4000</span><span class="w"> </span>--umb.discriminator<span class="w"> </span><span class="m">4094</span>
+</pre></div>
+</div>
+<p>It should be noted that the Wi-Fi credentials <strong>must</strong> be of the same network as the
+matter fabric. Note that by default the bridge binds to the eth0 interface. If
+another interface is to be used, see the description of the command line
+arguments for setting <a class="reference internal" href="#network-interface">Network Interface</a>.</p>
+<section id="using-the-chip-tool-for-bluetooth-commission">
+<h4>Using the chip-tool for Bluetooth Commission<a class="headerlink" href="#using-the-chip-tool-for-bluetooth-commission" title="Link to this heading"></a></h4>
+<p>In the following procedure make sure to use the pin code and discriminator taken
+from the console output, as described above. To commission the Matter Bridge with
+the <code class="docutils literal notranslate"><span class="pre">chip-tool</span></code> and assign the bridge the Node ID 1:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./chip-tool<span class="w"> </span>pairing<span class="w"> </span>ble-wifi<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">{</span>SSID<span class="o">}</span><span class="w"> </span><span class="o">{</span>Password<span class="o">}</span><span class="w"> </span><span class="o">{</span>Pin<span class="w"> </span>code<span class="o">}</span><span class="w"> </span><span class="o">{</span>discriminator<span class="o">}</span>
+</pre></div>
+</div>
+<p>in the above example, the SSID and Password will be replaced with the Wifi SSID and password
+of the network to which matter fabric is connected. Pincode and discriminator are replaced
+with values derived from unify matter bridge logs as explained before.</p>
+</section>
 </section>
 <section id="using-google-nest-hub">
 <h3>Using Google Nest Hub<a class="headerlink" href="#using-google-nest-hub" title="Link to this heading"></a></h3>
@@ -292,8 +335,9 @@ console output, as described above. To commission the Matter Bridge with the
 </li>
 </ul>
 </section>
+</section>
 <section id="toggle-an-onoff-device">
-<h3>Toggle an OnOff device<a class="headerlink" href="#toggle-an-onoff-device" title="Link to this heading"></a></h3>
+<h2>Toggle an OnOff device<a class="headerlink" href="#toggle-an-onoff-device" title="Link to this heading"></a></h2>
 <p>To send an OnOff cluster Toggle command to a bridged endpoint with id 2, via
 Matter Fabric Node ID 1:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chip-tool<span class="w"> </span>onoff<span class="w"> </span>toggle<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span>
@@ -301,7 +345,6 @@ Matter Fabric Node ID 1:</p>
 </div>
 <p>For more information on how to use the <code class="docutils literal notranslate"><span class="pre">chip-tool</span></code> see the
 <a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/docs/guides/chip_tool_guide.md">chip-tool manual</a> on the Matter website.</p>
-</section>
 </section>
 <section id="toggle-a-group-of-onoff-devices">
 <h2>Toggle a Group of OnOff Devices<a class="headerlink" href="#toggle-a-group-of-onoff-devices" title="Link to this heading"></a></h2>
@@ -405,8 +448,43 @@ zw-CE7F3772-0008<span class="p">|</span><span class="w">         </span><span cl
 not shown in the epmap. But these endpoints support some clusters as well. For
 e.g. Identify. Where you might want to run chip-tool tests on those endpoints</p>
 <p>For further information on chip-tool tests, refer to the <a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/src/app/tests/suites/README.md">test suite’s README</a></p>
+</section>
+<section id="controlling-a-doorlock-device-using-the-chip-tool">
+<h2>Controlling a doorlock device using the chip-tool<a class="headerlink" href="#controlling-a-doorlock-device-using-the-chip-tool" title="Link to this heading"></a></h2>
+<p>To operate a DoorLock device that is mapped to a bridged endpoint with id 2
+via Matter Fabric Node ID 1 using the chip-tool, perform the following operations.</p>
+<section id="reading-an-attribute">
+<h3>Reading an Attribute<a class="headerlink" href="#reading-an-attribute" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chip-tool<span class="w"> </span>doorlock<span class="w"> </span><span class="nb">read</span><span class="w"> </span>&lt;attribute<span class="w"> </span>name&gt;<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span>
+</pre></div>
+</div>
+</section>
+<section id="executing-a-command">
+<h3>Executing a Command<a class="headerlink" href="#executing-a-command" title="Link to this heading"></a></h3>
+<p>As Doorlock commands are timed interactions, we also need to provide a timeout value.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chip-tool<span class="w"> </span>doorlock<span class="w"> </span>lock-door<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>--timedInteractionTimeoutMs<span class="w"> </span><span class="m">5000</span>
+</pre></div>
+</div>
+<p>Note: For the DoorLock cluster, Commands need responses from the device. If the response is not received by chip-tool within the determined time, it will throw a TIMEOUT error.</p>
+</section>
+<section id="reading-and-subscribing-to-an-event">
+<h3>Reading and Subscribing to an Event<a class="headerlink" href="#reading-and-subscribing-to-an-event" title="Link to this heading"></a></h3>
+<p>DoorLock support Events, which will be triggered based on the DoorState and LockOperations.</p>
+<p>To read an event:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chip-tool<span class="w"> </span>doorlock<span class="w"> </span>read-event<span class="w"> </span>lock-operation<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span>
+</pre></div>
+</div>
+<p>To subscribe to an event, first we need to start an interactive session from chip-tool
+and then use the below command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chip-tool<span class="w"> </span>doorlock<span class="w"> </span>subscribe-event<span class="w"> </span>lock-operation<span class="w"> </span>&lt;min-interval&gt;<span class="w"> </span>&lt;max-interval&gt;<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span>
+</pre></div>
+</div>
+<p>For more information on how to use the <code class="docutils literal notranslate"><span class="pre">chip-tool</span></code> see
+<a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/docs/guides/chip_tool_guide.md">chip-tool manual</a> on the Matter website.</p>
+</section>
+</section>
 <section id="troubleshooting">
-<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h3>
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Time sensitive chip-tool tests might fail because of the latencies in Unify Matter Bridge. The ’<code class="docutils literal notranslate"> <span class="pre">--delayInMs</span> <span class="pre">&lt;number</span> <span class="pre">of</span> <span class="pre">milliseconds&gt;</span></code>’ command line option to chip-tool can be helpful in such cases.</p></li>
 <li><p>The Unify Matter Bridge needs to be commissioned to the Matter fabric before running the tests. Or you will see following message on the chip-tool tests</p></li>
@@ -442,7 +520,6 @@ will be reflected in Unify Matter Bridge.</p>
 <li><p>Alternatively to disable a particular command or disable reading particular
 attributes from the test refer to PICS Usage from <a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/src/app/tests/suites/README.md">README</a></p></li>
 </ul>
-</section>
 </section>
 </section>
 

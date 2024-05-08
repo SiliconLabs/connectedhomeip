@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matter Software Update with Silicon Labs Example Applications &mdash; Matter 2.3.0-1.3-beta.1 documentation</title>
+  <title>Matter Software Update with Silicon Labs Example Applications &mdash; Matter 2.3.0-1.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -16,7 +16,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=a9161dfc"></script>
+        <script src="../_static/documentation_options.js?v=cdec6f82"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.0-1.3-beta.1
+                2.3.0-1.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -67,6 +67,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#setting-up-ota-environment">Setting up OTA Environment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#matter-ota-application-images">Matter OTA Application Images</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-the-ota-download-scenario">Running the OTA Download Scenario</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multi-chip-ota-images">Multi-Chip OTA Images</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#additional-info">Additional Info</a></li>
 </ul>
 </li>
@@ -405,6 +406,19 @@ For Matter over OpenThread:</p>
 <li><p>The application device will connect to the Provider and start the image download. Once the image is downloaded the device will reboot into the downloaded image.</p></li>
 </ul>
 </section>
+</section>
+<section id="multi-chip-ota-images">
+<h2>Multi-Chip OTA Images<a class="headerlink" href="#multi-chip-ota-images" title="Link to this heading"></a></h2>
+<p>Multi-Chip OTA is implemented only for EFR32 devices. Multi-chip OTA uses an enhanced ota_image_tool.py script which creates .ota files that contain additional TLV headers. These TLV headers describe the binaries to be sent over the air. The enhanced script is located at scripts/tool/silabs/ota/ota_image_tool.py which is a wrapper to the original src/app/ota_image_tool.py. Multiple binaries can be packaged in the .ota file. Some Tags are reserved for specific Silicon Labs binaries, and other Tags are available to be used for arbitrary TLVs. The payloads can be encrypted.</p>
+<p>For more information on creating a Multi-Chip .ota file see the
+<a class="reference external" href="https://github.com/SiliconLabs/matter/blob/latest/scripts/tools/silabs/ota/README.md">README.md</a></p>
+<p>OTA-A applications must be built with an additional gn argument to enable them to process the TLVs.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>```shell
+$ ./scripts/examples/gn_silabs_example.sh examples/lighting-app/silabs/ out/lighting-app BRD41xx chip_enable_multi_ota_requestor=true
+```
+</pre></div>
+</div>
+<p>chip_enable_multi_ota_encryption=true should be added to the build command if the requestor is meant to process encrypted payloads.</p>
 </section>
 <section id="additional-info">
 <h2>Additional Info<a class="headerlink" href="#additional-info" title="Link to this heading"></a></h2>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZCL Advanced Platform (ZAP) Tool for Matter &mdash; Matter 2.3.0-1.3-beta.1 documentation</title>
+  <title>ZCL Advanced Platform (ZAP) Tool for Matter &mdash; Matter 2.3.0-1.3 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
@@ -16,7 +16,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=a9161dfc"></script>
+        <script src="../_static/documentation_options.js?v=cdec6f82"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -39,7 +39,7 @@
               <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.3.0-1.3-beta.1
+                2.3.0-1.3
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -62,6 +62,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="CODE_SIZE_SAVINGS.html">Code Savings Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="COMMIT_HASHES.html">Commit Hash Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VERSIONING_AND_MAINTENANCE.html">Versioning and Release Maintenance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="CUSTOM_MATTER_DEVICE.html">Custom Matter Device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FIND_RASPI.html">Find Your Raspberry Pi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FLASHING_USING_COMMANDER.html">Flashing Using Simplicity Commander</a></li>
@@ -74,12 +75,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#attributes">Attributes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#commands">Commands</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#generation-of-code">Generation of Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#new-tutorial-button">New Tutorial Button</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiple-zcl-device-types-per-endpoint">Multiple ZCL Device Types per Endpoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#defining-a-custom-cluster">Defining a Custom Cluster</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="WIRESHARK.html">Using Wireshark</a></li>
 <li class="toctree-l2"><a class="reference internal" href="EP.html">Using Energy Profiler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="GATT.html">BLE GATT Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="PINTOOL.html">Hardware Pin Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SMG_TO_SLC_GUIDE.html">SMG to Matter Extension Project Migration Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev/vscode/index.html">VS Code Development</a></li>
 </ul>
 </li>
@@ -253,8 +258,30 @@ store these differently.</p>
 <section id="generation-of-code">
 <h2>Generation of Code<a class="headerlink" href="#generation-of-code" title="Link to this heading"></a></h2>
 <p>Once you have chosen the cluster options, save the current ZAP configuration using the application menu in the upper left corner.</p>
-<p>Before v1.1.0-1.1 you needed to click the Generate button to generate code. Now, code is generated automatically in the save function. You will be prompted to choose a save location for the generated ZAP code. In the Silicon Labs Matter repository, the lock-app generated files belong in
-matter/zzz_generated/lock-app/zap-generated.</p>
+<p>Before v1.1.0-1.1, you needed to click the <strong>Generate</strong> button for the code to be generated. Now, the code is generated automatically in the save function. You will be prompted to choose a save location for the generated ZAP code. In the Silicon Labs Matter repository, the lock-app generated files belong in matter/zzz_generated/lock-app/zap-generated.</p>
+</section>
+<section id="new-tutorial-button">
+<h2>New Tutorial Button<a class="headerlink" href="#new-tutorial-button" title="Link to this heading"></a></h2>
+<p>This new feature helps you understand all the steps needed to create a new endpoint.</p>
+<p>Click the <strong>Tutorial</strong> button at the top-right side, between the <strong>Preview</strong> and the <strong>Settings</strong> buttons.</p>
+<p>A pop-up displays with instructions for next steps.</p>
+<p><img alt="Tutorial start page" src="../_images/tutorial1.png" /></p>
+<p>These steps guide you on the components of this tool, the effects of each component, and the points you need to consider carefully when creating a new endpoint.</p>
+<p><img alt="Tutorial end page" src="../_images/tutorial2.png" /></p>
+<p>At the final step, a notification asks if you want to keep the endpoint you just created. Select what you want to finish the tutorial.</p>
+</section>
+<section id="multiple-zcl-device-types-per-endpoint">
+<h2>Multiple ZCL Device Types per Endpoint<a class="headerlink" href="#multiple-zcl-device-types-per-endpoint" title="Link to this heading"></a></h2>
+<p>This is a new Matter-only feature where you can select more than one ZCL device type per endpoint. The addition of multiple device types will add the cluster configurations within the device types to the endpoint configuration.</p>
+<p>You can select multiple ZCL device types per endpoint, but there is only one <strong>Primary Device</strong> as in the below image.</p>
+<p><img alt="Edit endpoint" src="../_images/edit-endpoint.png" /></p>
+<p>The image above shows that endpoint 2 has more than one device type selected. The <strong>Primary Device</strong> denotes the primary device type that the endpoint will be associated with. The primary device type is always present at index 0 of the list of device types selected so selecting a different primary device type will change the ordering of the device types selected. The device type selections also have constraints based on the Data Model specification. ZAP protects you from choosing invalid combinations of device types on an endpoint using these constraints.</p>
+<p><img alt="Multiple endpoints" src="../_images/multiple-endpoints.png" /></p>
+<p>The image above is what the multiple device type endpoints looks like after configured. On the left-hand side, it shows the list of all clusters sequentially in order, and on the other side are clusters that are ready to be configured.</p>
+</section>
+<section id="defining-a-custom-cluster">
+<h2>Defining a Custom Cluster<a class="headerlink" href="#defining-a-custom-cluster" title="Link to this heading"></a></h2>
+<p>Create an XML file with custom cluster definitions, for an example see <a class="reference external" href="https://github.com/project-chip/connectedhomeip/blob/master/src/app/zap-templates/zcl/data-model/chip/sample-mei-cluster.xml">Sample MEI Cluster</a>. In ZAP click <strong>Extensions</strong> and add the XML file. The newly defined cluster can then be enabled in any endpoint under the domain for which it was defined (for example General), its Commands and Attributes can be managed like those of any other cluster.</p>
 </section>
 </section>
 

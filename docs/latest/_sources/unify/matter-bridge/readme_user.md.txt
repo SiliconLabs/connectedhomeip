@@ -93,8 +93,10 @@ the commissioning window again or the window can be opened by writing
 `commission` in the CLI when running the bridge. The commission command may also
 be used for multi-fabric commissioning.
 
-The Unify Matter Bridge uses the "On Network" commissioning method. For now,
-there is no Bluetooth commissioning support.
+The Unify Matter Bridge now supports both "On Network" commissioning method and
+bluetooth commissioning.
+
+### On Network Commissioning
 
 The commissioning procedure requires use of a pairing code. This pairing code is
 written to the console when running the Matter Bridge. Look for something
@@ -124,7 +126,7 @@ Raspberry Pi. Note that by default the bridge binds to the eth0 interface. If
 another interface is to be used, see the description of the command line
 arguments for setting [Network Interface](#network-interface).
 
-### Using the chip-tool to Commission
+#### Using the chip-tool for On Network Commission
 
 In the following procedure make sure to use the pairing code taken from the
 console output, as described above. To commission the Matter Bridge with the
@@ -134,6 +136,50 @@ console output, as described above. To commission the Matter Bridge with the
 chip-tool pairing code 1 MT:-24J0AFN00KA0648G00
 ```
 
+### Bluetooth Commissioning
+
+The commissioning procedure requires the use of Wi-Fi credentials(SSID, password), PIN code,
+and discriminator. This pin code and discriminator are written to the console when running
+the Matter Bridge. Look for something similar to '`Setup Pin Code (0 for UNKNOWN/ERROR)`',
+and '`Setup Discriminator (0xFFFF for UNKNOWN/ERROR)`' used as the pin code and
+discriminator in the following example. This pin code and discriminator can be used when
+commissioning with the CLI commissioning tool `chip-tool`.
+```bash
+[1712812027.852009][22228:22228] CHIP:DL: Device Configuration:
+[1712812027.852071][22228:22228] CHIP:DL:   Serial Number: TEST_SN
+[1712812027.852134][22228:22228] CHIP:DL:   Vendor Id: 65521 (0xFFF1)
+[1712812027.852176][22228:22228] CHIP:DL:   Product Id: 32769 (0x8001)
+[1712812027.852208][22228:22228] CHIP:DL:   Product Name: TEST_PRODUCT
+[1712812027.852244][22228:22228] CHIP:DL:   Hardware Version: 0
+[1712812027.852275][22228:22228] CHIP:DL:   Setup Pin Code (0 for UNKNOWN/ERROR): 4000
+[1712812027.852303][22228:22228] CHIP:DL:   Setup Discriminator (0xFFFF for UNKNOWN/ERROR): 4094 (0xFFE)
+```
+
+Additionally, the pin code and discriminator can be set with the argument "--umb.pin 4000 --umb.discriminator 4094" 
+while bringing up the unify matter bridge in stand-alone mode.
+
+```bash
+./unify-matter-bridge --umb.interface eth0 --umb.kvs ./matter-bridge.kvs --umb.pin 4000 --umb.discriminator 4094
+```
+
+It should be noted that the Wi-Fi credentials **must** be of the same network as the
+matter fabric. Note that by default the bridge binds to the eth0 interface. If
+another interface is to be used, see the description of the command line
+arguments for setting [Network Interface](#network-interface).
+
+#### Using the chip-tool for Bluetooth Commission
+
+In the following procedure make sure to use the pin code and discriminator taken
+from the console output, as described above. To commission the Matter Bridge with
+the `chip-tool` and assign the bridge the Node ID 1:
+
+```bash
+./chip-tool pairing ble-wifi 1 {SSID} {Password} {Pin code} {discriminator}
+```
+
+in the above example, the SSID and Password will be replaced with the Wifi SSID and password
+of the network to which matter fabric is connected. Pincode and discriminator are replaced
+with values derived from unify matter bridge logs as explained before.
 
 ### Using Google Nest Hub
 
@@ -176,7 +222,7 @@ Setup:
   - All supported Unify devices should now be available for control in both Google Home application as well as the Google Nest Hub
     - On the Nest Hub, swipe down from the top of the display or select "Home Control" to access the devices
 
-### Toggle an OnOff device
+## Toggle an OnOff device
 
 To send an OnOff cluster Toggle command to a bridged endpoint with id 2, via
 Matter Fabric Node ID 1:
@@ -308,7 +354,48 @@ e.g. Identify. Where you might want to run chip-tool tests on those endpoints
 
 For further information on chip-tool tests, refer to the [test suite's README](https://github.com/SiliconLabs/matter/blob/latest/src/app/tests/suites/README.md)
 
-### Troubleshooting
+## Controlling a doorlock device using the chip-tool
+
+To operate a DoorLock device that is mapped to a bridged endpoint with id 2
+via Matter Fabric Node ID 1 using the chip-tool, perform the following operations.
+
+### Reading an Attribute
+
+```bash
+chip-tool doorlock read <attribute name> 1 2
+```
+
+### Executing a Command
+
+As Doorlock commands are timed interactions, we also need to provide a timeout value.
+
+```bash
+chip-tool doorlock lock-door 1 2 --timedInteractionTimeoutMs 5000
+```
+
+Note: For the DoorLock cluster, Commands need responses from the device. If the response is not received by chip-tool within the determined time, it will throw a TIMEOUT error.
+
+### Reading and Subscribing to an Event
+
+DoorLock support Events, which will be triggered based on the DoorState and LockOperations.
+
+To read an event:
+
+```bash
+chip-tool doorlock read-event lock-operation 1 2 
+```
+
+To subscribe to an event, first we need to start an interactive session from chip-tool
+and then use the below command.
+
+```bash
+chip-tool doorlock subscribe-event lock-operation <min-interval> <max-interval> 1 2
+```
+
+For more information on how to use the `chip-tool` see
+[chip-tool manual](https://github.com/SiliconLabs/matter/blob/latest/docs/guides/chip_tool_guide.md) on the Matter website.
+
+## Troubleshooting
 
 - Time sensitive chip-tool tests might fail because of the latencies in Unify Matter Bridge. The '` --delayInMs <number of milliseconds>`' command line option to chip-tool can be helpful in such cases.
 
