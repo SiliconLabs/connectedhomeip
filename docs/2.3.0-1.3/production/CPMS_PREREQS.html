@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matter Device Development Prerequisites &mdash; Matter 2.3.0-1.3 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=cdec6f82"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using Custom Part Manufacturing Services (CPMS)" href="USING_CPMS.html" />
+    <link rel="prev" title="Matter Production Guide" href="../nav_7_prod_guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Device Development Prerequisites</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#become-a-csa-member">Become a CSA Member</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#develop-your-matter-application">Develop Your Matter Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csa-certification">CSA Certification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#standards-development-organizations-sdo-membership">Standards Development Organizations (SDO) Membership</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ready-for-production">Ready for Production</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="USING_CPMS.html">Using Custom Part Manufacturing Services (CPMS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CPMS_ATTESTATION.html">Matter Device Attestation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="KUDELSKI.html">Matter, CPMS, and Kudelski</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DCL.html">Matter Distributed Compliance Ledger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CERTIFICATION.html">Matter Certification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+      <li class="breadcrumb-item active">Matter Device Development Prerequisites</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/production/CPMS_PREREQS.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="matter-device-development-prerequisites">
+<h1>Matter Device Development Prerequisites<a class="headerlink" href="#matter-device-development-prerequisites" title="Link to this heading"></a></h1>
+<p>If you plan to develop a Matter end product, this page lists the prerequisites and next steps to facilitate your production journey through Matter.</p>
+<section id="become-a-csa-member">
+<h2>Become a CSA Member<a class="headerlink" href="#become-a-csa-member" title="Link to this heading"></a></h2>
+<p>Your organization must be an associate member or better to get your product certified by a CSA-approved testing facility. As a member, your organization will receive membership perks:</p>
+<ul class="simple">
+<li><p>Official resources to assist you in developing Matter products.</p></li>
+<li><p>Authorization to contribute to the <a class="reference external" href="https://github.com/project-chip/connectedhomeip">Matter Github repository</a>.</p></li>
+<li><p>Once approved, CSA will reserve a unique Vendor ID (VID) chosen by your organization. This VID will be needed to provision your device.</p>
+<ul>
+<li><p>Your unique VID will be added to the <a class="reference external" href="https://webui.dcl.csa-iot.org/">CSA Distributed Compliance Ledger</a> (DCL).</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://csa-iot.org/certification/tools/certification-tool/">Matter Certification tool access</a></p>
+<ul>
+<li><p>Allows you to evaluate your product for certification before the official certification process.</p></li>
+</ul>
+</li>
+</ul>
+<p>Become a member at <a class="reference external" href="https://csa-iot.org/become-member/">CSA Membership</a>. You can see a list of the different memberships offered at CSA.</p>
+</section>
+<section id="develop-your-matter-application">
+<h2>Develop Your Matter Application<a class="headerlink" href="#develop-your-matter-application" title="Link to this heading"></a></h2>
+<p>Creating a Matter Application is an exciting journey. To start your journey, you need to understand the <a class="reference internal" href="../general/FUNDAMENTALS_INTRO.html"><span class="std std-doc">Matter Fundamentals - Silabs</span></a>. We also provide two development paths that you can choose from (OpenThread/WiFi)</p>
+<p>Once you are ready to develop your Matter Application, you should review the <a class="reference internal" href="../nav_5_wifi.html"><span class="std std-doc">Matter over WiFi</span></a> or <a class="reference internal" href="../nav_4_thread.html"><span class="std std-doc">Matter over WiFi</span></a>, which provides detailed background and instructions for Matter developers working in either the Thread or Wi-Fi models. The Developer’s Guide contains a deeper dive into development.</p>
+<p>Additionally, Silicon Labs recommends that you become familiar with the Matter Specification documents:</p>
+<ul class="simple">
+<li><p>Matter Core Specification</p></li>
+<li><p>Matter Device Library Specification</p></li>
+<li><p>Matter Application Cluster Specification</p></li>
+</ul>
+<p>These specifications can be downloaded from the <a class="reference external" href="https://csa-iot.org/developer-resource/specifications-download-request/">CSA’s Specifications Download Request</a> website.</p>
+</section>
+<section id="csa-certification">
+<h2>CSA Certification<a class="headerlink" href="#csa-certification" title="Link to this heading"></a></h2>
+<p>Once a device/product is ready for production, you must have your product certified by a CSA-approved testing facility to certify compliance with the Matter Standard. Review the <a class="reference external" href="https://csa-iot.org/certification/why-certify/">CSA Certification Process</a> to ensure a smooth and prompt Matter product certification.</p>
+<p>By becoming a member of the CSA, access to their <a class="reference external" href="https://csa-iot.org/certification/tools/certification-tool/">Matter Certification Tool</a> is granted. The Matter Certification Tool facilitates applying to certify your Matter product, after which you can create your application and upload your images and required documents. For additional resources on the certification process, refer to the <a class="reference external" href="https://community.silabs.com/s/article/Certifying-your-Matter-Product-an-Overview?language=en_US">Certifying your Matter Product, an Overview</a> KBA. This KBA provides information on:</p>
+<ul class="simple">
+<li><p>Overview of Matter Certification Steps and milestones</p></li>
+<li><p>Thread Certification</p></li>
+<li><p>Matter Test Harness Guide</p></li>
+<li><p>Important Matter CSA Resources and a Q&amp;A</p></li>
+</ul>
+<p>Once your device is approved, your organization will be issued an official Certification Declaration (CD). This CD is a cryptographic document issued by CSA that confirms that your device has been certified. The CD is included in the attestation process sent by the Commissionee during device attestation. To view a list of authorized test facilities, check out the <a class="reference external" href="https://csa-iot.org/certification/testing-providers/">CSA Authorized Testing Providers</a> summary. This CD is required to be injected during the manufacturing process if you are using the Silicon Labs CPMS process.  This certification process can take some time to complete. You should ensure that this time is accounted for during your development lifecycle to keep your product on schedule.</p>
+<section id="helpful-csa-links">
+<h3>Helpful CSA Links<a class="headerlink" href="#helpful-csa-links" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://csa-iot.org/become-member/">CSA Membership</a></p></li>
+<li><p><a class="reference external" href="https://csa-iot.org/developer-resource/specifications-download-request/">CSA Specifications Download Request page</a></p></li>
+<li><p><a class="reference external" href="https://csa-iot.org/certification/tools/certification-tool/">CSA Pre-Certification Tool</a></p></li>
+<li><p><a class="reference external" href="https://csa-iot.org/certification/testing-providers/">CSA Authorized Testing Providers</a></p></li>
+<li><p><a class="reference external" href="https://webui.dcl.csa-iot.org/">CSA Distributed Compliance Ledger (DCL)</a></p></li>
+<li><p><a class="reference external" href="https://testnet.iotledger.io/">CSA Test Distributed Compliance Ledger (DCL)</a></p></li>
+<li><p><a class="reference external" href="https://csa-iot.org/certification/paa/">PAA Providers</a></p></li>
+</ul>
+</section>
+</section>
+<section id="standards-development-organizations-sdo-membership">
+<h2>Standards Development Organizations (SDO) Membership<a class="headerlink" href="#standards-development-organizations-sdo-membership" title="Link to this heading"></a></h2>
+<p>Matter is an application layer that works on top of other proven network technologies. Your organization may also be required to be a member of an SDO and be able to pass the certification processes that these organizations require. Examples of these SDOs are Bluetooth, WiFi, Thread, and others. Be sure to take these organizational requirements into account when planning your products. Refer to the <a class="reference external" href="https://community.silabs.com/s/article/Certifying-your-Matter-Product-an-Overview?language=en_US">Certifying your Matter Product, an Overview</a> KBA.</p>
+</section>
+<section id="ready-for-production">
+<h2>Ready for Production<a class="headerlink" href="#ready-for-production" title="Link to this heading"></a></h2>
+<p>Silicon Labs is the only IoT embedded solution provider offering a Custom Part Manufacturing Service (CPMS) to device makers. This secure provisioning service allows IoT device makers to order customized hardware straight from the factory via the <a class="reference external" href="https://cpms.silabs.com/login">CPMS web portal</a>. CPMS removes the numerous complexities, time, and expense of custom provisioning Matter devices at scale. To provide this solution, Silicon Labs has partnered with Kudelski Security to provide scalable access to Device Attestation Certificates (DACs) for Matter Devices.</p>
+<p>When moving to production, if you decide to provision your devices at scale using CPMS and would like to learn more about Kudelski, refer to their <a class="reference external" href="https://www.kudelski-iot.com/services-and-systems/matter-paa-pai">Matter-compliant certificate service</a>. To use the Silicon Labs CPMS solution, contact <a class="reference external" href="https://www.kudelski-iot.com/services-and-systems/matter-paa-pai">Kudelski</a> to create an account. When creating a Kudelski account and using CPMS for production, you will need to specify Silicon Labs as a requestor and recipient of DACs for any PAIs that will be programmed in the Silicon Labs manufacturing facilities.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

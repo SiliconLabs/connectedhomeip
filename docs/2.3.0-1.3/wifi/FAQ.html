@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frequently Asked Questions and Troubleshooting for Matter over Wi-Fi &mdash; Matter 2.3.0-1.3 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=cdec6f82"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Frequently Asked Questions for Matter over Thread" href="../thread/FAQ.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_6_faq.html">FAQ</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../thread/FAQ.html">Thread FAQ</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Wi-Fi FAQ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_6_faq.html">FAQ</a></li>
+      <li class="breadcrumb-item active">Frequently Asked Questions and Troubleshooting for Matter over Wi-Fi</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/wifi/FAQ.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="frequently-asked-questions-and-troubleshooting-for-matter-over-wi-fi">
+<h1>Frequently Asked Questions and Troubleshooting for Matter over Wi-Fi<a class="headerlink" href="#frequently-asked-questions-and-troubleshooting-for-matter-over-wi-fi" title="Link to this heading"></a></h1>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="bluetooth-connection-fails-when-trying-to-commission-the-system-through-the-chip-tool">
+<h3>1. Bluetooth connection fails when trying to commission the system through the chip-tool:<a class="headerlink" href="#bluetooth-connection-fails-when-trying-to-commission-the-system-through-the-chip-tool" title="Link to this heading"></a></h3>
+<p><strong>Command leading to error:</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">out/standalone/chip-tool</span> <span class="pre">pairing</span> <span class="pre">ble-wifi</span> <span class="pre">1122</span> <span class="pre">mySSID</span> <span class="pre">myPassword</span> <span class="pre">20202021</span> <span class="pre">3840</span></code></p>
+<p>Where <code class="docutils literal notranslate"><span class="pre">mySSID</span></code> is <strong>your AP’s SSID</strong> and <code class="docutils literal notranslate"><span class="pre">mypassword</span></code> is <strong>your AP’s password</strong>.</p>
+<p><strong>Error example:</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">1659464425</span>.856025<span class="o">][</span><span class="m">34818</span>:34823<span class="o">]</span><span class="w"> </span>CHIP:DL:<span class="w"> </span>HandlePlatformSpecificBLEEvent<span class="w"> </span><span class="m">16386</span>
+<span class="o">[</span><span class="m">1659464425</span>.856035<span class="o">][</span><span class="m">34818</span>:34823<span class="o">]</span><span class="w"> </span>CHIP:IN:<span class="w"> </span>Clearing<span class="w"> </span>BLE<span class="w"> </span>pending<span class="w"> </span>packets.
+<span class="o">[</span><span class="m">1659464425</span>.856055<span class="o">][</span><span class="m">34818</span>:34823<span class="o">]</span><span class="w"> </span>CHIP:IN:<span class="w"> </span>BleConnection<span class="w"> </span>Error:<span class="w"> </span>../../examples/chip-tool/third_party/connectedhomeip/src/platform/Linux/bluez/Helper.cpp:1775:<span class="w"> </span>CHIP<span class="w"> </span>Error<span class="w"> </span>0x000000AC:<span class="w"> </span>Internal<span class="w"> </span>error
+</pre></div>
+</div>
+<blockquote>
+<div><p>This error indicates that the Bluetooth connection between your system and
+laptop is failing. Follow the given procedure and then retry the chip-tool
+commissioning command.</p>
+</div></blockquote>
+<p><strong>Procedure:</strong></p>
+<ol class="arabic">
+<li><p>Stop Bluetooth service:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>bluetooth.service
+</pre></div>
+</div>
+</li>
+<li><p>Wait 20 seconds</p></li>
+<li><p>Restart Bluetooth service:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>service<span class="w"> </span>bluetooth<span class="w"> </span>restart
+</pre></div>
+</div>
+</li>
+<li><p>Unblock Bluetooth service:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>rfkill<span class="w"> </span>unblock<span class="w"> </span>all
+</pre></div>
+</div>
+</li>
+<li><p>Enable Bluetooth service:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>bluetooth
+</pre></div>
+</div>
+</li>
+<li><p>Issue the pairing command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>out/standalone/chip-tool<span class="w"> </span>pairing<span class="w"> </span>ble-wifi<span class="w"> </span><span class="m">1122</span><span class="w"> </span>mySSID<span class="w"> </span>mypassword<span class="w"> </span><span class="m">20202021</span><span class="w"> </span><span class="m">3840</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Where <code class="docutils literal notranslate"><span class="pre">mySSID</span></code> is <strong>your AP’s SSID</strong> and <code class="docutils literal notranslate"><span class="pre">mypassword</span></code> is <strong>your AP’s
+password</strong>.</p>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="unsupported-certificate-format-error">
+<h3>2. Unsupported certificate format Error:<a class="headerlink" href="#unsupported-certificate-format-error" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>When trying to commission the system, if an <code class="docutils literal notranslate"><span class="pre">Unsupported</span> <span class="pre">certificate</span> <span class="pre">format</span></code>
+error (example below) is encountered, follow the procedure stated below.</p>
+</div></blockquote>
+<p><strong>Error example:</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">1659631352</span>.672826<span class="o">][</span><span class="m">5076</span>:5076<span class="o">]</span><span class="w"> </span>CHIP:TOO:<span class="w"> </span>Run<span class="w"> </span><span class="nb">command</span><span class="w"> </span>failure:<span class="w"> </span>../../examples/chip-tool/third_party/connectedhomeip/src/controller/CHIPDeviceController.cpp:1275:<span class="w"> </span>CHIP<span class="w"> </span>Error<span class="w"> </span>0x00000050:<span class="w"> </span>Unsupported<span class="w"> </span>certificate<span class="w"> </span>format
+</pre></div>
+</div>
+<p><strong>Procedure:</strong></p>
+<ul>
+<li><p>Delete the existing certificates on your laptop with the following command
+run from the <code class="docutils literal notranslate"><span class="pre">/connectedhomeip</span></code> directory:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>/bin/rm<span class="w"> </span>/tmp/chip_*
+</pre></div>
+</div>
+</li>
+<li><p>Issue the commissioning command</p></li>
+</ul>
+</section>
+<section id="wlan-connection-fails-from-rs9116-during-commissioning-when-channel-13-is-selected-on-the-ap">
+<h3>3. WLAN connection fails from RS9116 during commissioning when channel 13 is selected on the AP:<a class="headerlink" href="#wlan-connection-fails-from-rs9116-during-commissioning-when-channel-13-is-selected-on-the-ap" title="Link to this heading"></a></h3>
+<p>The required channel becomes available for connection when the WLAN connection region is configured during compilation to one that supports the channel, such as for Japan for channel 13.</p>
+<p>In order to use the desired channel, before building, make sure the WLAN connection region is configured correctly by reviewing/modifying the following lines in
+<strong>/examples/platform/silabs/efr32/rs911x/rsi_wlan_config.h</strong>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//Make sure this is set to RSI_ENABLE</span>
+<span class="cp">#define RSI_SET_REGION_SUPPORT RSI_ENABLE</span>
+
+<span class="c1">// Note that the channels available for WLAN connection depend on the region selected</span>
+<span class="c1">// Make sure this is set to 1 to configure from RSI_REGION_CODE value below</span>
+<span class="c1">// 0: region configurations taken from beacon</span>
+<span class="c1">// 1: region configurations taken from user</span>
+<span class="cp">#define RSI_SET_REGION_FROM_USER_OR_BEACON 1</span>
+
+<span class="c1">// 0 : Default Region domain</span>
+<span class="c1">// 1 : US</span>
+<span class="c1">// 2 : EUROPE</span>
+<span class="c1">// 3 : JAPAN</span>
+<span class="cp">#define RSI_REGION_CODE 3</span>
+</pre></div>
+</div>
+</section>
+<section id="incorrect-firmware-version">
+<h3>4 . Incorrect firmware version<a class="headerlink" href="#incorrect-firmware-version" title="Link to this heading"></a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>./third_party/silabs/wiseconnect-wifi-bt-sdk/firmware
+</pre></div>
+</div>
+<p>You will get appropriate firmware in the above mentioned path.</p>
+<p>Note:</p>
+<ol class="arabic">
+<li><p>How to check the current using firmware version?</p>
+<blockquote>
+<div><p>You can find the currently using firmware version in the DUT log.</p>
+</div></blockquote>
+</li>
+<li><p>How to check whether you are using correct firmware version or not?</p>
+<blockquote>
+<div><p>Compare last 5 digits of firmware version mention in the above path with
+the currently using firmware version.</p>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="apple-homepod-associated-failures">
+<h3>5 . Apple Homepod associated failures<a class="headerlink" href="#apple-homepod-associated-failures" title="Link to this heading"></a></h3>
+<p>If there is an Apple Homepod on the network paired with a Thread device, and a commissioning failure is seen with error <code class="docutils literal notranslate"><span class="pre">3000001</span></code>:</p>
+<blockquote>
+<div><p>Either remove the Apple Homepod from the network, or unpair it from all Thread devices, before re-trying the commissioning.</p>
+</div></blockquote>
+</section>
+<section id="commissioning-failure-at-step-18">
+<h3>6 . Commissioning failure at step 18<a class="headerlink" href="#commissioning-failure-at-step-18" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Verify router configuration specifically related to IPV6 SLAAC, Internet Group Management Protocol (IGMP) snooping.</p></li>
+<li><p>Delete all the files of chip-tool /tmp folder. (<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-rf</span> <span class="pre">/tmp/chip_*</span></code>)</p></li>
+<li><p>After checking the router configuration, factory-reset your access point.</p></li>
+</ol>
+</section>
+<section id="commissioning-failure-at-step-16">
+<h3>7. Commissioning failure at step 16<a class="headerlink" href="#commissioning-failure-at-step-16" title="Link to this heading"></a></h3>
+<p>Verify the access point settings, SSID, PSK, secirity type, REGION, CHANNEL.</p>
+</section>
+<section id="inconsistent-logs">
+<h3>8 . Inconsistent logs<a class="headerlink" href="#inconsistent-logs" title="Link to this heading"></a></h3>
+<p>Verify external power is supplied to rs911x</p>
+</section>
+<section id="to-enable-different-security-options-on-ap-router">
+<h3>9 . To enable different security options on AP/Router<a class="headerlink" href="#to-enable-different-security-options-on-ap-router" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Get the router address by entering <code class="docutils literal notranslate"><span class="pre">route</span> <span class="pre">-n</span></code> or ifconfig of ipconfig.</p></li>
+<li><p>Enter the router address in the browser and enter the appropriate username and password.</p></li>
+<li><p>Select the appropriate band.</p></li>
+<li><p>In security, select type (WPA / WPA2 / WPA3).</p></li>
+</ol>
+</section>
+<section id="chip-logs-are-not-available-on-mg12-wf200-due-to-image-size-constraints">
+<h3>10. CHIP Logs are not available on MG12 + WF200 due to image size constraints:<a class="headerlink" href="#chip-logs-are-not-available-on-mg12-wf200-due-to-image-size-constraints" title="Link to this heading"></a></h3>
+<p>Due to apps taking up more space than available flash on the MG12 + WF200 device combination, <code class="docutils literal notranslate"><span class="pre">chip_logging=false</span></code> needs to be included on the command line while building the app image,
+to disable CHIP logs and thereby reduce the image size.</p>
+<p>This prevents debugging the code on the MG12 + WF200 device combination.</p>
+<p>In order to work around this constraint, disable either the LCD or the use of QR codes, depending on your debugging needs. Disabling one of these will sufficiently reduce the image size to allow
+CHIP Logging to be enabled.</p>
+<p>If you disabled QR Codes, you may use the <code class="docutils literal notranslate"><span class="pre">chip-tool</span></code> for commissioning the device.</p>
+<p>If you disabled the LCD and need to debug with QR Codes, the URL to display the QR Code will be printed in the device logs.</p>
+<p>Disable LCD and enable CHIP Logging:
+<code class="docutils literal notranslate"><span class="pre">./scripts/examples/gn_silabs_example.sh</span> <span class="pre">examples/lock-app/silabs</span> <span class="pre">out/wf200_lock_app</span> <span class="pre">BRD4161A</span> <span class="pre">is_debug=false</span> <span class="pre">disable_lcd=true</span> <span class="pre">--wifi</span> <span class="pre">wf200</span> <span class="pre">|&amp;</span> <span class="pre">tee</span> <span class="pre">out/wf200_lock_app.log</span></code></p>
+<p>Disable QR Code and enable CHIP Logging:
+<code class="docutils literal notranslate"><span class="pre">./scripts/examples/gn_silabs_example.sh</span> <span class="pre">examples/lock-app/silabs</span> <span class="pre">out/wf200_lock_app</span> <span class="pre">BRD4161A</span> <span class="pre">is_debug=false</span> <span class="pre">show_qr_code=false</span> <span class="pre">--wifi</span> <span class="pre">wf200</span> <span class="pre">|&amp;</span> <span class="pre">tee</span> <span class="pre">out/wf200_lock.log</span></code></p>
+</section>
+<section id="mg24-device-sometimes-loses-its-connection-to-ozone-during-ota-update-with-rs9116">
+<h3>11. MG24 device sometimes loses its connection to Ozone during OTA Update with RS9116:<a class="headerlink" href="#mg24-device-sometimes-loses-its-connection-to-ozone-during-ota-update-with-rs9116" title="Link to this heading"></a></h3>
+<p>While performing an OTA Update with the EFR32MG24 + RS9116 device combination, when the device is reset and bootloading begins with the new image, the Ozone Debugger sometimes loses its connection.</p>
+<p>There are two possible workarounds to this:</p>
+<ol class="arabic simple">
+<li><p>Immediately re-attach the device to the console when the connection is lost.</p></li>
+<li><p>Download the RTT Viewer application instead and use it to view the logs during OTA Update.</p></li>
+</ol>
+</section>
+<section id="mg24-device-sometimes-fails-to-bootload-with-the-new-image-during-ota-update-with-wf200">
+<h3>12. MG24 device sometimes fails to bootload with the new image during OTA Update with WF200:<a class="headerlink" href="#mg24-device-sometimes-fails-to-bootload-with-the-new-image-during-ota-update-with-wf200" title="Link to this heading"></a></h3>
+<p>While performing an OTA Update with the EFR32MG24 + WF200 device combination using the external flash, when the device is reset and bootloading begins with the new image, the device sometimes starts up
+with the existing image instead of the newly downloaded one.</p>
+<p>When this happens, perform the following steps to run the OTA Update successfully:</p>
+<ol class="arabic simple">
+<li><p>Disconnect the WF200 Expansion Board from the EFR32MG24.</p></li>
+<li><p>Go To the Simplicity Commander’s folder path in the command prompt and run the command below:</p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>commander.exe<span class="w"> </span>extflash<span class="w"> </span><span class="nb">read</span><span class="w"> </span>--range<span class="w"> </span>0x00:+&lt;total<span class="w"> </span>size<span class="w"> </span>to<span class="w"> </span>read&gt;
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Reconnect the WF200 Expansion Board to the EFR32MG24 and reset the device.</p></li>
+<li><p>Re-run the OTA Update process from the beginning.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

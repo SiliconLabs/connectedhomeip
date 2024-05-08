@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unify Matter Protocol Controller User Guide &mdash; Matter 2.3.0-1.3 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=cdec6f82"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Building the Unify Matter Protocol Controller" href="readme_building.html" />
+    <link rel="prev" title="Unify Matter Protocol Controller Overview" href="readme_overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Matter
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Unify Matter Solutions</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../matter-bridge/index.html">Unify Matter Bridge</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Unify Matter Protocol Controller</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="readme_overview.html">Unify Matter Protocol Controller Overview</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Unify Matter Protocol Controller User Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="readme_building.html">Building the Unify Matter Protocol Controller</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Unify Matter Solutions</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Unify Matter Protocol Controller</a></li>
+      <li class="breadcrumb-item active">Unify Matter Protocol Controller User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/unify/matter-protocol-controller/readme_user.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="unify-matter-protocol-controller-user-guide">
+<h1>Unify Matter Protocol Controller User Guide<a class="headerlink" href="#unify-matter-protocol-controller-user-guide" title="Link to this heading"></a></h1>
+<p>The Unify Matter PC is a Unify Protocol Controller that enables interaction between
+Unify network and a Matter fabric. For a more thorough description see the
+<a class="reference internal" href="readme_overview.html"><span class="std std-doc">Unify Matter PC Overview</span></a>.</p>
+<p>This guide assumes that you have set up
+Unify SDK. Read the
+<a class="reference external" href="https://siliconlabs.github.io/UnifySDK/doc/getting_started.html">Unify Host SDK’s Getting Started Guide</a>
+for information on how to set this up.</p>
+<p>Once a Unify SDK is setup, the Matter PC can be started.</p>
+<p>The following documentation assumes that you have built the Unify Matter PC
+application by following the <em><a class="reference internal" href="readme_building.html"><span class="std std-doc">Build Guide</span></a></em> and have
+transferred the <em><code class="docutils literal notranslate"><span class="pre">unify-matter-pc</span></code></em> to your Raspberry Pi 4 (RPi4) running
+the 64-bit version of Raspberry Pi OS Bullseye.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#unify-matter-protocol-controller-user-guide">Unify Matter Protocol Controller User Guide</a></p>
+<ul>
+<li><p><a class="reference internal" href="#running-the-matter-pc">Running the Matter PC</a></p>
+<ul>
+<li><p><a class="reference internal" href="#important-configuration-settings">Important Configuration Settings</a></p></li>
+<li><p><a class="reference internal" href="#starting-the-matter-pc">Starting the Matter PC</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#commissioning-the-umpc-to-a-network">Commissioning the UMPC to a Network</a></p>
+<ul>
+<li><p><a class="reference internal" href="#using-the-chip-tool-to-commission">Using the chip-tool to Commission</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#control-an-onoff-device">Control an OnOff device</a></p></li>
+<li><p><a class="reference internal" href="#command-line-arguments">Command Line Arguments</a></p></li>
+</ul>
+</li>
+</ul>
+<section id="running-the-matter-pc">
+<h2>Running the Matter PC<a class="headerlink" href="#running-the-matter-pc" title="Link to this heading"></a></h2>
+<p>At start-up, the Matter PC needs to connect to the Matter Fabric as well as
+the MQTT Broker. It is therefore critical that you have access to port 1883, the
+default MQTT Broker’s port, as well as a network setup that allows mDNS through.</p>
+<p>A few important runtime configurations must be considered, along with some other
+configuration options. A full list of command-line parameters is provided in the
+<a class="reference internal" href="#command-line-arguments">Command line arguments</a> section.</p>
+<section id="important-configuration-settings">
+<h3>Important Configuration Settings<a class="headerlink" href="#important-configuration-settings" title="Link to this heading"></a></h3>
+<ul>
+<li><h4 class="rubric" id="network-interface">Network Interface</h4>
+<p>Specify the network interface on which the Matter Fabric runs. In a regular
+RPi4 setup it would be <code class="docutils literal notranslate"><span class="pre">wlan0</span></code> for WiFi and <code class="docutils literal notranslate"><span class="pre">eth0</span></code> for ethernet. Specify
+this with the ‘<code class="docutils literal notranslate"><span class="pre">--mpc.interface</span></code>’ argument, as such:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uic-mpc<span class="w"> </span>--mpc.interface<span class="w"> </span>eth0
+</pre></div>
+</div>
+</li>
+<li><h4 class="rubric" id="key-value-store-kvs">Key-Value store (KVS)</h4>
+<p>The Matter PC uses a Key-Value store for persisting various run-time
+configurations. Make sure to have read/write access to the default path
+‘<code class="docutils literal notranslate"><span class="pre">/var/lib/uic-mpc/chip_unify_mpc.kvs</span></code>’ or provide the path to where writing this
+data is allowed. If this file is deleted before start-up, everything is
+reset and the MPC will not belong to any Matter Fabric until it has again
+been commissioned.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uic-mpc<span class="w"> </span>--mpc.kvs<span class="w"> </span>./mpc.kvs
+</pre></div>
+</div>
+</li>
+<li><h3 class="rubric" id="unify-datastore">Unify DataStore</h3>
+<p>The Matter PC uses a sql database for persisting attribute store contents.
+Make sure to have read/write access to the default path ‘<code class="docutils literal notranslate"><span class="pre">/var/lib/uic-mpc/mpc.db</span></code>’
+or provide a path to where writing this data is allowed. If this file is deleted
+before start-up, all the information about previously discovered Matter device
+during past run will be lost. However, if the KVS is not deleted MPC is still part
+of a fabric and it will try and rediscover matter devices in the fabric.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uic-mpc<span class="w"> </span>--mpc.datastore_file<span class="w"> </span>./mpc.db
+</pre></div>
+</div>
+</li>
+<li><h4 class="rubric" id="mqtt-host">MQTT Host</h4>
+<p>If you have followed the
+<a class="reference external" href="https://siliconlabs.github.io/UnifySDK/doc/getting_started.html">Unify Host SDK’s Getting Started Guide</a>,
+your MQTT Broker should now be running on ‘<code class="docutils literal notranslate"><span class="pre">localhost</span></code>’. If you have decided
+to run the MQTT broker on a different host, you can tell the Unify Matter
+Protocol Controller to connect to a different host.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uic-mpc<span class="w"> </span>--mqtt.host<span class="w"> </span><span class="m">10</span>.0.0.42
+</pre></div>
+</div>
+</li>
+<li><h4 class="rubric" id="vendor-and-product-id">Vendor and Product ID</h4>
+<p>If you have access to the EAP and you want to use the Google Home App, you
+need to set a specific VID and PID for the Matter PC.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uic-mpc<span class="w"> </span>--mpc.vendor<span class="w"> </span>fff1<span class="w"> </span>--mpc.product<span class="w"> </span><span class="m">8001</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="starting-the-matter-pc">
+<h3>Starting the Matter PC<a class="headerlink" href="#starting-the-matter-pc" title="Link to this heading"></a></h3>
+<p>Once the configuration parameters are set it is time to start the UMPC
+application. UMPC can be run in either standalone mode or service mode (if installed from debian package).</p>
+<ul>
+<li><p>Standalone</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uic-mpc<span class="w"> </span>--mpc.interface<span class="w"> </span>eth0<span class="w"> </span>--mpc.kvs<span class="w"> </span>./mpc.kvs<span class="w"> </span>--mqtt.host<span class="w"> </span>localhost<span class="w"> </span>--mqtt.port<span class="w"> </span><span class="m">1337</span>
+</pre></div>
+</div>
+</li>
+<li><p>Service Mode
+To run in service mode the configuration parameter are set in <code class="docutils literal notranslate"><span class="pre">/etc/uic/uic.cfg</span></code> as needed and then start <code class="docutils literal notranslate"><span class="pre">uic-mpc.service</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>uic-mpc.service
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="commissioning-the-umpc-to-a-network">
+<h2>Commissioning the UMPC to a Network<a class="headerlink" href="#commissioning-the-umpc-to-a-network" title="Link to this heading"></a></h2>
+<p>To include the UMPC in the Matter network, it must first be commissioned. The
+first time the UMPC starts it will automatically go into commissioning mode.
+After 10 minutes the UMPC will exit commissioning mode. If the UMPC has not
+been commissioned within this window, the application must be restarted to open
+the commissioning window again or the window can be opened by writing
+<code class="docutils literal notranslate"><span class="pre">commission</span></code> in the CLI when running the UMPC in stand-alone mode. The <code class="docutils literal notranslate"><span class="pre">commission</span></code>
+commands can also be used for multi-fabric commissioning.</p>
+<p>The Unify Matter PC uses the “On Network” commissioning method. For now,
+there is no Bluetooth commissioning support.</p>
+<p>The commissioning procedure requires use of a pairing code. This pairing code is
+written to the console when running the Matter Protocol Controller. Look for something
+similar to ‘<code class="docutils literal notranslate"><span class="pre">MT:-24J029Q00KA0648G00</span></code>’, used as the pairing code in the following
+example. This code can be used when commissioning with the CLI commissioning
+tool <code class="docutils literal notranslate"><span class="pre">chip-tool</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">1659615301</span>.367669<span class="o">][</span><span class="m">1967</span>:1967<span class="o">]</span><span class="w"> </span>CHIP:SVR:<span class="w"> </span>SetupQRCode:<span class="w"> </span><span class="o">[</span>MT:-24J029Q00KA0648G00<span class="o">]</span>
+</pre></div>
+</div>
+<p>Another way to get the QR code is to look for an url in the console log similar
+to and copy the link into a browser. Note that two codes a printed at startup
+one for <em>Standard Commissioning flow</em>  and one for custom commissioning flow.
+Be sure to use the standard flow with Eco system devices.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span><span class="m">1659615301</span>.367723<span class="o">][</span><span class="m">1967</span>:1967<span class="o">]</span><span class="w"> </span>CHIP:SVR:<span class="w"> </span>https://dhrishi.github.io/connectedhomeip/qrcode.html?data<span class="o">=</span>MT%3A-24J029Q00KA0648G00
+</pre></div>
+</div>
+<p>It should be noted that the commissioner <strong>must</strong> be on the same subnet/link-local as the
+Raspberry Pi. Note that by default the UMPC binds to the eth0 interface. If
+another interface is to be used, see the description of the command line
+arguments for setting <a class="reference internal" href="#network-interface">Network Interface</a>.</p>
+<section id="using-the-chip-tool-to-commission">
+<h3>Using the chip-tool to Commission<a class="headerlink" href="#using-the-chip-tool-to-commission" title="Link to this heading"></a></h3>
+<p>In the following procedure make sure to use the pairing code taken from the
+console output, as described above. To commission the Matter PC with the
+<code class="docutils literal notranslate"><span class="pre">chip-tool</span></code> and assign the UMPC with Node ID 1:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chip-tool<span class="w"> </span>pairing<span class="w"> </span>code<span class="w"> </span><span class="m">1</span><span class="w"> </span>MT:-24J0AFN00KA0648G00
+</pre></div>
+</div>
+</section>
+</section>
+<section id="control-an-onoff-device">
+<h2>Control an OnOff device<a class="headerlink" href="#control-an-onoff-device" title="Link to this heading"></a></h2>
+<p>To send an OnOff cluster command to a Matter device you must first commission the Matter device to same fabric as UMPC and the device’s ACL must be setup to permit UMPC to control it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./chip-tool<span class="w"> </span>accesscontrol<span class="w"> </span>write<span class="w"> </span>acl<span class="w"> </span><span class="s1">&#39;[{&quot;fabricIndex&quot;: 1, &quot;privilege&quot;: 5, &quot;authMode&quot;: 2, &quot;subjects&quot;: [&lt;UMPC Node ID&gt;,112233], &quot;targets&quot;: null}]&#39;</span><span class="w"> </span>&lt;Matter<span class="w"> </span>Device<span class="w"> </span>Node<span class="w"> </span>ID&gt;<span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+<p>Once commissioned to same Matter fabric, UMPC will discover it from the mDNS advertisement and interviews its capability and publishes them into Unify network after allocating it a unique identifier within Unify network i.e. UNID.
+Now, log-on to Unify Dev-GUI to view the newly discovered device under Nodes section of the GUI.
+<img alt="Unify Dev-GUI MPC Nodes" src="../../_images/MPCDevGUI.png" />
+If the device supports OnOff cluster then the actuator link for the same should reflect under <code class="docutils literal notranslate"><span class="pre">Type</span></code> column for that device Node. Click on the same to open Actuator page and select the command to be sent to the Matter Device.
+<img alt="Sending Command from MPC" src="../../_images/MPCOnOffCommand.png" /></p>
+<p>For more information on how to use <code class="docutils literal notranslate"><span class="pre">Dev-GUI</span></code> see the <a class="reference external" href="https://siliconlabs.github.io/UnifySDK/applications/dev_ui/dev_gui/readme_user.html">Dev-GUI guide</a>.</p>
+<p>For more information on how to use the <code class="docutils literal notranslate"><span class="pre">chip-tool</span></code> see the
+<a class="reference external" href="https://github.com/project-chip/connectedhomeip/blob/master/docs/guides/chip_tool_guide.md">chip-tool manual</a> on the Matter website.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Note:</span> <span class="pre">If</span> <span class="pre">the</span> <span class="pre">Matter</span> <span class="pre">device</span> <span class="pre">is</span> <span class="pre">thread</span> <span class="pre">device</span> <span class="pre">then</span> <span class="pre">Unify</span> <span class="pre">OTBR</span> <span class="pre">needs</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">setup</span> <span class="pre">as</span> <span class="pre">described</span> <span class="pre">in</span> </code><a class="reference external" href="https://siliconlabs.github.io/UnifySDK/doc/getting_started_multiprotocol_cpc.html">Unify Multiprotocol Setup Guide</a>.
+<code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">the</span> <span class="pre">below</span> <span class="pre">command</span> <span class="pre">to</span> <span class="pre">get</span> <span class="pre">the</span> <span class="pre">operationDataSet</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">used</span> <span class="pre">in</span> <span class="pre">BLE-Thread</span> <span class="pre">commissioning:</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ot-ctl<span class="w"> </span>dataset<span class="w"> </span>active<span class="w"> </span>-x
+</pre></div>
+</div>
+</section>
+<section id="command-line-arguments">
+<h2>Command Line Arguments<a class="headerlink" href="#command-line-arguments" title="Link to this heading"></a></h2>
+<p>The Unify Matter PC provides the following command line arguments:</p>
+<p>Using <em>–help</em> displays the following text.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Usage: uic-mpc [Options]
+
+Options:
+  --conf arg (=/etc/uic/uic.cfg)        Config file in YAML format. UIC_CONF
+                                        env variable can be set to override the
+                                        default config file path
+  --help                                Print this help message and quit
+  --dump-config                         Dump the current configuration in a
+                                        YAML config file format that can be
+                                        passed to the --conf option
+  --version                             Print version information and quit
+</pre></div>
+</div>
+<p>The following options can also be in a config file. Options and values passed on
+the command line take precedence over the options and values in the config file.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">--log.level arg (=i)                  Log Level (d,i,w,e,c)</span>
+<span class="go">  --log.tag_level arg                   Tag-based log level</span>
+<span class="go">                                        Format: &lt;tag&gt;:&lt;severity&gt;,</span>
+<span class="go">                                        &lt;tag&gt;:&lt;severity&gt;, ...</span>
+<span class="go">  --mpc.datastore_file arg (=/var/lib/uic-mpc/mpc.db)</span>
+<span class="go">                                        MPC datastore database file</span>
+<span class="go">  --mpc.interface arg (=eth0)           Ethernet interface to use</span>
+<span class="go">  --mpc.kvs arg (=/var/lib/uic-mpc/chip_unify_mpc.kvs)</span>
+<span class="go">                                        Matter key value store path</span>
+<span class="go">  --mpc.strict_device_mapping arg (=0)  Only map devices we are certain</span>
+<span class="go">                                        conforms to specification</span>
+<span class="go">  --mpc.vendor arg (=65521)             16 bit Vendor ID</span>
+<span class="go">  --mpc.product arg (=32785)            16 bit Product ID</span>
+<span class="go">  --mpc.discriminator arg (=4094)       12 bit Discriminator ID</span>
+<span class="go">  --mpc.pin arg (=9127271)              24 bit pin</span>
+<span class="go">  --mpc.report_max arg (=3600)          ceiled max interval for reportables (in</span>
+<span class="go">                                        seconds)</span>
+<span class="go">  --mqtt.host arg (=localhost)          MQTT broker hostname or IP</span>
+<span class="go">  --mqtt.port arg (=1883)               MQTT broker port</span>
+<span class="go">  --mqtt.cafile arg                     Path to file containing the PEM-encoded</span>
+<span class="go">                                        CA certificate to connect to Mosquitto</span>
+<span class="go">                                        MQTT broker for TLS encryption</span>
+<span class="go">  --mqtt.certfile arg                   Path to file containing the PEM-encoded</span>
+<span class="go">                                        client certificate to connect to</span>
+<span class="go">                                        Mosquitto MQTT broker for TLS</span>
+<span class="go">                                        encryption</span>
+<span class="go">  --mqtt.keyfile arg                    Path to a file containing the</span>
+<span class="go">                                        PEM-encoded unencrypted private key for</span>
+<span class="go">                                        this client</span>
+<span class="go">  --mqtt.client_id arg (=unify-matter-pc)</span>
+<span class="go">                                        Set the MQTT client ID of the</span>
+<span class="go">                                        application.</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

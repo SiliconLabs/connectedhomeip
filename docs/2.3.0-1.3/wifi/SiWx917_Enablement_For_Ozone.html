@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ozone and JLink RTT Environment Setup for a SiWx917 SoC Device &mdash; Matter 2.3.0-1.3 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=cdec6f82"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Wi-Fi Direct Internet Connectivity" href="../nav_5_wifi_dic.html" />
+    <link rel="prev" title="JLink RTT Environment Setup for a SiWx917 SoC Device" href="JLINK_GUIDE_917.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="DEMO_OVERVIEW.html">Wi-Fi Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SW_SETUP.html">Wi-Fi GitHub Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BUILD_PI_ENV.html">Build Chip Tool on Raspi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RUN_DEMO.html">Matter Demo on EFR32 NCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RUN_DEMO_SiWx917_SoC.html">Matter Demo on 917 SoC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JLINK_GUIDE_917.html">Matter 917 SoC JLink RTT Debugger</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Enablement of Ozone for 917 SOC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#steps-to-configure-the-siwx917-soc-on-the-jlink-rtt-logging-and-ozone-debugger">Steps to Configure the SiWx917 SoC on the JLink-RTT Logging and Ozone Debugger</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#siwx917-soc-factory-reset">SiWx917 SOC Factory Reset</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_dic.html">Wi-Fi Direct Internet Connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html">Matter Intermittently Connected Devices over WiFi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html#power-measurement">Power Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_Sleepy_Device_Power_Measurement.html">Wi-Fi ICD Power Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MATTER_SHELL.html">Matter Shell Console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_ecosystem.html">Matter Ecosystem Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+      <li class="breadcrumb-item active">Ozone and JLink RTT Environment Setup for a SiWx917 SoC Device</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/wifi/SiWx917_Enablement_For_Ozone.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="ozone-and-jlink-rtt-environment-setup-for-a-siwx917-soc-device">
+<h1>Ozone and JLink RTT Environment Setup for a SiWx917 SoC Device<a class="headerlink" href="#ozone-and-jlink-rtt-environment-setup-for-a-siwx917-soc-device" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Ozone debugging support is enabled for SiWx917 Dual flash boards only.</p></li>
+<li><p>For Common Flash Boards Ozone debugging support is not enabled.</p></li>
+<li><p>Auto detection of SiWx917 SoC device in Ozone is not enabled.</p></li>
+<li><p>Follow the steps to manually configure the SiWx917 SoC with Latest Ozone Debugger.</p></li>
+</ul>
+<section id="steps-to-configure-the-siwx917-soc-on-the-jlink-rtt-logging-and-ozone-debugger">
+<h2>Steps to Configure the SiWx917 SoC on the JLink-RTT Logging and Ozone Debugger<a class="headerlink" href="#steps-to-configure-the-siwx917-soc-on-the-jlink-rtt-logging-and-ozone-debugger" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Update the <strong>JlinkDevices.xml</strong> and <strong>ELF</strong> files found in the <a class="reference internal" href="../general/ARTIFACTS.html"><span class="std std-doc">Matter Artifacts page</span></a>.</p>
+<ul class="simple">
+<li><p>Download the <strong>JLinkDevices.xml</strong> file and copy it in your Ozone installation path shown in this  <a class="reference external" href="https://wiki.segger.com/J-Link_Device_Support_Kit#JLinkDevices_folder">JLinkDevices folder</a>. If there is no JLinkDevices Folder, create a JLinkDevices folder and copy the <strong>JlinkDevices.xml</strong> file.</p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">JLinkDevices</span></code> folder, create a <code class="docutils literal notranslate"><span class="pre">Devices</span></code> folder and then create a sub-folder named <code class="docutils literal notranslate"><span class="pre">SiliconLabs</span></code>.</p></li>
+<li><p>Download the <strong>ELF</strong> file (Flash driver) and copy it in the created <code class="docutils literal notranslate"><span class="pre">SiliconLabs</span></code> folder.</p></li>
+</ul>
+</li>
+<li><p>Launch Ozone. The SiWx917 Dual Flash SoC device should be visible in the <strong>Device</strong> field’s selection list.</p>
+<p><img alt="Silicon Labs - SiWx917 SoC" src="../_images/SiWx917_Target_Ozone.png" /></p>
+</li>
+<li><p>In the <strong>New Project Wizard</strong>:</p>
+<ul class="simple">
+<li><p>Click the three dots (<code class="docutils literal notranslate"><span class="pre">...</span></code>) on the <strong>Device</strong> tab and select the <strong>Manufacturer</strong> as <code class="docutils literal notranslate"><span class="pre">Silicon</span> <span class="pre">Labs</span></code>.</p></li>
+<li><p>Select the <strong>Device</strong> as <code class="docutils literal notranslate"><span class="pre">Si917DualFlash</span></code>.</p></li>
+<li><p>Click <strong>OK</strong>.</p></li>
+<li><p>The <strong>Register set</strong> tab is populated automatically.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Note:</strong> Entering data in the <strong>Peripherals</strong> tab is optional.</p>
+<ol class="arabic simple" start="4">
+<li><p>Click <strong>Next</strong>. A window will be displayed showing the following:</p>
+<ul class="simple">
+<li><p>Serial Number: Read from device</p></li>
+<li><p>Target Interface: JTAG</p></li>
+<li><p>Speed: 4MHz</p></li>
+<li><p>Host Interface: USB</p></li>
+<li><p>One Product in the <strong>Emulators connected via USB</strong> tab</p></li>
+</ul>
+</li>
+<li><p>Select the Product shown in the <strong>Emulators connected via USB</strong> tab and click <strong>Next</strong>.</p></li>
+<li><p>Click the detected <strong>Silicon Labs device</strong> that gets displayed and click <strong>Next</strong>.</p></li>
+<li><p>Click the three dots (<code class="docutils literal notranslate"><span class="pre">...</span></code>) on that tab, select <strong>Browse</strong> and choose the <code class="docutils literal notranslate"><span class="pre">*.out</span></code> image you wish to flash and run. Click <strong>Next</strong>.</p></li>
+<li><p>Make sure the next screen has <strong>Initial PC</strong> selected as <code class="docutils literal notranslate"><span class="pre">Read</span> <span class="pre">from</span> <span class="pre">Base</span> <span class="pre">Address</span> <span class="pre">Vector</span> <span class="pre">Table</span></code> and click <strong>Finish</strong>.</p></li>
+<li><p>A Diagnostics Warning may be displayed about FreeRTOS being detected. Click <strong>Continue</strong>.</p></li>
+<li><p>Select <strong>Download and Reset Program</strong> in the dropdown next to the <strong>Power</strong> button on the top-left hand corner of the page.</p></li>
+<li><p>The SiWx917 SoC device will be erased and programmed.</p></li>
+<li><p>Click <strong>Reset Program to main (F4)</strong> next to the <strong>Play/Pause</strong> button on the top-left hand corner of the page.</p></li>
+</ol>
+<p><strong>Note</strong>: This will reset the MCU after flashing the application.</p>
+<ol class="arabic simple" start="13">
+<li><p>Run the image by clicking the <strong>Resume/Halt</strong> button on the top-left hand corner of the page (or press the <strong>F5</strong> key).</p></li>
+</ol>
+<p><strong>Note:</strong></p>
+<ol class="arabic simple">
+<li><p>The output of the SiWX917 SoC application will be displayed on the Ozone terminal or J-Link RTT Client.</p></li>
+<li><p>The RTT Client is provided with Ozone and does not have to be downloaded separately.</p></li>
+</ol>
+</section>
+<section id="siwx917-soc-factory-reset">
+<h2>SiWx917 SOC Factory Reset<a class="headerlink" href="#siwx917-soc-factory-reset" title="Link to this heading"></a></h2>
+<section id="factory-reset-without-ozone">
+<h3>Factory Reset without Ozone<a class="headerlink" href="#factory-reset-without-ozone" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Press the BTN0 on WSTK for about 6-7 seconds. The LED0 will flash 5 times and board will reboot.</p></li>
+</ol>
+</section>
+<section id="factory-reset-with-ozone">
+<h3>Factory Reset with Ozone<a class="headerlink" href="#factory-reset-with-ozone" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>You will get “Target Connection Lost” pop-up on Ozone, click <strong>YES</strong>.</p>
+<p><img alt="Silicon Labs - SiWx917 SoC Ozone Target Connection Lost" src="../_images/SiWx917_SoC_TargetConnectionLost.png" /></p>
+</li>
+<li><p>Select <strong>Attach to Running Program</strong> in the dropdown next to the <strong>Power</strong> button on the top-left hand corner of the page.</p>
+<p><img alt="Silicon Labs - SiWx917 SoC Ozone Target Connection Lost" src="../_images/SiWx917SoC_AttachToRunningProgram.png" /></p>
+</li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

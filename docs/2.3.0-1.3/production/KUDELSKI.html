@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matter, CPMS, and Kudelski &mdash; Matter 2.3.0-1.3 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=cdec6f82"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Matter Distributed Compliance Ledger" href="DCL.html" />
+    <link rel="prev" title="Matter Device Attestation" href="CPMS_ATTESTATION.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="CPMS_PREREQS.html">Device Development Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="USING_CPMS.html">Using Custom Part Manufacturing Services (CPMS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CPMS_ATTESTATION.html">Matter Device Attestation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Matter, CPMS, and Kudelski</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#kudelski-pki-infrastructure">Kudelski PKI Infrastructure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-required-of-my-organization-with-the-silicon-labs-kudelski-security-partnership">What is Required of My Organization with the Silicon Labs/Kudelski Security Partnership?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-not-just-do-this-myself">Why Not Just Do This Myself?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-should-i-expect-when-i-create-an-account-with-kudelski">What Should I Expect When I Create an Account with Kudelski?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DCL.html">Matter Distributed Compliance Ledger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CERTIFICATION.html">Matter Certification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+      <li class="breadcrumb-item active">Matter, CPMS, and Kudelski</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/production/KUDELSKI.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="matter-cpms-and-kudelski">
+<h1>Matter, CPMS, and Kudelski<a class="headerlink" href="#matter-cpms-and-kudelski" title="Link to this heading"></a></h1>
+<section id="kudelski-pki-infrastructure">
+<h2>Kudelski PKI Infrastructure<a class="headerlink" href="#kudelski-pki-infrastructure" title="Link to this heading"></a></h2>
+<p>Silicon Labs has partnered with Kudelski Security to generate Matter Device Attestation Certificates (DAC) for our Custom Part Manufacturing Service (CPMS). “Kudelski IoT’s Matter Product Attestation Certificate Service enables companies to get scalable access to Device Attestation Certificates, allowing each device to join the Matter ecosystem with confidence and ease”. Kudelski is a certified CSA certificate authority that forms the root Product Attestation Authority (PAA) certificate in the CPMS Matter certificate chain. Each PAA owns a public and private key along with their self-signed PAA certificate which will be used to sign PAI certificates. Kudelski also manages the Product Attestation Intermediate (PAI) keys for CPMS used to sign the unique Device Attestation Certificates (DAC). PAIs are submitted in the form of a CSR request to the PAA to be signed. These three items, the PAA, PAI, and DAC as well as a Certification Declaration form the basis for a device to attest to the Matter network.</p>
+</section>
+<section id="what-is-required-of-my-organization-with-the-silicon-labs-kudelski-security-partnership">
+<h2>What is Required of My Organization with the Silicon Labs/Kudelski Security Partnership?<a class="headerlink" href="#what-is-required-of-my-organization-with-the-silicon-labs-kudelski-security-partnership" title="Link to this heading"></a></h2>
+<p>To have DACs generated by Kudelski, your organization will need to have an account created with Kudelski Security. Start at <a class="reference external" href="https://www.kudelski-iot.com/services-and-systems/matter-paa-pai">Kudelski</a> to begin the process of creating this account.</p>
+<p>After creating your account, your organization will want to create a Product Attestation Intermediary (PAI) certificate with Kudelski. This will be used to sign the DACs that will end up in your devices at manufacturing. If you use CPMS, you will need to specify Silicon Labs as a requestor and recipient of DACs for any PAIs that will be programmed in the Silicon Labs manufacturing facilities. This will allow CPMS Secure Vault Services to request those DACs on your behalf when you are ready to manufacture those products. Depending on your own internal processes, this may require reviews from within your own organization. Be sure to allow enough lead time for yourself when planning your Matter devices to account for this.</p>
+</section>
+<section id="why-not-just-do-this-myself">
+<h2>Why Not Just Do This Myself?<a class="headerlink" href="#why-not-just-do-this-myself" title="Link to this heading"></a></h2>
+<p>Kudelski IoT has done the heavy lifting for you. Kudelski is a well-established Public Key Infrastructure (PKI) provider that offers Matter certificates that allow you to be a part of the Matter ecosystem. Kudelski IoT uses its keySTREAM PKI-as-a-Service application to help manage your Matter PKI artifacts.</p>
+<ul class="simple">
+<li><p>Kudelski has done the heavy lifting of becoming a Connectivity Standards Alliance (CSA) authorized PAA for you.</p></li>
+<li><p>Kudelski has been creating device credentials for more than 30 years and is a trusted leader in PKI-as-a-Service.</p></li>
+<li><p>Cloud setup of your vendor-specific Product Attestation Intermediate (PAI)</p></li>
+<li><p>Managed generation and secure delivery of Matter Device Attestation Certificates (DAC)</p></li>
+<li><p>Kudelski and Silicon Labs have created an ultra-secure integration straight from the root CA to the factory.</p></li>
+<li><p>Spare yourself time, and get to market sooner with CPMS.  CPMS already handles this for you!</p></li>
+</ul>
+<p>Becoming your own PAA and issuing your own signed attestation certificates for Matter is no small undertaking. CSA requires very strict requirements for becoming a trusted certificate authority, as well as rigorous security and privacy requirements, hardware, infrastructure, governance, and much more. This is a costly endeavor that may include specialized hardware, such as on and offline Hardware Security Modules (HSM), specialized facility and operational needs, and much more that can quickly be out of reach of all but the largest of organizations, not to mention the time required to put these processes in place. In most cases, partnering with an established provider is far more economical for vendors and will get you up and running as quickly as possible.</p>
+</section>
+<section id="what-should-i-expect-when-i-create-an-account-with-kudelski">
+<h2>What Should I Expect When I Create an Account with Kudelski?<a class="headerlink" href="#what-should-i-expect-when-i-create-an-account-with-kudelski" title="Link to this heading"></a></h2>
+<p>There are a few processes in place to get you set up and working quickly to start receiving signed DACs from Kudelski:</p>
+<ol class="arabic simple">
+<li><p>Account Setup - If you are already a CSA member, you can start the setup of your account (fees may apply) on Kudelski’s cloud application. If you are not a CSA member yet, review the CSA requirements. Per CSA requirements, Kudelski will conduct some manual background checks. Your organization will also need to sign the Kudelski Requestor Agreement Document (RAD) document before any PAIs are created.</p></li>
+<li><p>New Product Family Setup - Once your Product Family is successfully certified by CSA, Kudelski can create your vendor-specific Product Attestation Intermediate (PAI) on keySTREAM for that Product Family.</p></li>
+<li><p>Certificate Request - Once a PAI is created, you can request a batch of certificates for your devices. For the CPMS workflow, you will need to agree (with Kudelski) to allow Silicon Labs to be a requestor and receiver of DACs in order for the CPMS integrations to successfully request and receive those DACs during manufacturing.</p></li>
+<li><p>Certificate Delivery - In the CPMS workflow, Silicon Labs will receive delivery of these DACs through secure services with Kudelski, which can then be programmed into your devices on the manufacturing line.</p></li>
+<li><p>DACs are billed after your devices are manufactured and shipped.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

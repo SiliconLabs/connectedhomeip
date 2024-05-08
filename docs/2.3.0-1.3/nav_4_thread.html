@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matter Over Thread &mdash; Matter 2.3.0-1.3 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=cdec6f82"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="thread/THREAD.html" />
+    <link rel="prev" title="Matter Software Artifacts" href="general/ARTIFACTS.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Matter
+              <img src="_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Matter Over Thread</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="thread/THREAD.html">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/DEMO_OVERVIEW.html">Demo Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/RASPI_IMG.html">Setting up the Matter Hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/RCP.html">Setting up the RCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/BUILD_FLASH_MAD.html">Build, Flash Matter Device</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/CHIP_TOOL.html">Using the Matter Hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/OT_SLEEPY_END_DEVICE.html">Intermittently Connected Devices over OpenThread</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Matter Over Thread</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/nav_4_thread.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="matter-over-thread">
+<h1>Matter Over Thread<a class="headerlink" href="#matter-over-thread" title="Link to this heading"></a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="thread/THREAD.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thread/DEMO_OVERVIEW.html">Demo Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="thread/DEMO_OVERVIEW.html#step-0-prerequisites">Step 0: Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/DEMO_OVERVIEW.html#step-1-setting-up-the-matter-hub-raspberry-pi">Step 1: Setting up the Matter Hub (Raspberry Pi)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/DEMO_OVERVIEW.html#step-2-flash-the-rcp">Step 2: Flash the RCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/DEMO_OVERVIEW.html#step-3-build-and-flash-the-mad">Step 3: Build and Flash the MAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/DEMO_OVERVIEW.html#step-4-commission-and-control-the-mad">Step 4: Commission and Control the MAD</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="thread/RASPI_IMG.html">Setting up the Matter Hub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="thread/RASPI_IMG.html#how-to-use-the-silicon-labs-matter-raspberry-pi-image-matter-hub">How to use the Silicon Labs Matter Raspberry Pi Image (Matter Hub)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="thread/RCP.html">Setting up the RCP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="thread/RCP.html#step-1-get-or-build-the-image-file-to-flash-the-rcp">Step 1: Get or Build the Image File to Flash the RCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/RCP.html#step-2-flash-the-rcp">Step 2: Flash the RCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/RCP.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="thread/BUILD_FLASH_MAD.html">Build, Flash Matter Device</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="thread/BUILD_FLASH_MAD.html#step-1-get-the-image-file-to-flash-the-mad">Step 1: Get the Image File to Flash the MAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/BUILD_FLASH_MAD.html#step-2-flash-the-matter-accessory-device">Step 2: Flash the Matter Accessory Device</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="thread/CHIP_TOOL.html">Using the Matter Hub</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="thread/CHIP_TOOL.html#basic-mattertool-commands">Basic Mattertool Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/CHIP_TOOL.html#advanced-information-on-the-matter-hub">Advanced Information on the Matter Hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/CHIP_TOOL.html#open-thread-border-router-otbr">Open Thread Border Router (OTBR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/CHIP_TOOL.html#upgrading-the-openthread-border-router-otbr">Upgrading the OpenThread Border Router (OTBR)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/CHIP_TOOL.html#upgrading-the-matter-chip-tool">Upgrading the Matter - Chip-tool</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="thread/OT_SLEEPY_END_DEVICE.html">Intermittently Connected Devices over OpenThread</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="thread/OT_SLEEPY_END_DEVICE.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/OT_SLEEPY_END_DEVICE.html#operating-modes">Operating Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/OT_SLEEPY_END_DEVICE.html#thread-communication">Thread Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/OT_SLEEPY_END_DEVICE.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="thread/OT_SLEEPY_END_DEVICE.html#building">Building</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

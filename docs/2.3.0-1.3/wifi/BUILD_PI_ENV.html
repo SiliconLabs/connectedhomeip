@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Building the Chip-Tool using Raspberry Pi 4 &mdash; Matter 2.3.0-1.3 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=cdec6f82"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Getting Started with EFR32 Host in NCP Mode" href="RUN_DEMO.html" />
+    <link rel="prev" title="Building a Wi-Fi End Device for Matter in GitHub" href="SW_SETUP.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="DEMO_OVERVIEW.html">Wi-Fi Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SW_SETUP.html">Wi-Fi GitHub Development</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Build Chip Tool on Raspi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#to-flash-the-ubuntu-os-onto-the-sd-card">To flash the Ubuntu OS onto the SD card:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#to-start-using-the-raspberry-pi">To start using the Raspberry Pi:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-environment">Build Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bluetooth-setup">Bluetooth Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="RUN_DEMO.html">Matter Demo on EFR32 NCP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RUN_DEMO_SiWx917_SoC.html">Matter Demo on 917 SoC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JLINK_GUIDE_917.html">Matter 917 SoC JLink RTT Debugger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SiWx917_Enablement_For_Ozone.html">Enablement of Ozone for 917 SOC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_dic.html">Wi-Fi Direct Internet Connectivity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html">Matter Intermittently Connected Devices over WiFi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_SLEEPY_END_DEVICE.html#power-measurement">Power Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WIFI_Sleepy_Device_Power_Measurement.html">Wi-Fi ICD Power Measurement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MATTER_SHELL.html">Matter Shell Console</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nav_5_wifi_ecosystem.html">Matter Ecosystem Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+      <li class="breadcrumb-item active">Building the Chip-Tool using Raspberry Pi 4</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/wifi/BUILD_PI_ENV.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="building-the-chip-tool-using-raspberry-pi-4">
+<h1>Building the Chip-Tool using Raspberry Pi 4<a class="headerlink" href="#building-the-chip-tool-using-raspberry-pi-4" title="Link to this heading"></a></h1>
+<section id="to-flash-the-ubuntu-os-onto-the-sd-card">
+<h2>To flash the Ubuntu OS onto the SD card:<a class="headerlink" href="#to-flash-the-ubuntu-os-onto-the-sd-card" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Insert the flashed SD card (directly or using a card reader) into the
+laptop/PC that will run the Raspberry Pi Imager tool.</p></li>
+<li><p>Launch Raspberry Pi 4 Imager.</p></li>
+<li><p>Flash the Pi image using any one of the following procedure:</p>
+<ul>
+<li><p>Click ‘Choose OS’ –&gt; ‘Other General-purpose OS’ –&gt; ‘Ubuntu’ –&gt; ‘Ubuntu
+xx.xx 64-bit server OS’</p>
+<blockquote>
+<div><p>Note: Flash the latest version of Ubnutu Server (64-bit server OS for arm64 architecture)</p>
+</div></blockquote>
+</li>
+<li><p>Download the Matter Hub Raspberry Pi Image provided on the <a class="reference internal" href="../general/ARTIFACTS.html"><span class="std std-doc">Matter Artifacts page</span></a>, then click ‘Choose OS’ –&gt; ‘Use custom’ –&gt; select the Matter Hub Raspberry Pi Image which you downloaded.</p></li>
+</ul>
+</li>
+<li><p>Click ‘Storage’ and select the ‘SD card detect’.</p></li>
+<li><p>This Raspberry Pi 4’s console can be accessed in   multiple ways.
+In <a class="reference external" href="https://www.raspberrypi.com/documentation/computers/remote-access.html">this guide</a>
+Raspberry Pi 4 is being accessed using Putty.</p></li>
+<li><p>Enter the details like User name, Password, SSID and its password to connect
+to network. Click ‘Save’.</p></li>
+<li><p>Click ‘Write’ and then ‘Yes’ when you are asked for permission to erase data
+on the SD card. It will then start flashing the OS onto the SD card.</p></li>
+<li><p>When it is done, click ‘Continue’.</p></li>
+<li><p>Remove the SD card from the reader and insert it into the Raspberry Pi as
+shown below:</p></li>
+</ol>
+<!-- ![Inserting SD into Pi](images/sd_into_pi.png) -->
+<a class="reference internal image-reference" href="../_images/sd_into_pi.png"><img alt="Inserting SD into Pi" src="../_images/sd_into_pi.png" style="width: 550px;" /></a>
+<p>On powering up the board, the red and green lights should start blinking.</p>
+</section>
+<section id="to-start-using-the-raspberry-pi">
+<h2>To start using the Raspberry Pi:<a class="headerlink" href="#to-start-using-the-raspberry-pi" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p>Use this <a class="reference internal" href="../general/FIND_RASPI.html"><span class="std std-doc">reference</span></a> to find the IP address of your Raspberry Pi.</p></li>
+<li><p>Once you find the IP address, launch Putty, select <code class="docutils literal notranslate"><span class="pre">Session</span></code>, enter the IP
+address of the Raspberry Pi, and click <code class="docutils literal notranslate"><span class="pre">Open</span></code></p></li>
+<li><p>Enter the username and password given at the time of flashing and click
+<code class="docutils literal notranslate"><span class="pre">Enter</span></code></p>
+<blockquote>
+<div><p>Note: If username and password not provided while flashing then by default
+Username: ubuntu
+Password: ubuntu</p>
+</div></blockquote>
+</li>
+<li><p>Update the latest packages by running following commands in the terminal:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span>
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install
+</pre></div>
+</div>
+</li>
+<li><p>Install required packages using the following commands:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>gcc<span class="w"> </span>g++<span class="w"> </span>pkg-config<span class="w"> </span>libssl-dev<span class="w"> </span>libdbus-1-dev<span class="w"> </span>libglib2.0-dev<span class="w"> </span>libavahi-client-dev<span class="w"> </span>ninja-build<span class="w"> </span>python3-venv<span class="w"> </span>python3-dev<span class="w"> </span>python3-pip<span class="w"> </span>unzip<span class="w"> </span>libgirepository1.0-dev<span class="w"> </span>libcairo2-dev<span class="w"> </span>libreadline-dev
+</pre></div>
+</div>
+<blockquote>
+<div><p>If you see any popups between installs, you can select ‘Ok’ or ‘Continue’</p>
+</div></blockquote>
+</li>
+</ol>
+</section>
+<section id="build-environment">
+<h2>Build Environment<a class="headerlink" href="#build-environment" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Installing prerequisites on Raspberry Pi 4
+Follow the instructions in
+<a class="reference external" href="https://github.com/project-chip/connectedhomeip/blob/master/docs/guides/BUILDING.md">the Project CHIP GitHub Site</a>,
+in the section “Installing prerequisites on Raspberry Pi
+4”.</p></li>
+<li><p>To build enviorment follow the <code class="docutils literal notranslate"><span class="pre">Software</span> <span class="pre">setup</span></code> and <code class="docutils literal notranslate"><span class="pre">Compiling</span> <span class="pre">chip-tool</span></code> steps given in <a class="reference internal" href="SW_SETUP.html"><span class="std std-doc">Software setup</span></a>.</p></li>
+</ol>
+</section>
+<section id="bluetooth-setup">
+<h2>Bluetooth Setup<a class="headerlink" href="#bluetooth-setup" title="Link to this heading"></a></h2>
+<p>Make sure Bluetooth LE (BLE) is up and running on Raspberry Pi. Raspberry Pi internally has
+some issues with BLE that may cause it to crash. Because BLE is used for
+commissioning on Matter, make sure BLE is running.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>bluetooth.service
+</pre></div>
+</div>
+<p>To stop BLE if it is already running:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>bluetooth.service
+</pre></div>
+</div>
+<p>To restart the Bluetooth service, first enable it:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>bluetooth.service
+</pre></div>
+</div>
+<p>When you check the status of the Bluetooth service, it will be inactive because
+it has been enabled but not restarted:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>bluetooth.service
+</pre></div>
+</div>
+<p>Restart the service:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>bluetooth.service
+</pre></div>
+</div>
+<p>Now the status of the service should be active and running:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>bluetooth.service
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>

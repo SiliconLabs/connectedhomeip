@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matter Certification &mdash; Matter 2.3.0-1.3 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom_styles.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=cdec6f82"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unify Matter Solutions" href="../unify/index.html" />
+    <link rel="prev" title="Matter Distributed Compliance Ledger" href="DCL.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #3b82f6" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Matter
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0-1.3
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../OVERVIEW.html">User's Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../NEW_FEATURES.html">Matter New Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_1_overview.html">Matter Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_2_prereq.html">Matter Development Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_4_thread.html">Matter Over Thread</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_5_wifi.html">Matter Over Wi-Fi</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../nav_7_prod_guide.html">Matter Production Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="CPMS_PREREQS.html">Device Development Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="USING_CPMS.html">Using Custom Part Manufacturing Services (CPMS)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CPMS_ATTESTATION.html">Matter Device Attestation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="KUDELSKI.html">Matter, CPMS, and Kudelski</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DCL.html">Matter Distributed Compliance Ledger</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Matter Certification</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#why-certify">Why Certify</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matter-certification-paths">Matter Certification Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matter-testing-options">Matter Testing Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#possible-matter-certification-paths">Possible Matter Certification Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#matter-certification-flow">Matter Certification Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csa-memberships">CSA Memberships</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../unify/index.html">Unify Matter Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_3_general.html">Developer Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nav_6_faq.html">FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #3b82f6" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Matter</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../nav_7_prod_guide.html">Matter Production Guide</a></li>
+      <li class="breadcrumb-item active">Matter Certification</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/production/CERTIFICATION.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="matter-certification">
+<h1>Matter Certification<a class="headerlink" href="#matter-certification" title="Link to this heading"></a></h1>
+<p><img alt="Matter Certification Diagram" src="../_images/matter-certification-diagram.png" /></p>
+<section id="why-certify">
+<h2>Why Certify<a class="headerlink" href="#why-certify" title="Link to this heading"></a></h2>
+<p>Matter Certification is required for all Matter devices. Unlike other networking protocols, non-certified Matter devices are prevented from commissioning into Matter networks. Matter’s secure design requires that every joining device proves they are Matter Certified. This is part of the commissioning process called Device Attestation. Refer to <a class="reference internal" href="CPMS_ATTESTATION.html"><span class="std std-doc"><strong>Device Attestation</strong></span></a> for more information on how the various Matter Certificates and Credentials are used in the Matter Commissioning Process.</p>
+</section>
+<section id="matter-certification-paths">
+<h2>Matter Certification Paths<a class="headerlink" href="#matter-certification-paths" title="Link to this heading"></a></h2>
+<p>There are two different types of products that can apply for Matter Certification:</p>
+<p><strong>Matter Hardware Certification</strong></p>
+<p>This group of certification is for embedded devices and end products, like a Matter Light or Matter Switch, that include both the software and hardware together. Typically, this is the main type of Matter Certification.</p>
+<p><strong>Matter Software Component Certification</strong></p>
+<p>This group of certification is for Matter Software Components, like App-based devices or a Matter Controller, where the Matter Software Component runs on a CSA Supported Operating Environment.</p>
+</section>
+<section id="matter-testing-options">
+<h2>Matter Testing Options<a class="headerlink" href="#matter-testing-options" title="Link to this heading"></a></h2>
+<p><strong>Authorized Test Lab (ATL)</strong>: This is the most common testing option where you can choose a CSA approved test house to perform Matter Certification Testing (<a class="reference external" href="https://csa-iot.org/certification/testing-providers/">https://csa-iot.org/certification/testing-providers/</a>).</p>
+<p><strong>Specification Validation Event (SVE)</strong>: The CSA will host certification events where Matter Products can be tested. If a Matter product successfully completes the full phase testing series, then this product will be deemed eligible for certification and will not require additional testing.</p>
+</section>
+<section id="possible-matter-certification-paths">
+<h2>Possible Matter Certification Paths<a class="headerlink" href="#possible-matter-certification-paths" title="Link to this heading"></a></h2>
+<p><strong>Certification by Testing a Single Product</strong>: This is full testing at an ATL or SVE and is intended for newly designed products.</p>
+<p><strong>Product Family Certification</strong>: This certification is intended to certify variants of the same product. This path requires the first “parent” product to be fully tested either at an ATL/SVE, and then the other “family” products are certified without need for testing.</p>
+<p><strong>Certification by similarity (CbS)</strong>: This certification is intended for a very similar product that has already been certified by either standard or product family certification. If a Matter product qualifies for CbS, you can get your new product certified without additional testing. The CSA certification team will need to determine if this is an applicable route.</p>
+<p><strong>Certification Transfer Program (CTP)</strong>: This certification is for re-labeling a product manufacturer by another member. This requires an Associate CSA membership level and to partner with an Alliance Participant or Promoter member.</p>
+</section>
+<section id="matter-certification-flow">
+<h2>Matter Certification Flow<a class="headerlink" href="#matter-certification-flow" title="Link to this heading"></a></h2>
+<p><img alt="Matter Certification Flow" src="../_images/matter-certification-flow.png" /></p>
+<ol class="arabic">
+<li><p><strong>Become a CSA Member</strong>.</p>
+<p>There are different tiers of CSA memberships that offer your company varying levels of access and benefits. The minimum membership tier required to get certified is Adopter level. More information on various membership levels can be found on the CSA website, <a class="reference external" href="https://csa-iot.org/become-member/">Become a Member | The Future of IOT - CSA-IOT</a>.</p>
+</li>
+<li><p><strong>Request a Vendor ID From the Alliance Certification Team</strong>.</p>
+<p>Once you are a member, you will need to request a Vendor ID. Once issued, the Vendor ID will be listed in the Manufacturer code database in the CSA which is updated monthly. For certification, you will also need to decide on a Product ID (PID) to make up your own unique 16-bit number to identify your distinct Matter products. You may have as many PIDs as you want, but each has to have its own unique certification ID. For development purposes, Silicon Labs provides ‘test’ VID and PID for our Sample Applications.</p>
+</li>
+<li><p><strong>Finalize Product, Select a Network Transport, and Develop Your Product</strong>.</p>
+<p>You need to determine what Network Transport Layers you will be using. Typically this is a choice between Wi-Fi and OpenThread. In this stage, it is a good idea to pre-test your products before sending out for certification testing.</p>
+</li>
+<li><p><strong>Obtain Transport Layer Certification from the Relevant Standards Organization</strong>.</p>
+<p>You are required to have proof that your device passes all relevant Networking Protocol Certifications before officially applying for Matter Certification. The CSA will accept certification by inheritance if it is applicable to your device.</p>
+<ol class="arabic simple">
+<li><p>OpenThread Certification (Thread 1.3.0 or later): OpenThread certification is done through the Thread Group (<a class="reference external" href="https://www.threadgroup.org/thread-group">https://www.threadgroup.org/thread-group</a>). Certification by inheritance is available for certain Silicon Labs SoC devices if using the Certified Thread Component Libraries (<a class="reference external" href="https://community.silabs.com/s/article/Thread-Certification-Overview?language=en_US">https://community.silabs.com/s/article/Thread-Certification-Overview?language=en_US</a>). If the Matter Product is using Host/RCP architecture, it will need to go through OpenThread Certification on its own.</p></li>
+<li><p>BLE Certification (LE v4.0 or Later): BLE Certification is done through Bluetooth SIG (<a class="reference external" href="https://www.bluetooth.com/develop-with-bluetooth/join/">https://www.bluetooth.com/develop-with-bluetooth/join/</a>). Certification by inheritance can be available in certain cases if the design and functionality is unaltered from the certified QDID. If you are able to inherit our End Product / Subsystem results, you can skip Bluetooth testing.</p></li>
+<li><p>Wi-Fi Certification processes (Wi-Fi 4 /802.11n or later). Wi-Fi certification is done through the Wi-Fi Alliance (<a class="reference external" href="https://www.wi-fi.org/membership">https://www.wi-fi.org/membership</a>).</p></li>
+<li><p>Ethernet Transport Protocol: This certification can be received by showing evidence of successfully passing self-defined / self-testing of IEEE PMA.</p></li>
+</ol>
+</li>
+<li><p><strong>Test your Product</strong>.</p>
+<p>As mentioned above, there are a few certification paths to take:</p>
+<ol class="arabic simple">
+<li><p><strong>CTP / CbS Program</strong>. You are not required to do additional testing and can move forward to step 6.</p></li>
+<li><p><strong>Select a CSA Authorized Test Provider for Matter testing and submit your product for testing</strong>. After testing is completed, the test provider will issue a final test report to you and the CSA.</p></li>
+<li><p><strong>Complete SVE Testing</strong></p></li>
+</ol>
+</li>
+<li><p><strong>Submit Certification Application via the Certification Web Tool</strong>.</p>
+<p>You need to create a Certification Tool Account (<a class="reference external" href="https://csa-iot.org/certification/tools/certification-tool/">https://csa-iot.org/certification/tools/certification-tool/</a>) to submit your Matter Certification Application.</p>
+<p>In this application, you will need to determine the Matter Certification Device type and specify if the Matter product is a Software Component or Hardware Solution. Specifically, you will need to select all applicable Matter Device Types that your Matter product implements. More information on Matter Device Types can be found in the Matter Device Library Specification: (<a class="reference external" href="https://csa-iot.org/developer-resource/specifications-download-request/">https://csa-iot.org/developer-resource/specifications-download-request/</a>). You will also need to provide the PID/VID of the Matter product to be Certified. You will need to submit the following documents:</p>
+<ol class="arabic simple">
+<li><p>PICS: Protocol Implementation Conformance Statement document used in product certification. This can be generated by the CSA PICS Tool, which can be found at <a class="reference external" href="https://csa-iot.org/certification/tools/pics-tool/">PICS Tool | Connectivity Standards Alliance - CSA-IOT</a>.</p></li>
+<li><p>Declaration of Conformity</p></li>
+<li><p>Network Transport Attestation (CSA Attestation of Network Transport Protocol Conformance / Certification Form): Proof of Certification for any underlying platforms / protocols used in your Matter Application, i.e. OpenThread Certification, BLE Certification, and/or Wi-Fi Certification. This is detailed in Step 4 above.</p></li>
+<li><p>CSA Security Attestation</p></li>
+</ol>
+</li>
+<li><p><strong>Application review by the CSA</strong>.</p>
+<p>The CSA will go through paperwork and ensure that all data is included and properly completed and compliant with the Matter Certification Process. Upon Application Approval, you will receive the following documents:</p>
+<ol class="arabic simple">
+<li><p>Certificate of Compliance</p></li>
+<li><p>Public listing of certified products on the CSA website</p></li>
+<li><p>Matter Certified Logos are now authorized to be used with your certified Matter product</p></li>
+<li><p>Certification Declaration (CD) Blob File</p></li>
+</ol>
+</li>
+<li><p><strong>Certified Product Record Added to the Distributed Compliance Ledger</strong>.</p>
+<p>More information on the DCL can be found in the next section, <a class="reference internal" href="DCL.html"><span class="std std-doc"><strong>Distributed Compliance Ledger</strong></span></a>.</p>
+</li>
+</ol>
+</section>
+<section id="csa-memberships">
+<h2>CSA Memberships<a class="headerlink" href="#csa-memberships" title="Link to this heading"></a></h2>
+<p>The minimum membership level required for Matter Certification is the Adopter level. For more information on CSA Memberships, see <a class="reference external" href="https://csa-iot.org/become-member/">https://csa-iot.org/become-member/</a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+    <hr/>
+    <p>Copyright © 2023 Silicon Laboratories. All rights reserved.</p>
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+    <!-- Theme Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XXXXXXXXXX', {
+          'anonymize_ip': false,
+      });
+    </script> 
+
+</body>
+</html>
