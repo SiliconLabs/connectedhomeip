@@ -299,8 +299,6 @@ struct CsrCommand: public Command
 {
     CsrCommand(Storage & store): Command(kCommand_Init, store)
     {
-        // Always return CSR file
-        _feedback_list.Add(Parameters::kCsrFile, Type_Binary);
     }
 
     CHIP_ERROR ProcessIncoming(Argument &arg) override
@@ -313,6 +311,10 @@ struct CsrCommand: public Command
 
         case Parameters::kCommonName:
             return mStore.Set(arg.id, arg.value.b, arg.size);
+
+        case Parameters::kCsrFile:
+            ReturnErrorOnFailure(_feedback_list.Add(arg.id, arg.type));
+            return CHIP_NO_ERROR;
 
         default:
             return CHIP_ERROR_UNKNOWN_RESOURCE_ID;

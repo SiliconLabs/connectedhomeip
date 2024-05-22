@@ -331,6 +331,7 @@ class ParameterList:
     def __init__(self, paths, custom_path = None) -> None:
         self.paths = paths
         self.names = {}
+        self.longs = {}
         self.ids = {}
         self.groups = {}
         self.custom = {}
@@ -370,6 +371,7 @@ class ParameterList:
             self.ids[id] = p
         p.parse(y)
         self.names[p.name] = p
+        self.longs[p.long] = p
         return p
 
     def create(self, y):
@@ -380,9 +382,13 @@ class ParameterList:
             return self.ids[k]
         raise ValueError("Unknown parameter 0x{:02x}".format(k))
 
-    def find(self, name):
-        if name in self.names:
-            return self.names[name]
+    def find(self, name, use_long = False):
+        if use_long:
+            if name in self.longs:
+                return self.longs[name]
+        else:
+            if name in self.names:
+                return self.names[name]
         raise ValueError("Unknown parameter \"{}\"".format(name))
 
     def findList(self, names):

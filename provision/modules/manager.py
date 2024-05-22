@@ -42,7 +42,9 @@ class ProvisionManager:
         paths.setTemp(args.str(ID.kTemporaryDir))
 
         # Compute defaults
+        creds = _creds.Credentials(paths, args)
         if ('auto' == action) or ('binary' == action):
+            creds.collect()
             self.computeDefaults(paths, args)
 
         # Stop
@@ -67,6 +69,9 @@ class ProvisionManager:
 
         # Export arguments (including returned values)
         args.export()
+
+        # Generate legacy header (silabs_cred.h) with credentials offsets and sizes
+        creds.generateLegacyHeader()
 
         # Production Firmware
         if _chan.Channel.BLE != chan.type:

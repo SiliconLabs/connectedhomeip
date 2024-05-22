@@ -51,12 +51,11 @@ class Credentials:
             # Collect PKCS#12 bundle
             self.collectPKCS12(pkcs12, pai_cert, dac_cert, dac_key)
 
-        #Calculate offsets sizes here and generate the silabs_cred.h header file
 
-        self.generateLegacyHeader(dac_cert, pai_cert, cd)
-
-
-    def generateLegacyHeader(self, dac_cert, pai_cert, cd):
+    def generateLegacyHeader(self):
+        cd = self.args.get(ID.kCertification)
+        pai_cert = self.args.get(ID.kPaiCert)
+        dac_cert = self.args.get(ID.kDacCert)
         # Calculate offsets
         dac_stats = os.stat(dac_cert.str())
         pai_stats = os.stat(pai_cert.str())

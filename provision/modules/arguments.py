@@ -178,7 +178,7 @@ class ArgumentList(ParameterList):
         # Load parsed values into existing arguments
         for k, v in inputs.items():
             if v is not None:
-                arg = self.find(k)
+                arg = self.find(k, True)
                 arg.set(v, arg.default)
                 arg.is_user_input = True
         # Create export formatter
@@ -189,7 +189,6 @@ class ArgumentList(ParameterList):
         # Configure parser
         parser = argparse.ArgumentParser(add_help=False, conflict_handler='resolve')
         for k, p in params.ids.items():
-            # print("{}~ {}".format(_util.MARGIN, p))
             # Fixed arguments
             if p.fixed:
                 parser.add_argument(p.name, nargs='?', default=p.default)
@@ -217,60 +216,3 @@ class ArgumentList(ParameterList):
                     content += "\n{}+ {}".format(_util.MARGIN, a)
             if len(content) > 0:
                 print("* {}({}/{}):{}\n".format(n, count, len(g), content))
-
-
-class CommonArguments:
-    PARAMS_PATH = 'modules/parameters.yaml'
-
-    def __init__(self, paths) -> None:
-        super().__init__(paths)
-        self.configure(paths.base(CommonArguments.PARAMS_PATH))
-        self.channel = None
-
-    def formatOutput(self, main = {}):
-        # Version
-        self.insert(main, 'version')
-        # Options
-        main['options'] = options = {}
-        self.insert(options, 'stop')
-        self.insert(options, 'params', 'parameters')
-        self.insert(options, 'inputs')
-        self.insert(options, 'output')
-        self.insert(options, 'temp')
-        self.insert(options, 'device')
-        self.insert(options, 'channel')
-        self.insert(options, 'generate')
-        self.insert(options, 'csr')
-        self.insert(options, 'gen_fw')
-        self.insert(options, 'prod_fw')
-        self.insert(options, 'cert_tool')
-        self.insert(options, 'pylink_lib')
-        if len(options) > 0: main['options'] = options
-        # Matter
-        main['matter'] = matter = {}
-        # Custom
-        self.insertCustom(main)
-        return main
-
-
-    def collectInputs(self, cin, fin = {}):
-        # Version
-        self.collect(fin, cin, 'version')
-        self.collect(fin, cin, 'action')
-        self.collect(fin, cin, 'extra')
-        # Options
-        options = ('options' in fin) and fin['options'] or None
-        self.collect(options, cin, 'stop')
-        self.collect(options, cin, 'parameters', 'params')
-        self.collect(options, cin, 'output')
-        self.collect(options, cin, 'temp')
-        self.collect(options, cin, 'device')
-        self.collect(options, cin, 'channel')
-        self.collect(options, cin, 'generate')
-        self.collect(options, cin, 'csr')
-        self.collect(options, cin, 'gen_fw')
-        self.collect(options, cin, 'prod_fw')
-        self.collect(options, cin, 'cert_tool')
-        self.collect(options, cin, 'pylink_lib')
-        # Custom
-        self.collectCustom(cin, fin)

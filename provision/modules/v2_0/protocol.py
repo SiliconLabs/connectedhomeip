@@ -30,24 +30,23 @@ class Protocol(_base.ProvisionProtocol):
             return e.export()
         # Init
         init = InitCommand(paths, args)
+        init.execute(chan)
         if 'auto' == action:
+            # CSR
             if args.bool(ID.kCsrMode):
                 self.csr(paths, args, chan)
             # Write all
             write = AutoCommand(paths, args)
-            init.execute(chan)
             write.execute(chan)
             write = FinishCommand(paths, args)
             write.execute(chan)
         elif 'write' == action:
             # Write non-nulls
             write = WriteCommand(paths, args)
-            init.execute(chan)
             write.execute(chan)
         elif 'read' == action:
             # Read
             read = ReadCommand(paths, args, args.str(ID.kExtra))
-            init.execute(chan)
             read.execute(chan)
         else:
             raise ValueError("Action not supported: \"{}\"".format(action))
@@ -73,10 +72,8 @@ class Protocol(_base.ProvisionProtocol):
         # CSR
         cmd = CsrCommand(paths, args)
         cmd.execute(chan)
-        # Write CSR to file
-        csr_path = paths.temp('csr.pem')
-        _util.File(csr_path).write(args.value(ID.kCsrFile))
         # Sign
+        csr_path = args.value(ID.kCsrFile)
         signer = _pki.SigningServer(base_dir, csr_path, pai_cert_path, pai_key_path, dac_path)
         signer.sign()
 
@@ -222,7 +219,7 @@ class Command:
             self.fail(req, res, e)
 
     def encodeValue(self, a):
-        if not self.send_values:
+        if (not self.send_values) or (a.value is None):
             return None
         elif (Types.BINARY == a.type) and (Formats.PATH == a.format) and os.path.isfile(a.value):
             return _util.BinaryFile(a.value).read()
@@ -247,7 +244,7 @@ class Command:
         if Formats.PATH == arg.format:
             if arg.value is None:
                 # Use temporary file
-                arg.set(self.paths.temp("{}.bin".format(arg.name)))
+                arg.set(self.paths.temp("{}.bin".format(arg.name)), None, False)
             _util.BinaryFile(arg.value).write(value)
         else:
             arg.set(value, None, False)

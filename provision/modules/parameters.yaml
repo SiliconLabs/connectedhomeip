@@ -31,9 +31,10 @@ internal:
 
   - id: 0x0105
     desc: 'Certificate Signing Request'
-    name: '_csr_'
+    name: 'csr'
+    long: 'csr_file'
     short: '_i5'
-    type: 'string'
+    type: 'path'
     hidden: true
 
 options:
@@ -111,7 +112,8 @@ options:
 
   - id: 0x0134
     desc: 'Certificate Signing Request Mode'
-    name: 'csr'
+    name: 'csr_mode'
+    long: 'csr'
     short: 'r'
     type: 'flag'
 
