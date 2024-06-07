@@ -195,7 +195,7 @@ else
                 shift
                 ;;
             --icd)
-                optArgs+="chip_enable_icd_server=true chip_openthread_ftd=false "
+                optArgs+="chip_enable_icd_server=true chip_enable_icd_lit=true chip_openthread_ftd=false "
                 shift
                 ;;
             --low-power)
@@ -376,7 +376,7 @@ else
         fi
 
         # search bootloader directory for the respective bootloaders for the input board
-        bootloaderFiles=("$(find "$MATTER_ROOT/third_party/silabs/matter_support/matter/efr32/bootloader_binaries/" -maxdepth 1 -name "*$SILABS_BOARD*" | tr '\n' ' ')")
+	bootloaderFiles=($(find "$MATTER_ROOT/third_party/silabs/matter_support/matter/efr32/bootloader_binaries/" -maxdepth 1 -name "*$SILABS_BOARD*" | tr '\n' ' '))
 
         if [ "${#bootloaderFiles[@]}" -gt 1 ]; then
             for i in "${!bootloaderFiles[@]}"; do
@@ -394,6 +394,7 @@ else
         echo "$bootloaderPath"
         binName="$(find "$BUILD_DIR" -type f -name "*.s37")"
         echo "$binName"
-        "$commanderPath" convert "$binName" "$bootloaderPath" -o "$binName"
+	binNameWithoutExt="${binName%.*}"
+        "$commanderPath" convert "$binName" "$bootloaderPath" -o "${binNameWithoutExt}-with-bootloader.hex"
     fi
 fi
