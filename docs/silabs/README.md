@@ -28,15 +28,7 @@
     8. [Matter Shell Console](wifi/MATTER_SHELL.md)
     9. [Matter Wi-Fi Interoperability With Ecosystem](wifi/ECOSYSTEM_SETUP.md)
 
-6. Matter Bridging to Zigbee/Z-Wave
-
-    1. [Unify Matter Bridge Overview](../../silabs_examples/unify-matter-bridge/readme_overview.md)
-    2. [Building the Matter Bridge](../../silabs_examples/unify-matter-bridge/readme_building.md)
-    3. [Running the Matter Bridge](../../silabs_examples/unify-matter-bridge/readme_user.md#Running-the-Matter-Bridge)
-    4. [Controlling a Z-Wave OnOff device](../../silabs_examples/unify-matter-bridge/readme_user.md#Testing-the-bridge-using-the-chip-tool)
-    5. [Toggling a Group of OnOff devices](../../silabs_examples/unify-matter-bridge/readme_user.md#toggle-a-group-of-onoff-devices)
-
-7. Development using VS Code
+6. Development using VS Code
 
     1. [Setting up the Environment](dev/vscode/SETUP.md)
     2. [Running Tasks](dev/vscode/TASKS.md)
@@ -45,7 +37,7 @@
         3. [Flash](dev/vscode/FLASH.md)
         4. [Debug](dev/vscode/DEBUG.md)
 
-8. Matter Overview Guides
+7. Matter Overview Guides
    1. [Commissioning Process Overview](general/COMMISSIONING.md)
    2. [Security Overview](general/SECURITY.md)
    3. [Matter Attestation Credentials for EFR32](../../silabs_examples/credentials/README.md)
@@ -53,7 +45,7 @@
    5. [Matter Sleepy End Devices over Openthread](thread/OT_SLEEPY_END_DEVICE.md)
    6. [Matter OTA Software Update](general/OTA_SOFTWARE_UPDATE.md)
 
-9. Reference Guides
+8. Reference Guides
 
     1. [Matter Hardware Requirements](general/HARDWARE_REQUIREMENTS.md)
     2. [Matter Software Requirements](general/SOFTWARE_REQUIREMENTS.md)
@@ -69,7 +61,7 @@
     12. [Using Wireshark to Capture Network Traffic in Matter](./general/WIRESHARK.md)
     13. [Matter EFR32 Flash Savings Guide](general/CODE_SIZE_SAVINGS.md)
 
-10. Frequently Asked Questions (FAQ) / Troubleshooting
+9. Frequently Asked Questions (FAQ) / Troubleshooting
 
     - [Thread FAQ](thread/FAQ.md)
     - [Wi-Fi FAQ](wifi/FAQ.md)

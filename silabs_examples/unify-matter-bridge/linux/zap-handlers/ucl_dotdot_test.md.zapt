@@ -1,7 +1,0 @@
-# Test file for verifying Zap runs with UCL
-
-## List of UCL Clusters
-
-{{#zcl_clusters}}
-{{label}}
-{{/zcl_clusters}}
