@@ -155,11 +155,7 @@ void wfx_ipv6_notify(int got_ip)
     /* So the other threads can run and have the connectivity OK */
     if (got_ip)
     {
-        /* Should remember this */
-        vTaskDelay(1);
-        chip::DeviceLayer::PlatformMgr().LockChipStack();
-        chip::app::DnssdServer::Instance().StartServer(/*Dnssd::CommissioningMode::kEnabledBasic*/);
-        chip::DeviceLayer::PlatformMgr().UnlockChipStack();
+        DeviceLayer::SystemLayer().ScheduleLambda([] { app::DnssdServer::Instance().StartServer(); });
     }
 }
 
@@ -184,11 +180,7 @@ void wfx_ip_changed_notify(int got_ip)
     /* So the other threads can run and have the connectivity OK */
     if (got_ip)
     {
-        /* Should remember this */
-        vTaskDelay(1);
-        chip::DeviceLayer::PlatformMgr().LockChipStack();
-        chip::app::DnssdServer::Instance().StartServer(/*Dnssd::CommissioningMode::kEnabledBasic*/);
-        chip::DeviceLayer::PlatformMgr().UnlockChipStack();
+        DeviceLayer::SystemLayer().ScheduleLambda([] { app::DnssdServer::Instance().StartServer(); });
     }
 }
 
