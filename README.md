@@ -12,7 +12,7 @@ starting point for all Silicon Labs-related Matter development. Silicon Labs
 supports Matter on both 802.15.4 (Thread) and 802.11 (Wi-Fi) transport
 protocols.
 
->**Note: Silicon Labs Matter GitHub is being phased out in favor of using the [Matter GSDK Extension](https://docs.silabs.com/matter/latest/matter-start/) that is available thru Studio and standalone via SLC-CLI.**
+>**Note: Silicon Labs Matter GitHub is deprecated, it is recommended to begin new projects using the Matter Extension that is available through Simplicity Studio and standalone via SLC-CLI. Documentation on the Matter Extension can be found here: [https://docs.silabs.com/matter/latest/](https://docs.silabs.com/matter/latest/)**
 
 _To see release notes containing list of features and knowns issues go to
 [SiliconLabs/matter/releases](https://github.com/SiliconLabs/matter/releases)

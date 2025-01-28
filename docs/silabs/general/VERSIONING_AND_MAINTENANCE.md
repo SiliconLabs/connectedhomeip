@@ -1,6 +1,6 @@
 # Matter Versioning and Release Maintenance
 
-**Silicon Labs Matter GitHub is being phased out in favor of using the Matter GSDK Extension that is available through Simplicity Studio and standalone via SLC-CLI.**
+**Note: Silicon Labs Matter GitHub is deprecated, it is recommended to begin new projects using the Matter Extension that is available through Simplicity Studio and standalone via SLC-CLI: [https://docs.silabs.com/matter/latest/](https://docs.silabs.com/matter/latest/)**
 
 ## Versioning Scheme
 
@@ -62,13 +62,14 @@ Update digits based on the following criteria:
 | v0.3.0	| 8-Sept-22	| v4.1.1 | 	N/A | Obsolete |
 | v0.4.0	| 13-Oct-22	| v4.1.1	| N/A | Obsolete |
 | v1.0.0	| 2-Nov-22	| v4.1.1	| N/A | Obsolete |
-| v1.0.2-1.0	| 19-Dec-22	| v4.1.1	| N/A | Monitored |
-| v1.1.0-1.1	| 24-Feb-23	| v4.2.0	| N/A | Monitored |
+| v1.0.2-1.0	| 19-Dec-22	| v4.1.1	| N/A | Obsolete |
+| v1.1.0-1.1	| 24-Feb-23	| v4.2.0	| N/A | Obsolete |
 | v2.0.0-1.1	| 18-May-23	| v4.2.0	| N/A | Obsolete |
-| v2.1.0-1.1	| 23-June-23	| v4.2.3	| N/A | Monitored |
+| v2.1.0-1.1	| 23-June-23	| v4.2.3	| N/A | Obsolete |
 | v2.2.0-1.2-alpha-1	| 30-Aug-23	| v4.3.1	| v3.0.10 | Obsolete |
-| v2.2.0-1.2	| 25-Oct-23	| v4.3.2	| v3.1.0 | Monitored |
-| v2.3.0-1.3-alpha.1	| 18-Jan-24	| v4.4.0	| v3.1.1 | Unmaintained |
-| v2.3.0-1.3-alpha.2	| 15-Feb-24	| v4.4.1	| v3.1.3 | Unmaintained |
-| v2.3.0-1.3-beta.1	| 18-Mar-24	| v4.4.1	| v3.1.3.2 | Unmaintained |
-| v2.3.0-1.3	| 22-Apr-24	| v4.4.2	| v3.1.3.4 | Active |
+| v2.2.0-1.2	| 25-Oct-23	| v4.3.2	| v3.1.0 | Obsolete |
+| v2.3.0-1.3-alpha.1	| 18-Jan-24	| v4.4.0	| v3.1.1 | Obsolete |
+| v2.3.0-1.3-alpha.2	| 15-Feb-24	| v4.4.1	| v3.1.3 | Obsolete |
+| v2.3.0-1.3-beta.1	| 18-Mar-24	| v4.4.1	| v3.1.3.2 | Obsolete |
+| v2.3.0-1.3	| 22-Apr-24	| v4.4.2	| v3.1.3.4 | Obsolete |
+| v2.3.1-1.3	| Q1 2025	| v4.4.2	| v3.1.3.4 | Active |

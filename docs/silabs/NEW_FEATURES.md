@@ -1,5 +1,10 @@
 # Silicon Labs Matter New Features
 
+## New Features for v2.3.1-1.3
+- Increased the max supported key-value-store entries from 255 to 511.
+- Unify Matter Bridge and Unify Matter PC are moved to new location.
+- Targeted bug fixes and security improvements.
+
 ## New Features for v2.3.0-1.3
 
 - Matter 1.3 solution for Thread (MG12, MG24), Wi-Fi NCP platforms (MG24/RS9116, MG24/WF200, MG24/SiWx917) and Wi-Fi SoC platform (SiWx917).

@@ -12,9 +12,9 @@ Assuming user has installed Simplicity studio ([Getting started with Simplicity 
    |[2.0.0-1.1](https://github.com/SiliconLabs/matter/releases/tag/v2.0.0-1.1)|[v2.1.0](https://github.com/SiliconLabs/matter_extension/releases/tag/v2.1.0)|[v4.3.1](https://github.com/SiliconLabs/gecko_sdk/releases/tag/v4.3.1)|
    |[2.1.0-1.1](https://github.com/SiliconLabs/matter/releases/tag/v2.1.0-1.1)|[v2.1.1](https://github.com/SiliconLabs/matter_extension/releases/tag/v2.1.1)|[v4.3.2](https://github.com/SiliconLabs/gecko_sdk/releases/tag/v4.3.2)|
    |[2.2.0-1.2](https://github.com/SiliconLabs/matter/releases/tag/v2.2.0-1.2)|[v2.2.0](https://github.com/SiliconLabs/matter_extension/releases/tag/v2.2.0) (Older Extension versions do not fully work with GSDK 4.4.x)|[v4.4.0](https://github.com/SiliconLabs/gecko_sdk/releases/tag/v4.4.0)|
-   |2.3.0-1.3|v2.3.0-1.3 (expected June 2024) |TBD|
+   |[2.3.0-1.3](https://github.com/SiliconLabs/matter/releases/tag/v2.3.0-1.3)|[v2.3.0](https://github.com/SiliconLabs/matter_extension/releases/tag/v2.3.0)|[v2024.6.0](https://github.com/SiliconLabs/simplicity_sdk/releases/tag/v2024.6.0)|
 
-   > Note: New Matter 1.3 features available within SMG release v2.3.0-1.3 will not be available on the Matter Extension side until the expected corresponding Matter 1.3 June 2024 Matter Extension release.
+   > Note: As SMG is deprecated, v2.3.1 and future patches are not migrated to Matter Extension releases. Process described on this page should work for migration purposes but additional steps may be required.
 
    †Steps to add GSDK and matter extension to Simplicity Studio. Refer to [Install SDK Extensions](https://docs.silabs.com/simplicity-studio-5-users-guide/latest/ss-5-users-guide-getting-started/install-sdk-extensions).
 
