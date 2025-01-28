@@ -45,7 +45,7 @@
     ```
 
     ```shell
-    $ ./scripts/checkout_submodules.py --shallow --recursive --platform efr32
+    $ ./scripts/checkout_submodules.py --shallow --recursive --platform silabs
     ```
 
 6. If you are using an EFR32MG2x device you will require a bootloader to run the

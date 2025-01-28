@@ -40,7 +40,7 @@ application images.
 
     ```shell
     $ cd matter
-    $ ./scripts/checkout_submodules.py --shallow --recursive --platform efr32
+    $ ./scripts/checkout_submodules.py --shallow --recursive --platform silabs
     $ . scripts/bootstrap.sh
     # Create a directory where binaries will be updated/compiled called `out`
     $ mkdir out
