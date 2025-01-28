@@ -22,5 +22,5 @@ Welcome to Silicon Labs' Matter documentation!
    ./nav_6_faq
 
 Note: Silicon Labs Matter GitHub is deprecated, it is recommended to begin new projects using the Matter Extension that is available through Simplicity Studio and standalone via SLC-CLI.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Documentation on the Matter Extension can be found here: https://docs.silabs.com/matter/latest/

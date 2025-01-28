@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Matter'
-copyright = 'Copyright © 2023 Silicon Laboratories. All rights reserved.'
+copyright = 'Copyright © 2025 Silicon Laboratories. All rights reserved.'
 author = 'Silicon Labs'
 release = '2.3.1-1.3'
 version = '2.3.1-1.3'
